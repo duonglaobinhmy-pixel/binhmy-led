@@ -1,5 +1,1171 @@
-<!doctype html>
-<html>
-<head><meta charset="utf-8"><title>Bình Mỹ LED</title></head>
-<body><h1>Bình Mỹ LED</h1></body>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BẢNG LED BẾP BÌNH MỸ</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #edf2f7;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2937;
+    }
+
+    .deck {
+      width: 100%;
+    }
+
+    .slide {
+      width: 1280px;
+      min-height: 720px;
+      margin: 0 auto 28px auto;
+      background: #ffffff;
+      border: 1px solid #d8dee9;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 28px 32px;
+      page-break-after: always;
+      overflow: hidden;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 3px solid #0b57d0;
+    }
+
+    .slide-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #0f172a;
+      margin-bottom: 6px;
+      white-space: pre-line;
+    }
+
+    .slide-subtitle {
+      font-size: 16px;
+      color: #475569;
+      white-space: pre-line;
+    }
+
+    .slide-no {
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b57d0;
+      background: #eaf2ff;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      padding: 8px 14px;
+    }
+
+    .cover {
+      background: linear-gradient(135deg, #0b57d0 0%, #1f7ae0 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .cover-inner {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .cover h1 {
+      margin: 0 0 16px 0;
+      font-size: 50px;
+      line-height: 1.12;
+      white-space: pre-line;
+    }
+
+    .cover-subtitle {
+      font-size: 26px;
+      opacity: 0.96;
+      margin-bottom: 28px;
+      white-space: pre-line;
+    }
+
+    .top-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 1000px;
+    }
+
+    .top-meta-card {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .top-meta-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: 0.86;
+      margin-bottom: 8px;
+    }
+
+    .top-meta-value {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #dbe4f0;
+      margin-top: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto;
+      background: white;
+    }
+
+    thead th {
+      background: #0b57d0;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 8px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      text-align: left;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      font-size: 13px;
+      padding: 8px 8px;
+      border-top: 1px solid #e5eaf2;
+      border-right: 1px solid #eef2f7;
+      vertical-align: top;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #f8fbff;
+    }
+
+    table.compact thead th {
+      font-size: 12px;
+      padding: 8px 6px;
+    }
+
+    table.compact tbody td {
+      font-size: 11px;
+      padding: 6px 6px;
+    }
+
+    .agg-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .agg-card {
+      border: 1px solid #dbe4f0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .agg-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 16px;
+      padding: 14px 16px;
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border-bottom: 1px solid #e5edf7;
+    }
+
+    .agg-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .agg-index {
+      min-width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: #0b57d0;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .agg-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .agg-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eaf2ff;
+      border: 1px solid #cfe0ff;
+      color: #0b57d0;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .agg-right {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .metric {
+      min-width: 150px;
+      border: 1px solid #dbe4f0;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #ffffff;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .agg-meta {
+      padding: 12px 16px 0 16px;
+    }
+
+    .agg-meta-item {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .meta-k {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+
+    .meta-v {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .subtable-wrap {
+      margin: 0 16px 16px 16px;
+      border: 1px solid #dbe4f0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .subtable {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+    }
+
+    .subtable thead th {
+      background: #1f7ae0;
+      color: #fff;
+      font-size: 12px;
+      padding: 8px 8px;
+      text-align: left;
+    }
+
+    .subtable tbody td {
+      font-size: 12px;
+      padding: 7px 8px;
+      border-top: 1px solid #e8eef6;
+      background: #fff;
+    }
+
+    .subtable tbody tr:nth-child(even) td {
+      background: #f8fbff;
+    }
+
+    .sub-empty,
+    .empty {
+      margin-top: 12px;
+      padding: 18px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      color: #64748b;
+      font-style: italic;
+      background: #f8fafc;
+    }
+
+    .num {
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      display: inline-block;
+      min-width: 60px;
+    }
+
+    .warn-text {
+      color: #b91c1c;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    
+      <section class="slide cover">
+        <div class="cover-inner">
+          <div class="cover-badge">BẢNG LED BẾP</div>
+          <h1>BẢNG LED BẾP BÌNH MỸ</h1>
+          <div class="cover-subtitle">NGÀY</div>
+          
+    <div class="top-meta">
+      
+        <div class="top-meta-card">
+          <div class="top-meta-label">Số slide</div>
+          <div class="top-meta-value">13</div>
+        </div>
+      
+        <div class="top-meta-card">
+          <div class="top-meta-label">LED rows</div>
+          <div class="top-meta-value">34</div>
+        </div>
+      
+        <div class="top-meta-card">
+          <div class="top-meta-label">Thiếu map</div>
+          <div class="top-meta-value">8</div>
+        </div>
+      
+    </div>
+  
+        </div>
+      </section>
+    
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">SÁNG - CỤM GÒ VẤP</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 2</div>
+      </div>
+
+      
+    <div class="agg-list ">
+      
+        <div class="agg-card">
+          <div class="agg-head">
+            <div class="agg-left">
+              <div class="agg-index">#1</div>
+              <div class="agg-title">Mì nấu thịt thăn</div>
+              <div class="agg-badge">THƯỜNG</div>
+            </div>
+            <div class="agg-right">
+              <div class="metric">
+                <div class="metric-label">Tổng phần</div>
+                <div class="metric-value">296</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Tổng KL</div>
+                <div class="metric-value">176.100</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agg-meta">
+            <div class="agg-meta-item">
+              <span class="meta-k">Loại nồi tổng hợp</span>
+              <span class="meta-v">Lớn (3300g) | Nhỏ (2600g) | Xô (800g) | Lớn (2300g)</span>
+            </div>
+          </div>
+
+          
+    <div class="subtable-wrap">
+      <table class="subtable">
+        <thead>
+          <tr>
+            <th>Khu</th>
+            <th>SL phần</th>
+            <th>Loại nồi</th>
+            <th>Vỏ nồi (g)</th>
+            <th>Tổng KL dự kiến</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>CSĐB 1</td>
+              <td class="num">15</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>CSĐB 2</td>
+              <td class="num">29</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>CSTC</td>
+              <td class="num">18</td>
+              <td>Xô</td>
+              <td class="num">800</td>
+              <td class="num">12.500</td>
+            </tr>
+          
+            <tr>
+              <td>Gold - DQH</td>
+              <td class="num">109</td>
+              <td>Lớn</td>
+              <td class="num">2.300</td>
+              <td class="num">73.150</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Bà</td>
+              <td class="num">32</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">23.400</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Ông</td>
+              <td class="num">41</td>
+              <td>Lớn</td>
+              <td class="num">3.300</td>
+              <td class="num">29.950</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Lan</td>
+              <td class="num">52</td>
+              <td>Lớn</td>
+              <td class="num">3.300</td>
+              <td class="num">37.100</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+        </div>
+      
+    </div>
+  
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">SÁNG - CỤM BÌNH MỸ / XA</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 3</div>
+      </div>
+
+      
+    <div class="agg-list ">
+      
+        <div class="agg-card">
+          <div class="agg-head">
+            <div class="agg-left">
+              <div class="agg-index">#1</div>
+              <div class="agg-title">Mì nấu thịt thăn</div>
+              <div class="agg-badge">THƯỜNG</div>
+            </div>
+            <div class="agg-right">
+              <div class="metric">
+                <div class="metric-label">Tổng phần</div>
+                <div class="metric-value">87</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Tổng KL</div>
+                <div class="metric-value">49.750</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agg-meta">
+            <div class="agg-meta-item">
+              <span class="meta-k">Loại nồi tổng hợp</span>
+              <span class="meta-v">Nhỡ (1800g)</span>
+            </div>
+          </div>
+
+          
+    <div class="subtable-wrap">
+      <table class="subtable">
+        <thead>
+          <tr>
+            <th>Khu</th>
+            <th>SL phần</th>
+            <th>Loại nồi</th>
+            <th>Vỏ nồi (g)</th>
+            <th>Tổng KL dự kiến</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>Care - AH</td>
+              <td class="num">40</td>
+              <td>Nhỡ</td>
+              <td class="num">1.800</td>
+              <td class="num">27.800</td>
+            </tr>
+          
+            <tr>
+              <td>Thanh Lộc</td>
+              <td class="num">16</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>Trung Xuân Thu - NT</td>
+              <td class="num">31</td>
+              <td>Nhỡ</td>
+              <td class="num">1.800</td>
+              <td class="num">21.950</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+        </div>
+      
+    </div>
+  
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">TRƯA - MÓN MẶN / CƠM</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 4</div>
+      </div>
+
+      
+    <div class="agg-list ">
+      
+        <div class="agg-card">
+          <div class="agg-head">
+            <div class="agg-left">
+              <div class="agg-index">#1</div>
+              <div class="agg-title">CƠM TRẮNG</div>
+              <div class="agg-badge">CƠM</div>
+            </div>
+            <div class="agg-right">
+              <div class="metric">
+                <div class="metric-label">Tổng phần</div>
+                <div class="metric-value">377</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Tổng KL</div>
+                <div class="metric-value">19.100</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agg-meta">
+            <div class="agg-meta-item">
+              <span class="meta-k">Loại nồi tổng hợp</span>
+              <span class="meta-v">Lớn (3300g) | Xô (800g) | Đại (3800g) | Lớn (2300g)</span>
+            </div>
+          </div>
+
+          
+    <div class="subtable-wrap">
+      <table class="subtable">
+        <thead>
+          <tr>
+            <th>Khu</th>
+            <th>SL phần</th>
+            <th>Loại nồi</th>
+            <th>Vỏ nồi (g)</th>
+            <th>Tổng KL dự kiến</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>Care - AH</td>
+              <td class="num">36</td>
+              <td>Lớn</td>
+              <td class="num">2.300</td>
+              <td class="num">2.300</td>
+            </tr>
+          
+            <tr>
+              <td>CSĐB 1</td>
+              <td class="num">9</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>CSĐB 2</td>
+              <td class="num">31</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>CSTC</td>
+              <td class="num">7</td>
+              <td>Xô</td>
+              <td class="num">800</td>
+              <td class="num">800</td>
+            </tr>
+          
+            <tr>
+              <td>Gold - DQH</td>
+              <td class="num">116</td>
+              <td>Đại</td>
+              <td class="num">3.800</td>
+              <td class="num">3.800</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Bà</td>
+              <td class="num">42</td>
+              <td>Lớn</td>
+              <td class="num">3.300</td>
+              <td class="num">3.300</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Ông</td>
+              <td class="num">42</td>
+              <td>Lớn</td>
+              <td class="num">3.300</td>
+              <td class="num">3.300</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Lan</td>
+              <td class="num">53</td>
+              <td>Lớn</td>
+              <td class="num">3.300</td>
+              <td class="num">3.300</td>
+            </tr>
+          
+            <tr>
+              <td>Thanh Lộc</td>
+              <td class="num">18</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>Trung Xuân Thu - NT</td>
+              <td class="num">23</td>
+              <td>Lớn</td>
+              <td class="num">2.300</td>
+              <td class="num">2.300</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+        </div>
+      
+        <div class="agg-card">
+          <div class="agg-head">
+            <div class="agg-left">
+              <div class="agg-index">#2</div>
+              <div class="agg-title">Bò hầm rau củ</div>
+              <div class="agg-badge">MÓN MẶN</div>
+            </div>
+            <div class="agg-right">
+              <div class="metric">
+                <div class="metric-label">Tổng phần</div>
+                <div class="metric-value">26</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Tổng KL</div>
+                <div class="metric-value">11.800</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agg-meta">
+            <div class="agg-meta-item">
+              <span class="meta-k">Loại nồi tổng hợp</span>
+              <span class="meta-v">Nhỏ (2600g) | Xô (800g) | DNhỏ (1600g)</span>
+            </div>
+          </div>
+
+          
+    <div class="subtable-wrap">
+      <table class="subtable">
+        <thead>
+          <tr>
+            <th>Khu</th>
+            <th>SL phần</th>
+            <th>Loại nồi</th>
+            <th>Vỏ nồi (g)</th>
+            <th>Tổng KL dự kiến</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>Care - AH</td>
+              <td class="num">8</td>
+              <td>DNhỏ</td>
+              <td class="num">1.600</td>
+              <td class="num">1.600</td>
+            </tr>
+          
+            <tr>
+              <td>CSTC</td>
+              <td class="num">1</td>
+              <td>Xô</td>
+              <td class="num">800</td>
+              <td class="num">800</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Bà</td>
+              <td class="num">1</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">2.600</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Ông</td>
+              <td class="num">6</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">2.600</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Lan</td>
+              <td class="num">4</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">2.600</td>
+            </tr>
+          
+            <tr>
+              <td>Thanh Lộc</td>
+              <td class="num">3</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>Trung Xuân Thu - NT</td>
+              <td class="num">3</td>
+              <td>DNhỏ</td>
+              <td class="num">1.600</td>
+              <td class="num">1.600</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+        </div>
+      
+    </div>
+  
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">TRƯA - CANH / RAU</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 5</div>
+      </div>
+
+      <div class="empty">Không có dữ liệu</div>
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">TRƯA - CHÁO / ỐNG / XAY</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 6</div>
+      </div>
+
+      <div class="empty">Không có dữ liệu</div>
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">CHIỀU - MÓN MẶN / CƠM</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 7</div>
+      </div>
+
+      
+    <div class="agg-list ">
+      
+        <div class="agg-card">
+          <div class="agg-head">
+            <div class="agg-left">
+              <div class="agg-index">#1</div>
+              <div class="agg-title">Trứng xào cà chua</div>
+              <div class="agg-badge">MÓN MẶN</div>
+            </div>
+            <div class="agg-right">
+              <div class="metric">
+                <div class="metric-label">Tổng phần</div>
+                <div class="metric-value">27</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Tổng KL</div>
+                <div class="metric-value">14.100</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agg-meta">
+            <div class="agg-meta-item">
+              <span class="meta-k">Loại nồi tổng hợp</span>
+              <span class="meta-v">Nhỏ (2600g) | Xô (800g) | DNhỏ (1600g)</span>
+            </div>
+          </div>
+
+          
+    <div class="subtable-wrap">
+      <table class="subtable">
+        <thead>
+          <tr>
+            <th>Khu</th>
+            <th>SL phần</th>
+            <th>Loại nồi</th>
+            <th>Vỏ nồi (g)</th>
+            <th>Tổng KL dự kiến</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>Care - AH</td>
+              <td class="num">8</td>
+              <td>DNhỏ</td>
+              <td class="num">1.600</td>
+              <td class="num">2.400</td>
+            </tr>
+          
+            <tr>
+              <td>CSTC</td>
+              <td class="num">1</td>
+              <td>Xô</td>
+              <td class="num">800</td>
+              <td class="num">900</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Bà</td>
+              <td class="num">1</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">2.700</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Hồng Ông</td>
+              <td class="num">6</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">3.200</td>
+            </tr>
+          
+            <tr>
+              <td>Hoa Lan</td>
+              <td class="num">4</td>
+              <td>Nhỏ</td>
+              <td class="num">2.600</td>
+              <td class="num">3.000</td>
+            </tr>
+          
+            <tr>
+              <td>Thanh Lộc</td>
+              <td class="num">4</td>
+              <td></td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+            </tr>
+          
+            <tr>
+              <td>Trung Xuân Thu - NT</td>
+              <td class="num">3</td>
+              <td>DNhỏ</td>
+              <td class="num">1.600</td>
+              <td class="num">1.900</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+        </div>
+      
+    </div>
+  
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">CHIỀU - CANH / RAU</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 8</div>
+      </div>
+
+      <div class="empty">Không có dữ liệu</div>
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">CHIỀU - CHÁO / ỐNG / XAY</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 9</div>
+      </div>
+
+      <div class="empty">Không có dữ liệu</div>
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">XẾ</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 10</div>
+      </div>
+
+      <div class="empty">Không có dữ liệu</div>
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">TỔNG HỢP NỒI / KHỐI LƯỢNG - GÒ VẤP</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 11</div>
+      </div>
+
+      
+    <div class="table-wrap">
+      <table class="compact">
+        <thead>
+          <tr>
+            <th>Món ăn</th><th>Dạng ăn</th><th>Tổng phần</th><th>Tổng khối lượng</th><th>Loại nồi tổng hợp</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>CƠM TRẮNG</td><td>CƠM</td><td><span class="num">300</span></td><td><span class="num">14.500</span></td><td>Lớn (3300g) | Xô (800g) | Đại (3800g)</td>
+            </tr>
+          
+            <tr>
+              <td>Bò hầm rau củ</td><td>MÓN MẶN</td><td><span class="num">12</span></td><td><span class="num">8.600</span></td><td>Nhỏ (2600g) | Xô (800g)</td>
+            </tr>
+          
+            <tr>
+              <td>Trứng xào cà chua</td><td>MÓN MẶN</td><td><span class="num">12</span></td><td><span class="num">9.800</span></td><td>Nhỏ (2600g) | Xô (800g)</td>
+            </tr>
+          
+            <tr>
+              <td>Mì nấu thịt thăn</td><td>THƯỜNG</td><td><span class="num">296</span></td><td><span class="num">176.100</span></td><td>Lớn (3300g) | Nhỏ (2600g) | Xô (800g) | Lớn (2300g)</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">TỔNG HỢP NỒI / KHỐI LƯỢNG - BÌNH MỸ / XA</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 12</div>
+      </div>
+
+      
+    <div class="table-wrap">
+      <table class="compact">
+        <thead>
+          <tr>
+            <th>Món ăn</th><th>Dạng ăn</th><th>Tổng phần</th><th>Tổng khối lượng</th><th>Loại nồi tổng hợp</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>CƠM TRẮNG</td><td>CƠM</td><td><span class="num">77</span></td><td><span class="num">4.600</span></td><td>Lớn (2300g)</td>
+            </tr>
+          
+            <tr>
+              <td>Bò hầm rau củ</td><td>MÓN MẶN</td><td><span class="num">14</span></td><td><span class="num">3.200</span></td><td>DNhỏ (1600g)</td>
+            </tr>
+          
+            <tr>
+              <td>Trứng xào cà chua</td><td>MÓN MẶN</td><td><span class="num">15</span></td><td><span class="num">4.300</span></td><td>DNhỏ (1600g)</td>
+            </tr>
+          
+            <tr>
+              <td>Mì nấu thịt thăn</td><td>THƯỜNG</td><td><span class="num">87</span></td><td><span class="num">49.750</span></td><td>Nhỡ (1800g)</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+    </section>
+  
+
+    <section class="slide">
+      <div class="slide-header">
+        <div>
+          <div class="slide-title">CẢNH BÁO / THIẾU MAP</div>
+          <div class="slide-subtitle"></div>
+        </div>
+        <div class="slide-no">Slide 13</div>
+      </div>
+
+      
+    <div class="table-wrap">
+      <table class="">
+        <thead>
+          <tr>
+            <th>STT</th><th>Khu</th><th>Buổi</th><th>Dạng ăn</th><th>Món ăn</th><th>Lỗi</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>1</td><td>CSĐB 1</td><td>SÁNG</td><td>THƯỜNG</td><td>Mì nấu thịt thăn</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>2</td><td>CSĐB 2</td><td>SÁNG</td><td>THƯỜNG</td><td>Mì nấu thịt thăn</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>3</td><td>Thanh Lộc</td><td>SÁNG</td><td>THƯỜNG</td><td>Mì nấu thịt thăn</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>4</td><td>Thanh Lộc</td><td>TRƯA</td><td>MÓN MẶN</td><td>Bò hầm rau củ</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>5</td><td>CSĐB 1</td><td>TRƯA</td><td>CƠM</td><td>CƠM TRẮNG</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>6</td><td>CSĐB 2</td><td>TRƯA</td><td>CƠM</td><td>CƠM TRẮNG</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>7</td><td>Thanh Lộc</td><td>TRƯA</td><td>CƠM</td><td>CƠM TRẮNG</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+            <tr>
+              <td>8</td><td>Thanh Lộc</td><td>CHIỀU</td><td>MÓN MẶN</td><td>Trứng xào cà chua</td><td><span class="warn-text">Thiếu map</span></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+    </section>
+  
+  </div>
+</body>
 </html>
