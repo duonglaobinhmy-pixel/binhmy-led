@@ -1,232 +1,521 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BẢNG LED BẾP</title>
   <style>
+    :root {
+      --bg: #e9e9e9;
+      --card: #ffffff;
+      --shadow: 0 8px 30px rgba(0,0,0,.12);
+      --radius: 14px;
+      --maxw: 1400px;
+    }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: #000;
-      color: #fff;
       font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: #111;
     }
+
     .wrap {
-      width: 100%;
-      padding: 12px;
+      max-width: calc(var(--maxw) + 48px);
+      margin: 0 auto;
+      padding: 24px;
     }
-    .cover {
-      min-height: 100vh;
-      padding: 20px 24px;
-      background: #000;
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
-    .cover h1 {
-      margin: 0 0 8px;
-      font-size: 42px;
-      color: #9cff57;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .cover .date {
+
+    .title {
+      margin: 0;
       font-size: 28px;
-      color: #ff4d4f;
-      font-weight: 800;
-      margin-bottom: 18px;
+      line-height: 1.2;
     }
-    .page {
-      min-height: 100vh;
-      padding: 12px 8px 20px;
-      page-break-after: always;
+
+    .subtitle {
+      margin: 6px 0 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      background: #111;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: #111;
+      border: 1px solid #ccc;
+    }
+
+    .slide {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 26px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      background: #fafafa;
+      font-size: 14px;
+      color: #444;
+      gap: 16px;
+    }
+
+    .slide-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
       background: #000;
+      overflow: auto;
+      padding: 18px;
     }
-    .page-title {
-      color: #9cff57;
-      text-align: center;
-      font-size: 30px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin: 6px 0 14px;
-    }
-    .led-table {
+
+    .data-table {
       width: 100%;
       border-collapse: collapse;
       table-layout: auto;
       background: #000;
+      color: #fff;
+      min-width: 900px;
     }
-    .led-table th,
-    .led-table td {
+
+    .data-table th,
+    .data-table td {
       border: 1px solid #d9d9d9;
       padding: 6px 8px;
       text-align: center;
       vertical-align: middle;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.2;
-    }
-    .led-table th {
-      color: #ff4d4f;
-      font-weight: 800;
       background: #000;
     }
-    .led-table td {
+
+    .data-table th {
+      color: #ff4d4f;
+      font-weight: 800;
+    }
+
+    .data-table td {
       color: #fff;
       font-weight: 700;
     }
-    .led-table td.dish {
+
+    .data-table .dish-cell {
       text-align: left;
-      color: #fff;
       font-weight: 800;
+      min-width: 240px;
     }
+
+    .kitchen-table .dish-col {
+      min-width: 240px;
+    }
+
+    .kitchen-table .total-col {
+      min-width: 110px;
+    }
+
     .num.red { color: #ff4d4f; }
     .num.green { color: #9cff57; }
     .num.white { color: #fff; }
-    .hide { display: none; }
+
+    @media (max-width: 768px) {
+      .wrap { padding: 12px; }
+      .title { font-size: 22px; }
+      .slide-header { font-size: 13px; padding: 10px 12px; }
+      .btn { width: 100%; }
+      .actions { width: 100%; }
+      .slide-frame { padding: 10px; }
+      .data-table th,
+      .data-table td { font-size: 13px; padding: 5px 6px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .topbar { display: none; }
+      .wrap { max-width: none; padding: 0; }
+      .slide {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0 0 10mm 0;
+      }
+      .slide-header { display: none; }
+    }
   </style>
 </head>
 <body>
-<div class="wrap">
-  <section class="cover">
-    <h1>BẢNG LED BẾP</h1>
-    <div class="date">Ngày 2026-04-07</div>
-  </section>
+  <div class="wrap">
+    <div class="topbar">
+      <div>
+        <h1 class="title">BẢNG LED BẾP</h1>
+        <p class="subtitle">Phiên bản HTML/CSS render dữ liệu thật theo cùng cấu trúc card/slide của index gốc.</p>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="window.print()">In / Xuất PDF</button>
+        <button class="btn secondary" onclick="toggleFullWidth()">Bật/Tắt full width</button>
+      </div>
+    </div>
 
-
-    <section class="page">
-      <div class="page-title">THỰC ĐƠN TRONG NGÀY</div>
-      <table class="led-table">
-        <thead>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 1</span>
+          <span>RAU</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table ">
+      <thead>
+        <tr>
+          <th>Tên rau</th><th>Đơn vị</th><th>Tổng</th><th>Sáng</th><th>Trưa</th><th>Chiều</th>
+        </tr>
+      </thead>
+      <tbody>
+        
           <tr>
-            <th>Bữa</th><th>Món</th>
+            <td>Cà rốt</td><td>kg</td><td><span class="num red">11,36</span></td><td><span class="num white">0</span></td><td><span class="num white">5,69</span></td><td><span class="num white">5,67</span></td>
           </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td>TRƯA</td><td>Cơm rau củ kiểu Nhật</td>
-            </tr>
-          
-            <tr>
-              <td>CHIỀU</td><td>Cơm rau củ kiểu Nhật</td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="page">
-      <div class="page-title">RAU</div>
-      <table class="led-table">
-        <thead>
+        
           <tr>
-            <th>Tên rau</th><th>Đơn vị</th><th>Tổng</th><th>Sáng</th><th>Trưa</th><th>Chiều</th>
+            <td>Nước xay hỗn hợp rau củ</td><td>kg</td><td><span class="num red">7,55</span></td><td><span class="num white">0</span></td><td><span class="num white">3,78</span></td><td><span class="num white">3,77</span></td>
           </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td>Cà rốt</td><td>kg</td><td><span class="num red">11,36</span></td><td><span class="num white">0</span></td><td><span class="num white">5,69</span></td><td><span class="num white">5,67</span></td>
-            </tr>
-          
-            <tr>
-              <td>Nước xay hỗn hợp rau củ</td><td>kg</td><td><span class="num red">7,55</span></td><td><span class="num white">0</span></td><td><span class="num white">3,78</span></td><td><span class="num white">3,77</span></td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </section>
+        
+      </tbody>
+    </table>
   
-
-    <section class="page">
-      <div class="page-title">NGUYÊN LIỆU BỮA TRƯA</div>
-      <table class="led-table">
-        <thead>
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 2</span>
+          <span>NGUYÊN LIỆU BỮA TRƯA</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table ">
+      <thead>
+        <tr>
+          <th>Tên NVL</th><th>ĐVT</th><th>Khối lượng</th><th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        
           <tr>
-            <th>Tên NVL</th><th>ĐVT</th><th>Khối lượng</th><th>Ghi chú</th>
+            <td>Gạo</td><td>kg</td><td><span class="num green">37,04</span></td><td></td>
           </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td>Gạo</td><td>kg</td><td><span class="num green">37,04</span></td><td></td>
-            </tr>
-          
-            <tr>
-              <td>Cà rốt</td><td>kg</td><td><span class="num green">5,69</span></td><td></td>
-            </tr>
-          
-            <tr>
-              <td>Bắp mỹ</td><td>kg</td><td><span class="num green">4,54</span></td><td></td>
-            </tr>
-          
-            <tr>
-              <td>Nước xay hỗn hợp rau củ</td><td>kg</td><td><span class="num green">3,78</span></td><td></td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </section>
-  
-
-
-
-    <section class="page">
-      <div class="page-title">NGUYÊN LIỆU BỮA CHIỀU</div>
-      <table class="led-table">
-        <thead>
+        
           <tr>
-            <th>Tên NVL</th><th>ĐVT</th><th>Khối lượng</th><th>Ghi chú</th>
+            <td>Cà rốt</td><td>kg</td><td><span class="num green">5,69</span></td><td></td>
           </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td>Gạo</td><td>kg</td><td><span class="num green">36,94</span></td><td></td>
-            </tr>
-          
-            <tr>
-              <td>Cà rốt</td><td>kg</td><td><span class="num green">5,67</span></td><td></td>
-            </tr>
-          
-            <tr>
-              <td>Bắp mỹ</td><td>kg</td><td><span class="num green">4,53</span></td><td></td>
-            </tr>
-          
-            <tr>
-              <td>Nước xay hỗn hợp rau củ</td><td>kg</td><td><span class="num green">3,77</span></td><td></td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </section>
-  
-
-
-
-    <section class="page">
-      <div class="page-title">THỰC ĐƠN TRONG NGÀY</div>
-      <table class="led-table">
-        <thead>
+        
           <tr>
-            <th>bua</th><th>mon</th>
+            <td>Bắp mỹ</td><td>kg</td><td><span class="num green">4,54</span></td><td></td>
           </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td>TRƯA</td><td>Cơm rau củ kiểu Nhật</td>
-            </tr>
-          
-            <tr>
-              <td>CHIỀU</td><td>Cơm rau củ kiểu Nhật</td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </section>
+        
+          <tr>
+            <td>Nước xay hỗn hợp rau củ</td><td>kg</td><td><span class="num green">3,78</span></td><td></td>
+          </tr>
+        
+      </tbody>
+    </table>
   
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 3</span>
+          <span>KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table kitchen-table">
+      <thead>
+        <tr>
+          <th rowspan="2" class="dish-col">Thực đơn</th>
+          <th rowspan="2" class="total-col">Tổng số phần</th>
+          <th colspan="2">Gold - DQH</th><th colspan="2">Trung Xuân Thu - NT</th><th colspan="2">Thạnh Lộc</th><th colspan="2">Care - AH</th>
+        </tr>
+        <tr>
+          <th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td class="dish-cell">CƠM RAU CỦ KIỂU NHẬT</td>
+            <td class="num red">194</td>
+            
+                <td class="num white">114</td>
+                <td class="num green">15,39</td>
+              
+                <td class="num white">24</td>
+                <td class="num green">3,24</td>
+              
+                <td class="num white">20</td>
+                <td class="num green">2,7</td>
+              
+                <td class="num white">36</td>
+                <td class="num green">4,86</td>
+              
+          </tr>
+        
+      </tbody>
+    </table>
+  
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 4</span>
+          <span>KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table kitchen-table">
+      <thead>
+        <tr>
+          <th rowspan="2" class="dish-col">Thực đơn</th>
+          <th rowspan="2" class="total-col">Tổng số phần</th>
+          <th colspan="2">Hoa Lan</th><th colspan="2">CSĐB 2</th><th colspan="2">CSTC</th><th colspan="2">HH ông</th><th colspan="2">CSĐB 1</th><th colspan="2">HH bà</th>
+        </tr>
+        <tr>
+          <th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td class="dish-cell">CƠM RAU CỦ KIỂU NHẬT</td>
+            <td class="num red">184</td>
+            
+                <td class="num white">53</td>
+                <td class="num green">7,16</td>
+              
+                <td class="num white">31</td>
+                <td class="num green">4,18</td>
+              
+                <td class="num white">6</td>
+                <td class="num green">0,81</td>
+              
+                <td class="num white">42</td>
+                <td class="num green">5,67</td>
+              
+                <td class="num white">9</td>
+                <td class="num green">1,22</td>
+              
+                <td class="num white">43</td>
+                <td class="num green">5,81</td>
+              
+          </tr>
+        
+      </tbody>
+    </table>
+  
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 5</span>
+          <span>NGUYÊN LIỆU BỮA CHIỀU</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table ">
+      <thead>
+        <tr>
+          <th>Tên NVL</th><th>ĐVT</th><th>Khối lượng</th><th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>Gạo</td><td>kg</td><td><span class="num green">36,94</span></td><td></td>
+          </tr>
+        
+          <tr>
+            <td>Cà rốt</td><td>kg</td><td><span class="num green">5,67</span></td><td></td>
+          </tr>
+        
+          <tr>
+            <td>Bắp mỹ</td><td>kg</td><td><span class="num green">4,53</span></td><td></td>
+          </tr>
+        
+          <tr>
+            <td>Nước xay hỗn hợp rau củ</td><td>kg</td><td><span class="num green">3,77</span></td><td></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 6</span>
+          <span>KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table kitchen-table">
+      <thead>
+        <tr>
+          <th rowspan="2" class="dish-col">Thực đơn</th>
+          <th rowspan="2" class="total-col">Tổng số phần</th>
+          <th colspan="2">Gold - DQH</th><th colspan="2">Trung Xuân Thu - NT</th><th colspan="2">Thạnh Lộc</th><th colspan="2">Care - AH</th>
+        </tr>
+        <tr>
+          <th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td class="dish-cell">CƠM RAU CỦ KIỂU NHẬT</td>
+            <td class="num red">193</td>
+            
+                <td class="num white">114</td>
+                <td class="num green">15,39</td>
+              
+                <td class="num white">24</td>
+                <td class="num green">3,24</td>
+              
+                <td class="num white">19</td>
+                <td class="num green">2,57</td>
+              
+                <td class="num white">36</td>
+                <td class="num green">4,86</td>
+              
+          </tr>
+        
+      </tbody>
+    </table>
+  
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 7</span>
+          <span>KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table kitchen-table">
+      <thead>
+        <tr>
+          <th rowspan="2" class="dish-col">Thực đơn</th>
+          <th rowspan="2" class="total-col">Tổng số phần</th>
+          <th colspan="2">Hoa Lan</th><th colspan="2">CSĐB 2</th><th colspan="2">CSTC</th><th colspan="2">HH ông</th><th colspan="2">CSĐB 1</th><th colspan="2">HH bà</th>
+        </tr>
+        <tr>
+          <th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th><th>SL</th><th>KL</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td class="dish-cell">CƠM RAU CỦ KIỂU NHẬT</td>
+            <td class="num red">184</td>
+            
+                <td class="num white">53</td>
+                <td class="num green">7,16</td>
+              
+                <td class="num white">31</td>
+                <td class="num green">4,18</td>
+              
+                <td class="num white">6</td>
+                <td class="num green">0,81</td>
+              
+                <td class="num white">42</td>
+                <td class="num green">5,67</td>
+              
+                <td class="num white">9</td>
+                <td class="num green">1,22</td>
+              
+                <td class="num white">43</td>
+                <td class="num green">5,81</td>
+              
+          </tr>
+        
+      </tbody>
+    </table>
+  
+        </div>
+      </section>
+    
+      <section class="slide">
+        <div class="slide-header">
+          <span>Trang 8</span>
+          <span>THỰC ĐƠN TRONG NGÀY</span>
+        </div>
+        <div class="slide-frame">
+          
+    <table class="data-table ">
+      <thead>
+        <tr>
+          <th>Bữa</th><th>Món</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>TRƯA</td><td>Cơm rau củ kiểu Nhật</td>
+          </tr>
+        
+          <tr>
+            <td>CHIỀU</td><td>Cơm rau củ kiểu Nhật</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+        </div>
+      </section>
+    
+  </div>
 
-</div>
+  <script>
+    function toggleFullWidth() {
+      const root = document.documentElement;
+      const current = getComputedStyle(root).getPropertyValue('--maxw').trim();
+      root.style.setProperty('--maxw', current === '1400px' ? '100vw' : '1400px');
+    }
+  </script>
 </body>
 </html>
