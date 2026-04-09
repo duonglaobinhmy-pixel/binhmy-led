@@ -23,6 +23,18 @@
       page-break-after: always;
       overflow: hidden;
     }
+    .slide-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .big-left-title {
+      color: #ff33dd;
+      font-size: 44px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 6px 0 4px;
+    }
     .title-main {
       text-align: center;
       color: #00ff80;
@@ -32,12 +44,12 @@
       margin: 6px 0 8px;
       text-transform: uppercase;
     }
-    .title-left {
+    .sub-date {
+      text-align: center;
       color: #ff33dd;
-      font-size: 40px;
+      font-size: 34px;
       font-weight: 700;
-      line-height: 1;
-      text-transform: uppercase;
+      margin-bottom: 12px;
     }
     .date-left {
       color: #ff33dd;
@@ -46,42 +58,24 @@
       margin-top: 8px;
     }
     .date-left.large {
-      position: absolute;
-      left: 140px;
-      top: 120px;
-      font-size: 36px;
+      font-size: 32px;
     }
-    .date-center {
-      text-align: center;
-      color: #ff33dd;
-      font-size: 34px;
-      font-weight: 700;
-      margin-top: 6px;
+    .matrix-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 12px;
     }
-    .buoi-left {
-      position: absolute;
-      left: 18px;
-      top: 120px;
+    .buoi-right, .buoi-tag {
       color: #ff33dd;
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 700;
       text-transform: uppercase;
     }
-    .buoi-right {
-      position: absolute;
-      right: 28px;
-      top: 118px;
-      color: #ff33dd;
-      font-size: 48px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
     .ppt-table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
-      margin-top: 18px;
       color: #fff;
     }
     .ppt-table th, .ppt-table td {
@@ -115,82 +109,48 @@
     .rau-table th:nth-child(5), .rau-table td:nth-child(5),
     .rau-table th:nth-child(6), .rau-table td:nth-child(6) { width: 15.25%; }
 
-    .ingredient-slide .title-main {
-      margin-top: 0;
+    .xao-table {
+      margin-top: 18px;
     }
+    .xao-table th, .xao-table td {
+      font-size: 24px;
+      padding: 10px 8px;
+    }
+
     .ingredient-blocks {
-      margin-top: 8px;
+      margin-top: 10px;
     }
     .menu-block {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
-    .menu-block-head,
-    .menu-row {
-      display: grid;
-      grid-template-columns: 1.35fr 0.62fr 0.62fr 0.9fr;
-      align-items: end;
-      column-gap: 8px;
+    .compact-block-table {
+      margin-top: 0;
     }
-    .menu-ing-label {
-      color: #ff2020;
-      font-size: 28px;
-      font-weight: 700;
-      text-transform: uppercase;
+    .compact-block-table th, .compact-block-table td {
+      font-size: 20px;
+      padding: 5px 8px;
     }
-    .menu-col {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 700;
+    .compact-block-table .left-head {
+      width: 33%;
     }
-    .menu-title {
+    .compact-block-table .green-head {
       color: #00ff80;
-      text-align: right;
-      font-size: 28px;
-      font-weight: 700;
-    }
-    .menu-row {
-      margin-top: 4px;
-    }
-    .menu-ing {
-      color: #fff;
-      font-size: 28px;
-      font-weight: 700;
-    }
-    .menu-val {
-      color: #fff;
-      text-align: center;
-      font-size: 28px;
-      font-weight: 700;
-    }
-    .menu-total {
-      color: #fff;
-      text-align: right;
-      font-size: 28px;
-      font-weight: 700;
     }
     .empty-note {
       color: #fff;
-      font-size: 28px;
+      font-size: 26px;
       margin-top: 20px;
     }
 
     .matrix-table {
-      margin-top: 110px;
+      margin-top: 16px;
     }
     .matrix-table th, .matrix-table td {
-      font-size: 20px;
+      font-size: 18px;
       padding: 6px 6px;
     }
-    .matrix-table thead th {
-      color: #ff1f1f;
-    }
-    .matrix-table tbody td:first-child {
-      color: #fff;
-      font-weight: 700;
-    }
     .total-row td {
-      height: 56px;
-      font-weight: 700;
+      height: 54px;
     }
 
     .weekly-table th, .weekly-table td {
@@ -201,13 +161,15 @@
 <body>
   
     <section class="slide">
-      <div class="title-left">RAU</div>
-      <div class="date-left">09-04-2026</div>
+      <div class="slide-topline">
+        <div class="date-left">09-04-2026</div>
+      </div>
+      <div class="big-left-title">RAU</div>
       <table class="ppt-table rau-table">
         <thead>
           <tr>
             <th>Tên</th>
-            <th></th>
+            <th>Đvt</th>
             <th>Tổng</th>
             <th>Sáng</th>
             <th>Trưa</th>
@@ -318,114 +280,122 @@
     </section>
   
 
-    <section class="slide ingredient-slide">
+    <section class="slide">
       <div class="title-main">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
-      <div class="date-center">09-04-2026</div>
-      <div class="buoi-left">SÁNG</div>
+      <div class="sub-date">09-04-2026</div>
+      <div class="buoi-tag">SÁNG</div>
       <div class="ingredient-blocks">
-        
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Bánh mì ốp la</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BÁNH MÌ MỀM</div>
-            <div class="menu-val">448</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">778</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">TRỨNG GÀ</div>
-            <div class="menu-val">448</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">778</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Bánh mì ốp la</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BÁNH MÌ MỀM</td>
+              <td class="num">448</td>
+              <td class="num">330</td>
+              <td class="num">778</td>
+            </tr>
+          
+            <tr>
+              <td>TRỨNG GÀ</td>
+              <td class="num">448</td>
+              <td class="num">330</td>
+              <td class="num">778</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Cháo thịt bằm trưa chiều</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">170</div>
-            <div class="menu-val">260</div>
-            <div class="menu-total">430</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">GẠO</div>
-            <div class="menu-val">2040</div>
-            <div class="menu-val">3120</div>
-            <div class="menu-total">5160</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HÀNH LÁ</div>
-            <div class="menu-val">170</div>
-            <div class="menu-val">260</div>
-            <div class="menu-total">430</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">34</div>
-            <div class="menu-val">52</div>
-            <div class="menu-total">86</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">MUỐI</div>
-            <div class="menu-val">510</div>
-            <div class="menu-val">780</div>
-            <div class="menu-total">1290</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">20400</div>
-            <div class="menu-val">31200</div>
-            <div class="menu-total">51600</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">THỊT HEO XAY</div>
-            <div class="menu-val">850</div>
-            <div class="menu-val">1300</div>
-            <div class="menu-total">2150</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">TIÊU XAY</div>
-            <div class="menu-val">170</div>
-            <div class="menu-val">260</div>
-            <div class="menu-total">430</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Cháo thịt bằm trưa chiều</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">170</td>
+              <td class="num">260</td>
+              <td class="num">430</td>
+            </tr>
+          
+            <tr>
+              <td>GẠO</td>
+              <td class="num">2040</td>
+              <td class="num">3120</td>
+              <td class="num">5160</td>
+            </tr>
+          
+            <tr>
+              <td>HÀNH LÁ</td>
+              <td class="num">170</td>
+              <td class="num">260</td>
+              <td class="num">430</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">34</td>
+              <td class="num">52</td>
+              <td class="num">86</td>
+            </tr>
+          
+            <tr>
+              <td>MUỐI</td>
+              <td class="num">510</td>
+              <td class="num">780</td>
+              <td class="num">1290</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">20400</td>
+              <td class="num">31200</td>
+              <td class="num">51600</td>
+            </tr>
+          
+            <tr>
+              <td>THỊT HEO XAY</td>
+              <td class="num">850</td>
+              <td class="num">1300</td>
+              <td class="num">2150</td>
+            </tr>
+          
+            <tr>
+              <td>TIÊU XAY</td>
+              <td class="num">170</td>
+              <td class="num">260</td>
+              <td class="num">430</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
-  
-      </div>
+  </div>
     </section>
   
 
     <section class="slide">
       <div class="title-main">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
-      <div class="date-left large">09-04-2026</div>
-      <div class="buoi-right">SÁNG</div>
+      <div class="matrix-header">
+        <div class="date-left large">09-04-2026</div>
+        <div class="buoi-right">SÁNG</div>
+      </div>
       <table class="ppt-table matrix-table">
         <thead>
           <tr>
@@ -434,28 +404,26 @@
             <th colspan="3">CSĐB 1</th><th colspan="3">CSĐB 2</th><th colspan="3">CSTC</th><th colspan="3">Gold - DQH</th><th colspan="3">Hoa Lan</th>
           </tr>
           <tr>
-            
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
-  
-          </tr>
+    <th>KL (kg)</th>
+  </tr>
         </thead>
         <tbody>
           
@@ -464,7 +432,7 @@
         <td class="num red">224</td>
         
         <td class="num yellow">15</td>
-        <td class="center green">Nhỡ</td>
+        <td class="center green">Nhỏ</td>
         <td class="num">2600</td>
       
         <td class="num yellow">29</td>
@@ -502,7 +470,7 @@
         <td class="num">2232</td>
       
         <td class="num yellow">9</td>
-        <td class="center green">Nhỡ</td>
+        <td class="center green">Nhỏ</td>
         <td class="num">14188</td>
       
         <td class="num yellow">3</td>
@@ -543,8 +511,10 @@
 
     <section class="slide">
       <div class="title-main">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
-      <div class="date-left large">09-04-2026</div>
-      <div class="buoi-right">SÁNG</div>
+      <div class="matrix-header">
+        <div class="date-left large">09-04-2026</div>
+        <div class="buoi-right">SÁNG</div>
+      </div>
       <table class="ppt-table matrix-table">
         <thead>
           <tr>
@@ -553,28 +523,26 @@
             <th colspan="3">Care - AH</th><th colspan="3">HH bà</th><th colspan="3">HH ông</th><th colspan="3">Thạnh Lộc</th><th colspan="3">Trung Xuân Thu - NT</th>
           </tr>
           <tr>
-            
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
-  
-          </tr>
+    <th>KL (kg)</th>
+  </tr>
         </thead>
         <tbody>
           
@@ -583,23 +551,23 @@
         <td class="num red">165</td>
         
         <td class="num yellow">39</td>
-        <td class="center green">Nhỡ</td>
+        <td class="center green">Nhỏ</td>
         <td class="num">1800</td>
       
         <td class="num yellow">32</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">0</td>
       
         <td class="num yellow">41</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">0</td>
       
         <td class="num yellow">17</td>
-        <td class="center green">Nhỡ</td>
+        <td class="center green">Nhỏ</td>
         <td class="num">2220</td>
       
         <td class="num yellow">32</td>
-        <td class="center green">Nhỡ</td>
+        <td class="center green">Nhỏ</td>
         <td class="num">1800</td>
       
       </tr>
@@ -609,23 +577,23 @@
         <td class="num red">26</td>
         
         <td class="num yellow">4</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">5728</td>
       
         <td class="num yellow">14</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">20048</td>
       
         <td class="num yellow">6</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">8592</td>
       
         <td class="num yellow">1</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">1432</td>
       
         <td class="num yellow">1</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">1432</td>
       
       </tr>
@@ -660,228 +628,390 @@
     </section>
   
 
-    <section class="slide ingredient-slide">
+    <section class="slide">
       <div class="title-main">BẢNG NGUYÊN LIỆU THỨC ĂN XÀO</div>
-      <div class="date-center">09-04-2026</div>
-      <div class="buoi-left">TRƯA</div>
-      <div class="ingredient-blocks">
-        <div class="empty-note">KHÔNG CÓ DỮ LIỆU</div>
-      </div>
+      <div class="sub-date">09-04-2026</div>
+      <table class="ppt-table xao-table">
+        <thead>
+          <tr>
+            <th rowspan="2">NVL</th>
+            <th rowspan="2">Đvt</th>
+            <th>Trưa</th>
+            <th>Chiều</th>
+            <th rowspan="2">Tổng ngày</th>
+          </tr>
+          <tr>
+            <th>+ Xế Gò Vấp</th>
+            <th>+ Xế Bình Mỹ</th>
+          </tr>
+        </thead>
+        <tbody>
+    <tr>
+      <td>BỘT CANH</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">4290</td>
+      <td class="num">4290</td>
+    </tr>
+  
+    <tr>
+      <td>BỘT NGỌT</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">6864</td>
+      <td class="num">6864</td>
+    </tr>
+  
+    <tr>
+      <td>DẦU ĂN</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">858</td>
+      <td class="num">858</td>
+    </tr>
+  
+    <tr>
+      <td>ĐƯỜNG CÁT TRẮNG</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">4290</td>
+      <td class="num">4290</td>
+    </tr>
+  
+    <tr>
+      <td>GẠO</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">86480</td>
+      <td class="num">86480</td>
+    </tr>
+  
+    <tr>
+      <td>HÀNH LÁ</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">1716</td>
+      <td class="num">1716</td>
+    </tr>
+  
+    <tr>
+      <td>HÀNH TÍM CỦ</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">3432</td>
+      <td class="num">3432</td>
+    </tr>
+  
+    <tr>
+      <td>HẠT NÊM</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">59202</td>
+      <td class="num">59202</td>
+    </tr>
+  
+    <tr>
+      <td>HẸ LÁ</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">11154</td>
+      <td class="num">11154</td>
+    </tr>
+  
+    <tr>
+      <td>ME</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">4290</td>
+      <td class="num">4290</td>
+    </tr>
+  
+    <tr>
+      <td>MUỐI</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">12870</td>
+      <td class="num">12870</td>
+    </tr>
+  
+    <tr>
+      <td>Nước</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">1016440</td>
+      <td class="num">1016440</td>
+    </tr>
+  
+    <tr>
+      <td>NƯỚC MẮM</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">14586</td>
+      <td class="num">14586</td>
+    </tr>
+  
+    <tr>
+      <td>RAU MUỐNG</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">51480</td>
+      <td class="num">51480</td>
+    </tr>
+  
+    <tr>
+      <td>THỊT HEO XAY</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">6006</td>
+      <td class="num">6006</td>
+    </tr>
+  
+    <tr>
+      <td>TIÊU XAY</td>
+      <td class="center">Gram</td>
+      <td class="num">0</td>
+      <td class="num">1716</td>
+      <td class="num">1716</td>
+    </tr>
+  
+    <tr>
+      <td>TRỨNG GÀ</td>
+      <td class="center">QUA</td>
+      <td class="num">0</td>
+      <td class="num">1716</td>
+      <td class="num">1716</td>
+    </tr>
+  </tbody>
+      </table>
     </section>
   
 
-    <section class="slide ingredient-slide">
+    <section class="slide">
       <div class="title-main">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG</div>
-      <div class="date-center">09-04-2026</div>
-      <div class="buoi-left">TRƯA</div>
+      <div class="sub-date">09-04-2026</div>
+      <div class="buoi-tag">TRƯA</div>
       <div class="ingredient-blocks">
-        
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Canh cải thảo</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT CANH</div>
-            <div class="menu-val">620</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">950</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">620</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">950</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">CẢI THẢO</div>
-            <div class="menu-val">6200</div>
-            <div class="menu-val">3300</div>
-            <div class="menu-total">9500</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">ĐƯỜNG CÁT TRẮNG</div>
-            <div class="menu-val">1860</div>
-            <div class="menu-val">990</div>
-            <div class="menu-total">2850</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">620</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">950</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">MUỐI</div>
-            <div class="menu-val">124</div>
-            <div class="menu-val">66</div>
-            <div class="menu-total">190</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">32240</div>
-            <div class="menu-val">17160</div>
-            <div class="menu-total">49400</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">THỊT HEO XAY</div>
-            <div class="menu-val">868</div>
-            <div class="menu-val">462</div>
-            <div class="menu-total">1330</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Canh cải thảo</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT CANH</td>
+              <td class="num">620</td>
+              <td class="num">330</td>
+              <td class="num">950</td>
+            </tr>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">620</td>
+              <td class="num">330</td>
+              <td class="num">950</td>
+            </tr>
+          
+            <tr>
+              <td>CẢI THẢO</td>
+              <td class="num">6200</td>
+              <td class="num">3300</td>
+              <td class="num">9500</td>
+            </tr>
+          
+            <tr>
+              <td>ĐƯỜNG CÁT TRẮNG</td>
+              <td class="num">1860</td>
+              <td class="num">990</td>
+              <td class="num">2850</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">620</td>
+              <td class="num">330</td>
+              <td class="num">950</td>
+            </tr>
+          
+            <tr>
+              <td>MUỐI</td>
+              <td class="num">124</td>
+              <td class="num">66</td>
+              <td class="num">190</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">32240</td>
+              <td class="num">17160</td>
+              <td class="num">49400</td>
+            </tr>
+          
+            <tr>
+              <td>THỊT HEO XAY</td>
+              <td class="num">868</td>
+              <td class="num">462</td>
+              <td class="num">1330</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Cơm trắng</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">GẠO</div>
-            <div class="menu-val">9200</div>
-            <div class="menu-val">5980</div>
-            <div class="menu-total">15180</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">84400</div>
-            <div class="menu-val">54860</div>
-            <div class="menu-total">139260</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Cơm trắng</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>GẠO</td>
+              <td class="num">9200</td>
+              <td class="num">5980</td>
+              <td class="num">15180</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">84400</td>
+              <td class="num">54860</td>
+              <td class="num">139260</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
-  
-      </div>
+  </div>
     </section>
   
 
-    <section class="slide ingredient-slide">
+    <section class="slide">
       <div class="title-main">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-      <div class="date-center">09-04-2026</div>
-      <div class="buoi-left">TRƯA</div>
+      <div class="sub-date">09-04-2026</div>
+      <div class="buoi-tag">TRƯA</div>
       <div class="ingredient-blocks">
-        
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Canh cải thảo</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT CANH</div>
-            <div class="menu-val">2450</div>
-            <div class="menu-val">2170</div>
-            <div class="menu-total">4620</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">2450</div>
-            <div class="menu-val">2170</div>
-            <div class="menu-total">4620</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">CẢI THẢO</div>
-            <div class="menu-val">24500</div>
-            <div class="menu-val">21700</div>
-            <div class="menu-total">46200</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">ĐƯỜNG CÁT TRẮNG</div>
-            <div class="menu-val">7350</div>
-            <div class="menu-val">6510</div>
-            <div class="menu-total">13860</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">2450</div>
-            <div class="menu-val">2170</div>
-            <div class="menu-total">4620</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">MUỐI</div>
-            <div class="menu-val">490</div>
-            <div class="menu-val">434</div>
-            <div class="menu-total">924</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">127400</div>
-            <div class="menu-val">112840</div>
-            <div class="menu-total">240240</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">THỊT HEO XAY</div>
-            <div class="menu-val">3430</div>
-            <div class="menu-val">3038</div>
-            <div class="menu-total">6468</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Canh cải thảo</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT CANH</td>
+              <td class="num">2450</td>
+              <td class="num">2170</td>
+              <td class="num">4620</td>
+            </tr>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">2450</td>
+              <td class="num">2170</td>
+              <td class="num">4620</td>
+            </tr>
+          
+            <tr>
+              <td>CẢI THẢO</td>
+              <td class="num">24500</td>
+              <td class="num">21700</td>
+              <td class="num">46200</td>
+            </tr>
+          
+            <tr>
+              <td>ĐƯỜNG CÁT TRẮNG</td>
+              <td class="num">7350</td>
+              <td class="num">6510</td>
+              <td class="num">13860</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">2450</td>
+              <td class="num">2170</td>
+              <td class="num">4620</td>
+            </tr>
+          
+            <tr>
+              <td>MUỐI</td>
+              <td class="num">490</td>
+              <td class="num">434</td>
+              <td class="num">924</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">127400</td>
+              <td class="num">112840</td>
+              <td class="num">240240</td>
+            </tr>
+          
+            <tr>
+              <td>THỊT HEO XAY</td>
+              <td class="num">3430</td>
+              <td class="num">3038</td>
+              <td class="num">6468</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Cơm trắng</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">GẠO</div>
-            <div class="menu-val">48990</div>
-            <div class="menu-val">37720</div>
-            <div class="menu-total">86710</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">449430</div>
-            <div class="menu-val">346040</div>
-            <div class="menu-total">795470</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Cơm trắng</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>GẠO</td>
+              <td class="num">48990</td>
+              <td class="num">37720</td>
+              <td class="num">86710</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">449430</td>
+              <td class="num">346040</td>
+              <td class="num">795470</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
-  
-      </div>
+  </div>
     </section>
   
 
     <section class="slide">
       <div class="title-main">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
-      <div class="date-left large">09-04-2026</div>
-      <div class="buoi-right">TRƯA</div>
+      <div class="matrix-header">
+        <div class="date-left large">09-04-2026</div>
+        <div class="buoi-right">TRƯA</div>
+      </div>
       <table class="ppt-table matrix-table">
         <thead>
           <tr>
@@ -890,28 +1020,26 @@
             <th colspan="3">CSĐB 1</th><th colspan="3">CSĐB 2</th><th colspan="3">CSTC</th><th colspan="3">Gold - DQH</th><th colspan="3">Hoa Lan</th>
           </tr>
           <tr>
-            
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
-  
-          </tr>
+    <th>KL (kg)</th>
+  </tr>
         </thead>
         <tbody>
           
@@ -920,23 +1048,23 @@
         <td class="num red">307</td>
         
         <td class="num yellow">7</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">4872</td>
       
         <td class="num yellow">31</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">21576</td>
       
         <td class="num yellow">13</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">9048</td>
       
         <td class="num yellow">114</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">79344</td>
       
         <td class="num yellow">2</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">1392</td>
       
       </tr>
@@ -946,23 +1074,23 @@
         <td class="num red">253</td>
         
         <td class="num yellow">9</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">21060</td>
       
         <td class="num yellow">31</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">72540</td>
       
         <td class="num yellow">6</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">14040</td>
       
         <td class="num yellow">114</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">266760</td>
       
         <td class="num yellow">53</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">124020</td>
       
       </tr>
@@ -999,8 +1127,10 @@
 
     <section class="slide">
       <div class="title-main">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
-      <div class="date-left large">09-04-2026</div>
-      <div class="buoi-right">TRƯA</div>
+      <div class="matrix-header">
+        <div class="date-left large">09-04-2026</div>
+        <div class="buoi-right">TRƯA</div>
+      </div>
       <table class="ppt-table matrix-table">
         <thead>
           <tr>
@@ -1009,28 +1139,26 @@
             <th colspan="3">Care - AH</th><th colspan="3">HH bà</th><th colspan="3">HH ông</th><th colspan="3">Thạnh Lộc</th><th colspan="3">Trung Xuân Thu - NT</th>
           </tr>
           <tr>
-            
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
-  
-          </tr>
+    <th>KL (kg)</th>
+  </tr>
         </thead>
         <tbody>
           
@@ -1039,23 +1167,23 @@
         <td class="num red">250</td>
         
         <td class="num yellow">36</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">25056</td>
       
         <td class="num yellow">43</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">29928</td>
       
         <td class="num yellow">42</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">29232</td>
       
         <td class="num yellow">19</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">13224</td>
       
         <td class="num yellow">7</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">4872</td>
       
       </tr>
@@ -1065,23 +1193,23 @@
         <td class="num red">190</td>
         
         <td class="num yellow">36</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">84240</td>
       
         <td class="num yellow">43</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">100620</td>
       
         <td class="num yellow">42</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">98280</td>
       
         <td class="num yellow">19</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">44460</td>
       
         <td class="num yellow">24</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">56160</td>
       
       </tr>
@@ -1116,396 +1244,418 @@
     </section>
   
 
-    <section class="slide ingredient-slide">
+    <section class="slide">
       <div class="title-main">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG</div>
-      <div class="date-center">09-04-2026</div>
-      <div class="buoi-left">CHIỀU</div>
+      <div class="sub-date">09-04-2026</div>
+      <div class="buoi-tag">CHIỀU</div>
       <div class="ingredient-blocks">
-        
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Canh chua rau muống</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT CANH</div>
-            <div class="menu-val">600</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">930</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">600</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">930</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">ĐƯỜNG CÁT TRẮNG</div>
-            <div class="menu-val">600</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">930</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">600</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">930</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">ME</div>
-            <div class="menu-val">600</div>
-            <div class="menu-val">330</div>
-            <div class="menu-total">930</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">MUỐI</div>
-            <div class="menu-val">1800</div>
-            <div class="menu-val">990</div>
-            <div class="menu-total">2790</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">31200</div>
-            <div class="menu-val">17160</div>
-            <div class="menu-total">48360</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">NƯỚC MẮM</div>
-            <div class="menu-val">360</div>
-            <div class="menu-val">198</div>
-            <div class="menu-total">558</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">RAU MUỐNG</div>
-            <div class="menu-val">7200</div>
-            <div class="menu-val">3960</div>
-            <div class="menu-total">11160</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">THỊT HEO XAY</div>
-            <div class="menu-val">840</div>
-            <div class="menu-val">462</div>
-            <div class="menu-total">1302</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Canh chua rau muống</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT CANH</td>
+              <td class="num">600</td>
+              <td class="num">330</td>
+              <td class="num">930</td>
+            </tr>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">600</td>
+              <td class="num">330</td>
+              <td class="num">930</td>
+            </tr>
+          
+            <tr>
+              <td>ĐƯỜNG CÁT TRẮNG</td>
+              <td class="num">600</td>
+              <td class="num">330</td>
+              <td class="num">930</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">600</td>
+              <td class="num">330</td>
+              <td class="num">930</td>
+            </tr>
+          
+            <tr>
+              <td>ME</td>
+              <td class="num">600</td>
+              <td class="num">330</td>
+              <td class="num">930</td>
+            </tr>
+          
+            <tr>
+              <td>MUỐI</td>
+              <td class="num">1800</td>
+              <td class="num">990</td>
+              <td class="num">2790</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">31200</td>
+              <td class="num">17160</td>
+              <td class="num">48360</td>
+            </tr>
+          
+            <tr>
+              <td>NƯỚC MẮM</td>
+              <td class="num">360</td>
+              <td class="num">198</td>
+              <td class="num">558</td>
+            </tr>
+          
+            <tr>
+              <td>RAU MUỐNG</td>
+              <td class="num">7200</td>
+              <td class="num">3960</td>
+              <td class="num">11160</td>
+            </tr>
+          
+            <tr>
+              <td>THỊT HEO XAY</td>
+              <td class="num">840</td>
+              <td class="num">462</td>
+              <td class="num">1302</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Cơm trắng</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">GẠO</div>
-            <div class="menu-val">9200</div>
-            <div class="menu-val">5980</div>
-            <div class="menu-total">15180</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">84400</div>
-            <div class="menu-val">54860</div>
-            <div class="menu-total">139260</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Cơm trắng</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>GẠO</td>
+              <td class="num">9200</td>
+              <td class="num">5980</td>
+              <td class="num">15180</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">84400</td>
+              <td class="num">54860</td>
+              <td class="num">139260</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Trứng chiên hẹ</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">360</div>
-            <div class="menu-val">198</div>
-            <div class="menu-total">558</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">DẦU ĂN</div>
-            <div class="menu-val">120</div>
-            <div class="menu-val">66</div>
-            <div class="menu-total">186</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HÀNH LÁ</div>
-            <div class="menu-val">240</div>
-            <div class="menu-val">132</div>
-            <div class="menu-total">372</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HÀNH TÍM CỦ</div>
-            <div class="menu-val">480</div>
-            <div class="menu-val">264</div>
-            <div class="menu-total">744</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">7680</div>
-            <div class="menu-val">4224</div>
-            <div class="menu-total">11904</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẸ LÁ</div>
-            <div class="menu-val">1560</div>
-            <div class="menu-val">858</div>
-            <div class="menu-total">2418</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">NƯỚC MẮM</div>
-            <div class="menu-val">1680</div>
-            <div class="menu-val">924</div>
-            <div class="menu-total">2604</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">TIÊU XAY</div>
-            <div class="menu-val">240</div>
-            <div class="menu-val">132</div>
-            <div class="menu-total">372</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">TRỨNG GÀ</div>
-            <div class="menu-val">240</div>
-            <div class="menu-val">132</div>
-            <div class="menu-total">372</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Trứng chiên hẹ</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">360</td>
+              <td class="num">198</td>
+              <td class="num">558</td>
+            </tr>
+          
+            <tr>
+              <td>DẦU ĂN</td>
+              <td class="num">120</td>
+              <td class="num">66</td>
+              <td class="num">186</td>
+            </tr>
+          
+            <tr>
+              <td>HÀNH LÁ</td>
+              <td class="num">240</td>
+              <td class="num">132</td>
+              <td class="num">372</td>
+            </tr>
+          
+            <tr>
+              <td>HÀNH TÍM CỦ</td>
+              <td class="num">480</td>
+              <td class="num">264</td>
+              <td class="num">744</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">7680</td>
+              <td class="num">4224</td>
+              <td class="num">11904</td>
+            </tr>
+          
+            <tr>
+              <td>HẸ LÁ</td>
+              <td class="num">1560</td>
+              <td class="num">858</td>
+              <td class="num">2418</td>
+            </tr>
+          
+            <tr>
+              <td>NƯỚC MẮM</td>
+              <td class="num">1680</td>
+              <td class="num">924</td>
+              <td class="num">2604</td>
+            </tr>
+          
+            <tr>
+              <td>TIÊU XAY</td>
+              <td class="num">240</td>
+              <td class="num">132</td>
+              <td class="num">372</td>
+            </tr>
+          
+            <tr>
+              <td>TRỨNG GÀ</td>
+              <td class="num">240</td>
+              <td class="num">132</td>
+              <td class="num">372</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
-  
-      </div>
+  </div>
     </section>
   
 
-    <section class="slide ingredient-slide">
+    <section class="slide">
       <div class="title-main">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-      <div class="date-center">09-04-2026</div>
-      <div class="buoi-left">CHIỀU</div>
+      <div class="sub-date">09-04-2026</div>
+      <div class="buoi-tag">CHIỀU</div>
       <div class="ingredient-blocks">
-        
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Canh chua rau muống</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT CANH</div>
-            <div class="menu-val">2380</div>
-            <div class="menu-val">1910</div>
-            <div class="menu-total">4290</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">2380</div>
-            <div class="menu-val">1910</div>
-            <div class="menu-total">4290</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">ĐƯỜNG CÁT TRẮNG</div>
-            <div class="menu-val">2380</div>
-            <div class="menu-val">1910</div>
-            <div class="menu-total">4290</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">2380</div>
-            <div class="menu-val">1910</div>
-            <div class="menu-total">4290</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">ME</div>
-            <div class="menu-val">2380</div>
-            <div class="menu-val">1910</div>
-            <div class="menu-total">4290</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">MUỐI</div>
-            <div class="menu-val">7140</div>
-            <div class="menu-val">5730</div>
-            <div class="menu-total">12870</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">123760</div>
-            <div class="menu-val">99320</div>
-            <div class="menu-total">223080</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">NƯỚC MẮM</div>
-            <div class="menu-val">1428</div>
-            <div class="menu-val">1146</div>
-            <div class="menu-total">2574</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">RAU MUỐNG</div>
-            <div class="menu-val">28560</div>
-            <div class="menu-val">22920</div>
-            <div class="menu-total">51480</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">THỊT HEO XAY</div>
-            <div class="menu-val">3332</div>
-            <div class="menu-val">2674</div>
-            <div class="menu-total">6006</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Canh chua rau muống</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT CANH</td>
+              <td class="num">2380</td>
+              <td class="num">1910</td>
+              <td class="num">4290</td>
+            </tr>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">2380</td>
+              <td class="num">1910</td>
+              <td class="num">4290</td>
+            </tr>
+          
+            <tr>
+              <td>ĐƯỜNG CÁT TRẮNG</td>
+              <td class="num">2380</td>
+              <td class="num">1910</td>
+              <td class="num">4290</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">2380</td>
+              <td class="num">1910</td>
+              <td class="num">4290</td>
+            </tr>
+          
+            <tr>
+              <td>ME</td>
+              <td class="num">2380</td>
+              <td class="num">1910</td>
+              <td class="num">4290</td>
+            </tr>
+          
+            <tr>
+              <td>MUỐI</td>
+              <td class="num">7140</td>
+              <td class="num">5730</td>
+              <td class="num">12870</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">123760</td>
+              <td class="num">99320</td>
+              <td class="num">223080</td>
+            </tr>
+          
+            <tr>
+              <td>NƯỚC MẮM</td>
+              <td class="num">1428</td>
+              <td class="num">1146</td>
+              <td class="num">2574</td>
+            </tr>
+          
+            <tr>
+              <td>RAU MUỐNG</td>
+              <td class="num">28560</td>
+              <td class="num">22920</td>
+              <td class="num">51480</td>
+            </tr>
+          
+            <tr>
+              <td>THỊT HEO XAY</td>
+              <td class="num">3332</td>
+              <td class="num">2674</td>
+              <td class="num">6006</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Cơm trắng</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">GẠO</div>
-            <div class="menu-val">48990</div>
-            <div class="menu-val">37490</div>
-            <div class="menu-total">86480</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">Nước</div>
-            <div class="menu-val">449430</div>
-            <div class="menu-val">343930</div>
-            <div class="menu-total">793360</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Cơm trắng</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>GẠO</td>
+              <td class="num">48990</td>
+              <td class="num">37490</td>
+              <td class="num">86480</td>
+            </tr>
+          
+            <tr>
+              <td>Nước</td>
+              <td class="num">449430</td>
+              <td class="num">343930</td>
+              <td class="num">793360</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
   
     <div class="menu-block">
-      <div class="menu-block-head">
-        <div class="menu-ing-label">NGUYÊN LIỆU</div>
-        <div class="menu-col red">GÒ VẤP</div>
-        <div class="menu-col red">BÌNH MỸ</div>
-        <div class="menu-title">Trứng chiên hẹ</div>
-      </div>
-      <div class="menu-block-body">
-        
-          <div class="menu-row">
-            <div class="menu-ing">BỘT NGỌT</div>
-            <div class="menu-val">1428</div>
-            <div class="menu-val">1146</div>
-            <div class="menu-total">2574</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">DẦU ĂN</div>
-            <div class="menu-val">476</div>
-            <div class="menu-val">382</div>
-            <div class="menu-total">858</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HÀNH LÁ</div>
-            <div class="menu-val">952</div>
-            <div class="menu-val">764</div>
-            <div class="menu-total">1716</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HÀNH TÍM CỦ</div>
-            <div class="menu-val">1904</div>
-            <div class="menu-val">1528</div>
-            <div class="menu-total">3432</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẠT NÊM</div>
-            <div class="menu-val">30464</div>
-            <div class="menu-val">24448</div>
-            <div class="menu-total">54912</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">HẸ LÁ</div>
-            <div class="menu-val">6188</div>
-            <div class="menu-val">4966</div>
-            <div class="menu-total">11154</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">NƯỚC MẮM</div>
-            <div class="menu-val">6664</div>
-            <div class="menu-val">5348</div>
-            <div class="menu-total">12012</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">TIÊU XAY</div>
-            <div class="menu-val">952</div>
-            <div class="menu-val">764</div>
-            <div class="menu-total">1716</div>
-          </div>
-        
-          <div class="menu-row">
-            <div class="menu-ing">TRỨNG GÀ</div>
-            <div class="menu-val">952</div>
-            <div class="menu-val">764</div>
-            <div class="menu-total">1716</div>
-          </div>
-        
-      </div>
+      <table class="ppt-table compact-block-table">
+        <thead>
+          <tr>
+            <th class="left-head">NGUYÊN LIỆU</th>
+            <th>GÒ VẤP</th>
+            <th>BÌNH MỸ</th>
+            <th class="green-head">Trứng chiên hẹ</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>BỘT NGỌT</td>
+              <td class="num">1428</td>
+              <td class="num">1146</td>
+              <td class="num">2574</td>
+            </tr>
+          
+            <tr>
+              <td>DẦU ĂN</td>
+              <td class="num">476</td>
+              <td class="num">382</td>
+              <td class="num">858</td>
+            </tr>
+          
+            <tr>
+              <td>HÀNH LÁ</td>
+              <td class="num">952</td>
+              <td class="num">764</td>
+              <td class="num">1716</td>
+            </tr>
+          
+            <tr>
+              <td>HÀNH TÍM CỦ</td>
+              <td class="num">1904</td>
+              <td class="num">1528</td>
+              <td class="num">3432</td>
+            </tr>
+          
+            <tr>
+              <td>HẠT NÊM</td>
+              <td class="num">30464</td>
+              <td class="num">24448</td>
+              <td class="num">54912</td>
+            </tr>
+          
+            <tr>
+              <td>HẸ LÁ</td>
+              <td class="num">6188</td>
+              <td class="num">4966</td>
+              <td class="num">11154</td>
+            </tr>
+          
+            <tr>
+              <td>NƯỚC MẮM</td>
+              <td class="num">6664</td>
+              <td class="num">5348</td>
+              <td class="num">12012</td>
+            </tr>
+          
+            <tr>
+              <td>TIÊU XAY</td>
+              <td class="num">952</td>
+              <td class="num">764</td>
+              <td class="num">1716</td>
+            </tr>
+          
+            <tr>
+              <td>TRỨNG GÀ</td>
+              <td class="num">952</td>
+              <td class="num">764</td>
+              <td class="num">1716</td>
+            </tr>
+          
+        </tbody>
+      </table>
     </div>
-  
-      </div>
+  </div>
     </section>
   
 
     <section class="slide">
       <div class="title-main">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
-      <div class="date-left large">09-04-2026</div>
-      <div class="buoi-right">CHIỀU</div>
+      <div class="matrix-header">
+        <div class="date-left large">09-04-2026</div>
+        <div class="buoi-right">CHIỀU</div>
+      </div>
       <table class="ppt-table matrix-table">
         <thead>
           <tr>
@@ -1514,28 +1664,26 @@
             <th colspan="3">CSĐB 1</th><th colspan="3">CSĐB 2</th><th colspan="3">CSTC</th><th colspan="3">Gold - DQH</th><th colspan="3">Hoa Lan</th>
           </tr>
           <tr>
-            
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
-  
-          </tr>
+    <th>KL (kg)</th>
+  </tr>
         </thead>
         <tbody>
           
@@ -1544,23 +1692,23 @@
         <td class="num red">298</td>
         
         <td class="num yellow">7</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">5180</td>
       
         <td class="num yellow">31</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">22940</td>
       
         <td class="num yellow">11</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">8140</td>
       
         <td class="num yellow">114</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">84360</td>
       
         <td class="num yellow">2</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">1480</td>
       
       </tr>
@@ -1570,23 +1718,23 @@
         <td class="num red">253</td>
         
         <td class="num yellow">9</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">21060</td>
       
         <td class="num yellow">31</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">72540</td>
       
         <td class="num yellow">6</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">14040</td>
       
         <td class="num yellow">114</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">266760</td>
       
         <td class="num yellow">53</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">124020</td>
       
       </tr>
@@ -1596,23 +1744,23 @@
         <td class="num red">298</td>
         
         <td class="num yellow">7</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">1442</td>
       
         <td class="num yellow">31</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">6386</td>
       
         <td class="num yellow">11</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">2266</td>
       
         <td class="num yellow">114</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">23484</td>
       
         <td class="num yellow">2</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">412</td>
       
       </tr>
@@ -1649,8 +1797,10 @@
 
     <section class="slide">
       <div class="title-main">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
-      <div class="date-left large">09-04-2026</div>
-      <div class="buoi-right">CHIỀU</div>
+      <div class="matrix-header">
+        <div class="date-left large">09-04-2026</div>
+        <div class="buoi-right">CHIỀU</div>
+      </div>
       <table class="ppt-table matrix-table">
         <thead>
           <tr>
@@ -1659,28 +1809,26 @@
             <th colspan="3">Care - AH</th><th colspan="3">HH bà</th><th colspan="3">HH ông</th><th colspan="3">Thạnh Lộc</th><th colspan="3">Trung Xuân Thu - NT</th>
           </tr>
           <tr>
-            
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
+    <th>KL (kg)</th>
   
-    <th>SL<br>phần</th>
+    <th>SL phần</th>
     <th></th>
-    <th>KL<br>(kg)</th>
-  
-          </tr>
+    <th>KL (kg)</th>
+  </tr>
         </thead>
         <tbody>
           
@@ -1689,23 +1837,23 @@
         <td class="num red">224</td>
         
         <td class="num yellow">36</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">26640</td>
       
         <td class="num yellow">43</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">31820</td>
       
         <td class="num yellow">42</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">31080</td>
       
         <td class="num yellow">18</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">13320</td>
       
         <td class="num yellow">7</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">5180</td>
       
       </tr>
@@ -1715,23 +1863,23 @@
         <td class="num red">189</td>
         
         <td class="num yellow">36</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">84240</td>
       
         <td class="num yellow">43</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">100620</td>
       
         <td class="num yellow">42</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">98280</td>
       
         <td class="num yellow">18</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">42120</td>
       
         <td class="num yellow">24</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">56160</td>
       
       </tr>
@@ -1741,23 +1889,23 @@
         <td class="num red">224</td>
         
         <td class="num yellow">36</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">7416</td>
       
         <td class="num yellow">43</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">8858</td>
       
         <td class="num yellow">42</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">8652</td>
       
         <td class="num yellow">18</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">3708</td>
       
         <td class="num yellow">7</td>
-        <td class="center green"></td>
+        <td class="center green">Bịch</td>
         <td class="num">1442</td>
       
       </tr>
@@ -1787,1475 +1935,6 @@
     <td></td>
   
           </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
-      <div class="title-main">CẢNH BÁO</div>
-      <table class="ppt-table weekly-table">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Khu</th>
-            <th>Buổi</th>
-            <th>Dạng ăn</th>
-            <th>Món</th>
-            <th>Lỗi</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td>1</td>
-              <td>HH ông</td>
-              <td>SÁNG</td>
-              <td>THƯỜNG</td>
-              <td>Bánh mì ốp la</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>2</td>
-              <td>Gold - DQH</td>
-              <td>SÁNG</td>
-              <td>CHAY</td>
-              <td>Bánh mì ốp la</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>3</td>
-              <td>HH bà</td>
-              <td>SÁNG</td>
-              <td>THƯỜNG</td>
-              <td>Bánh mì ốp la</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>4</td>
-              <td>HH bà</td>
-              <td>SÁNG</td>
-              <td>CHAY</td>
-              <td>Bánh mì ốp la</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>5</td>
-              <td>Care - AH</td>
-              <td>SÁNG</td>
-              <td>CHAY</td>
-              <td>Bánh mì ốp la</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>6</td>
-              <td>CSĐB 1</td>
-              <td>SÁNG</td>
-              <td>CHAY</td>
-              <td>Bánh mì ốp la</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>7</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>SÁNG</td>
-              <td>CHÁO</td>
-              <td>Cháo thịt bằm trưa chiều</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>8</td>
-              <td>Thạnh Lộc</td>
-              <td>SÁNG</td>
-              <td>CHÁO</td>
-              <td>Cháo thịt bằm trưa chiều</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>9</td>
-              <td>HH ông</td>
-              <td>SÁNG</td>
-              <td>CHÁO</td>
-              <td>Cháo thịt bằm trưa chiều</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>10</td>
-              <td>HH bà</td>
-              <td>SÁNG</td>
-              <td>CHÁO</td>
-              <td>Cháo thịt bằm trưa chiều</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>11</td>
-              <td>Care - AH</td>
-              <td>SÁNG</td>
-              <td>CHÁO</td>
-              <td>Cháo thịt bằm trưa chiều</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>12</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>13</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>14</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>15</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>16</td>
-              <td>Hoa Lan</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>17</td>
-              <td>Thạnh Lộc</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>18</td>
-              <td>Thạnh Lộc</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>19</td>
-              <td>HH ông</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>20</td>
-              <td>HH ông</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>21</td>
-              <td>Gold - DQH</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>22</td>
-              <td>Gold - DQH</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>23</td>
-              <td>CSĐB 2</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>24</td>
-              <td>CSĐB 2</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>25</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>26</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>27</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>28</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>29</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>30</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>31</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>32</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>CHÁO</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>33</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>34</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>35</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>36</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>37</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>38</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>39</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>40</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>41</td>
-              <td>CSTC</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>42</td>
-              <td>Hoa Lan</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>43</td>
-              <td>Hoa Lan</td>
-              <td>TRƯA</td>
-              <td>XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>44</td>
-              <td>Hoa Lan</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>45</td>
-              <td>Thạnh Lộc</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>46</td>
-              <td>Thạnh Lộc</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>47</td>
-              <td>Thạnh Lộc</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>48</td>
-              <td>Thạnh Lộc</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>49</td>
-              <td>HH ông</td>
-              <td>TRƯA</td>
-              <td>CHÁO</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>50</td>
-              <td>HH ông</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>51</td>
-              <td>HH ông</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>52</td>
-              <td>HH ông</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>53</td>
-              <td>Gold - DQH</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>54</td>
-              <td>Gold - DQH</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>55</td>
-              <td>Gold - DQH</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>56</td>
-              <td>Gold - DQH</td>
-              <td>TRƯA</td>
-              <td>CHAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>57</td>
-              <td>CSĐB 2</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>58</td>
-              <td>CSĐB 2</td>
-              <td>TRƯA</td>
-              <td>CHÁO</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>59</td>
-              <td>CSĐB 2</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>60</td>
-              <td>CSĐB 2</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>61</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>CHÁO</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>62</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>63</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>64</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>CHAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>65</td>
-              <td>HH bà</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>66</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>67</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>CHÁO</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>68</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>69</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>70</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>CHAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>71</td>
-              <td>Care - AH</td>
-              <td>TRƯA</td>
-              <td>MÓN THAY THẾ</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>72</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>ỐNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>73</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>CƠM XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>74</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>THƯỜNG</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>75</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>XAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>76</td>
-              <td>CSĐB 1</td>
-              <td>TRƯA</td>
-              <td>CHAY</td>
-              <td>Canh cải thảo</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>77</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>78</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>79</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>80</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>81</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>82</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>83</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>84</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>85</td>
-              <td>Hoa Lan</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>86</td>
-              <td>Hoa Lan</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>87</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>88</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>89</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>90</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>91</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>92</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>93</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>94</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>95</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>96</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>97</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>98</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>99</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>100</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>101</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>102</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>103</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>104</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>105</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>106</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>107</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>108</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>109</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Trứng chiên hẹ</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>110</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>111</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>112</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>113</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>114</td>
-              <td>Hoa Lan</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>115</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>116</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>117</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>118</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>119</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>120</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>121</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>122</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>123</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>124</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>125</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>126</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>127</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>128</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Cơm trắng</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>129</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>130</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>131</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>132</td>
-              <td>Trung Xuân Thu - NT</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>133</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>134</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>135</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>136</td>
-              <td>CSTC</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>137</td>
-              <td>Hoa Lan</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>138</td>
-              <td>Hoa Lan</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>139</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>140</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>141</td>
-              <td>Thạnh Lộc</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>142</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>143</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>144</td>
-              <td>HH ông</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>145</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>146</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>147</td>
-              <td>Gold - DQH</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>148</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>149</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>150</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>151</td>
-              <td>CSĐB 2</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>152</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>153</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>154</td>
-              <td>HH bà</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>155</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>ỐNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>156</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>CHÁO</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>157</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>158</td>
-              <td>Care - AH</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>159</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>CƠM XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>160</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>THƯỜNG</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
-            <tr>
-              <td>161</td>
-              <td>CSĐB 1</td>
-              <td>CHIỀU</td>
-              <td>XAY</td>
-              <td>Canh chua rau muống</td>
-              <td>Thiếu map nồi</td>
-            </tr>
-          
         </tbody>
       </table>
     </section>
