@@ -1,636 +1,81 @@
-/* =========================================================
-   BÌNH MỸ - SHARED LED / NVL CSS
-   Dùng chung cho:
-   - nvl.html
-   - led.html
-   Phong cách: giống slide PowerPoint bảng led nền đen
-   ========================================================= */
-
-:root {
-  --bg: #000000;
-  --fg: #ffffff;
-  --grid: #5f5f5f;
-
-  --green: #00ff66;
-  --green-soft: #33ff99;
-  --red: #ff2a2a;
-  --yellow: #ffe600;
-  --pink: #ff4dff;
-  --cyan: #00ffff;
-  --orange: #ff9900;
-  --purple: #cc66ff;
-}
-
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: "Times New Roman", Times, serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111111;
 }
 
-/* Wrapper toàn bộ nhiều slide */
-.document,
-.deck,
-.slides-wrap,
-.page-wrap {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-}
-
-/* =========================================================
-   SLIDE CHUẨN
-   ========================================================= */
-.slide,
-.page,
-.led-slide,
-.report-slide,
-section.slide {
-  position: relative;
-  width: 1280px;
-  height: 720px;
-  margin: 0 auto;
-  padding: 18px 18px 14px 18px;
-  background: #000;
-  overflow: hidden;
+.led-page {
+  width: 1920px;
+  min-height: 1080px;
+  padding: 28px 36px;
+  background: #ffffff;
   page-break-after: always;
-  break-after: page;
 }
 
-.slide:last-child,
-.page:last-child,
-.led-slide:last-child,
-.report-slide:last-child {
-  page-break-after: auto;
-  break-after: auto;
-}
-
-/* Khoảng cách giữa các slide khi xem web */
-.slide + .slide,
-.page + .page,
-.led-slide + .led-slide,
-.report-slide + .report-slide {
-  margin-top: 16px;
-}
-
-/* =========================================================
-   TIÊU ĐỀ
-   ========================================================= */
-.slide-title,
-.page-title,
-.section-title,
-h1.slide-title,
-h1.page-title {
-  margin: 0 0 6px 0;
-  padding: 0;
+.led-title {
   text-align: center;
-  color: var(--green);
-  font-size: 25px;
-  line-height: 1.05;
+  font-size: 34px;
   font-weight: 700;
   text-transform: uppercase;
+  color: #0b3b67;
+  margin-bottom: 20px;
 }
 
-.slide-title.left,
-.page-title.left,
-.section-title.left {
-  text-align: left;
-}
-
-.slide-title.small,
-.page-title.small {
-  font-size: 22px;
-}
-
-.slide-subtitle,
-.page-subtitle,
-.date-label,
-.run-date {
-  margin: 0;
-  padding: 0;
-  color: var(--pink);
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.slide-subtitle.center,
-.page-subtitle.center,
-.date-label.center,
-.run-date.center {
-  text-align: center;
-}
-
-.top-date-left {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  color: var(--pink);
-  font-size: 18px;
-  font-weight: 700;
-  z-index: 3;
-}
-
-.top-date-right {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  color: var(--pink);
-  font-size: 18px;
-  font-weight: 700;
-  z-index: 3;
-}
-
-.top-buoi-right {
-  position: absolute;
-  top: 52px;
-  right: 18px;
-  color: var(--pink);
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  z-index: 3;
-}
-
-/* =========================================================
-   KHỐI NỘI DUNG
-   ========================================================= */
-.content,
-.slide-content,
-.page-content {
-  position: relative;
-  width: 100%;
-  height: calc(100% - 48px);
-}
-
-.row {
-  display: flex;
-  gap: 14px;
-  width: 100%;
-}
-
-.col {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.col-2 {
-  width: 50%;
-}
-
-.col-3 {
-  width: 33.3333%;
-}
-
-.col-4 {
-  width: 25%;
-}
-
-.stack > * + * {
-  margin-top: 10px;
-}
-
-/* =========================================================
-   TABLE CHUNG
-   ========================================================= */
-table {
+.led-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  background: #000;
-}
-
-th,
-td {
-  border: 1px solid var(--grid);
-  padding: 2px 5px;
-  background: #000;
-  color: #fff;
-  font-size: 15px;
-  line-height: 1.05;
-  vertical-align: middle;
-}
-
-th {
-  color: var(--red);
-  font-weight: 700;
-  text-align: center;
-}
-
-td {
-  font-weight: 700;
-}
-
-thead th {
-  height: 28px;
-}
-
-tbody td {
-  height: 24px;
-}
-
-/* canh */
-td.num,
-th.num,
-td.right,
-th.right {
-  text-align: right;
-}
-
-td.center,
-th.center {
-  text-align: center;
-}
-
-td.left,
-th.left {
-  text-align: left;
-}
-
-/* =========================================================
-   TABLE LED CHÍNH
-   ========================================================= */
-.led-table,
-.nvl-table,
-.report-table,
-table.led,
-table.nvl {
-  width: 100%;
-  border-collapse: collapse;
+  font-size: 24px;
 }
 
 .led-table th,
-.nvl-table th,
-.report-table th,
-table.led th,
-table.nvl th {
-  color: var(--red);
-  font-size: 16px;
+.led-table td {
+  border: 2px solid #000000;
+  padding: 10px 12px;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.led-table th {
+  background: #dbe8f5;
   font-weight: 700;
-}
-
-.led-table td,
-.nvl-table td,
-.report-table td,
-table.led td,
-table.nvl td {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.led-table .head-green,
-.nvl-table .head-green,
-.text-green {
-  color: var(--green) !important;
-}
-
-.led-table .head-yellow,
-.nvl-table .head-yellow,
-.text-yellow {
-  color: var(--yellow) !important;
-}
-
-.led-table .head-pink,
-.nvl-table .head-pink,
-.text-pink {
-  color: var(--pink) !important;
-}
-
-.led-table .head-cyan,
-.nvl-table .head-cyan,
-.text-cyan {
-  color: var(--cyan) !important;
-}
-
-.led-table .head-orange,
-.nvl-table .head-orange,
-.text-orange {
-  color: var(--orange) !important;
-}
-
-.led-table .head-red,
-.nvl-table .head-red,
-.text-red {
-  color: var(--red) !important;
-}
-
-.led-table .muted,
-.nvl-table .muted,
-.text-muted {
-  color: #bdbdbd !important;
-}
-
-/* số lượng */
-.qty,
-.kg,
-.portion,
-.total,
-.sum {
-  color: var(--red);
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.qty-yellow {
-  color: var(--yellow) !important;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.qty-green {
-  color: var(--green) !important;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.qty-pink {
-  color: var(--pink) !important;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-/* =========================================================
-   CÁC BẢNG ĐẶC THÙ
-   ========================================================= */
-
-/* Bảng rau, nvl tổng */
-.table-ingredient th:nth-child(1),
-.table-ingredient td:nth-child(1) {
-  width: 9%;
   text-align: center;
 }
 
-.table-ingredient th:nth-child(2),
-.table-ingredient td:nth-child(2) {
-  width: 34%;
-  text-align: left;
-}
-
-.table-ingredient th:nth-child(3),
-.table-ingredient td:nth-child(3) {
-  width: 10%;
+.c {
   text-align: center;
 }
 
-.table-ingredient th:nth-child(4),
-.table-ingredient td:nth-child(4),
-.table-ingredient th:nth-child(5),
-.table-ingredient td:nth-child(5),
-.table-ingredient th:nth-child(6),
-.table-ingredient td:nth-child(6),
-.table-ingredient th:nth-child(7),
-.table-ingredient td:nth-child(7) {
-  width: 11.75%;
+.r {
   text-align: right;
 }
 
-/* Bảng khẩu phần */
-.table-portion th,
-.table-portion td {
-  font-size: 14px;
+.col-stt {
+  width: 80px;
 }
 
-.table-portion th:nth-child(1),
-.table-portion td:nth-child(1) {
-  width: 24%;
-  text-align: left;
+.col-type {
+  width: 180px;
 }
 
-.table-portion th:nth-child(2),
-.table-portion td:nth-child(2) {
-  width: 10%;
-  text-align: center;
+.col-kg {
+  width: 180px;
 }
 
-.table-portion th:nth-child(n + 3),
-.table-portion td:nth-child(n + 3) {
-  text-align: center;
+.col-site {
+  width: 320px;
 }
 
-/* Bảng menu tuần */
-.table-weekly-menu th,
-.table-weekly-menu td {
-  text-align: center;
-  font-size: 15px;
-  padding: 7px 5px;
+.col-pot {
+  width: 180px;
 }
 
-.table-weekly-menu thead th {
-  color: var(--red);
-  font-size: 17px;
-}
-
-.table-weekly-menu .day-col {
-  color: var(--red);
-}
-
-.table-weekly-menu .date-row th {
-  color: var(--red);
-}
-
-.table-weekly-menu .dish {
-  color: var(--green);
-}
-
-/* =========================================================
-   CỤM TEXT KIỂU PPT
-   ========================================================= */
-.info-block,
-.ppt-block,
-.kv-block {
-  background: transparent;
-  color: #fff;
-}
-
-.info-title,
-.block-title {
-  color: var(--red);
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0 0 4px 0;
-}
-
-.info-line,
-.block-line,
-.kv-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 1px 0;
-  font-size: 18px;
-  line-height: 1.1;
-  font-weight: 700;
-}
-
-.info-line .label,
-.block-line .label,
-.kv-line .label {
-  color: #fff;
-}
-
-.info-line .value,
-.block-line .value,
-.kv-line .value {
-  color: var(--green);
-}
-
-.info-line .value-red,
-.block-line .value-red {
-  color: var(--red);
-}
-
-.info-line .value-yellow,
-.block-line .value-yellow {
-  color: var(--yellow);
-}
-
-.info-line .value-pink,
-.block-line .value-pink {
-  color: var(--pink);
-}
-
-/* =========================================================
-   BỐ CỤC CÁC SLIDE THƯỜNG GẶP
-   ========================================================= */
-
-/* Slide chỉ có 1 bảng full */
-.layout-full-table .table-wrap,
-.layout-full .table-wrap {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  top: 72px;
-  bottom: 16px;
-}
-
-.layout-full-table table,
-.layout-full table {
-  height: 100%;
-}
-
-/* Slide chia đôi */
-.layout-two-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.layout-two-cols .left-pane,
-.layout-two-cols .right-pane {
-  min-width: 0;
-}
-
-/* Slide có text trái phải ở trên */
-.layout-top-stats .stats-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 8px;
-}
-
-.layout-top-stats .stats-col {
-  width: 32%;
-}
-
-/* =========================================================
-   CLASS MÀU CHO DỮ LIỆU
-   ========================================================= */
-.green { color: var(--green) !important; }
-.green-soft { color: var(--green-soft) !important; }
-.red { color: var(--red) !important; }
-.yellow { color: var(--yellow) !important; }
-.pink { color: var(--pink) !important; }
-.cyan { color: var(--cyan) !important; }
-.orange { color: var(--orange) !important; }
-.purple { color: var(--purple) !important; }
-.white { color: #fff !important; }
-
-.bold { font-weight: 700 !important; }
-.upper { text-transform: uppercase !important; }
-.nowrap { white-space: nowrap !important; }
-
-/* =========================================================
-   COVER / HEADER
-   ========================================================= */
-.cover-slide,
-.slide-cover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.cover-slide .cover-inner,
-.slide-cover .cover-inner {
-  width: 92%;
-}
-
-.cover-slide .cover-title,
-.slide-cover .cover-title {
-  color: var(--green);
-  font-size: 42px;
-  line-height: 1.1;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0 0 10px 0;
-}
-
-.cover-slide .cover-date,
-.slide-cover .cover-date {
-  color: var(--pink);
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0;
-}
-
-/* =========================================================
-   HELPERS
-   ========================================================= */
-.mt-2 { margin-top: 2px !important; }
-.mt-4 { margin-top: 4px !important; }
-.mt-6 { margin-top: 6px !important; }
-.mt-8 { margin-top: 8px !important; }
-.mt-10 { margin-top: 10px !important; }
-.mt-12 { margin-top: 12px !important; }
-
-.mb-2 { margin-bottom: 2px !important; }
-.mb-4 { margin-bottom: 4px !important; }
-.mb-6 { margin-bottom: 6px !important; }
-.mb-8 { margin-bottom: 8px !important; }
-
-.p-0 { padding: 0 !important; }
-.w-100 { width: 100% !important; }
-.h-100 { height: 100% !important; }
-
-/* =========================================================
-   IN
-   ========================================================= */
-@media print {
-  html,
-  body {
-    background: #000 !important;
-  }
-
-  .slide,
-  .page,
-  .led-slide,
-  .report-slide {
-    margin: 0 auto !important;
-  }
-
-  @page {
-    size: 1280px 720px;
-    margin: 0;
-  }
+.col-sl {
+  width: 180px;
 }
