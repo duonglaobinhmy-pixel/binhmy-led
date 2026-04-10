@@ -2,85 +2,277 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
-  <title>Bảng LED Bình Mỹ 10/04/2026</title>
+  <title>Bảng LED Bình Mỹ 11/04/2026</title>
   <style>
     * { box-sizing: border-box; }
-    body {
+
+    html, body {
       margin: 0;
-      background: #111;
-      font-family: Arial, Helvetica, sans-serif;
+      padding: 0;
+      background: #000;
       color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    .deck {
+
+    body {
       width: 1366px;
       margin: 0 auto;
-      background: #111;
     }
+
+    .deck {
+      width: 1366px;
+      background: #000;
+    }
+
     .slide {
       width: 1366px;
       min-height: 768px;
-      padding: 28px 32px;
-      border-bottom: 4px solid #222;
       background: #000;
+      padding: 18px 18px 20px 18px;
       page-break-after: always;
+      border-bottom: 4px solid #1e1e1e;
+      position: relative;
+      overflow: hidden;
     }
-    .title-main {
-      font-size: 42px;
-      font-weight: 800;
+
+    .led-header {
       text-align: center;
-      color: #f7f769;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
-    .title-sub {
-      font-size: 26px;
-      font-weight: 800;
-      text-align: center;
-      color: #56e0ff;
-      margin-bottom: 4px;
+
+    .led-title {
+      color: #e9ea4b;
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
     }
-    .sub-date {
+
+    .led-subtitle {
+      color: #35d6ff;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .led-subtitle-2 {
+      color: #2cff9d;
       font-size: 20px;
-      text-align: center;
-      color: #ff74c6;
-      margin-bottom: 18px;
+      font-weight: 900;
+      margin-bottom: 3px;
     }
-    table.grid {
+
+    .led-date {
+      color: #ff3ad7;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .hero-rau {
+      color: #ff00d9;
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      margin: 4px 0 20px 6px;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .hero-date {
+      color: #ff00d9;
+      font-size: 50px;
+      font-weight: 900;
+      line-height: 1;
+      margin: 0 0 10px 6px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
-      font-size: 20px;
     }
-    table.grid th,
-    table.grid td {
-      border: 2px solid #3a3a3a;
-      padding: 8px 10px;
+
+    .grid th,
+    .grid td,
+    .portion-grid th,
+    .portion-grid td,
+    .rau-table th,
+    .rau-table td {
+      border: 1.5px solid #d8d8d8;
+      padding: 6px 8px;
       vertical-align: middle;
-      word-wrap: break-word;
+      word-break: break-word;
     }
-    table.grid th {
-      background: #1b1b1b;
-      color: #7dff7d;
-      font-weight: 800;
-    }
-    table.grid td {
+
+    .grid th,
+    .portion-grid th,
+    .rau-table th {
       background: #070707;
+      font-weight: 900;
+    }
+
+    .grid td,
+    .portion-grid td,
+    .rau-table td {
+      background: #000;
+    }
+
+    .ingredient-grid {
+      font-size: 19px;
+    }
+
+    .ingredient-grid th {
+      color: #77ff77;
+      font-size: 18px;
+    }
+
+    .ingredient-grid td {
       color: #fff;
-    }
-    .num {
-      text-align: right;
+      font-size: 17px;
       font-weight: 700;
-      color: #fff6a5;
     }
-    .red {
-      color: #ff8e8e !important;
+
+    .portion-slide {
+      padding-top: 8px;
     }
-    .center {
+
+    .portion-main-title {
+      color: #00ff8c;
+      font-size: 38px;
+      font-weight: 900;
       text-align: center;
+      text-transform: uppercase;
+      margin: 4px 0 6px 0;
+      font-family: Georgia, "Times New Roman", serif;
     }
+
+    .portion-side-date {
+      color: #ff00d9;
+      font-size: 26px;
+      font-weight: 900;
+      position: absolute;
+      left: 80px;
+      top: 112px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .portion-side-meal {
+      color: #ff00d9;
+      font-size: 28px;
+      font-weight: 900;
+      position: absolute;
+      right: 18px;
+      top: 112px;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .portion-grid {
+      margin-top: 70px;
+      font-size: 14px;
+    }
+
+    .portion-grid th {
+      text-align: center;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.15;
+      padding: 8px 4px;
+    }
+
+    .portion-grid .site-group {
+      color: #ff2a2a;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: #000;
+    }
+
+    .portion-grid .menu-col {
+      width: 255px;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .portion-grid .total-col {
+      width: 90px;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .portion-grid td {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      min-height: 34px;
+    }
+
+    .menu-name {
+      color: #ffffff;
+      font-size: 18px !important;
+      font-weight: 900 !important;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .red-total {
+      color: #ff2f2f !important;
+      font-size: 18px !important;
+      font-weight: 900 !important;
+    }
+
+    .yellow {
+      color: #ffd53a !important;
+      font-weight: 900 !important;
+    }
+
+    .big-white {
+      color: #ffffff !important;
+      font-size: 18px !important;
+      font-weight: 900 !important;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .rau-table {
+      margin-top: 6px;
+      font-size: 18px;
+    }
+
+    .rau-table th {
+      color: #ff2a2a;
+      font-size: 26px;
+      font-weight: 900;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      padding: 10px 4px;
+    }
+
+    .rau-table td {
+      font-size: 20px;
+      padding: 10px 8px;
+    }
+
+    .left { text-align: left; }
+    .center { text-align: center; }
+    .num { text-align: right; }
+
     .total-row td {
-      background: #141414 !important;
-      font-weight: 800;
+      background: #070707 !important;
+      font-weight: 900;
+    }
+
+    .empty-cell {
+      color: #d7d7d7;
+      font-size: 18px;
+      font-style: italic;
+      padding: 16px 8px !important;
     }
   </style>
 </head>
@@ -88,35 +280,134 @@
   <div class="deck">
     
     <section class="slide">
-      
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG RAU</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
+      <div class="hero-rau">RAU</div>
+      <div class="hero-date">11-04-2026</div>
+
+      <table class="rau-table">
         <thead>
           <tr>
-            <th>STT</th>
             <th>Tên</th>
-            <th>Đơn vị</th>
+            <th></th>
             <th>Tổng</th>
             <th>Sáng</th>
             <th>Trưa</th>
             <th>Chiều</th>
           </tr>
         </thead>
-        <tbody><tr><td colspan="7" class="center">Không có dữ liệu</td></tr></tbody>
+        <tbody>
+      <tr>
+        <td class="left big-white">ĐẬU BẮP</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">26.972,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white"></td>
+        <td class="num big-white">26.972,00</td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">HÀNH TÂY</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">7.597,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white">241,00</td>
+        <td class="num big-white">7.356,00</td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">Cà rốt</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">4.827,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white">1.671,00</td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">CÀ CHUA</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">3.463,00</td>
+        <td class="num big-white">3.222,00</td>
+        <td class="num big-white">241,00</td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">CẢI DÚN</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">2.461,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white">2.461,00</td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">NẤM ĐÔNG CÔ</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">2.345,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white">241,00</td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">HÀNH LÁ</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">2.148,00</td>
+        <td class="num big-white">2.148,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">Bắp mỹ</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">1.609,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white">557,00</td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">NGÒ RÍ</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">1.074,00</td>
+        <td class="num big-white">1.074,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">Cải ngọt</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">526,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white"></td>
+        <td class="num big-white"></td>
+      </tr>
+    
+      <tr>
+        <td class="left big-white">ỚT CHUÔNG</td>
+        <td class="center big-white">Kg</td>
+        <td class="num big-white">241,00</td>
+        <td class="num big-white"></td>
+        <td class="num big-white">241,00</td>
+        <td class="num big-white"></td>
+      </tr>
+    </tbody>
       </table>
     </section>
   
 
     <section class="slide">
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
-    <div class="sub-date">10-04-2026</div>
+    <div class="led-header">
+      <div class="led-title">BẢNG LED BÌNH MỸ</div>
+      <div class="led-subtitle">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+      
+      <div class="led-date">11-04-2026</div>
+    </div>
   
-      <table class="grid">
+      <table class="grid ingredient-grid">
         <thead>
           <tr>
             <th>STT</th>
@@ -126,32 +417,217 @@
             <th>Đơn vị</th>
           </tr>
         </thead>
-        <tbody><tr><td colspan="5" class="center">Không có dữ liệu</td></tr></tbody>
+        <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td>DAM</td>
+        <td>Nước</td>
+        <td class="num">1.611,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">2</td>
+        <td>DAM</td>
+        <td>TRỨNG GÀ</td>
+        <td class="num">537,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">3</td>
+        <td>GIA_VI</td>
+        <td>MÌ TRẦN KHÔNG GIA VỊ</td>
+        <td class="num">18.795,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">4</td>
+        <td>RAU</td>
+        <td>CÀ CHUA</td>
+        <td class="num">3.222,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">5</td>
+        <td>RAU</td>
+        <td>HÀNH LÁ</td>
+        <td class="num">2.148,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">6</td>
+        <td>RAU</td>
+        <td>NGÒ RÍ</td>
+        <td class="num">1.074,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">7</td>
+        <td>TINH_BOT</td>
+        <td>MÌ TRẦN KHÔNG GIA VỊ</td>
+        <td class="num">18.795,00</td>
+        <td>Kg</td>
+      </tr>
+    </tbody>
       </table>
     </section>
   
 
-    <section class="slide">
-      
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
+    <section class="slide portion-slide">
+      <div class="portion-main-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
+      <div class="portion-side-date">11-04-2026</div>
+      <div class="portion-side-meal">SÁNG</div>
+
+      <table class="portion-grid">
         <thead>
           <tr>
-            <th>STT</th>
-            <th>Món ăn</th>
-            <th>Tổng số cụ</th>
-            <th>Thạnh Lộc</th><th>Gold - DQH</th><th>Trung Xuân Thu - NT</th><th>Care - AH</th>
+            <th class="menu-col" rowspan="2">Thực đơn</th>
+            <th class="total-col" rowspan="2">Tổng số phần</th>
+            
+    <th class="site-group" colspan="3">Thạnh Lộc</th>
+  
+    <th class="site-group" colspan="3">Gold - DQH</th>
+  
+    <th class="site-group" colspan="3">Trung Xuân Thu - NT</th>
+  
+    <th class="site-group" colspan="3">Care - AH</th>
+  
+          </tr>
+          <tr>
+            
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="7" class="center">Không có dữ liệu</td></tr>
+          <tr><td colspan="14" class="center empty-cell">Không có dữ liệu</td></tr>
           <tr class="total-row">
-            <td colspan="2">Tổng số cụ</td>
-            <td class="num red">0</td>
-            <td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td>
+            <td class="left">Tổng số cụ</td>
+            <td class="num red-total">0</td>
+            
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  
+
+    <section class="slide portion-slide">
+      <div class="portion-main-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
+      <div class="portion-side-date">11-04-2026</div>
+      <div class="portion-side-meal">SÁNG</div>
+
+      <table class="portion-grid">
+        <thead>
+          <tr>
+            <th class="menu-col" rowspan="2">Thực đơn</th>
+            <th class="total-col" rowspan="2">Tổng số phần</th>
+            
+    <th class="site-group" colspan="3">Hoa Hồng Ông</th>
+  
+    <th class="site-group" colspan="3">Hoa Hồng Bà</th>
+  
+    <th class="site-group" colspan="3">CSĐB 1</th>
+  
+    <th class="site-group" colspan="3">CSĐB 2</th>
+  
+    <th class="site-group" colspan="3">Hoa Lan</th>
+  
+    <th class="site-group" colspan="3">CSTC</th>
+  
+          </tr>
+          <tr>
+            
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="20" class="center empty-cell">Không có dữ liệu</td></tr>
+          <tr class="total-row">
+            <td class="left">Tổng số cụ</td>
+            <td class="num red-total">0</td>
+            
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
           </tr>
         </tbody>
       </table>
@@ -160,38 +636,14 @@
 
     <section class="slide">
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Món ăn</th>
-            <th>Tổng số cụ</th>
-            <th>Hoa Hồng Ông</th><th>Hoa Hồng Bà</th><th>CSĐB 1</th><th>CSĐB 2</th><th>Hoa Lan</th><th>CSTC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="9" class="center">Không có dữ liệu</td></tr>
-          <tr class="total-row">
-            <td colspan="2">Tổng số cụ</td>
-            <td class="num red">0</td>
-            <td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
+    <div class="led-header">
+      <div class="led-title">BẢNG LED BÌNH MỸ</div>
+      <div class="led-subtitle">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY 650, ĐỒ ỐNG - TRƯA</div>
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY 650, ĐỒ ỐNG - TRƯA</div>
-    <div class="sub-date">10-04-2026</div>
+      <div class="led-date">11-04-2026</div>
+    </div>
   
-      <table class="grid">
+      <table class="grid ingredient-grid">
         <thead>
           <tr>
             <th>STT</th>
@@ -201,18 +653,109 @@
             <th>Đơn vị</th>
           </tr>
         </thead>
-        <tbody><tr><td colspan="5" class="center">Không có dữ liệu</td></tr></tbody>
+        <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td>DAM</td>
+        <td>THỊT HEO XAY</td>
+        <td class="num">3.395,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">2</td>
+        <td>DAM</td>
+        <td>PHI LÊ BA SA</td>
+        <td class="num">485,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">3</td>
+        <td>GIA_VI</td>
+        <td>GẠO</td>
+        <td class="num">4.365,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">4</td>
+        <td>RAU</td>
+        <td>CẢI DÚN</td>
+        <td class="num">2.425,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">5</td>
+        <td>RAU</td>
+        <td>Cà rốt</td>
+        <td class="num">1.455,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">6</td>
+        <td>RAU</td>
+        <td>Bắp mỹ</td>
+        <td class="num">485,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">7</td>
+        <td>RAU</td>
+        <td>CÀ CHUA</td>
+        <td class="num">97,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">8</td>
+        <td>RAU</td>
+        <td>HÀNH TÂY</td>
+        <td class="num">97,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">9</td>
+        <td>RAU</td>
+        <td>NẤM ĐÔNG CÔ</td>
+        <td class="num">97,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">10</td>
+        <td>RAU</td>
+        <td>ỚT CHUÔNG</td>
+        <td class="num">97,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">11</td>
+        <td>TINH_BOT</td>
+        <td>GẠO</td>
+        <td class="num">4.365,00</td>
+        <td>Kg</td>
+      </tr>
+    </tbody>
       </table>
     </section>
   
 
     <section class="slide">
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG NGUYÊN LIỆU BỮA TRƯA</div>
-    <div class="sub-date">10-04-2026</div>
+    <div class="led-header">
+      <div class="led-title">BẢNG LED BÌNH MỸ</div>
+      <div class="led-subtitle">BẢNG NGUYÊN LIỆU BỮA TRƯA</div>
+      
+      <div class="led-date">11-04-2026</div>
+    </div>
   
-      <table class="grid">
+      <table class="grid ingredient-grid">
         <thead>
           <tr>
             <th>STT</th>
@@ -222,32 +765,249 @@
             <th>Đơn vị</th>
           </tr>
         </thead>
-        <tbody><tr><td colspan="5" class="center">Không có dữ liệu</td></tr></tbody>
+        <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td>DAM</td>
+        <td>THỊT HEO XAY</td>
+        <td class="num">504,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">2</td>
+        <td>DAM</td>
+        <td>PHI LÊ BA SA</td>
+        <td class="num">72,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">3</td>
+        <td>GIA_VI</td>
+        <td>GẠO</td>
+        <td class="num">648,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">4</td>
+        <td>RAU</td>
+        <td>Cà rốt</td>
+        <td class="num">216,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">5</td>
+        <td>RAU</td>
+        <td>CÀ CHUA</td>
+        <td class="num">144,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">6</td>
+        <td>RAU</td>
+        <td>HÀNH TÂY</td>
+        <td class="num">144,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">7</td>
+        <td>RAU</td>
+        <td>NẤM ĐÔNG CÔ</td>
+        <td class="num">144,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">8</td>
+        <td>RAU</td>
+        <td>ỚT CHUÔNG</td>
+        <td class="num">144,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">9</td>
+        <td>RAU</td>
+        <td>Bắp mỹ</td>
+        <td class="num">72,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">10</td>
+        <td>RAU</td>
+        <td>CẢI DÚN</td>
+        <td class="num">36,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">11</td>
+        <td>TINH_BOT</td>
+        <td>GẠO</td>
+        <td class="num">648,00</td>
+        <td>Kg</td>
+      </tr>
+    </tbody>
       </table>
     </section>
   
 
-    <section class="slide">
-      
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
+    <section class="slide portion-slide">
+      <div class="portion-main-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
+      <div class="portion-side-date">11-04-2026</div>
+      <div class="portion-side-meal">TRƯA</div>
+
+      <table class="portion-grid">
         <thead>
           <tr>
-            <th>STT</th>
-            <th>Món ăn</th>
-            <th>Tổng số cụ</th>
-            <th>Thạnh Lộc</th><th>Gold - DQH</th><th>Trung Xuân Thu - NT</th><th>Care - AH</th>
+            <th class="menu-col" rowspan="2">Thực đơn</th>
+            <th class="total-col" rowspan="2">Tổng số phần</th>
+            
+    <th class="site-group" colspan="3">Thạnh Lộc</th>
+  
+    <th class="site-group" colspan="3">Gold - DQH</th>
+  
+    <th class="site-group" colspan="3">Trung Xuân Thu - NT</th>
+  
+    <th class="site-group" colspan="3">Care - AH</th>
+  
+          </tr>
+          <tr>
+            
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="7" class="center">Không có dữ liệu</td></tr>
+          <tr><td colspan="14" class="center empty-cell">Không có dữ liệu</td></tr>
           <tr class="total-row">
-            <td colspan="2">Tổng số cụ</td>
-            <td class="num red">0</td>
-            <td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td>
+            <td class="left">Tổng số cụ</td>
+            <td class="num red-total">0</td>
+            
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  
+
+    <section class="slide portion-slide">
+      <div class="portion-main-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
+      <div class="portion-side-date">11-04-2026</div>
+      <div class="portion-side-meal">TRƯA</div>
+
+      <table class="portion-grid">
+        <thead>
+          <tr>
+            <th class="menu-col" rowspan="2">Thực đơn</th>
+            <th class="total-col" rowspan="2">Tổng số phần</th>
+            
+    <th class="site-group" colspan="3">Hoa Hồng Ông</th>
+  
+    <th class="site-group" colspan="3">Hoa Hồng Bà</th>
+  
+    <th class="site-group" colspan="3">CSĐB 1</th>
+  
+    <th class="site-group" colspan="3">CSĐB 2</th>
+  
+    <th class="site-group" colspan="3">Hoa Lan</th>
+  
+    <th class="site-group" colspan="3">CSTC</th>
+  
+          </tr>
+          <tr>
+            
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="20" class="center empty-cell">Không có dữ liệu</td></tr>
+          <tr class="total-row">
+            <td class="left">Tổng số cụ</td>
+            <td class="num red-total">0</td>
+            
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
           </tr>
         </tbody>
       </table>
@@ -256,38 +1016,14 @@
 
     <section class="slide">
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Món ăn</th>
-            <th>Tổng số cụ</th>
-            <th>Hoa Hồng Ông</th><th>Hoa Hồng Bà</th><th>CSĐB 1</th><th>CSĐB 2</th><th>Hoa Lan</th><th>CSTC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="9" class="center">Không có dữ liệu</td></tr>
-          <tr class="total-row">
-            <td colspan="2">Tổng số cụ</td>
-            <td class="num red">0</td>
-            <td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
+    <div class="led-header">
+      <div class="led-title">BẢNG LED BÌNH MỸ</div>
+      <div class="led-subtitle">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY 650, ĐỒ ỐNG - CHIỀU</div>
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY 650, ĐỒ ỐNG - CHIỀU</div>
-    <div class="sub-date">10-04-2026</div>
+      <div class="led-date">11-04-2026</div>
+    </div>
   
-      <table class="grid">
+      <table class="grid ingredient-grid">
         <thead>
           <tr>
             <th>STT</th>
@@ -297,18 +1033,37 @@
             <th>Đơn vị</th>
           </tr>
         </thead>
-        <tbody><tr><td colspan="5" class="center">Không có dữ liệu</td></tr></tbody>
+        <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td>RAU</td>
+        <td>ĐẬU BẮP</td>
+        <td class="num">26.565,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">2</td>
+        <td>RAU</td>
+        <td>HÀNH TÂY</td>
+        <td class="num">7.245,00</td>
+        <td>Kg</td>
+      </tr>
+    </tbody>
       </table>
     </section>
   
 
     <section class="slide">
       
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG NGUYÊN LIỆU BỮA CHIỀU</div>
-    <div class="sub-date">10-04-2026</div>
+    <div class="led-header">
+      <div class="led-title">BẢNG LED BÌNH MỸ</div>
+      <div class="led-subtitle">BẢNG NGUYÊN LIỆU BỮA CHIỀU</div>
+      
+      <div class="led-date">11-04-2026</div>
+    </div>
   
-      <table class="grid">
+      <table class="grid ingredient-grid">
         <thead>
           <tr>
             <th>STT</th>
@@ -318,59 +1073,177 @@
             <th>Đơn vị</th>
           </tr>
         </thead>
-        <tbody><tr><td colspan="5" class="center">Không có dữ liệu</td></tr></tbody>
+        <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td>RAU</td>
+        <td>ĐẬU BẮP</td>
+        <td class="num">407,00</td>
+        <td>Kg</td>
+      </tr>
+    
+      <tr>
+        <td class="center">2</td>
+        <td>RAU</td>
+        <td>HÀNH TÂY</td>
+        <td class="num">111,00</td>
+        <td>Kg</td>
+      </tr>
+    </tbody>
       </table>
     </section>
   
 
-    <section class="slide">
-      
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
+    <section class="slide portion-slide">
+      <div class="portion-main-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
+      <div class="portion-side-date">11-04-2026</div>
+      <div class="portion-side-meal">CHIỀU</div>
+
+      <table class="portion-grid">
         <thead>
           <tr>
-            <th>STT</th>
-            <th>Món ăn</th>
-            <th>Tổng số cụ</th>
-            <th>Thạnh Lộc</th><th>Gold - DQH</th><th>Trung Xuân Thu - NT</th><th>Care - AH</th>
+            <th class="menu-col" rowspan="2">Thực đơn</th>
+            <th class="total-col" rowspan="2">Tổng số phần</th>
+            
+    <th class="site-group" colspan="3">Thạnh Lộc</th>
+  
+    <th class="site-group" colspan="3">Gold - DQH</th>
+  
+    <th class="site-group" colspan="3">Trung Xuân Thu - NT</th>
+  
+    <th class="site-group" colspan="3">Care - AH</th>
+  
+          </tr>
+          <tr>
+            
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="7" class="center">Không có dữ liệu</td></tr>
+          <tr><td colspan="14" class="center empty-cell">Không có dữ liệu</td></tr>
           <tr class="total-row">
-            <td colspan="2">Tổng số cụ</td>
-            <td class="num red">0</td>
-            <td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td>
+            <td class="left">Tổng số cụ</td>
+            <td class="num red-total">0</td>
+            
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
           </tr>
         </tbody>
       </table>
     </section>
   
 
-    <section class="slide">
-      
-    <div class="title-main">BẢNG LED BÌNH MỸ</div>
-    <div class="title-sub">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
-    <div class="sub-date">10-04-2026</div>
-  
-      <table class="grid">
+    <section class="slide portion-slide">
+      <div class="portion-main-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
+      <div class="portion-side-date">11-04-2026</div>
+      <div class="portion-side-meal">CHIỀU</div>
+
+      <table class="portion-grid">
         <thead>
           <tr>
-            <th>STT</th>
-            <th>Món ăn</th>
-            <th>Tổng số cụ</th>
-            <th>Hoa Hồng Ông</th><th>Hoa Hồng Bà</th><th>CSĐB 1</th><th>CSĐB 2</th><th>Hoa Lan</th><th>CSTC</th>
+            <th class="menu-col" rowspan="2">Thực đơn</th>
+            <th class="total-col" rowspan="2">Tổng số phần</th>
+            
+    <th class="site-group" colspan="3">Hoa Hồng Ông</th>
+  
+    <th class="site-group" colspan="3">Hoa Hồng Bà</th>
+  
+    <th class="site-group" colspan="3">CSĐB 1</th>
+  
+    <th class="site-group" colspan="3">CSĐB 2</th>
+  
+    <th class="site-group" colspan="3">Hoa Lan</th>
+  
+    <th class="site-group" colspan="3">CSTC</th>
+  
+          </tr>
+          <tr>
+            
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
+    <th>SL NCT</th>
+    <th>Loại nồi</th>
+    <th>KL (kg)</th>
+  
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="9" class="center">Không có dữ liệu</td></tr>
+          <tr><td colspan="20" class="center empty-cell">Không có dữ liệu</td></tr>
           <tr class="total-row">
-            <td colspan="2">Tổng số cụ</td>
-            <td class="num red">0</td>
-            <td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td><td class="num red">0</td>
+            <td class="left">Tổng số cụ</td>
+            <td class="num red-total">0</td>
+            
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
+      <td class="num red-total">0</td>
+      <td></td>
+      <td class="num red-total"></td>
+    
           </tr>
         </tbody>
       </table>
