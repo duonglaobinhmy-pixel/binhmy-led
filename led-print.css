@@ -1,22 +1,31 @@
 @media screen {
   body {
     overflow-x: auto;
+    background: #e9edf2;
   }
 
   .led-page {
-    margin: 0 auto 24px auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   }
 }
 
 @media print {
-  html, body {
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  html,
+  body {
     width: 1920px;
     height: auto;
+    background: #ffffff;
   }
 
   .led-page {
     margin: 0;
-    break-after: page;
+    box-shadow: none;
     page-break-after: always;
+    break-after: page;
   }
 }
