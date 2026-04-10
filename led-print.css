@@ -1,11 +1,18 @@
 @media screen {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #dfe6ec;
+  }
+
   body {
     overflow-x: auto;
-    background: #e9edf2;
+    overflow-y: auto;
   }
 
   .led-page {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.12);
   }
 }
 
@@ -19,7 +26,11 @@
   body {
     width: 1920px;
     height: auto;
+    margin: 0;
+    padding: 0;
     background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .led-page {
@@ -27,5 +38,10 @@
     box-shadow: none;
     page-break-after: always;
     break-after: page;
+  }
+
+  .led-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
   }
 }
