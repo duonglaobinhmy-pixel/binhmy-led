@@ -2,50 +2,83 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background: #ffffff;
+  background: #f3f3f3;
   font-family: Arial, Helvetica, sans-serif;
   color: #111111;
+}
+
+.led-body {
+  margin: 0;
+  padding: 0;
 }
 
 .led-page {
   width: 1920px;
   min-height: 1080px;
-  padding: 28px 36px;
+  margin: 0 auto 28px auto;
+  padding: 26px 34px 26px 34px;
   background: #ffffff;
   page-break-after: always;
+  break-after: page;
+}
+
+.led-page-head {
+  margin-bottom: 14px;
 }
 
 .led-title {
   text-align: center;
   font-size: 34px;
   font-weight: 700;
+  line-height: 1.15;
   text-transform: uppercase;
   color: #0b3b67;
-  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+}
+
+.led-date {
+  text-align: right;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
 }
 
 .led-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  font-size: 24px;
+  font-size: 23px;
+  background: #ffffff;
 }
 
 .led-table th,
 .led-table td {
   border: 2px solid #000000;
-  padding: 10px 12px;
+  padding: 8px 10px;
   vertical-align: middle;
   word-break: break-word;
+  line-height: 1.15;
 }
 
 .led-table th {
   background: #dbe8f5;
+  color: #111111;
   font-weight: 700;
   text-align: center;
+}
+
+.led-table tbody td {
+  background: #ffffff;
+}
+
+.ingredient-table tbody tr:nth-child(even) td,
+.portion-table tbody tr:nth-child(even) td {
+  background: #fbfdff;
 }
 
 .c {
@@ -56,26 +89,38 @@ html, body {
   text-align: right;
 }
 
+.empty {
+  height: 72px;
+  font-style: italic;
+  color: #666666;
+}
+
 .col-stt {
-  width: 80px;
+  width: 74px;
 }
 
 .col-type {
-  width: 180px;
+  width: 170px;
 }
 
 .col-kg {
-  width: 180px;
+  width: 170px;
 }
 
 .col-site {
-  width: 320px;
+  width: 300px;
 }
 
 .col-pot {
-  width: 180px;
+  width: 170px;
 }
 
 .col-sl {
-  width: 180px;
+  width: 150px;
+}
+
+.ingredient-table td:nth-child(2),
+.portion-table td:nth-child(2),
+.portion-table td:nth-child(3) {
+  font-weight: 600;
 }
