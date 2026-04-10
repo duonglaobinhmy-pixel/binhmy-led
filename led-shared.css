@@ -6,7 +6,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #f3f3f3;
+  background: #eef2f5;
   font-family: Arial, Helvetica, sans-serif;
   color: #111111;
 }
@@ -20,53 +20,68 @@ body {
   width: 1920px;
   min-height: 1080px;
   margin: 0 auto 28px auto;
-  padding: 26px 34px 26px 34px;
+  padding: 22px 28px 20px 28px;
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
   page-break-after: always;
   break-after: page;
 }
 
 .led-page-head {
-  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
 .led-title {
   text-align: center;
-  font-size: 34px;
+  font-size: 42px;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.05;
   text-transform: uppercase;
-  color: #0b3b67;
-  letter-spacing: 0.3px;
-  margin-bottom: 8px;
+  color: #0c3d69;
+  letter-spacing: 0.2px;
+  margin: 0 0 6px 0;
 }
 
 .led-date {
   text-align: right;
-  font-size: 20px;
-  font-weight: 600;
-  color: #333333;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1d1d1d;
+  margin: 0;
+}
+
+.led-table-wrap {
+  flex: 1;
+  display: flex;
+  min-height: 0;
 }
 
 .led-table {
   width: 100%;
+  height: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  font-size: 23px;
   background: #ffffff;
+  border: 3px solid #000000;
+  font-size: 28px;
 }
 
 .led-table th,
 .led-table td {
   border: 2px solid #000000;
-  padding: 8px 10px;
+  padding: 4px 10px;
   vertical-align: middle;
   word-break: break-word;
-  line-height: 1.15;
+  line-height: 1.05;
 }
 
-.led-table th {
-  background: #dbe8f5;
+.led-table thead th {
+  background: #d7e6f5;
   color: #111111;
   font-weight: 700;
   text-align: center;
@@ -76,9 +91,26 @@ body {
   background: #ffffff;
 }
 
-.ingredient-table tbody tr:nth-child(even) td,
-.portion-table tbody tr:nth-child(even) td {
-  background: #fbfdff;
+.ingredient-table thead th,
+.portion-table thead th {
+  height: 58px;
+  font-size: 28px;
+}
+
+.ingredient-table tbody tr,
+.portion-table tbody tr {
+  height: 48px;
+}
+
+.ingredient-table tbody td,
+.portion-table tbody td {
+  font-size: 28px;
+}
+
+.ingredient-table tbody td:nth-child(2),
+.portion-table tbody td:nth-child(2),
+.portion-table tbody td:nth-child(3) {
+  font-weight: 700;
 }
 
 .c {
@@ -90,16 +122,25 @@ body {
 }
 
 .empty {
-  height: 72px;
+  height: 80px;
   font-style: italic;
   color: #666666;
+  text-align: center;
 }
 
 .col-stt {
-  width: 74px;
+  width: 90px;
 }
 
-.col-type {
+.col-site {
+  width: 370px;
+}
+
+.col-pot {
+  width: 180px;
+}
+
+.col-sl {
   width: 170px;
 }
 
@@ -107,20 +148,10 @@ body {
   width: 170px;
 }
 
-.col-site {
-  width: 300px;
+.ingredient-table .col-name {
+  width: auto;
 }
 
-.col-pot {
-  width: 170px;
-}
-
-.col-sl {
-  width: 150px;
-}
-
-.ingredient-table td:nth-child(2),
-.portion-table td:nth-child(2),
-.portion-table td:nth-child(3) {
-  font-weight: 600;
+.portion-table .col-food {
+  width: auto;
 }
