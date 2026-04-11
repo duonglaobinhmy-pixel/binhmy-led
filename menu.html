@@ -10,6 +10,7 @@
           font-family: Arial, Helvetica, sans-serif;
           color: #fff;
         }
+
         .title-main {
           text-align: center;
           font-size: 42px;
@@ -18,6 +19,7 @@
           margin-bottom: 4px;
           letter-spacing: 0.5px;
         }
+
         .title-sub {
           text-align: center;
           font-size: 26px;
@@ -25,6 +27,7 @@
           color: #19c4ff;
           margin-bottom: 4px;
         }
+
         .sub-meta {
           display: flex;
           justify-content: space-between;
@@ -33,9 +36,8 @@
           font-weight: 800;
           font-size: 20px;
         }
-        .sub-date {
-          color: #ff38d8;
-        }
+
+        .sub-date,
         .sub-buoi {
           color: #ff38d8;
         }
@@ -46,12 +48,15 @@
           table-layout: fixed;
           font-size: 18px;
         }
-        table.grid th, table.grid td {
+
+        table.grid th,
+        table.grid td {
           border: 2px solid rgba(255,255,255,0.75);
           vertical-align: middle;
           padding: 8px 8px;
           background: #000;
         }
+
         table.grid th {
           color: #58ff7b;
           font-weight: 800;
@@ -64,6 +69,7 @@
           margin-bottom: 6px;
           font-weight: 800;
         }
+
         .site-head .site-subrow {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -78,59 +84,75 @@
           text-align: center;
           font-weight: 700;
         }
+
         .dish {
-          width: 240px;
+          width: 260px;
           font-weight: 700;
           color: #fff;
         }
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+
         .total-col {
-          width: 110px;
+          width: 120px;
           text-align: center;
           font-size: 22px;
           font-weight: 800;
           color: #ff3b3b;
         }
 
-        .cell-3 {
-          padding: 4px 6px;
-        }
-        .cell-3 > div {
+        .type {
+          width: 140px;
           text-align: center;
-          line-height: 1.25;
-          white-space: nowrap;
+          font-weight: 700;
+          color: #fff;
         }
+
+        .site-cell {
+          padding: 6px 8px;
+        }
+
+        .site-inline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          gap: 6px;
+          min-height: 34px;
+        }
+
         .cell-sl {
           color: #ffd21f;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-noi {
           color: #00ff95;
           font-size: 16px;
           font-weight: 800;
-          min-height: 20px;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-kl {
           color: #ffffff;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
 
         .total-row td {
           font-weight: 800;
           background: #050505;
         }
+
         .total-label {
           color: #ff2d2d;
           font-size: 18px;
           font-weight: 800;
         }
+
         .total-cell .cell-sl,
         .total-cell .cell-kl {
           color: #ff8b8b;
@@ -201,31 +223,39 @@
           <tr>
             <td class="stt">1</td>
             <td class="dish">MÌ TRỨNG CÀ CHUA</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">196</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">18</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">18</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">108</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">108</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">32</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">32</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">38</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">38</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
           </tr>
@@ -233,25 +263,31 @@
           <tr>
             <td class="stt">2</td>
             <td class="dish">Xay ăn sáng</td>
-            <td class="type">XAY</td>
             <td class="total-col">22</td>
+            <td class="type">XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">15</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">15</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">6</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">6</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
           </tr>
@@ -259,19 +295,23 @@
           <tr>
             <td class="stt">3</td>
             <td class="dish">Chay</td>
-            <td class="type">CHAY</td>
             <td class="total-col">4</td>
-            <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+            <td class="type">CHAY</td>
+            <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
           </tr>
@@ -281,30 +321,38 @@
             <td class="total-col">222</td>
             <td></td>
             
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">19</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">110</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">47</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">46</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">19</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">110</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">47</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">46</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
           </tr>
         </tbody>
       </table>
@@ -323,6 +371,7 @@
           font-family: Arial, Helvetica, sans-serif;
           color: #fff;
         }
+
         .title-main {
           text-align: center;
           font-size: 42px;
@@ -331,6 +380,7 @@
           margin-bottom: 4px;
           letter-spacing: 0.5px;
         }
+
         .title-sub {
           text-align: center;
           font-size: 26px;
@@ -338,6 +388,7 @@
           color: #19c4ff;
           margin-bottom: 4px;
         }
+
         .sub-meta {
           display: flex;
           justify-content: space-between;
@@ -346,9 +397,8 @@
           font-weight: 800;
           font-size: 20px;
         }
-        .sub-date {
-          color: #ff38d8;
-        }
+
+        .sub-date,
         .sub-buoi {
           color: #ff38d8;
         }
@@ -359,12 +409,15 @@
           table-layout: fixed;
           font-size: 18px;
         }
-        table.grid th, table.grid td {
+
+        table.grid th,
+        table.grid td {
           border: 2px solid rgba(255,255,255,0.75);
           vertical-align: middle;
           padding: 8px 8px;
           background: #000;
         }
+
         table.grid th {
           color: #58ff7b;
           font-weight: 800;
@@ -377,6 +430,7 @@
           margin-bottom: 6px;
           font-weight: 800;
         }
+
         .site-head .site-subrow {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -391,59 +445,75 @@
           text-align: center;
           font-weight: 700;
         }
+
         .dish {
-          width: 240px;
+          width: 260px;
           font-weight: 700;
           color: #fff;
         }
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+
         .total-col {
-          width: 110px;
+          width: 120px;
           text-align: center;
           font-size: 22px;
           font-weight: 800;
           color: #ff3b3b;
         }
 
-        .cell-3 {
-          padding: 4px 6px;
-        }
-        .cell-3 > div {
+        .type {
+          width: 140px;
           text-align: center;
-          line-height: 1.25;
-          white-space: nowrap;
+          font-weight: 700;
+          color: #fff;
         }
+
+        .site-cell {
+          padding: 6px 8px;
+        }
+
+        .site-inline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          gap: 6px;
+          min-height: 34px;
+        }
+
         .cell-sl {
           color: #ffd21f;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-noi {
           color: #00ff95;
           font-size: 16px;
           font-weight: 800;
-          min-height: 20px;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-kl {
           color: #ffffff;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
 
         .total-row td {
           font-weight: 800;
           background: #050505;
         }
+
         .total-label {
           color: #ff2d2d;
           font-size: 18px;
           font-weight: 800;
         }
+
         .total-cell .cell-sl,
         .total-cell .cell-kl {
           color: #ff8b8b;
@@ -532,43 +602,55 @@
           <tr>
             <td class="stt">1</td>
             <td class="dish">MÌ TRỨNG CÀ CHUA</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">186</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">41</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">41</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">32</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">32</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">15</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">15</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">29</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">29</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">52</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">52</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">17</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">17</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
           </tr>
@@ -576,25 +658,31 @@
           <tr>
             <td class="stt">2</td>
             <td class="dish">Xay ăn sáng</td>
-            <td class="type">XAY</td>
             <td class="total-col">42</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">25</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+            <td class="type">XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">25</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">5</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">5</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">12</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">12</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
           </tr>
@@ -602,21 +690,25 @@
           <tr>
             <td class="stt">3</td>
             <td class="dish">Chay</td>
-            <td class="type">CHAY</td>
             <td class="total-col">3</td>
-            <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+            <td class="type">CHAY</td>
+            <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td><td class="cell-3 empty"></td><td class="cell-3 empty"></td>
+  <td class="site-cell empty"></td><td class="site-cell empty"></td><td class="site-cell empty"></td>
           </tr>
         
           <tr class="total-row">
@@ -624,42 +716,54 @@
             <td class="total-col">231</td>
             <td></td>
             
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">41</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">34</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">41</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">34</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">52</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">29</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">0</div>
-      </td>
-    
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">41</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">34</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">41</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">34</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">52</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">29</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">0,00</span>
+      </div>
+    </td>
+  
           </tr>
         </tbody>
       </table>
@@ -678,6 +782,7 @@
           font-family: Arial, Helvetica, sans-serif;
           color: #fff;
         }
+
         .title-main {
           text-align: center;
           font-size: 42px;
@@ -686,6 +791,7 @@
           margin-bottom: 4px;
           letter-spacing: 0.5px;
         }
+
         .title-sub {
           text-align: center;
           font-size: 26px;
@@ -693,6 +799,7 @@
           color: #19c4ff;
           margin-bottom: 4px;
         }
+
         .sub-meta {
           display: flex;
           justify-content: space-between;
@@ -701,9 +808,8 @@
           font-weight: 800;
           font-size: 20px;
         }
-        .sub-date {
-          color: #ff38d8;
-        }
+
+        .sub-date,
         .sub-buoi {
           color: #ff38d8;
         }
@@ -714,12 +820,15 @@
           table-layout: fixed;
           font-size: 18px;
         }
-        table.grid th, table.grid td {
+
+        table.grid th,
+        table.grid td {
           border: 2px solid rgba(255,255,255,0.75);
           vertical-align: middle;
           padding: 8px 8px;
           background: #000;
         }
+
         table.grid th {
           color: #58ff7b;
           font-weight: 800;
@@ -732,6 +841,7 @@
           margin-bottom: 6px;
           font-weight: 800;
         }
+
         .site-head .site-subrow {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -746,59 +856,75 @@
           text-align: center;
           font-weight: 700;
         }
+
         .dish {
-          width: 240px;
+          width: 260px;
           font-weight: 700;
           color: #fff;
         }
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+
         .total-col {
-          width: 110px;
+          width: 120px;
           text-align: center;
           font-size: 22px;
           font-weight: 800;
           color: #ff3b3b;
         }
 
-        .cell-3 {
-          padding: 4px 6px;
-        }
-        .cell-3 > div {
+        .type {
+          width: 140px;
           text-align: center;
-          line-height: 1.25;
-          white-space: nowrap;
+          font-weight: 700;
+          color: #fff;
         }
+
+        .site-cell {
+          padding: 6px 8px;
+        }
+
+        .site-inline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          gap: 6px;
+          min-height: 34px;
+        }
+
         .cell-sl {
           color: #ffd21f;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-noi {
           color: #00ff95;
           font-size: 16px;
           font-weight: 800;
-          min-height: 20px;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-kl {
           color: #ffffff;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
 
         .total-row td {
           font-weight: 800;
           background: #050505;
         }
+
         .total-label {
           color: #ff2d2d;
           font-size: 18px;
           font-weight: 800;
         }
+
         .total-cell .cell-sl,
         .total-cell .cell-kl {
           color: #ff8b8b;
@@ -869,31 +995,39 @@
           <tr>
             <td class="stt">1</td>
             <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">216</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">21</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">21</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">115</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">115</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">152</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">152,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">37</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">16</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">37</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
           </tr>
@@ -901,31 +1035,39 @@
           <tr>
             <td class="stt">2</td>
             <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">216</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">21</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">54</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">21</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">54,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">115</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">2630</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">115</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">2630,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">704</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">704,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">37</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">821</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">37</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">821,00</span>
+      </div>
     </td>
   
           </tr>
@@ -933,31 +1075,39 @@
           <tr>
             <td class="stt">3</td>
             <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">24</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">9</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">72</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">9</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">72,00</span>
+      </div>
     </td>
   
           </tr>
@@ -965,31 +1115,39 @@
           <tr>
             <td class="stt">4</td>
             <td class="dish">Cơm ngũ sắc</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">24</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">9</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">72</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">9</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">72,00</span>
+      </div>
     </td>
   
           </tr>
@@ -997,31 +1155,39 @@
           <tr>
             <td class="stt">5</td>
             <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">24</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">9</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">72</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">9</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">72,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1029,31 +1195,39 @@
           <tr>
             <td class="stt">6</td>
             <td class="dish">Cơm ngũ sắc</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">193</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">20</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">46</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">20</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">46,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">114</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">2622</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">114</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">2622,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">24</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">552</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">552,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">35</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">805</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">35</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">805,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1061,61 +1235,71 @@
           <tr>
             <td class="stt">7</td>
             <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">7</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
+  <td class="site-cell empty"></td>
           </tr>
         
           <tr>
             <td class="stt">8</td>
             <td class="dish">Cơm ngũ sắc</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">7</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
+  <td class="site-cell empty"></td>
           </tr>
         
           <tr>
             <td class="stt">9</td>
             <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">7</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
+  <td class="site-cell empty"></td>
           </tr>
         
           <tr>
             <td class="stt">10</td>
             <td class="dish">CƠM CHAY</td>
-            <td class="type">CHAY</td>
             <td class="total-col">4</td>
-            <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+            <td class="type">CHAY</td>
+            <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1125,30 +1309,38 @@
             <td class="total-col">197</td>
             <td></td>
             
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">20</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">46</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">116</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">2638</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">24</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">552</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">37</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">821</div>
-      </td>
-    
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">20</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">46,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">116</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">2638,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">552,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">37</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">821,00</span>
+      </div>
+    </td>
+  
           </tr>
         </tbody>
       </table>
@@ -1167,6 +1359,7 @@
           font-family: Arial, Helvetica, sans-serif;
           color: #fff;
         }
+
         .title-main {
           text-align: center;
           font-size: 42px;
@@ -1175,6 +1368,7 @@
           margin-bottom: 4px;
           letter-spacing: 0.5px;
         }
+
         .title-sub {
           text-align: center;
           font-size: 26px;
@@ -1182,6 +1376,7 @@
           color: #19c4ff;
           margin-bottom: 4px;
         }
+
         .sub-meta {
           display: flex;
           justify-content: space-between;
@@ -1190,9 +1385,8 @@
           font-weight: 800;
           font-size: 20px;
         }
-        .sub-date {
-          color: #ff38d8;
-        }
+
+        .sub-date,
         .sub-buoi {
           color: #ff38d8;
         }
@@ -1203,12 +1397,15 @@
           table-layout: fixed;
           font-size: 18px;
         }
-        table.grid th, table.grid td {
+
+        table.grid th,
+        table.grid td {
           border: 2px solid rgba(255,255,255,0.75);
           vertical-align: middle;
           padding: 8px 8px;
           background: #000;
         }
+
         table.grid th {
           color: #58ff7b;
           font-weight: 800;
@@ -1221,6 +1418,7 @@
           margin-bottom: 6px;
           font-weight: 800;
         }
+
         .site-head .site-subrow {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -1235,59 +1433,75 @@
           text-align: center;
           font-weight: 700;
         }
+
         .dish {
-          width: 240px;
+          width: 260px;
           font-weight: 700;
           color: #fff;
         }
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+
         .total-col {
-          width: 110px;
+          width: 120px;
           text-align: center;
           font-size: 22px;
           font-weight: 800;
           color: #ff3b3b;
         }
 
-        .cell-3 {
-          padding: 4px 6px;
-        }
-        .cell-3 > div {
+        .type {
+          width: 140px;
           text-align: center;
-          line-height: 1.25;
-          white-space: nowrap;
+          font-weight: 700;
+          color: #fff;
         }
+
+        .site-cell {
+          padding: 6px 8px;
+        }
+
+        .site-inline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          gap: 6px;
+          min-height: 34px;
+        }
+
         .cell-sl {
           color: #ffd21f;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-noi {
           color: #00ff95;
           font-size: 16px;
           font-weight: 800;
-          min-height: 20px;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-kl {
           color: #ffffff;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
 
         .total-row td {
           font-weight: 800;
           background: #050505;
         }
+
         .total-label {
           color: #ff2d2d;
           font-size: 18px;
           font-weight: 800;
         }
+
         .total-cell .cell-sl,
         .total-cell .cell-kl {
           color: #ff8b8b;
@@ -1376,37 +1590,47 @@
           <tr>
             <td class="stt">1</td>
             <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">41</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">24</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">192</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">192,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">5</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">4</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">5</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">4,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">10</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">10</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1414,37 +1638,47 @@
           <tr>
             <td class="stt">2</td>
             <td class="dish">Cơm ngũ sắc</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">41</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">24</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">192</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">192,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">5</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">4</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">5</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">4,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">10</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">10</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1452,37 +1686,47 @@
           <tr>
             <td class="stt">3</td>
             <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">41</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">24</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">192</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">192,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">5</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">4</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">5</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">4,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">10</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">10</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1490,43 +1734,55 @@
           <tr>
             <td class="stt">4</td>
             <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">203</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">42</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">42</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">11</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">16</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">11</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">32</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">32</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">53</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">53</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">22</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">128</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">22</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">128,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1534,43 +1790,55 @@
           <tr>
             <td class="stt">5</td>
             <td class="dish">Cơm ngũ sắc</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">184</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">42</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">966</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">42</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">966,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">989</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">989,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">9</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">207</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">9</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">207,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">31</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">713</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">31</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">713,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">53</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">1219</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">53</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">1219,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">6</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">138</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">6</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">138,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1578,43 +1846,55 @@
           <tr>
             <td class="stt">6</td>
             <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">203</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">42</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">966</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">42</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">966,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">989</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">989,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">11</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">223</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">11</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">223,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">32</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">721</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">32</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">721,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">53</div>
-      <div class="cell-noi">Lớn</div>
-      <div class="cell-kl">1219</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">53</span>
+        <span class="cell-noi">Lớn</span>
+        <span class="cell-kl">1219,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">22</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">266</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">22</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">266,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1622,25 +1902,31 @@
           <tr>
             <td class="stt">7</td>
             <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">22</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1648,25 +1934,31 @@
           <tr>
             <td class="stt">8</td>
             <td class="dish">Cơm ngũ sắc</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">22</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1674,25 +1966,31 @@
           <tr>
             <td class="stt">9</td>
             <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">22</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1700,21 +1998,25 @@
           <tr>
             <td class="stt">10</td>
             <td class="dish">CƠM CHAY</td>
-            <td class="type">CHAY</td>
             <td class="total-col">3</td>
-            <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+            <td class="type">CHAY</td>
+            <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td><td class="cell-3 empty"></td><td class="cell-3 empty"></td>
+  <td class="site-cell empty"></td><td class="site-cell empty"></td><td class="site-cell empty"></td>
           </tr>
         
           <tr class="total-row">
@@ -1722,42 +2024,54 @@
             <td class="total-col">212</td>
             <td></td>
             
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">42</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">966</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">45</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">1005</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">25</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">215</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">31</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">713</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">53</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">1219</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">16</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">138</div>
-      </td>
-    
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">42</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">966,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">45</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">1005,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">25</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">215,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">31</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">713,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">53</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">1219,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">16</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">138,00</span>
+      </div>
+    </td>
+  
           </tr>
         </tbody>
       </table>
@@ -1776,6 +2090,7 @@
           font-family: Arial, Helvetica, sans-serif;
           color: #fff;
         }
+
         .title-main {
           text-align: center;
           font-size: 42px;
@@ -1784,6 +2099,7 @@
           margin-bottom: 4px;
           letter-spacing: 0.5px;
         }
+
         .title-sub {
           text-align: center;
           font-size: 26px;
@@ -1791,6 +2107,7 @@
           color: #19c4ff;
           margin-bottom: 4px;
         }
+
         .sub-meta {
           display: flex;
           justify-content: space-between;
@@ -1799,9 +2116,8 @@
           font-weight: 800;
           font-size: 20px;
         }
-        .sub-date {
-          color: #ff38d8;
-        }
+
+        .sub-date,
         .sub-buoi {
           color: #ff38d8;
         }
@@ -1812,12 +2128,15 @@
           table-layout: fixed;
           font-size: 18px;
         }
-        table.grid th, table.grid td {
+
+        table.grid th,
+        table.grid td {
           border: 2px solid rgba(255,255,255,0.75);
           vertical-align: middle;
           padding: 8px 8px;
           background: #000;
         }
+
         table.grid th {
           color: #58ff7b;
           font-weight: 800;
@@ -1830,6 +2149,7 @@
           margin-bottom: 6px;
           font-weight: 800;
         }
+
         .site-head .site-subrow {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -1844,59 +2164,75 @@
           text-align: center;
           font-weight: 700;
         }
+
         .dish {
-          width: 240px;
+          width: 260px;
           font-weight: 700;
           color: #fff;
         }
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+
         .total-col {
-          width: 110px;
+          width: 120px;
           text-align: center;
           font-size: 22px;
           font-weight: 800;
           color: #ff3b3b;
         }
 
-        .cell-3 {
-          padding: 4px 6px;
-        }
-        .cell-3 > div {
+        .type {
+          width: 140px;
           text-align: center;
-          line-height: 1.25;
-          white-space: nowrap;
+          font-weight: 700;
+          color: #fff;
         }
+
+        .site-cell {
+          padding: 6px 8px;
+        }
+
+        .site-inline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          gap: 6px;
+          min-height: 34px;
+        }
+
         .cell-sl {
           color: #ffd21f;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-noi {
           color: #00ff95;
           font-size: 16px;
           font-weight: 800;
-          min-height: 20px;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-kl {
           color: #ffffff;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
 
         .total-row td {
           font-weight: 800;
           background: #050505;
         }
+
         .total-label {
           color: #ff2d2d;
           font-size: 18px;
           font-weight: 800;
         }
+
         .total-cell .cell-sl,
         .total-cell .cell-kl {
           color: #ff8b8b;
@@ -1967,31 +2303,39 @@
           <tr>
             <td class="stt">1</td>
             <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">215</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">20</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">20</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">115</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">115</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">152</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">152,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">37</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">16</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">37</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
           </tr>
@@ -1999,31 +2343,39 @@
           <tr>
             <td class="stt">2</td>
             <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">24</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">13</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">104</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">13</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">104,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">9</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">72</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">9</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">72,00</span>
+      </div>
     </td>
   
           </tr>
@@ -2031,15 +2383,17 @@
           <tr>
             <td class="stt">3</td>
             <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">7</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
+  <td class="site-cell empty"></td>
           </tr>
         
           <tr class="total-row">
@@ -2047,30 +2401,38 @@
             <td class="total-col">192</td>
             <td></td>
             
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">19</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">8</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">114</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">8</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">24</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">152</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">35</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">72</div>
-      </td>
-    
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">19</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">8,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">114</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">8,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">152,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">35</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">72,00</span>
+      </div>
+    </td>
+  
           </tr>
         </tbody>
       </table>
@@ -2089,6 +2451,7 @@
           font-family: Arial, Helvetica, sans-serif;
           color: #fff;
         }
+
         .title-main {
           text-align: center;
           font-size: 42px;
@@ -2097,6 +2460,7 @@
           margin-bottom: 4px;
           letter-spacing: 0.5px;
         }
+
         .title-sub {
           text-align: center;
           font-size: 26px;
@@ -2104,6 +2468,7 @@
           color: #19c4ff;
           margin-bottom: 4px;
         }
+
         .sub-meta {
           display: flex;
           justify-content: space-between;
@@ -2112,9 +2477,8 @@
           font-weight: 800;
           font-size: 20px;
         }
-        .sub-date {
-          color: #ff38d8;
-        }
+
+        .sub-date,
         .sub-buoi {
           color: #ff38d8;
         }
@@ -2125,12 +2489,15 @@
           table-layout: fixed;
           font-size: 18px;
         }
-        table.grid th, table.grid td {
+
+        table.grid th,
+        table.grid td {
           border: 2px solid rgba(255,255,255,0.75);
           vertical-align: middle;
           padding: 8px 8px;
           background: #000;
         }
+
         table.grid th {
           color: #58ff7b;
           font-weight: 800;
@@ -2143,6 +2510,7 @@
           margin-bottom: 6px;
           font-weight: 800;
         }
+
         .site-head .site-subrow {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -2157,59 +2525,75 @@
           text-align: center;
           font-weight: 700;
         }
+
         .dish {
-          width: 240px;
+          width: 260px;
           font-weight: 700;
           color: #fff;
         }
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+
         .total-col {
-          width: 110px;
+          width: 120px;
           text-align: center;
           font-size: 22px;
           font-weight: 800;
           color: #ff3b3b;
         }
 
-        .cell-3 {
-          padding: 4px 6px;
-        }
-        .cell-3 > div {
+        .type {
+          width: 140px;
           text-align: center;
-          line-height: 1.25;
-          white-space: nowrap;
+          font-weight: 700;
+          color: #fff;
         }
+
+        .site-cell {
+          padding: 6px 8px;
+        }
+
+        .site-inline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          gap: 6px;
+          min-height: 34px;
+        }
+
         .cell-sl {
           color: #ffd21f;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-noi {
           color: #00ff95;
           font-size: 16px;
           font-weight: 800;
-          min-height: 20px;
+          text-align: center;
+          white-space: nowrap;
         }
+
         .cell-kl {
           color: #ffffff;
           font-size: 18px;
           font-weight: 800;
+          text-align: center;
+          white-space: nowrap;
         }
 
         .total-row td {
           font-weight: 800;
           background: #050505;
         }
+
         .total-label {
           color: #ff2d2d;
           font-size: 18px;
           font-weight: 800;
         }
+
         .total-cell .cell-sl,
         .total-cell .cell-kl {
           color: #ff8b8b;
@@ -2298,37 +2682,47 @@
           <tr>
             <td class="stt">1</td>
             <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="type">CƠM XAY</td>
             <td class="total-col">42</td>
+            <td class="type">CƠM XAY</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">1</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">1</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">24</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">192</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">192,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">5</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">4</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">5</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">4,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">11</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">88</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">11</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">88,00</span>
+      </div>
     </td>
   
           </tr>
@@ -2336,43 +2730,55 @@
           <tr>
             <td class="stt">2</td>
             <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="type">ỐNG</td>
             <td class="total-col">202</td>
+            <td class="type">ỐNG</td>
             
-    <td class="cell-3">
-      <div class="cell-sl">42</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">42</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">43</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">11</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">16</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">11</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">32</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">8</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">32</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">8,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">53</div>
-      <div class="cell-noi">Bịch</div>
-      <div class="cell-kl">0</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">53</span>
+        <span class="cell-noi">Bịch</span>
+        <span class="cell-kl">0,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">21</div>
-      <div class="cell-noi">Xô</div>
-      <div class="cell-kl">128</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">21</span>
+        <span class="cell-noi">Xô</span>
+        <span class="cell-kl">128,00</span>
+      </div>
     </td>
   
           </tr>
@@ -2380,25 +2786,31 @@
           <tr>
             <td class="stt">3</td>
             <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="type">THỨC ĂN XAY</td>
             <td class="total-col">20</td>
-            <td class="cell-3 empty"></td><td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">7</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">56</div>
+            <td class="type">THỨC ĂN XAY</td>
+            <td class="site-cell empty"></td><td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">7</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">56,00</span>
+      </div>
     </td>
-  <td class="cell-3 empty"></td>
-    <td class="cell-3">
-      <div class="cell-sl">2</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">16</div>
+  <td class="site-cell empty"></td>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">2</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">16,00</span>
+      </div>
     </td>
   
-    <td class="cell-3">
-      <div class="cell-sl">11</div>
-      <div class="cell-noi">Nhỏ</div>
-      <div class="cell-kl">88</div>
+    <td class="site-cell">
+      <div class="site-inline">
+        <span class="cell-sl">11</span>
+        <span class="cell-noi">Nhỏ</span>
+        <span class="cell-kl">88,00</span>
+      </div>
     </td>
   
           </tr>
@@ -2408,42 +2820,54 @@
             <td class="total-col">209</td>
             <td></td>
             
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">42</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">8</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">43</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">8</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">24</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">192</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">31</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">8</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">53</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">16</div>
-      </td>
-    
-      <td class="cell-3 total-cell">
-        <div class="cell-sl">16</div>
-        <div class="cell-noi"></div>
-        <div class="cell-kl">128</div>
-      </td>
-    
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">42</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">8,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">43</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">8,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">24</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">192,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">31</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">8,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">53</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">16,00</span>
+      </div>
+    </td>
+  
+    <td class="site-cell total-cell">
+      <div class="site-inline">
+        <span class="cell-sl">16</span>
+        <span class="cell-noi"></span>
+        <span class="cell-kl">128,00</span>
+      </div>
+    </td>
+  
           </tr>
         </tbody>
       </table>
