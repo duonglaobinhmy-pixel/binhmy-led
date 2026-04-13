@@ -1,3517 +1,3355 @@
 <section class="slide">
-      <style>
-        .slide {
-          width: 1366px;
-          min-height: 768px;
-          margin: 0 auto;
-          padding: 24px 24px 28px;
-          background: #000;
-          border-bottom: 4px solid #111;
-          font-family: Arial, Helvetica, sans-serif;
-          color: #fff;
-        }
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 8px 12px 8px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
 
-        .title-main {
-          text-align: center;
-          font-size: 42px;
-          font-weight: 800;
-          color: #ece63e;
-          margin-bottom: 4px;
-          letter-spacing: 0.5px;
-        }
+    .title-main {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
 
-        .title-sub {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 800;
-          color: #19c4ff;
-          margin-bottom: 4px;
-        }
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.72);
+    }
 
-        .sub-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 8px 0 12px;
-          font-weight: 800;
-          font-size: 20px;
-        }
+    table.grid th,
+    table.grid td {
+      border: 1px solid rgba(255,255,255,0.72);
+      padding: 6px 6px;
+      vertical-align: middle;
+      background: #000;
+    }
 
-        .sub-date,
-        .sub-buoi {
-          color: #ff38d8;
-        }
+    thead th {
+      text-align: center;
+      font-weight: 800;
+    }
 
-        table.grid {
-          width: 100%;
-          border-collapse: collapse;
-          table-layout: fixed;
-          font-size: 18px;
-        }
+    .date-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
 
-        table.grid th,
-        table.grid td {
-          border: 2px solid rgba(255,255,255,0.75);
-          vertical-align: middle;
-          padding: 8px 8px;
-          background: #000;
-        }
+    .meal-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
 
-        table.grid th {
-          color: #58ff7b;
-          font-weight: 800;
-          text-align: center;
-        }
+    .menu-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
 
-        .site-head .site-title {
-          font-size: 18px;
-          color: #ff2d2d;
-          margin-bottom: 6px;
-          font-weight: 800;
-        }
+    .portion-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.05;
+    }
 
-        .site-head .site-subrow {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          font-size: 13px;
-          color: #ffffff;
-          font-weight: 700;
-        }
+    .site-title {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
 
-        .stt {
-          width: 52px;
-          text-align: center;
-          font-weight: 700;
-        }
+    .site-subrow {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1fr;
+      gap: 2px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
 
-        .dish {
-          width: 260px;
-          font-weight: 700;
-          color: #fff;
-        }
+    .dish-col {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-        .total-col {
-          width: 120px;
-          text-align: center;
-          font-size: 22px;
-          font-weight: 800;
-          color: #ff3b3b;
-        }
+    .total-portion {
+      color: #ff2020;
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
 
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
+    .site-col {
+      padding: 4px 4px;
+    }
 
-        .site-cell {
-          padding: 6px 8px;
-        }
+    .site-pack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.05fr 1fr;
+      gap: 2px;
+      align-items: center;
+      min-height: 42px;
+    }
 
-        .site-inline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          gap: 6px;
-          min-height: 34px;
-        }
+    .sl {
+      color: #ffd31f;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
 
-        .cell-sl {
-          color: #ffd21f;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
+    .noi {
+      color: #00ff90;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
 
-        .cell-noi {
-          color: #00ff95;
-          font-size: 16px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
+    .kl {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
 
-        .cell-kl {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
+    .total-row td {
+      background: #000;
+      font-weight: 800;
+    }
 
-        .total-row td {
-          font-weight: 800;
-          background: #050505;
-        }
+    .total-label {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
 
-        .total-label {
-          color: #ff2d2d;
-          font-size: 18px;
-          font-weight: 800;
-        }
+    .total-site .sl,
+    .total-site .kl {
+      color: #ff2020;
+    }
 
-        .total-cell .cell-sl,
-        .total-cell .cell-kl {
-          color: #ff8b8b;
-        }
+    .empty-row {
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+      padding: 18px 8px;
+    }
 
-        .center {
-          text-align: center;
-          color: #ccc;
-          font-size: 18px;
-        }
-      </style>
+    .w-menu { width: 18%; }
+    .w-total { width: 8%; }
+  </style>
 
-      <div class="title-main">BẢNG LED BÌNH MỸ</div>
-      <div class="title-sub">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
-      <div class="sub-meta">
-        <div class="sub-date">11-04-2026</div>
-        <div class="sub-buoi">SÁNG</div>
-      </div>
+  <div class="title-main">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
 
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Thực đơn</th>
-            <th>Tổng số phần</th>
-            <th>Dạng ăn</th>
-            
+  <table class="grid">
+    <thead>
+      <tr>
+        <th class="date-top" colspan="2">11-04-2026</th>
+        <th class="meal-top" colspan="5">SÁNG</th>
+      </tr>
+      <tr>
+        <th class="menu-head w-menu" rowspan="2">Thực đơn</th>
+        <th class="portion-head w-total" rowspan="2">Tổng số<br>phần</th>
+        
     <th class="site-head">
       <div class="site-title">Thạnh Lộc</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Gold - DQH</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Trung Xuân Thu - NT</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Care - AH</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">An Hội</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td class="stt">1</td>
-            <td class="dish">MÌ TRỨNG CÀ CHUA</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">18</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">87,00</span>
-      </div>
-    </td>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="dish-col">MÌ TRỨNG CÀ CHUA</td>
+        <td class="total-portion">196</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">18</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">8,7</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">108</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">35,7</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">32</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">12,9</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">38</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">14,7</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Cháo thịt bằm</td>
+        <td class="total-portion">14</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">3,25</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">8,45</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">4</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">5,2</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Cháo ( ống xay )</td>
+        <td class="total-portion">45</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">7,2</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">3,95</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">34</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">28,0</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">8</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">11,1</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr class="total-row">
+        <td class="total-label">Tổng số cụ</td>
+        <td class="total-portion">255</td>
+        <td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">21</span>
+      <span class="noi"></span>
+      <span class="kl">19,15</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">118</span>
+      <span class="noi"></span>
+      <span class="kl">48,1</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">66</span>
+      <span class="noi"></span>
+      <span class="kl">40,9</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">50</span>
+      <span class="noi"></span>
+      <span class="kl">31,0</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
   
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">108</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">357,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">32</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">129,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">38</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">147,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
+
+<section class="slide">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 8px 12px 8px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
+
+    .title-main {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.72);
+    }
+
+    table.grid th,
+    table.grid td {
+      border: 1px solid rgba(255,255,255,0.72);
+      padding: 6px 6px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    thead th {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .date-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .meal-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .menu-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .portion-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .site-title {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .site-subrow {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1fr;
+      gap: 2px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .dish-col {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .total-portion {
+      color: #ff2020;
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-col {
+      padding: 4px 4px;
+    }
+
+    .site-pack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.05fr 1fr;
+      gap: 2px;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .sl {
+      color: #ffd31f;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .noi {
+      color: #00ff90;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .kl {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .total-row td {
+      background: #000;
+      font-weight: 800;
+    }
+
+    .total-label {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .total-site .sl,
+    .total-site .kl {
+      color: #ff2020;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+      padding: 18px 8px;
+    }
+
+    .w-menu { width: 18%; }
+    .w-total { width: 8%; }
+  </style>
+
+  <div class="title-main">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th class="date-top" colspan="2">11-04-2026</th>
+        <th class="meal-top" colspan="6">SÁNG</th>
+      </tr>
+      <tr>
+        <th class="menu-head w-menu" rowspan="2">Thực đơn</th>
+        <th class="portion-head w-total" rowspan="2">Tổng số<br>phần</th>
         
-          <tr>
-            <td class="stt">2</td>
-            <td class="dish">Cháo thịt bằm</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">325,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">845,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">4</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">52,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">3</td>
-            <td class="dish">Cháo ( ống xay )</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">72,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">395,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">34</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">28,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">8</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">111,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr class="total-row">
-            <td colspan="2" class="total-label">Tổng số cụ</td>
-            <td class="total-col">255</td>
-            <td></td>
-            
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">21</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1915,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">118</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">481,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">66</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">409,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">50</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">31,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">0</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
-      <style>
-        .slide {
-          width: 1366px;
-          min-height: 768px;
-          margin: 0 auto;
-          padding: 24px 24px 28px;
-          background: #000;
-          border-bottom: 4px solid #111;
-          font-family: Arial, Helvetica, sans-serif;
-          color: #fff;
-        }
-
-        .title-main {
-          text-align: center;
-          font-size: 42px;
-          font-weight: 800;
-          color: #ece63e;
-          margin-bottom: 4px;
-          letter-spacing: 0.5px;
-        }
-
-        .title-sub {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 800;
-          color: #19c4ff;
-          margin-bottom: 4px;
-        }
-
-        .sub-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 8px 0 12px;
-          font-weight: 800;
-          font-size: 20px;
-        }
-
-        .sub-date,
-        .sub-buoi {
-          color: #ff38d8;
-        }
-
-        table.grid {
-          width: 100%;
-          border-collapse: collapse;
-          table-layout: fixed;
-          font-size: 18px;
-        }
-
-        table.grid th,
-        table.grid td {
-          border: 2px solid rgba(255,255,255,0.75);
-          vertical-align: middle;
-          padding: 8px 8px;
-          background: #000;
-        }
-
-        table.grid th {
-          color: #58ff7b;
-          font-weight: 800;
-          text-align: center;
-        }
-
-        .site-head .site-title {
-          font-size: 18px;
-          color: #ff2d2d;
-          margin-bottom: 6px;
-          font-weight: 800;
-        }
-
-        .site-head .site-subrow {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          font-size: 13px;
-          color: #ffffff;
-          font-weight: 700;
-        }
-
-        .stt {
-          width: 52px;
-          text-align: center;
-          font-weight: 700;
-        }
-
-        .dish {
-          width: 260px;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .total-col {
-          width: 120px;
-          text-align: center;
-          font-size: 22px;
-          font-weight: 800;
-          color: #ff3b3b;
-        }
-
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .site-cell {
-          padding: 6px 8px;
-        }
-
-        .site-inline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          gap: 6px;
-          min-height: 34px;
-        }
-
-        .cell-sl {
-          color: #ffd21f;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-noi {
-          color: #00ff95;
-          font-size: 16px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-kl {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .total-row td {
-          font-weight: 800;
-          background: #050505;
-        }
-
-        .total-label {
-          color: #ff2d2d;
-          font-size: 18px;
-          font-weight: 800;
-        }
-
-        .total-cell .cell-sl,
-        .total-cell .cell-kl {
-          color: #ff8b8b;
-        }
-
-        .center {
-          text-align: center;
-          color: #ccc;
-          font-size: 18px;
-        }
-      </style>
-
-      <div class="title-main">BẢNG LED BÌNH MỸ</div>
-      <div class="title-sub">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
-      <div class="sub-meta">
-        <div class="sub-date">11-04-2026</div>
-        <div class="sub-buoi">SÁNG</div>
-      </div>
-
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Thực đơn</th>
-            <th>Tổng số phần</th>
-            <th>Dạng ăn</th>
-            
     <th class="site-head">
       <div class="site-title">Hoa Hồng Ông</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Hoa Hồng Bà</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSĐB 1</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSĐB 2</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Hoa Lan</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSTC</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td class="stt">1</td>
-            <td class="dish">MÌ TRỨNG CÀ CHUA</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">41</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">156,00</span>
-      </div>
-    </td>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="dish-col">MÌ TRỨNG CÀ CHUA</td>
+        <td class="total-portion">186</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">41</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">15,6</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">32</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">12,9</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">15</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">7,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">29</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">12,0</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">52</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">18,9</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">17</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">8,4</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Cháo thịt bằm</td>
+        <td class="total-portion">28</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">6</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">6,5</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">14</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">11,7</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">3,25</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">3</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">4,55</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">3</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">4,55</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Nhỏ</span>
+      <span class="kl">3,25</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Cháo ( ống xay )</td>
+        <td class="total-portion">61</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">27</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">23,45</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">6</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">9,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">28</span>
+      <span class="noi">Lớn</span>
+      <span class="kl">24,1</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr class="total-row">
+        <td class="total-label">Tổng số cụ</td>
+        <td class="total-portion">275</td>
+        <td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">47</span>
+      <span class="noi"></span>
+      <span class="kl">22,1</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">46</span>
+      <span class="noi"></span>
+      <span class="kl">24,6</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi"></span>
+      <span class="kl">34,5</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">38</span>
+      <span class="noi"></span>
+      <span class="kl">26,35</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">55</span>
+      <span class="noi"></span>
+      <span class="kl">23,45</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">46</span>
+      <span class="noi"></span>
+      <span class="kl">35,75</span>
+    </div>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
   
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">32</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">129,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">15</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">78,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">29</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">12,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">52</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">189,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">17</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">84,00</span>
-      </div>
-    </td>
-  
-          </tr>
+
+<section class="slide">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 8px 12px 8px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
+
+    .title-main {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.72);
+    }
+
+    table.grid th,
+    table.grid td {
+      border: 1px solid rgba(255,255,255,0.72);
+      padding: 6px 6px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    thead th {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .date-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .meal-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .menu-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .portion-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .site-title {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .site-subrow {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1fr;
+      gap: 2px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .dish-col {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .total-portion {
+      color: #ff2020;
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-col {
+      padding: 4px 4px;
+    }
+
+    .site-pack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.05fr 1fr;
+      gap: 2px;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .sl {
+      color: #ffd31f;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .noi {
+      color: #00ff90;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .kl {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .total-row td {
+      background: #000;
+      font-weight: 800;
+    }
+
+    .total-label {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .total-site .sl,
+    .total-site .kl {
+      color: #ff2020;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+      padding: 18px 8px;
+    }
+
+    .w-menu { width: 18%; }
+    .w-total { width: 8%; }
+  </style>
+
+  <div class="title-main">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th class="date-top" colspan="2">11-04-2026</th>
+        <th class="meal-top" colspan="5">TRƯA</th>
+      </tr>
+      <tr>
+        <th class="menu-head w-menu" rowspan="2">Thực đơn</th>
+        <th class="portion-head w-total" rowspan="2">Tổng số<br>phần</th>
         
-          <tr>
-            <td class="stt">2</td>
-            <td class="dish">Cháo thịt bằm</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">6</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">14</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">117,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">325,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">3</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">455,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">3</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">455,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Nhỏ</span>
-        <span class="cell-kl">325,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">3</td>
-            <td class="dish">Cháo ( ống xay )</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">27</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">2345,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">6</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">98,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">28</span>
-        <span class="cell-noi">Lớn</span>
-        <span class="cell-kl">241,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr class="total-row">
-            <td colspan="2" class="total-label">Tổng số cụ</td>
-            <td class="total-col">275</td>
-            <td></td>
-            
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">47</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">221,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">46</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">246,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">345,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">38</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">2635,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">55</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">2345,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">46</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">3575,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
-      <style>
-        .slide {
-          width: 1366px;
-          min-height: 768px;
-          margin: 0 auto;
-          padding: 24px 24px 28px;
-          background: #000;
-          border-bottom: 4px solid #111;
-          font-family: Arial, Helvetica, sans-serif;
-          color: #fff;
-        }
-
-        .title-main {
-          text-align: center;
-          font-size: 42px;
-          font-weight: 800;
-          color: #ece63e;
-          margin-bottom: 4px;
-          letter-spacing: 0.5px;
-        }
-
-        .title-sub {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 800;
-          color: #19c4ff;
-          margin-bottom: 4px;
-        }
-
-        .sub-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 8px 0 12px;
-          font-weight: 800;
-          font-size: 20px;
-        }
-
-        .sub-date,
-        .sub-buoi {
-          color: #ff38d8;
-        }
-
-        table.grid {
-          width: 100%;
-          border-collapse: collapse;
-          table-layout: fixed;
-          font-size: 18px;
-        }
-
-        table.grid th,
-        table.grid td {
-          border: 2px solid rgba(255,255,255,0.75);
-          vertical-align: middle;
-          padding: 8px 8px;
-          background: #000;
-        }
-
-        table.grid th {
-          color: #58ff7b;
-          font-weight: 800;
-          text-align: center;
-        }
-
-        .site-head .site-title {
-          font-size: 18px;
-          color: #ff2d2d;
-          margin-bottom: 6px;
-          font-weight: 800;
-        }
-
-        .site-head .site-subrow {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          font-size: 13px;
-          color: #ffffff;
-          font-weight: 700;
-        }
-
-        .stt {
-          width: 52px;
-          text-align: center;
-          font-weight: 700;
-        }
-
-        .dish {
-          width: 260px;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .total-col {
-          width: 120px;
-          text-align: center;
-          font-size: 22px;
-          font-weight: 800;
-          color: #ff3b3b;
-        }
-
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .site-cell {
-          padding: 6px 8px;
-        }
-
-        .site-inline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          gap: 6px;
-          min-height: 34px;
-        }
-
-        .cell-sl {
-          color: #ffd21f;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-noi {
-          color: #00ff95;
-          font-size: 16px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-kl {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .total-row td {
-          font-weight: 800;
-          background: #050505;
-        }
-
-        .total-label {
-          color: #ff2d2d;
-          font-size: 18px;
-          font-weight: 800;
-        }
-
-        .total-cell .cell-sl,
-        .total-cell .cell-kl {
-          color: #ff8b8b;
-        }
-
-        .center {
-          text-align: center;
-          color: #ccc;
-          font-size: 18px;
-        }
-      </style>
-
-      <div class="title-main">BẢNG LED BÌNH MỸ</div>
-      <div class="title-sub">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
-      <div class="sub-meta">
-        <div class="sub-date">11-04-2026</div>
-        <div class="sub-buoi">TRƯA</div>
-      </div>
-
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Thực đơn</th>
-            <th>Tổng số phần</th>
-            <th>Dạng ăn</th>
-            
     <th class="site-head">
       <div class="site-title">Thạnh Lộc</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Gold - DQH</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Trung Xuân Thu - NT</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Care - AH</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">An Hội</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td class="stt">1</td>
-            <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">20</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="dish-col">Canh cải nhúng nấu thịt heo xay</td>
+        <td class="total-portion">193</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">20</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">114</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">35</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Cơm ngũ sắc</td>
+        <td class="total-portion">193</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">20</span>
+      <span class="noi">Xô</span>
+      <span class="kl">5,4</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">114</span>
+      <span class="noi">Xô</span>
+      <span class="kl">27,02</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi">Xô</span>
+      <span class="kl">6,32</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">35</span>
+      <span class="noi">Xô</span>
+      <span class="kl">8,85</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">FILÊ CÁ BA SA LÚC LẮC</td>
+        <td class="total-portion">193</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">20</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">114</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">35</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Ống trưa chiều</td>
+        <td class="total-portion">23</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,85</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,85</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">19</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,75</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,9</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Ống trưa chiều</td>
+        <td class="total-portion">23</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,03</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,03</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">19</span>
+      <span class="noi">Xô</span>
+      <span class="kl">5,17</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,26</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">CƠM XAY 650</td>
+        <td class="total-portion">24</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">13</span>
+      <span class="noi"></span>
+      <span class="kl">8,45</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi"></span>
+      <span class="kl">5,85</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">CƠM XAY 650</td>
+        <td class="total-portion">24</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,23</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,23</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">13</span>
+      <span class="noi"></span>
+      <span class="kl">2,99</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi"></span>
+      <span class="kl">2,07</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">7</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">7</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">14</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">14</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">FILÊ CÁ BA SA LÚC LẮC</td>
+        <td class="total-portion">15</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">3</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">3</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr class="total-row">
+        <td class="total-label">Tổng số cụ</td>
+        <td class="total-portion">709</td>
+        <td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">67</span>
+      <span class="noi"></span>
+      <span class="kl">9,76</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">346</span>
+      <span class="noi"></span>
+      <span class="kl">31,38</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">160</span>
+      <span class="noi"></span>
+      <span class="kl">26,28</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">136</span>
+      <span class="noi"></span>
+      <span class="kl">20,53</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
   
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">114</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">35</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
+
+<section class="slide">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 8px 12px 8px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
+
+    .title-main {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.72);
+    }
+
+    table.grid th,
+    table.grid td {
+      border: 1px solid rgba(255,255,255,0.72);
+      padding: 6px 6px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    thead th {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .date-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .meal-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .menu-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .portion-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .site-title {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .site-subrow {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1fr;
+      gap: 2px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .dish-col {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .total-portion {
+      color: #ff2020;
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-col {
+      padding: 4px 4px;
+    }
+
+    .site-pack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.05fr 1fr;
+      gap: 2px;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .sl {
+      color: #ffd31f;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .noi {
+      color: #00ff90;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .kl {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .total-row td {
+      background: #000;
+      font-weight: 800;
+    }
+
+    .total-label {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .total-site .sl,
+    .total-site .kl {
+      color: #ff2020;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+      padding: 18px 8px;
+    }
+
+    .w-menu { width: 18%; }
+    .w-total { width: 8%; }
+  </style>
+
+  <div class="title-main">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th class="date-top" colspan="2">11-04-2026</th>
+        <th class="meal-top" colspan="6">TRƯA</th>
+      </tr>
+      <tr>
+        <th class="menu-head w-menu" rowspan="2">Thực đơn</th>
+        <th class="portion-head w-total" rowspan="2">Tổng số<br>phần</th>
         
-          <tr>
-            <td class="stt">2</td>
-            <td class="dish">Cơm ngũ sắc</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">20</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">54,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">114</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">2702,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">632,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">35</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">885,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">3</td>
-            <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">20</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">114</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">35</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">4</td>
-            <td class="dish">CƠM ĐỔ ỐNG TRƯA 50</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">85,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">85,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">19</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">175,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">9,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">5</td>
-            <td class="dish">Cơm ngũ sắc</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">103,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">103,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">19</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">517,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">126,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">6</td>
-            <td class="dish">CƠM XAY 650</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">13</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">845,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">585,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">7</td>
-            <td class="dish">Cơm ngũ sắc</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">23,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">23,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">13</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">299,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">207,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">8</td>
-            <td class="dish">THỨC ĂN XAY</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">9</td>
-            <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">10</td>
-            <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">11</td>
-            <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">3</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">3</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr class="total-row">
-            <td colspan="2" class="total-label">Tổng số cụ</td>
-            <td class="total-col">709</td>
-            <td></td>
-            
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">67</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">976,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">346</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">3138,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">160</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">2628,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">136</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">2053,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">0</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
-      <style>
-        .slide {
-          width: 1366px;
-          min-height: 768px;
-          margin: 0 auto;
-          padding: 24px 24px 28px;
-          background: #000;
-          border-bottom: 4px solid #111;
-          font-family: Arial, Helvetica, sans-serif;
-          color: #fff;
-        }
-
-        .title-main {
-          text-align: center;
-          font-size: 42px;
-          font-weight: 800;
-          color: #ece63e;
-          margin-bottom: 4px;
-          letter-spacing: 0.5px;
-        }
-
-        .title-sub {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 800;
-          color: #19c4ff;
-          margin-bottom: 4px;
-        }
-
-        .sub-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 8px 0 12px;
-          font-weight: 800;
-          font-size: 20px;
-        }
-
-        .sub-date,
-        .sub-buoi {
-          color: #ff38d8;
-        }
-
-        table.grid {
-          width: 100%;
-          border-collapse: collapse;
-          table-layout: fixed;
-          font-size: 18px;
-        }
-
-        table.grid th,
-        table.grid td {
-          border: 2px solid rgba(255,255,255,0.75);
-          vertical-align: middle;
-          padding: 8px 8px;
-          background: #000;
-        }
-
-        table.grid th {
-          color: #58ff7b;
-          font-weight: 800;
-          text-align: center;
-        }
-
-        .site-head .site-title {
-          font-size: 18px;
-          color: #ff2d2d;
-          margin-bottom: 6px;
-          font-weight: 800;
-        }
-
-        .site-head .site-subrow {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          font-size: 13px;
-          color: #ffffff;
-          font-weight: 700;
-        }
-
-        .stt {
-          width: 52px;
-          text-align: center;
-          font-weight: 700;
-        }
-
-        .dish {
-          width: 260px;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .total-col {
-          width: 120px;
-          text-align: center;
-          font-size: 22px;
-          font-weight: 800;
-          color: #ff3b3b;
-        }
-
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .site-cell {
-          padding: 6px 8px;
-        }
-
-        .site-inline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          gap: 6px;
-          min-height: 34px;
-        }
-
-        .cell-sl {
-          color: #ffd21f;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-noi {
-          color: #00ff95;
-          font-size: 16px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-kl {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .total-row td {
-          font-weight: 800;
-          background: #050505;
-        }
-
-        .total-label {
-          color: #ff2d2d;
-          font-size: 18px;
-          font-weight: 800;
-        }
-
-        .total-cell .cell-sl,
-        .total-cell .cell-kl {
-          color: #ff8b8b;
-        }
-
-        .center {
-          text-align: center;
-          color: #ccc;
-          font-size: 18px;
-        }
-      </style>
-
-      <div class="title-main">BẢNG LED BÌNH MỸ</div>
-      <div class="title-sub">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
-      <div class="sub-meta">
-        <div class="sub-date">11-04-2026</div>
-        <div class="sub-buoi">TRƯA</div>
-      </div>
-
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Thực đơn</th>
-            <th>Tổng số phần</th>
-            <th>Dạng ăn</th>
-            
     <th class="site-head">
       <div class="site-title">Hoa Hồng Ông</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Hoa Hồng Bà</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSĐB 1</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSĐB 2</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Hoa Lan</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSTC</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td class="stt">1</td>
-            <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">42</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="dish-col">Canh cải nhúng nấu thịt heo xay</td>
+        <td class="total-portion">184</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">42</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">31</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">53</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">6</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Cơm ngũ sắc</td>
+        <td class="total-portion">184</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">42</span>
+      <span class="noi">Xô</span>
+      <span class="kl">10,46</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi">Xô</span>
+      <span class="kl">10,69</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Xô</span>
+      <span class="kl">2,87</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">31</span>
+      <span class="noi">Xô</span>
+      <span class="kl">7,93</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">53</span>
+      <span class="noi">Xô</span>
+      <span class="kl">12,99</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">6</span>
+      <span class="noi">Xô</span>
+      <span class="kl">2,18</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">FILÊ CÁ BA SA LÚC LẮC</td>
+        <td class="total-portion">184</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">42</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">31</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">53</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">6</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Ống trưa chiều</td>
+        <td class="total-portion">19</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,9</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,85</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">16</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,6</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Ống trưa chiều</td>
+        <td class="total-portion">19</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,26</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi">Xô</span>
+      <span class="kl">1,03</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">16</span>
+      <span class="noi">Xô</span>
+      <span class="kl">4,48</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">CƠM XAY 650</td>
+        <td class="total-portion">41</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi"></span>
+      <span class="kl">15,6</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi"></span>
+      <span class="kl">3,25</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">10</span>
+      <span class="noi"></span>
+      <span class="kl">6,5</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">CƠM XAY 650</td>
+        <td class="total-portion">41</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,23</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,23</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi"></span>
+      <span class="kl">5,52</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi"></span>
+      <span class="kl">1,15</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">10</span>
+      <span class="noi"></span>
+      <span class="kl">2,3</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">22</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">7</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">13</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">44</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">14</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">4</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">26</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">FILÊ CÁ BA SA LÚC LẮC</td>
+        <td class="total-portion">11</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">4</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr class="total-row">
+        <td class="total-label">Tổng số cụ</td>
+        <td class="total-portion">749</td>
+        <td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">133</span>
+      <span class="noi"></span>
+      <span class="kl">12,94</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">132</span>
+      <span class="noi"></span>
+      <span class="kl">13,17</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">100</span>
+      <span class="noi"></span>
+      <span class="kl">27,75</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">105</span>
+      <span class="noi"></span>
+      <span class="kl">15,81</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">169</span>
+      <span class="noi"></span>
+      <span class="kl">14,59</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">110</span>
+      <span class="noi"></span>
+      <span class="kl">18,66</span>
+    </div>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
   
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">31</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">53</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">6</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-          </tr>
+
+<section class="slide">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 8px 12px 8px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
+
+    .title-main {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.72);
+    }
+
+    table.grid th,
+    table.grid td {
+      border: 1px solid rgba(255,255,255,0.72);
+      padding: 6px 6px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    thead th {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .date-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .meal-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .menu-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .portion-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .site-title {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .site-subrow {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1fr;
+      gap: 2px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .dish-col {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .total-portion {
+      color: #ff2020;
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-col {
+      padding: 4px 4px;
+    }
+
+    .site-pack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.05fr 1fr;
+      gap: 2px;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .sl {
+      color: #ffd31f;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .noi {
+      color: #00ff90;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .kl {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .total-row td {
+      background: #000;
+      font-weight: 800;
+    }
+
+    .total-label {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .total-site .sl,
+    .total-site .kl {
+      color: #ff2020;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+      padding: 18px 8px;
+    }
+
+    .w-menu { width: 18%; }
+    .w-total { width: 8%; }
+  </style>
+
+  <div class="title-main">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th class="date-top" colspan="2">11-04-2026</th>
+        <th class="meal-top" colspan="5">CHIỀU</th>
+      </tr>
+      <tr>
+        <th class="menu-head w-menu" rowspan="2">Thực đơn</th>
+        <th class="portion-head w-total" rowspan="2">Tổng số<br>phần</th>
         
-          <tr>
-            <td class="stt">2</td>
-            <td class="dish">Cơm ngũ sắc</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">42</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">1046,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">1069,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">287,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">31</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">793,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">53</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">1299,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">6</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">218,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">3</td>
-            <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">42</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">31</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">53</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">6</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">4</td>
-            <td class="dish">CƠM ĐỔ ỐNG TRƯA 50</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">9,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">85,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">16</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">16,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">5</td>
-            <td class="dish">Cơm ngũ sắc</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">126,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">103,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">16</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">448,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">6</td>
-            <td class="dish">CƠM XAY 650</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">156,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">325,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">10</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">7</td>
-            <td class="dish">Cơm ngũ sắc</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">23,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">23,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">552,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">115,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">10</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">23,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">8</td>
-            <td class="dish">THỨC ĂN XAY</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">13</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">9</td>
-            <td class="dish">Canh cải nhúng nấu thịt heo xay</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">13</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">10</td>
-            <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">13</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">11</td>
-            <td class="dish">FILÊ CÁ BA SA LÚC LẮC</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">4</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr class="total-row">
-            <td colspan="2" class="total-label">Tổng số cụ</td>
-            <td class="total-col">749</td>
-            <td></td>
-            
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">133</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1294,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">132</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1317,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">100</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">2775,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">105</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1581,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">169</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1459,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">110</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1866,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
-      <style>
-        .slide {
-          width: 1366px;
-          min-height: 768px;
-          margin: 0 auto;
-          padding: 24px 24px 28px;
-          background: #000;
-          border-bottom: 4px solid #111;
-          font-family: Arial, Helvetica, sans-serif;
-          color: #fff;
-        }
-
-        .title-main {
-          text-align: center;
-          font-size: 42px;
-          font-weight: 800;
-          color: #ece63e;
-          margin-bottom: 4px;
-          letter-spacing: 0.5px;
-        }
-
-        .title-sub {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 800;
-          color: #19c4ff;
-          margin-bottom: 4px;
-        }
-
-        .sub-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 8px 0 12px;
-          font-weight: 800;
-          font-size: 20px;
-        }
-
-        .sub-date,
-        .sub-buoi {
-          color: #ff38d8;
-        }
-
-        table.grid {
-          width: 100%;
-          border-collapse: collapse;
-          table-layout: fixed;
-          font-size: 18px;
-        }
-
-        table.grid th,
-        table.grid td {
-          border: 2px solid rgba(255,255,255,0.75);
-          vertical-align: middle;
-          padding: 8px 8px;
-          background: #000;
-        }
-
-        table.grid th {
-          color: #58ff7b;
-          font-weight: 800;
-          text-align: center;
-        }
-
-        .site-head .site-title {
-          font-size: 18px;
-          color: #ff2d2d;
-          margin-bottom: 6px;
-          font-weight: 800;
-        }
-
-        .site-head .site-subrow {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          font-size: 13px;
-          color: #ffffff;
-          font-weight: 700;
-        }
-
-        .stt {
-          width: 52px;
-          text-align: center;
-          font-weight: 700;
-        }
-
-        .dish {
-          width: 260px;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .total-col {
-          width: 120px;
-          text-align: center;
-          font-size: 22px;
-          font-weight: 800;
-          color: #ff3b3b;
-        }
-
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .site-cell {
-          padding: 6px 8px;
-        }
-
-        .site-inline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          gap: 6px;
-          min-height: 34px;
-        }
-
-        .cell-sl {
-          color: #ffd21f;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-noi {
-          color: #00ff95;
-          font-size: 16px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-kl {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .total-row td {
-          font-weight: 800;
-          background: #050505;
-        }
-
-        .total-label {
-          color: #ff2d2d;
-          font-size: 18px;
-          font-weight: 800;
-        }
-
-        .total-cell .cell-sl,
-        .total-cell .cell-kl {
-          color: #ff8b8b;
-        }
-
-        .center {
-          text-align: center;
-          color: #ccc;
-          font-size: 18px;
-        }
-      </style>
-
-      <div class="title-main">BẢNG LED BÌNH MỸ</div>
-      <div class="title-sub">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
-      <div class="sub-meta">
-        <div class="sub-date">11-04-2026</div>
-        <div class="sub-buoi">CHIỀU</div>
-      </div>
-
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Thực đơn</th>
-            <th>Tổng số phần</th>
-            <th>Dạng ăn</th>
-            
     <th class="site-head">
       <div class="site-title">Thạnh Lộc</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Gold - DQH</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Trung Xuân Thu - NT</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Care - AH</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">An Hội</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td class="stt">1</td>
-            <td class="dish">Canh bầu nấu thịt băm</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">19</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="dish-col">Canh bầu nấu thịt băm</td>
+        <td class="total-portion">192</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">19</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">114</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">35</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Củ cải-cà rốt-nấm mèo xào</td>
+        <td class="total-portion">192</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">19</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">114</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">35</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Đậu bắp-củ hành xào</td>
+        <td class="total-portion">192</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">19</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">114</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">35</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">CƠM XAY 650</td>
+        <td class="total-portion">24</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">13</span>
+      <span class="noi"></span>
+      <span class="kl">8,45</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi"></span>
+      <span class="kl">5,85</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">7</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">7</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">21</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">21</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Đậu bắp-củ hành xào</td>
+        <td class="total-portion">16</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">4</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">3</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Đậu bắp-củ hành xào</td>
+        <td class="total-portion">4</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr class="total-row">
+        <td class="total-label">Tổng số cụ</td>
+        <td class="total-portion">648</td>
+        <td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">62</span>
+      <span class="noi"></span>
+      <span class="kl">3,05</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">345</span>
+      <span class="noi"></span>
+      <span class="kl">3,05</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">116</span>
+      <span class="noi"></span>
+      <span class="kl">10,85</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">125</span>
+      <span class="noi"></span>
+      <span class="kl">8,25</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
   
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">114</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">35</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
+
+<section class="slide">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 8px 12px 8px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
+
+    .title-main {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.72);
+    }
+
+    table.grid th,
+    table.grid td {
+      border: 1px solid rgba(255,255,255,0.72);
+      padding: 6px 6px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    thead th {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .date-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .meal-top {
+      color: #ff39da;
+      font-size: 28px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .menu-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .portion-head {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .site-title {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .site-subrow {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1fr;
+      gap: 2px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .dish-col {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .total-portion {
+      color: #ff2020;
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-col {
+      padding: 4px 4px;
+    }
+
+    .site-pack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.05fr 1fr;
+      gap: 2px;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .sl {
+      color: #ffd31f;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .noi {
+      color: #00ff90;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .kl {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .total-row td {
+      background: #000;
+      font-weight: 800;
+    }
+
+    .total-label {
+      color: #ff2020;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .total-site .sl,
+    .total-site .kl {
+      color: #ff2020;
+    }
+
+    .empty-row {
+      text-align: center;
+      color: #bbb;
+      font-size: 18px;
+      padding: 18px 8px;
+    }
+
+    .w-menu { width: 18%; }
+    .w-total { width: 8%; }
+  </style>
+
+  <div class="title-main">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th class="date-top" colspan="2">11-04-2026</th>
+        <th class="meal-top" colspan="6">CHIỀU</th>
+      </tr>
+      <tr>
+        <th class="menu-head w-menu" rowspan="2">Thực đơn</th>
+        <th class="portion-head w-total" rowspan="2">Tổng số<br>phần</th>
         
-          <tr>
-            <td class="stt">2</td>
-            <td class="dish">Củ cải-cà rốt-nấm mèo xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">19</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">114</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">35</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">3</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">19</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">114</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">35</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">4</td>
-            <td class="dish">CƠM XAY 650</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">13</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">845,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">585,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">5</td>
-            <td class="dish">THỨC ĂN XAY</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">6</td>
-            <td class="dish">Canh bầu nấu thịt băm</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">7</td>
-            <td class="dish">Củ cải-cà rốt-nấm mèo xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">8</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">9</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">4</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">3</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr>
-            <td class="stt">10</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-          </tr>
-        
-          <tr class="total-row">
-            <td colspan="2" class="total-label">Tổng số cụ</td>
-            <td class="total-col">648</td>
-            <td></td>
-            
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">62</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">305,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">345</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">305,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">116</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">1085,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">125</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">825,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">0</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  
-
-    <section class="slide">
-      <style>
-        .slide {
-          width: 1366px;
-          min-height: 768px;
-          margin: 0 auto;
-          padding: 24px 24px 28px;
-          background: #000;
-          border-bottom: 4px solid #111;
-          font-family: Arial, Helvetica, sans-serif;
-          color: #fff;
-        }
-
-        .title-main {
-          text-align: center;
-          font-size: 42px;
-          font-weight: 800;
-          color: #ece63e;
-          margin-bottom: 4px;
-          letter-spacing: 0.5px;
-        }
-
-        .title-sub {
-          text-align: center;
-          font-size: 26px;
-          font-weight: 800;
-          color: #19c4ff;
-          margin-bottom: 4px;
-        }
-
-        .sub-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 8px 0 12px;
-          font-weight: 800;
-          font-size: 20px;
-        }
-
-        .sub-date,
-        .sub-buoi {
-          color: #ff38d8;
-        }
-
-        table.grid {
-          width: 100%;
-          border-collapse: collapse;
-          table-layout: fixed;
-          font-size: 18px;
-        }
-
-        table.grid th,
-        table.grid td {
-          border: 2px solid rgba(255,255,255,0.75);
-          vertical-align: middle;
-          padding: 8px 8px;
-          background: #000;
-        }
-
-        table.grid th {
-          color: #58ff7b;
-          font-weight: 800;
-          text-align: center;
-        }
-
-        .site-head .site-title {
-          font-size: 18px;
-          color: #ff2d2d;
-          margin-bottom: 6px;
-          font-weight: 800;
-        }
-
-        .site-head .site-subrow {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          font-size: 13px;
-          color: #ffffff;
-          font-weight: 700;
-        }
-
-        .stt {
-          width: 52px;
-          text-align: center;
-          font-weight: 700;
-        }
-
-        .dish {
-          width: 260px;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .total-col {
-          width: 120px;
-          text-align: center;
-          font-size: 22px;
-          font-weight: 800;
-          color: #ff3b3b;
-        }
-
-        .type {
-          width: 140px;
-          text-align: center;
-          font-weight: 700;
-          color: #fff;
-        }
-
-        .site-cell {
-          padding: 6px 8px;
-        }
-
-        .site-inline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          align-items: center;
-          gap: 6px;
-          min-height: 34px;
-        }
-
-        .cell-sl {
-          color: #ffd21f;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-noi {
-          color: #00ff95;
-          font-size: 16px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .cell-kl {
-          color: #ffffff;
-          font-size: 18px;
-          font-weight: 800;
-          text-align: center;
-          white-space: nowrap;
-        }
-
-        .total-row td {
-          font-weight: 800;
-          background: #050505;
-        }
-
-        .total-label {
-          color: #ff2d2d;
-          font-size: 18px;
-          font-weight: 800;
-        }
-
-        .total-cell .cell-sl,
-        .total-cell .cell-kl {
-          color: #ff8b8b;
-        }
-
-        .center {
-          text-align: center;
-          color: #ccc;
-          font-size: 18px;
-        }
-      </style>
-
-      <div class="title-main">BẢNG LED BÌNH MỸ</div>
-      <div class="title-sub">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
-      <div class="sub-meta">
-        <div class="sub-date">11-04-2026</div>
-        <div class="sub-buoi">CHIỀU</div>
-      </div>
-
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Thực đơn</th>
-            <th>Tổng số phần</th>
-            <th>Dạng ăn</th>
-            
     <th class="site-head">
       <div class="site-title">Hoa Hồng Ông</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Hoa Hồng Bà</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSĐB 1</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSĐB 2</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">Hoa Lan</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
     <th class="site-head">
       <div class="site-title">CSTC</div>
       <div class="site-subrow">
-        <span>SL phần</span>
-        <span>Loại nồi</span>
-        <span>KL (kg)</span>
+        <span>SL NCT</span>
+        <span></span>
+        <span>KL ( kg)</span>
       </div>
     </th>
   
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td class="stt">1</td>
-            <td class="dish">Canh bầu nấu thịt băm</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">42</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">31</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">53</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">2</td>
-            <td class="dish">Củ cải-cà rốt-nấm mèo xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">42</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">31</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">53</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">3</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">42</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">43</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">9</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">31</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">53</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi">Xô</span>
-        <span class="cell-kl">8,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">4</td>
-            <td class="dish">CƠM XAY 650</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">65,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">24</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">156,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">325,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">11</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">715,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">5</td>
-            <td class="dish">THỨC ĂN XAY</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">11</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">6</td>
-            <td class="dish">Canh bầu nấu thịt băm</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">11</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">7</td>
-            <td class="dish">Củ cải-cà rốt-nấm mèo xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">11</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">8</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">7</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">11</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">9</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">5</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">4</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr>
-            <td class="stt">10</td>
-            <td class="dish">Đậu bắp-củ hành xào</td>
-            <td class="total-col">0</td>
-            <td class="type"></td>
-            <td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">2</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  <td class="site-cell empty"></td><td class="site-cell empty"></td>
-    <td class="site-cell">
-      <div class="site-inline">
-        <span class="cell-sl">1</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">0,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        
-          <tr class="total-row">
-            <td colspan="2" class="total-label">Tổng số cụ</td>
-            <td class="total-col">686</td>
-            <td></td>
-            
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">132</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">305,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">133</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">305,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">80</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">18,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">98</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">565,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">171</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">24,00</span>
-      </div>
-    </td>
-  
-    <td class="site-cell total-cell">
-      <div class="site-inline">
-        <span class="cell-sl">72</span>
-        <span class="cell-noi"></span>
-        <span class="cell-kl">955,00</span>
-      </div>
-    </td>
-  
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="dish-col">Canh bầu nấu thịt băm</td>
+        <td class="total-portion">183</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">42</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">31</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">53</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Củ cải-cà rốt-nấm mèo xào</td>
+        <td class="total-portion">183</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">42</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">31</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">53</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Đậu bắp-củ hành xào</td>
+        <td class="total-portion">183</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">42</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">43</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">9</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">31</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">53</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi">Xô</span>
+      <span class="kl">0,8</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">CƠM XAY 650</td>
+        <td class="total-portion">42</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl">0,65</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">24</span>
+      <span class="noi"></span>
+      <span class="kl">15,6</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi"></span>
+      <span class="kl">3,25</span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">11</span>
+      <span class="noi"></span>
+      <span class="kl">7,15</span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">20</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">7</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">11</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Thức ăn xay trưa chiều</td>
+        <td class="total-portion">60</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">21</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">6</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">33</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Đậu bắp-củ hành xào</td>
+        <td class="total-portion">11</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl">5</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">4</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr>
+        <td class="dish-col">Đậu bắp-củ hành xào</td>
+        <td class="total-portion">4</td>
+        <td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">2</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl"></span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td><td class="site-col">
+    <div class="site-pack">
+      <span class="sl">1</span>
+      <span class="noi"></span>
+      <span class="kl"></span>
+    </div>
+  </td>
+      </tr>
+    
+      <tr class="total-row">
+        <td class="total-label">Tổng số cụ</td>
+        <td class="total-portion">686</td>
+        <td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">132</span>
+      <span class="noi"></span>
+      <span class="kl">3,05</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">133</span>
+      <span class="noi"></span>
+      <span class="kl">3,05</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">80</span>
+      <span class="noi"></span>
+      <span class="kl">18,0</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">98</span>
+      <span class="noi"></span>
+      <span class="kl">5,65</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">171</span>
+      <span class="noi"></span>
+      <span class="kl">2,4</span>
+    </div>
+  </td><td class="site-col total-site">
+    <div class="site-pack">
+      <span class="sl">72</span>
+      <span class="noi"></span>
+      <span class="kl">9,55</span>
+    </div>
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
