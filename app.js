@@ -47,20 +47,20 @@ function injectDeckStyles() {
       background: #000;
     }
 
-    .deck-slide {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: calc(var(--deck-w) * 1px) !important;
-      height: calc(var(--deck-h) * 1px) !important;
-      min-height: calc(var(--deck-h) * 1px) !important;
-      margin: 0 !important;
-      border: 0 !important;
-      overflow: hidden;
-      transform-origin: center center;
-      display: none;
-      background: #000;
-    }
+   .deck-slide {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--deck-w) * 1px) !important;
+  height: auto !important;
+  min-height: calc(var(--deck-h) * 1px) !important;
+  margin: 0 !important;
+  border: 0 !important;
+  overflow: visible;
+  transform-origin: center center;
+  display: none;
+  background: #000;
+}
 
     .deck-slide.is-active {
       display: block;
