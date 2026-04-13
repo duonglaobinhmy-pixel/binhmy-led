@@ -1,114 +1,196 @@
 <section class="slide">
   <style>
-    .slide { width: 1366px; min-height: 768px; margin: 0 auto; padding: 28px 32px; background:#000; border-bottom:4px solid #111; }
-    .title-main { text-align:center; font-size:42px; font-weight:800; color:#ece63e; margin-bottom:6px; }
-    .title-sub { text-align:center; font-size:24px; font-weight:800; color:#22c5ff; margin-bottom:4px; }
-    .sub-date { text-align:center; font-size:18px; font-weight:700; color:#ff49d8; margin-bottom:14px; }
-    table.grid { width:100%; border-collapse:collapse; table-layout:fixed; font-size:20px; }
-    table.grid th, table.grid td { border:2px solid #bfbfbf; padding:8px 10px; }
-    table.grid th { color:#65ff7c; background:#020202; }
-    table.grid td { color:#fff; background:#000; }
-    .num { text-align:right; color:#fff6a7; font-weight:700; }
-    .center { text-align:center; }
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      padding: 10px 18px 18px 18px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 8px;
+    }
+
+    .title-left {
+      color: #ff3131;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .title-date {
+      color: #ff4dd8;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid #d0d0d0;
+    }
+
+    table.grid th,
+    table.grid td {
+      border: 1px solid #d0d0d0;
+      padding: 7px 8px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    thead th {
+      color: #ff3131;
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    tbody td {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .c1 { width: 42%; }
+    .c2 { width: 9%; }
+    .c3, .c4, .c5, .c6 { width: 12.25%; }
+
+    .center { text-align: center; }
+    .num { text-align: right; }
   </style>
 
-  <div class="title-main">BẢNG LED BÌNH MỸ</div>
-  <div class="title-sub">BẢNG RAU</div>
-  <div class="sub-date">11-04-2026</div>
+  <div class="title-row">
+    <div class="title-left">RAU</div>
+    <div class="title-date">11-04-2026</div>
+  </div>
 
   <table class="grid">
     <thead>
       <tr>
-        <th>STT</th>
-        <th>Tên NVL</th>
-        <th>Tổng SL</th>
-        <th>Đơn vị</th>
+        <th class="c1">Tên</th>
+        <th class="c2">Kg</th>
+        <th class="c3">Tổng</th>
+        <th class="c4">Sáng</th>
+        <th class="c5">Trưa</th>
+        <th class="c6">Chiều</th>
       </tr>
     </thead>
     <tbody>
       
     <tr>
-      <td>1</td>
-      <td>Bắp mỹ</td>
-      <td class="num">15360</td>
-      <td>Gram</td>
+      <td class="c1">Bắp mỹ</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">15,36</td>
+      <td class="c4 num"></td>
+      <td class="c5 num">4,84</td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>2</td>
-      <td>BẦU</td>
-      <td class="num">32160</td>
-      <td>Gram</td>
+      <td class="c1">BẦU</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">32,16</td>
+      <td class="c4 num"></td>
+      <td class="c5 num"></td>
+      <td class="c6 num">32,16</td>
     </tr>
   
     <tr>
-      <td>3</td>
-      <td>CÀ CHUA</td>
-      <td class="num">20100</td>
-      <td>Gram</td>
+      <td class="c1">CÀ CHUA</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">20,1</td>
+      <td class="c4 num">11,46</td>
+      <td class="c5 num">8,64</td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>4</td>
-      <td>Cà rốt</td>
-      <td class="num">33560</td>
-      <td>Gram</td>
+      <td class="c1">Cà rốt</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">33,69</td>
+      <td class="c4 num"></td>
+      <td class="c5 num">7,34</td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>5</td>
-      <td>CẢI DÚN</td>
-      <td class="num">20300</td>
-      <td>Gram</td>
+      <td class="c1">CẢI DÚN</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">20,3</td>
+      <td class="c4 num"></td>
+      <td class="c5 num">20,3</td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>6</td>
-      <td>Cải ngọt</td>
-      <td class="num">52600</td>
-      <td>Gram</td>
+      <td class="c1">Cải ngọt</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">52,6</td>
+      <td class="c4 num"></td>
+      <td class="c5 num"></td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>7</td>
-      <td>ĐẬU BẮP</td>
-      <td class="num">24035</td>
-      <td>Gram</td>
+      <td class="c1">ĐẬU BẮP</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">24,12</td>
+      <td class="c4 num"></td>
+      <td class="c5 num"></td>
+      <td class="c6 num">24,12</td>
     </tr>
   
     <tr>
-      <td>8</td>
-      <td>HÀNH LÁ</td>
-      <td class="num">1039</td>
-      <td>Gram</td>
+      <td class="c1">HÀNH LÁ</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">1,02</td>
+      <td class="c4 num">0,82</td>
+      <td class="c5 num"></td>
+      <td class="c6 num">0,2</td>
     </tr>
   
     <tr>
-      <td>9</td>
-      <td>HÀNH TÂY</td>
-      <td class="num">15195</td>
-      <td>Gram</td>
+      <td class="c1">HÀNH TÂY</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">15,28</td>
+      <td class="c4 num"></td>
+      <td class="c5 num">8,64</td>
+      <td class="c6 num">6,64</td>
     </tr>
   
     <tr>
-      <td>10</td>
-      <td>NẤM ĐÔNG CÔ</td>
-      <td class="num">5176</td>
-      <td>Gram</td>
+      <td class="c1">NẤM ĐÔNG CÔ</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">5,2</td>
+      <td class="c4 num"></td>
+      <td class="c5 num">0,96</td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>11</td>
-      <td>NGÒ RÍ</td>
-      <td class="num">764</td>
-      <td>Gram</td>
+      <td class="c1">NGÒ RÍ</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">0,76</td>
+      <td class="c4 num">0,76</td>
+      <td class="c5 num"></td>
+      <td class="c6 num"></td>
     </tr>
   
     <tr>
-      <td>12</td>
-      <td>ỚT CHUÔNG</td>
-      <td class="num">8640</td>
-      <td>Gram</td>
+      <td class="c1">ỚT CHUÔNG</td>
+      <td class="c2 center">Kg</td>
+      <td class="c3 num">8,64</td>
+      <td class="c4 num"></td>
+      <td class="c5 num">8,64</td>
+      <td class="c6 num"></td>
     </tr>
   
     </tbody>
