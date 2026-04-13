@@ -162,14 +162,16 @@ function buildDeck() {
     });
   }
 
-  function render() {
-    rawSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
-    const counter = document.getElementById('deckCounter');
-    const bar = document.getElementById('deckProgressBar');
-    if (counter) counter.textContent = `${index + 1} / ${rawSlides.length}`;
-    if (bar) bar.style.width = `${((index + 1) / rawSlides.length) * 100}%`;
-    location.hash = `slide-${index + 1}`;
-  }
+ function render() {
+  rawSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+  fitSlides();
+
+  const counter = document.getElementById('deckCounter');
+  const bar = document.getElementById('deckProgressBar');
+  if (counter) counter.textContent = `${index + 1} / ${rawSlides.length}`;
+  if (bar) bar.style.width = `${((index + 1) / rawSlides.length) * 100}%`;
+  location.hash = `slide-${index + 1}`;
+}
 
   function goTo(nextIndex) {
     const safe = Math.max(0, Math.min(rawSlides.length - 1, nextIndex));
