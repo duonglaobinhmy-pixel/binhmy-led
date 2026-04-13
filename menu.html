@@ -3,11 +3,11 @@
     .slide {
       width: 1366px;
       min-height: 768px;
-      margin: 0 auto;
+      margin: 0 auto 18px auto;
       padding: 10px 8px 12px 8px;
       background: #000;
       box-sizing: border-box;
-      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: #fff;
     }
 
@@ -84,7 +84,7 @@
     .site-subrow {
       margin-top: 4px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1fr 0.85fr 1fr;
       gap: 2px;
       align-items: center;
       color: #ffffff;
@@ -95,17 +95,18 @@
 
     .dish-col {
       color: #ffffff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 1.05;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
     }
 
     .total-portion {
       color: #ff2020;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -147,24 +148,6 @@
       white-space: nowrap;
     }
 
-    .total-row td {
-      background: #000;
-      font-weight: 800;
-    }
-
-    .total-label {
-      color: #ff2020;
-      font-size: 20px;
-      font-weight: 800;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .total-site .sl,
-    .total-site .kl {
-      color: #ff2020;
-    }
-
     .empty-row {
       text-align: center;
       color: #bbb;
@@ -193,7 +176,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -202,7 +185,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -211,7 +194,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -220,7 +203,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -229,7 +212,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -345,41 +328,6 @@
   </td>
       </tr>
     
-      <tr class="total-row">
-        <td class="total-label">Tổng số cụ</td>
-        <td class="total-portion">255</td>
-        <td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">21</span>
-      <span class="noi"></span>
-      <span class="kl">19,15</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">118</span>
-      <span class="noi"></span>
-      <span class="kl">48,1</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">66</span>
-      <span class="noi"></span>
-      <span class="kl">40,9</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">50</span>
-      <span class="noi"></span>
-      <span class="kl">31,0</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl"></span>
-      <span class="noi"></span>
-      <span class="kl"></span>
-    </div>
-  </td>
-      </tr>
     </tbody>
   </table>
 </section>
@@ -390,11 +338,11 @@
     .slide {
       width: 1366px;
       min-height: 768px;
-      margin: 0 auto;
+      margin: 0 auto 18px auto;
       padding: 10px 8px 12px 8px;
       background: #000;
       box-sizing: border-box;
-      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: #fff;
     }
 
@@ -471,7 +419,7 @@
     .site-subrow {
       margin-top: 4px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1fr 0.85fr 1fr;
       gap: 2px;
       align-items: center;
       color: #ffffff;
@@ -482,17 +430,18 @@
 
     .dish-col {
       color: #ffffff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 1.05;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
     }
 
     .total-portion {
       color: #ff2020;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -534,24 +483,6 @@
       white-space: nowrap;
     }
 
-    .total-row td {
-      background: #000;
-      font-weight: 800;
-    }
-
-    .total-label {
-      color: #ff2020;
-      font-size: 20px;
-      font-weight: 800;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .total-site .sl,
-    .total-site .kl {
-      color: #ff2020;
-    }
-
     .empty-row {
       text-align: center;
       color: #bbb;
@@ -580,7 +511,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -589,7 +520,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -598,7 +529,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -607,7 +538,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -616,7 +547,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -625,7 +556,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -759,47 +690,6 @@
   </td>
       </tr>
     
-      <tr class="total-row">
-        <td class="total-label">Tổng số cụ</td>
-        <td class="total-portion">275</td>
-        <td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">47</span>
-      <span class="noi"></span>
-      <span class="kl">22,1</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">46</span>
-      <span class="noi"></span>
-      <span class="kl">24,6</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">43</span>
-      <span class="noi"></span>
-      <span class="kl">34,5</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">38</span>
-      <span class="noi"></span>
-      <span class="kl">26,35</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">55</span>
-      <span class="noi"></span>
-      <span class="kl">23,45</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">46</span>
-      <span class="noi"></span>
-      <span class="kl">35,75</span>
-    </div>
-  </td>
-      </tr>
     </tbody>
   </table>
 </section>
@@ -810,11 +700,11 @@
     .slide {
       width: 1366px;
       min-height: 768px;
-      margin: 0 auto;
+      margin: 0 auto 18px auto;
       padding: 10px 8px 12px 8px;
       background: #000;
       box-sizing: border-box;
-      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: #fff;
     }
 
@@ -891,7 +781,7 @@
     .site-subrow {
       margin-top: 4px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1fr 0.85fr 1fr;
       gap: 2px;
       align-items: center;
       color: #ffffff;
@@ -902,17 +792,18 @@
 
     .dish-col {
       color: #ffffff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 1.05;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
     }
 
     .total-portion {
       color: #ff2020;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -954,24 +845,6 @@
       white-space: nowrap;
     }
 
-    .total-row td {
-      background: #000;
-      font-weight: 800;
-    }
-
-    .total-label {
-      color: #ff2020;
-      font-size: 20px;
-      font-weight: 800;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .total-site .sl,
-    .total-site .kl {
-      color: #ff2020;
-    }
-
     .empty-row {
       text-align: center;
       color: #bbb;
@@ -1000,7 +873,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1009,7 +882,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1018,7 +891,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1027,7 +900,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1036,7 +909,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1404,41 +1277,6 @@
   </td>
       </tr>
     
-      <tr class="total-row">
-        <td class="total-label">Tổng số cụ</td>
-        <td class="total-portion">702</td>
-        <td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">67</span>
-      <span class="noi"></span>
-      <span class="kl">9,76</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">346</span>
-      <span class="noi"></span>
-      <span class="kl">31,38</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">153</span>
-      <span class="noi"></span>
-      <span class="kl">26,28</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">136</span>
-      <span class="noi"></span>
-      <span class="kl">20,53</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl"></span>
-      <span class="noi"></span>
-      <span class="kl"></span>
-    </div>
-  </td>
-      </tr>
     </tbody>
   </table>
 </section>
@@ -1449,11 +1287,11 @@
     .slide {
       width: 1366px;
       min-height: 768px;
-      margin: 0 auto;
+      margin: 0 auto 18px auto;
       padding: 10px 8px 12px 8px;
       background: #000;
       box-sizing: border-box;
-      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: #fff;
     }
 
@@ -1530,7 +1368,7 @@
     .site-subrow {
       margin-top: 4px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1fr 0.85fr 1fr;
       gap: 2px;
       align-items: center;
       color: #ffffff;
@@ -1541,17 +1379,18 @@
 
     .dish-col {
       color: #ffffff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 1.05;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
     }
 
     .total-portion {
       color: #ff2020;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -1593,24 +1432,6 @@
       white-space: nowrap;
     }
 
-    .total-row td {
-      background: #000;
-      font-weight: 800;
-    }
-
-    .total-label {
-      color: #ff2020;
-      font-size: 20px;
-      font-weight: 800;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .total-site .sl,
-    .total-site .kl {
-      color: #ff2020;
-    }
-
     .empty-row {
       text-align: center;
       color: #bbb;
@@ -1639,7 +1460,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1648,7 +1469,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1657,7 +1478,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1666,7 +1487,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1675,7 +1496,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -1684,7 +1505,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2112,47 +1933,6 @@
   </td>
       </tr>
     
-      <tr class="total-row">
-        <td class="total-label">Tổng số cụ</td>
-        <td class="total-portion">727</td>
-        <td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">133</span>
-      <span class="noi"></span>
-      <span class="kl">12,94</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">132</span>
-      <span class="noi"></span>
-      <span class="kl">13,17</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">93</span>
-      <span class="noi"></span>
-      <span class="kl">27,75</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">105</span>
-      <span class="noi"></span>
-      <span class="kl">15,81</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">167</span>
-      <span class="noi"></span>
-      <span class="kl">14,59</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">97</span>
-      <span class="noi"></span>
-      <span class="kl">18,66</span>
-    </div>
-  </td>
-      </tr>
     </tbody>
   </table>
 </section>
@@ -2163,11 +1943,11 @@
     .slide {
       width: 1366px;
       min-height: 768px;
-      margin: 0 auto;
+      margin: 0 auto 18px auto;
       padding: 10px 8px 12px 8px;
       background: #000;
       box-sizing: border-box;
-      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: #fff;
     }
 
@@ -2244,7 +2024,7 @@
     .site-subrow {
       margin-top: 4px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1fr 0.85fr 1fr;
       gap: 2px;
       align-items: center;
       color: #ffffff;
@@ -2255,17 +2035,18 @@
 
     .dish-col {
       color: #ffffff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 1.05;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
     }
 
     .total-portion {
       color: #ff2020;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -2307,24 +2088,6 @@
       white-space: nowrap;
     }
 
-    .total-row td {
-      background: #000;
-      font-weight: 800;
-    }
-
-    .total-label {
-      color: #ff2020;
-      font-size: 20px;
-      font-weight: 800;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .total-site .sl,
-    .total-site .kl {
-      color: #ff2020;
-    }
-
     .empty-row {
       text-align: center;
       color: #bbb;
@@ -2353,7 +2116,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2362,7 +2125,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2371,7 +2134,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2380,7 +2143,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2389,7 +2152,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2685,41 +2448,6 @@
   </td>
       </tr>
     
-      <tr class="total-row">
-        <td class="total-label">Tổng số cụ</td>
-        <td class="total-portion">634</td>
-        <td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">62</span>
-      <span class="noi"></span>
-      <span class="kl">3,05</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">345</span>
-      <span class="noi"></span>
-      <span class="kl">3,05</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">102</span>
-      <span class="noi"></span>
-      <span class="kl">10,85</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">125</span>
-      <span class="noi"></span>
-      <span class="kl">8,25</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl"></span>
-      <span class="noi"></span>
-      <span class="kl"></span>
-    </div>
-  </td>
-      </tr>
     </tbody>
   </table>
 </section>
@@ -2730,11 +2458,11 @@
     .slide {
       width: 1366px;
       min-height: 768px;
-      margin: 0 auto;
+      margin: 0 auto 18px auto;
       padding: 10px 8px 12px 8px;
       background: #000;
       box-sizing: border-box;
-      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: #fff;
     }
 
@@ -2811,7 +2539,7 @@
     .site-subrow {
       margin-top: 4px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr 1fr;
+      grid-template-columns: 1fr 0.85fr 1fr;
       gap: 2px;
       align-items: center;
       color: #ffffff;
@@ -2822,17 +2550,18 @@
 
     .dish-col {
       color: #ffffff;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 1.05;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
     }
 
     .total-portion {
       color: #ff2020;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       text-align: center;
       white-space: nowrap;
@@ -2874,24 +2603,6 @@
       white-space: nowrap;
     }
 
-    .total-row td {
-      background: #000;
-      font-weight: 800;
-    }
-
-    .total-label {
-      color: #ff2020;
-      font-size: 20px;
-      font-weight: 800;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .total-site .sl,
-    .total-site .kl {
-      color: #ff2020;
-    }
-
     .empty-row {
       text-align: center;
       color: #bbb;
@@ -2920,7 +2631,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2929,7 +2640,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2938,7 +2649,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2947,7 +2658,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2956,7 +2667,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -2965,7 +2676,7 @@
       <div class="site-subrow">
         <span>SL NCT</span>
         <span></span>
-        <span>KL ( kg)</span>
+        <span>KL (kg)</span>
       </div>
     </th>
   
@@ -3309,47 +3020,6 @@
   </td>
       </tr>
     
-      <tr class="total-row">
-        <td class="total-label">Tổng số cụ</td>
-        <td class="total-portion">646</td>
-        <td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">132</span>
-      <span class="noi"></span>
-      <span class="kl">3,05</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">133</span>
-      <span class="noi"></span>
-      <span class="kl">3,05</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">66</span>
-      <span class="noi"></span>
-      <span class="kl">18,0</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">98</span>
-      <span class="noi"></span>
-      <span class="kl">5,65</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">167</span>
-      <span class="noi"></span>
-      <span class="kl">2,4</span>
-    </div>
-  </td><td class="site-col total-site">
-    <div class="site-pack">
-      <span class="sl">50</span>
-      <span class="noi"></span>
-      <span class="kl">9,55</span>
-    </div>
-  </td>
-      </tr>
     </tbody>
   </table>
 </section>
