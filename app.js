@@ -8,12 +8,10 @@ function injectDeckStyles() {
   const style = document.createElement('style');
   style.textContent = `
     :root {
+      --deck-w: 1366;
+      --deck-h: 768;
       --ui-bg: rgba(0,0,0,.55);
       --ui-fg: #fff;
-      --safe-top: 18;
-      --safe-right: 18;
-      --safe-bottom: 64;
-      --safe-left: 18;
     }
 
     html, body {
@@ -29,8 +27,8 @@ function injectDeckStyles() {
     }
 
     #app {
-      width: 100vw !important;
-      height: 100vh !important;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
       position: relative;
       background: #000;
@@ -42,8 +40,6 @@ function injectDeckStyles() {
       height: 100%;
       overflow: hidden;
       background: #000;
-      user-select: none;
-      touch-action: manipulation;
     }
 
     .deck-stage {
@@ -55,47 +51,19 @@ function injectDeckStyles() {
 
     .deck-slide {
       position: absolute;
-      inset: 0;
-      display: none;
-      overflow: hidden;
+      left: 50%;
+      top: 50%;
+      width: 1366px !important;
+      min-height: 768px !important;
+      margin: 0 !important;
+      border: 0 !important;
       background: #000;
+      display: none;
+      transform-origin: center center;
     }
 
     .deck-slide.is-active {
       display: block;
-    }
-
-    .deck-slide-viewport {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .deck-slide-inner {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform-origin: center center;
-      background: #000;
-      will-change: transform;
-    }
-
-    .deck-slide-inner > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    .deck-slide table {
-      border-collapse: collapse;
-      table-layout: fixed;
-      width: 100%;
-    }
-
-    .deck-slide img,
-    .deck-slide svg,
-    .deck-slide canvas {
-      max-width: 100%;
-      height: auto;
     }
 
     .deck-ui {
@@ -125,7 +93,7 @@ function injectDeckStyles() {
 
     .deck-help {
       opacity: .88;
-      max-width: calc(100vw - 160px);
+      max-width: calc(100vw - 180px);
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -163,17 +131,6 @@ function injectDeckStyles() {
       display: block;
     }
 
-    .deck-error {
-      color: #fff;
-      background: #111;
-      border: 1px solid rgba(255,255,255,.16);
-      padding: 16px 18px;
-      border-radius: 12px;
-      max-width: 900px;
-      margin: 24px auto;
-      font: 600 18px/1.5 Arial, Helvetica, sans-serif;
-    }
-
     @media (max-width: 900px) {
       .deck-help {
         display: none;
@@ -186,24 +143,12 @@ function injectDeckStyles() {
 function buildDeck() {
   const root = document.getElementById('deck-root');
   const rawSlides = Array.from(root.querySelectorAll('section.slide'));
+
   if (!rawSlides.length) {
     throw new Error('Không tìm thấy slide nào trong HTML đã render.');
   }
 
-  rawSlides.forEach((slide) => {
-    slide.classList.add('deck-slide');
-
-    const viewport = document.createElement('div');
-    viewport.className = 'deck-slide-viewport';
-
-    const inner = document.createElement('div');
-    inner.className = 'deck-slide-inner';
-
-    while (slide.firstChild) inner.appendChild(slide.firstChild);
-
-    viewport.appendChild(inner);
-    slide.appendChild(viewport);
-  });
+  rawSlides.forEach((slide) => slide.classList.add('deck-slide'));
 
   const stage = document.createElement('div');
   stage.className = 'deck-stage';
@@ -228,80 +173,35 @@ function buildDeck() {
 
   let index = 0;
   let blackoutOn = false;
-  let rafId = null;
-
-  function safeViewport() {
-    const cs = getComputedStyle(document.documentElement);
-    const top = Number(cs.getPropertyValue('--safe-top')) || 18;
-    const right = Number(cs.getPropertyValue('--safe-right')) || 18;
-    const bottom = Number(cs.getPropertyValue('--safe-bottom')) || 64;
-    const left = Number(cs.getPropertyValue('--safe-left')) || 18;
-
-    return {
-      width: Math.max(100, window.innerWidth - left - right),
-      height: Math.max(100, window.innerHeight - top - bottom),
-    };
-  }
-
-  function measureInner(inner) {
-    const prevVisibility = inner.style.visibility;
-    const prevTransform = inner.style.transform;
-    const prevLeft = inner.style.left;
-    const prevTop = inner.style.top;
-
-    inner.style.visibility = 'hidden';
-    inner.style.left = '0';
-    inner.style.top = '0';
-    inner.style.transform = 'none';
-
-    const width = Math.max(
-      Math.ceil(inner.scrollWidth || 0),
-      Math.ceil(inner.getBoundingClientRect().width || 0),
-      1
-    );
-
-    const height = Math.max(
-      Math.ceil(inner.scrollHeight || 0),
-      Math.ceil(inner.getBoundingClientRect().height || 0),
-      1
-    );
-
-    inner.style.visibility = prevVisibility;
-    inner.style.transform = prevTransform;
-    inner.style.left = prevLeft;
-    inner.style.top = prevTop;
-
-    return { width, height };
-  }
-
-  function fitOneSlide(slide) {
-    const inner = slide.querySelector('.deck-slide-inner');
-    if (!inner) return;
-
-    const vp = safeViewport();
-    const size = measureInner(inner);
-
-    const scaleX = vp.width / size.width;
-    const scaleY = vp.height / size.height;
-    const scale = Math.min(scaleX, scaleY);
-
-    inner.style.width = `${size.width}px`;
-    inner.style.height = `${size.height}px`;
-    inner.style.left = '50%';
-    inner.style.top = '50%';
-    inner.style.transform = `translate(-50%, -50%) scale(${scale})`;
-  }
 
   function fitSlides() {
-    rawSlides.forEach(fitOneSlide);
-  }
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
 
-  function updateUi() {
-    const counter = document.getElementById('deckCounter');
-    const bar = document.getElementById('deckProgressBar');
+    rawSlides.forEach((slide) => {
+      const prevDisplay = slide.style.display;
+      const prevVisibility = slide.style.visibility;
 
-    if (counter) counter.textContent = `${index + 1} / ${rawSlides.length}`;
-    if (bar) bar.style.width = `${((index + 1) / rawSlides.length) * 100}%`;
+      slide.style.display = 'block';
+      slide.style.visibility = 'hidden';
+      slide.classList.add('is-active');
+
+      const rect = slide.getBoundingClientRect();
+      const contentWidth = Math.max(1366, Math.ceil(rect.width), Math.ceil(slide.scrollWidth || 0));
+      const contentHeight = Math.max(768, Math.ceil(slide.scrollHeight || 0));
+
+      const scale = Math.min(vw / contentWidth, vh / contentHeight);
+
+      slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+      slide.classList.remove('is-active');
+      slide.style.display = prevDisplay;
+      slide.style.visibility = prevVisibility;
+    });
+
+    rawSlides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === index);
+    });
   }
 
   function render() {
@@ -310,20 +210,21 @@ function buildDeck() {
     });
 
     fitSlides();
-    updateUi();
-    location.hash = `slide-${index + 1}`;
-  }
 
-  function renderSoon() {
-    if (rafId) cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(render);
+    const counter = document.getElementById('deckCounter');
+    const bar = document.getElementById('deckProgressBar');
+
+    if (counter) counter.textContent = `${index + 1} / ${rawSlides.length}`;
+    if (bar) bar.style.width = `${((index + 1) / rawSlides.length) * 100}%`;
+
+    location.hash = `slide-${index + 1}`;
   }
 
   function goTo(nextIndex) {
     const safe = Math.max(0, Math.min(rawSlides.length - 1, nextIndex));
     if (safe === index) return;
     index = safe;
-    renderSoon();
+    render();
   }
 
   function next() { goTo(index + 1); }
@@ -345,7 +246,7 @@ function buildDeck() {
   }
 
   function initFromHash() {
-    const m = String(location.hash || '').match(/slide-(\\d+)/i);
+    const m = String(location.hash || '').match(/slide-(\d+)/i);
     if (!m) return;
     const n = Number(m[1]);
     if (Number.isFinite(n) && n >= 1 && n <= rawSlides.length) {
@@ -353,13 +254,12 @@ function buildDeck() {
     }
   }
 
-  window.addEventListener('resize', renderSoon, { passive: true });
-  window.addEventListener('orientationchange', renderSoon);
-  document.addEventListener('fullscreenchange', renderSoon);
+  window.addEventListener('resize', render, { passive: true });
+  document.addEventListener('fullscreenchange', render);
 
   window.addEventListener('hashchange', () => {
     initFromHash();
-    renderSoon();
+    render();
   });
 
   document.addEventListener('keydown', (e) => {
@@ -413,7 +313,6 @@ function buildDeck() {
   });
 
   let touchX = null;
-
   document.addEventListener('touchstart', (e) => {
     touchX = e.changedTouches?.[0]?.clientX ?? null;
   }, { passive: true });
@@ -428,13 +327,7 @@ function buildDeck() {
   }, { passive: true });
 
   initFromHash();
-
-  requestAnimationFrame(() => {
-    render();
-    setTimeout(renderSoon, 80);
-    setTimeout(renderSoon, 220);
-    setTimeout(renderSoon, 500);
-  });
+  render();
 }
 
 async function loadDeck() {
@@ -463,8 +356,8 @@ async function loadDeck() {
   } catch (err) {
     console.error(err);
     app.innerHTML = `
-      <div class="deck-error">
-        Lỗi tải dữ liệu bảng LED.<br />
+      <div style="color:#fff;padding:20px;font:16px Arial">
+        Lỗi tải dữ liệu bảng LED.<br>
         ${String(err?.message || err)}
       </div>
     `;
