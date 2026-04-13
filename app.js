@@ -8,21 +8,18 @@ function injectDeckStyles() {
   const style = document.createElement('style');
   style.textContent = `
     :root {
-      --deck-w: 1366;
-      --deck-h: 768;
       --ui-bg: rgba(0,0,0,.55);
       --ui-fg: #fff;
-      --ui-accent: #ffe54d;
-      --deck-safe-top: 24;
-      --deck-safe-bottom: 70;
-      --deck-safe-side: 24;
+      --safe-top: 18;
+      --safe-right: 18;
+      --safe-bottom: 64;
+      --safe-left: 18;
     }
 
     html, body {
+      margin: 0;
       width: 100%;
       height: 100%;
-      margin: 0;
-      padding: 0;
       overflow: hidden;
       background: #000;
     }
@@ -34,9 +31,8 @@ function injectDeckStyles() {
     #app {
       width: 100vw !important;
       height: 100vh !important;
-      margin: 0;
-      position: relative;
       overflow: hidden;
+      position: relative;
       background: #000;
     }
 
@@ -59,23 +55,47 @@ function injectDeckStyles() {
 
     .deck-slide {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      width: calc(var(--deck-w) * 1px) !important;
-      min-height: calc(var(--deck-h) * 1px) !important;
-      height: auto !important;
-      margin: 0 !important;
-      border: 0 !important;
-      overflow: visible !important;
-      transform-origin: center center;
+      inset: 0;
       display: none;
+      overflow: hidden;
       background: #000;
-      box-sizing: border-box;
-      will-change: transform;
     }
 
     .deck-slide.is-active {
       display: block;
+    }
+
+    .deck-slide-viewport {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .deck-slide-inner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: center center;
+      background: #000;
+      will-change: transform;
+    }
+
+    .deck-slide-inner > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    .deck-slide table {
+      border-collapse: collapse;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .deck-slide img,
+    .deck-slide svg,
+    .deck-slide canvas {
+      max-width: 100%;
+      height: auto;
     }
 
     .deck-ui {
@@ -87,10 +107,10 @@ function injectDeckStyles() {
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      pointer-events: none;
       z-index: 20;
-      font: 700 16px/1.2 Arial, Helvetica, sans-serif;
+      pointer-events: none;
       color: var(--ui-fg);
+      font: 700 16px/1.2 Arial, Helvetica, sans-serif;
     }
 
     .deck-badge,
@@ -154,22 +174,6 @@ function injectDeckStyles() {
       font: 600 18px/1.5 Arial, Helvetica, sans-serif;
     }
 
-    /* ép media không phá layout */
-    .deck-slide img,
-    .deck-slide svg,
-    .deck-slide canvas {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* tránh table tự co hẹp quá mức */
-    .deck-slide table {
-      table-layout: fixed;
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    /* mobile nhỏ thì ẩn help cho đỡ che */
     @media (max-width: 900px) {
       .deck-help {
         display: none;
@@ -182,12 +186,24 @@ function injectDeckStyles() {
 function buildDeck() {
   const root = document.getElementById('deck-root');
   const rawSlides = Array.from(root.querySelectorAll('section.slide'));
-
   if (!rawSlides.length) {
     throw new Error('Không tìm thấy slide nào trong HTML đã render.');
   }
 
-  rawSlides.forEach((el) => el.classList.add('deck-slide'));
+  rawSlides.forEach((slide) => {
+    slide.classList.add('deck-slide');
+
+    const viewport = document.createElement('div');
+    viewport.className = 'deck-slide-viewport';
+
+    const inner = document.createElement('div');
+    inner.className = 'deck-slide-inner';
+
+    while (slide.firstChild) inner.appendChild(slide.firstChild);
+
+    viewport.appendChild(inner);
+    slide.appendChild(viewport);
+  });
 
   const stage = document.createElement('div');
   stage.className = 'deck-stage';
@@ -214,80 +230,70 @@ function buildDeck() {
   let blackoutOn = false;
   let rafId = null;
 
-  function getSafeViewport() {
-    const styles = getComputedStyle(document.documentElement);
-
-    const safeTop = Number(styles.getPropertyValue('--deck-safe-top')) || 24;
-    const safeBottom = Number(styles.getPropertyValue('--deck-safe-bottom')) || 70;
-    const safeSide = Number(styles.getPropertyValue('--deck-safe-side')) || 24;
-
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
+  function safeViewport() {
+    const cs = getComputedStyle(document.documentElement);
+    const top = Number(cs.getPropertyValue('--safe-top')) || 18;
+    const right = Number(cs.getPropertyValue('--safe-right')) || 18;
+    const bottom = Number(cs.getPropertyValue('--safe-bottom')) || 64;
+    const left = Number(cs.getPropertyValue('--safe-left')) || 18;
 
     return {
-      vw,
-      vh,
-      usableWidth: Math.max(100, vw - safeSide * 2),
-      usableHeight: Math.max(100, vh - safeTop - safeBottom),
+      width: Math.max(100, window.innerWidth - left - right),
+      height: Math.max(100, window.innerHeight - top - bottom),
     };
   }
 
-  function measureSlide(slide) {
-    const wasActive = slide.classList.contains('is-active');
-    const prevDisplay = slide.style.display;
-    const prevVisibility = slide.style.visibility;
-    const prevPointer = slide.style.pointerEvents;
+  function measureInner(inner) {
+    const prevVisibility = inner.style.visibility;
+    const prevTransform = inner.style.transform;
+    const prevLeft = inner.style.left;
+    const prevTop = inner.style.top;
 
-    slide.style.display = 'block';
-    slide.style.visibility = 'hidden';
-    slide.style.pointerEvents = 'none';
-    slide.classList.add('is-active');
+    inner.style.visibility = 'hidden';
+    inner.style.left = '0';
+    inner.style.top = '0';
+    inner.style.transform = 'none';
 
-    // reset trước khi đo
-    slide.style.width = `calc(var(--deck-w) * 1px)`;
-    slide.style.minHeight = `calc(var(--deck-h) * 1px)`;
-    slide.style.height = 'auto';
-    slide.style.transform = 'translate(-50%, -50%) scale(1)';
+    const width = Math.max(
+      Math.ceil(inner.scrollWidth || 0),
+      Math.ceil(inner.getBoundingClientRect().width || 0),
+      1
+    );
 
-    const rect = slide.getBoundingClientRect();
-    const scrollW = slide.scrollWidth || 0;
-    const scrollH = slide.scrollHeight || 0;
+    const height = Math.max(
+      Math.ceil(inner.scrollHeight || 0),
+      Math.ceil(inner.getBoundingClientRect().height || 0),
+      1
+    );
 
-    const contentWidth = Math.max(1366, Math.ceil(scrollW), Math.ceil(rect.width));
-    const contentHeight = Math.max(768, Math.ceil(scrollH), Math.ceil(scrollH));
+    inner.style.visibility = prevVisibility;
+    inner.style.transform = prevTransform;
+    inner.style.left = prevLeft;
+    inner.style.top = prevTop;
 
-    if (!wasActive) {
-      slide.classList.remove('is-active');
-    }
-    slide.style.display = prevDisplay;
-    slide.style.visibility = prevVisibility;
-    slide.style.pointerEvents = prevPointer;
-
-    return {
-      width: contentWidth,
-      height: contentHeight,
-    };
+    return { width, height };
   }
 
-  function fitSlide(slide) {
-    const { usableWidth, usableHeight } = getSafeViewport();
-    const measured = measureSlide(slide);
+  function fitOneSlide(slide) {
+    const inner = slide.querySelector('.deck-slide-inner');
+    if (!inner) return;
 
-    slide.style.width = `${measured.width}px`;
-    slide.style.minHeight = `${measured.height}px`;
-    slide.style.height = `${measured.height}px`;
+    const vp = safeViewport();
+    const size = measureInner(inner);
 
-    const scaleX = usableWidth / measured.width;
-    const scaleY = usableHeight / measured.height;
+    const scaleX = vp.width / size.width;
+    const scaleY = vp.height / size.height;
     const scale = Math.min(scaleX, scaleY);
 
-    slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    inner.style.width = `${size.width}px`;
+    inner.style.height = `${size.height}px`;
+    inner.style.left = '50%';
+    inner.style.top = '50%';
+    inner.style.transform = `translate(-50%, -50%) scale(${scale})`;
   }
 
   function fitSlides() {
-    rawSlides.forEach((slide) => {
-      fitSlide(slide);
-    });
+    rawSlides.forEach(fitOneSlide);
   }
 
   function updateUi() {
@@ -310,9 +316,7 @@ function buildDeck() {
 
   function renderSoon() {
     if (rafId) cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(() => {
-      render();
-    });
+    rafId = requestAnimationFrame(render);
   }
 
   function goTo(nextIndex) {
@@ -322,21 +326,10 @@ function buildDeck() {
     renderSoon();
   }
 
-  function next() {
-    goTo(index + 1);
-  }
-
-  function prev() {
-    goTo(index - 1);
-  }
-
-  function first() {
-    goTo(0);
-  }
-
-  function last() {
-    goTo(rawSlides.length - 1);
-  }
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+  function first() { goTo(0); }
+  function last() { goTo(rawSlides.length - 1); }
 
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
@@ -352,30 +345,17 @@ function buildDeck() {
   }
 
   function initFromHash() {
-    const m = String(location.hash || '').match(/slide-(\d+)/i);
+    const m = String(location.hash || '').match(/slide-(\\d+)/i);
     if (!m) return;
-
     const n = Number(m[1]);
     if (Number.isFinite(n) && n >= 1 && n <= rawSlides.length) {
       index = n - 1;
     }
   }
 
-  window.addEventListener(
-    'resize',
-    () => {
-      renderSoon();
-    },
-    { passive: true }
-  );
-
-  window.addEventListener('orientationchange', () => {
-    renderSoon();
-  });
-
-  document.addEventListener('fullscreenchange', () => {
-    renderSoon();
-  });
+  window.addEventListener('resize', renderSoon, { passive: true });
+  window.addEventListener('orientationchange', renderSoon);
+  document.addEventListener('fullscreenchange', renderSoon);
 
   window.addEventListener('hashchange', () => {
     initFromHash();
@@ -425,7 +405,6 @@ function buildDeck() {
       e.preventDefault();
       ui.classList.toggle('is-hidden');
       progress.style.display = progress.style.display === 'none' ? '' : 'none';
-      return;
     }
   });
 
@@ -435,37 +414,26 @@ function buildDeck() {
 
   let touchX = null;
 
-  document.addEventListener(
-    'touchstart',
-    (e) => {
-      touchX = e.changedTouches?.[0]?.clientX ?? null;
-    },
-    { passive: true }
-  );
+  document.addEventListener('touchstart', (e) => {
+    touchX = e.changedTouches?.[0]?.clientX ?? null;
+  }, { passive: true });
 
-  document.addEventListener(
-    'touchend',
-    (e) => {
-      const endX = e.changedTouches?.[0]?.clientX ?? null;
-      if (touchX == null || endX == null) return;
-
-      const delta = endX - touchX;
-      if (Math.abs(delta) < 40) return;
-
-      if (delta < 0) next();
-      else prev();
-    },
-    { passive: true }
-  );
+  document.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches?.[0]?.clientX ?? null;
+    if (touchX == null || endX == null) return;
+    const delta = endX - touchX;
+    if (Math.abs(delta) < 40) return;
+    if (delta < 0) next();
+    else prev();
+  }, { passive: true });
 
   initFromHash();
 
-  // chờ layout ổn rồi mới fit
   requestAnimationFrame(() => {
     render();
-    setTimeout(renderSoon, 60);
-    setTimeout(renderSoon, 180);
-    setTimeout(renderSoon, 400);
+    setTimeout(renderSoon, 80);
+    setTimeout(renderSoon, 220);
+    setTimeout(renderSoon, 500);
   });
 }
 
@@ -473,10 +441,11 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, ingredientHtml, menuHtml] = await Promise.all([
+    const [rauHtml, ingredientHtml, menuHtml, xaoHtml] = await Promise.all([
       fetchText('./rau.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
+      fetchText('./xao.html'),
     ]);
 
     injectDeckStyles();
@@ -486,6 +455,7 @@ async function loadDeck() {
         ${rauHtml}
         ${ingredientHtml}
         ${menuHtml}
+        ${xaoHtml}
       </div>
     `;
 
