@@ -1,0 +1,1116 @@
+<section class="slide slide-main">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+    }
+
+    .slide-main {
+      padding: 18px 20px 14px 20px;
+    }
+
+    .main-title {
+      text-align: center;
+      color: #00ee88;
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .main-date {
+      text-align: center;
+      color: #ff39da;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .main-section {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .main-sec-head,
+    .main-row {
+      display: grid;
+      grid-template-columns: 15% 27% 14% 14% 30%;
+      column-gap: 0;
+      align-items: baseline;
+    }
+
+    .main-sec-head {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .left-head {
+      color: #ff39da;
+      font-size: 30px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .col-head {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .red { color: #ff2020; }
+    .green { color: #00ee88; }
+
+    .ing-name {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.08;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .qty {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.08;
+      white-space: nowrap;
+    }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+  </style>
+
+  <div class="main-title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  <div class="main-date"></div>
+  
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">SÁNG</div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cháo thịt bằm ăn sáng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+</section>
+  
+
+<section class="slide slide-xay">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+    }
+
+    .slide-xay {
+      padding: 12px 14px;
+    }
+
+    .xay-title {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    table.xay-grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      border: 1px solid #a8a8a8;
+      background: #000;
+    }
+
+    table.xay-grid th,
+    table.xay-grid td {
+      border: 1px solid #a8a8a8;
+      padding: 8px 10px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    table.xay-grid th {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    table.xay-grid td {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    .date-cell {
+      color: #ff39da;
+      text-align: center;
+      font-size: 28px !important;
+    }
+
+    .th-red { color: #ff2020; }
+    .th-magenta { color: #ff39da; }
+    .th-green { color: #00ee88; }
+
+    .sec-label {
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 1.05;
+    }
+
+    .nvl {
+      color: #ffffff;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dvt {
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .num {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .gv-color { color: #00ee88; }
+    .bm-color { color: #ff2020; }
+    .tong { color: #ffffff; }
+
+    .w1 { width: 26%; }
+    .w2 { width: 31%; }
+    .w3 { width: 8%; }
+    .w4 { width: 12%; }
+    .w5 { width: 13%; }
+    .w6 { width: 10%; }
+  </style>
+
+  <div class="xay-title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG</div>
+
+  <table class="xay-grid">
+    <thead>
+      <tr>
+        <th class="date-cell w1" rowspan="2"></th>
+        <th class="th-red w2" rowspan="2">NVL</th>
+        <th class="th-red w3 center" rowspan="2">Dvt</th>
+        <th class="th-magenta center" colspan="3">Trưa</th>
+      </tr>
+      <tr>
+        <th class="th-red center w4">Cụm Gò Vấp</th>
+        <th class="th-red center w5">Cụm Bình Mỹ</th>
+        <th class="th-red center w6">Tổng</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="sec-label" rowspan="3">Cơm xay - Cơm xay rau xanh</td>
+          <td class="nvl">Canh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Thức ăn xay trưa chiều rau xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Đổ ống trưa/ chiều + Xế - Ống ăn xế rau xanh</td>
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Nước rau củ</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Rau lá xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Sữa Nuti</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Đổ ống trưa/ chiều + Xế - Ống trưa chiều rau xanh</td>
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Nước rau củ</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Rau lá xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Sữa Nuti</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="3">Cháo thịt bằm trưa chiều - Cháo thịt bằm trưa chiều</td>
+          <td class="nvl">GẠO</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">HÀNH LÁ</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">THỊT HEO XAY</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+    </tbody>
+  </table>
+</section>
+  
+
+<section class="slide slide-main">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+    }
+
+    .slide-main {
+      padding: 18px 20px 14px 20px;
+    }
+
+    .main-title {
+      text-align: center;
+      color: #00ee88;
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .main-date {
+      text-align: center;
+      color: #ff39da;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .main-section {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .main-sec-head,
+    .main-row {
+      display: grid;
+      grid-template-columns: 15% 27% 14% 14% 30%;
+      column-gap: 0;
+      align-items: baseline;
+    }
+
+    .main-sec-head {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .left-head {
+      color: #ff39da;
+      font-size: 30px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .col-head {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .red { color: #ff2020; }
+    .green { color: #00ee88; }
+
+    .ing-name {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.08;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .qty {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.08;
+      white-space: nowrap;
+    }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+  </style>
+
+  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+  <div class="main-date"></div>
+  
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">TRƯA</div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cải thảo cà rốt đậu đũa xào</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CẢI THẢO</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐẬU ĐŨA</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Canh đu đủ</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐU ĐỦ XANH</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cơm trắng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">sữa chua</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Sữa chua</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Sườn kho củ hành</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH TÂY</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Sườn chín</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Thịt heo</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+</section>
+  
+
+<section class="slide slide-xay">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+    }
+
+    .slide-xay {
+      padding: 12px 14px;
+    }
+
+    .xay-title {
+      text-align: center;
+      color: #00ee88;
+      font-size: 30px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    table.xay-grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      border: 1px solid #a8a8a8;
+      background: #000;
+    }
+
+    table.xay-grid th,
+    table.xay-grid td {
+      border: 1px solid #a8a8a8;
+      padding: 8px 10px;
+      vertical-align: middle;
+      background: #000;
+    }
+
+    table.xay-grid th {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    table.xay-grid td {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    .date-cell {
+      color: #ff39da;
+      text-align: center;
+      font-size: 28px !important;
+    }
+
+    .th-red { color: #ff2020; }
+    .th-magenta { color: #ff39da; }
+    .th-green { color: #00ee88; }
+
+    .sec-label {
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 1.05;
+    }
+
+    .nvl {
+      color: #ffffff;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dvt {
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .num {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .gv-color { color: #00ee88; }
+    .bm-color { color: #ff2020; }
+    .tong { color: #ffffff; }
+
+    .w1 { width: 26%; }
+    .w2 { width: 31%; }
+    .w3 { width: 8%; }
+    .w4 { width: 12%; }
+    .w5 { width: 13%; }
+    .w6 { width: 10%; }
+  </style>
+
+  <div class="xay-title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG</div>
+
+  <table class="xay-grid">
+    <thead>
+      <tr>
+        <th class="date-cell w1" rowspan="2"></th>
+        <th class="th-red w2" rowspan="2">NVL</th>
+        <th class="th-red w3 center" rowspan="2">Dvt</th>
+        <th class="th-magenta center" colspan="3">Chiều</th>
+      </tr>
+      <tr>
+        <th class="th-red center w4">Cụm Gò Vấp</th>
+        <th class="th-red center w5">Cụm Bình Mỹ</th>
+        <th class="th-red center w6">Tổng</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="sec-label" rowspan="3">Cơm xay - Cơm xay rau xanh</td>
+          <td class="nvl">Canh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Thức ăn xay trưa chiều rau xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Đổ ống trưa/ chiều + Xế - Ống ăn xế rau xanh</td>
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Nước rau củ</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Rau lá xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Sữa Nuti</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Đổ ống trưa/ chiều + Xế - Ống trưa chiều rau xanh</td>
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Nước rau củ</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Rau lá xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Sữa Nuti</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="3">Cháo thịt bằm trưa chiều - Cháo thịt bằm trưa chiều</td>
+          <td class="nvl">GẠO</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">HÀNH LÁ</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">THỊT HEO XAY</td>
+          <td class="dvt center">Kg</td>
+          <td class="gv num gv-color">0,0</td>
+          <td class="bm num bm-color">0,0</td>
+          <td class="tong num">0,0</td>
+        </tr>
+      
+    </tbody>
+  </table>
+</section>
+  
+
+<section class="slide slide-main">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+    }
+
+    .slide-main {
+      padding: 18px 20px 14px 20px;
+    }
+
+    .main-title {
+      text-align: center;
+      color: #00ee88;
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .main-date {
+      text-align: center;
+      color: #ff39da;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .main-section {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .main-sec-head,
+    .main-row {
+      display: grid;
+      grid-template-columns: 15% 27% 14% 14% 30%;
+      column-gap: 0;
+      align-items: baseline;
+    }
+
+    .main-sec-head {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .left-head {
+      color: #ff39da;
+      font-size: 30px;
+      font-weight: 800;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .col-head {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .red { color: #ff2020; }
+    .green { color: #00ee88; }
+
+    .ing-name {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.08;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .qty {
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.08;
+      white-space: nowrap;
+    }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+  </style>
+
+  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+  <div class="main-date"></div>
+  
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">CHIỀU</div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Canh bí xanh</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BÍ XANH</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Chả mỡ rim nước mắm</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CHẢ MỠ CHIÊN 500G</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Chuối cau</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CHUỐI CAU</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cơm trắng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Gà kho gừng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gà chín</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GỪNG SỢI</div>
+        <div class="qty center">0,0</div>
+        <div class="qty center">0,0</div>
+        <div class="qty right">0,0</div>
+      </div>
+    
+      </div>
+    
+</section>
