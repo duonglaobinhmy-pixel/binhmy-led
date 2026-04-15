@@ -49,18 +49,21 @@ function injectDeckStyles() {
       background: #000;
     }
 
-    .deck-slide {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 1366px !important;
-      min-height: 768px !important;
-      margin: 0 !important;
-      border: 0 !important;
-      background: #000;
-      display: none;
-      transform-origin: center center;
-    }
+ .deck-slide {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1366px !important;
+  min-height: 768px !important;
+  height: 768px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: #000;
+  display: none;
+  transform-origin: center center;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
 
     .deck-slide.is-active {
       display: block;
@@ -175,34 +178,20 @@ function buildDeck() {
   let blackoutOn = false;
 
   function fitSlides() {
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
 
-    rawSlides.forEach((slide) => {
-      const prevDisplay = slide.style.display;
-      const prevVisibility = slide.style.visibility;
+  // luôn scale theo khổ chuẩn deck, không đo theo scrollWidth/scrollHeight nữa
+  const scale = Math.min(vw / 1366, vh / 768);
 
-      slide.style.display = 'block';
-      slide.style.visibility = 'hidden';
-      slide.classList.add('is-active');
+  rawSlides.forEach((slide) => {
+    slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  });
 
-      const rect = slide.getBoundingClientRect();
-      const contentWidth = Math.max(1366, Math.ceil(rect.width), Math.ceil(slide.scrollWidth || 0));
-      const contentHeight = Math.max(768, Math.ceil(slide.scrollHeight || 0));
-
-      const scale = Math.min(vw / contentWidth, vh / contentHeight);
-
-      slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
-
-      slide.classList.remove('is-active');
-      slide.style.display = prevDisplay;
-      slide.style.visibility = prevVisibility;
-    });
-
-    rawSlides.forEach((slide, i) => {
-      slide.classList.toggle('is-active', i === index);
-    });
-  }
+  rawSlides.forEach((slide, i) => {
+    slide.classList.toggle('is-active', i === index);
+  });
+}
 
   function render() {
     rawSlides.forEach((slide, i) => {
