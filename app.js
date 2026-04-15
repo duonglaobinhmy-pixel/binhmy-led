@@ -26,7 +26,6 @@ function normalizeText(v) {
 function splitSlidesFromHtml(html) {
   const wrap = document.createElement('div');
   wrap.innerHTML = html;
-
   return Array.from(wrap.querySelectorAll('section.slide')).map((slide) => slide.outerHTML);
 }
 
@@ -38,7 +37,6 @@ function extractTextFromSlideHtml(slideHtml) {
   if (!clone) return '';
 
   clone.querySelectorAll('style, script').forEach((el) => el.remove());
-
   return normalizeText(clone.textContent || '');
 }
 
@@ -46,35 +44,56 @@ function classifySlide(slideHtml) {
   const text = extractTextFromSlideHtml(slideHtml);
 
   const has = (...parts) => parts.every((p) => text.includes(normalizeText(p)));
+  const hasAny = (...parts) => parts.some((p) => text.includes(normalizeText(p)));
 
-  if (has('RAU')) return 'rau';
+  // ===== Ưu tiên nhận diện slide đặc biệt trước =====
 
-  if (has('BANG NGUYEN LIEU BUA SANG')) return 'ingredient_sang';
+  if (has('BANG NGUYEN LIEU THUC AN XAO')) return 'xao';
+
+  if (has('BANG RAU')) return 'rau';
+  if (has('RAU', 'GO VAP') || has('RAU', 'BINH MY')) return 'rau';
+
+  if (has('THUC DON TUAN')) return 'thucdon_tuan';
+
+  // ===== Menu slides =====
 
   if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
   if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
 
-  if (has('BANG NGUYEN LIEU THUC AN XAO')) return 'xao';
-
-  if (has('BANG NGUYEN LIEU CHO MON COM', 'TRUA')) return 'ingredient_trua';
   if (has('BANG KHAU PHAN AN TRUA CUM GO VAP')) return 'menu_trua_govap';
   if (has('BANG KHAU PHAN AN TRUA CUM BINH MY')) return 'menu_trua_binhmy';
 
-  if (has('BANG NGUYEN LIEU CHO MON COM', 'CHIEU')) return 'ingredient_chieu';
   if (has('BANG KHAU PHAN AN CHIEU CUM GO VAP')) return 'menu_chieu_govap';
   if (has('BANG KHAU PHAN AN CHIEU CUM BINH MY')) return 'menu_chieu_binhmy';
 
-  if (has('THUC DON TUAN')) return 'thucdon_tuan';
+  // ===== Ingredient sáng =====
 
-  if (
-    has('THUC AN XAY') ||
-    has('COM XAY') ||
-    has('DO ONG')
-  ) {
-    if (text.includes('SANG')) return 'xay_sang';
-    if (text.includes('TRUA')) return 'xay_trua';
-    if (text.includes('CHIEU')) return 'xay_chieu';
-    return 'xay_other';
+  if (has('BANG NGUYEN LIEU BUA SANG')) return 'ingredient_sang';
+
+  // ===== Ingredient xay: phải bắt trước ingredient main =====
+
+  const isXayTitle = hasAny(
+    'THUC AN XAY',
+    'COM XAY',
+    'DO ONG',
+    'ĐO ỐNG',
+    'CHAO THIT BAM TRUA CHIEU',
+    'CHAO THIT BAM'
+  ) && has('BANG NGUYEN LIEU');
+
+  if (isXayTitle) {
+    if (text.includes(normalizeText('TRUA'))) return 'ingredient_trua_xay';
+    if (text.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_xay';
+    if (text.includes(normalizeText('SANG'))) return 'ingredient_sang_xay';
+    return 'ingredient_xay_other';
+  }
+
+  // ===== Ingredient main =====
+
+  if (has('BANG NGUYEN LIEU CHO MON COM', 'CANH', 'XAO', 'MAN')) {
+    if (text.includes(normalizeText('TRUA'))) return 'ingredient_trua_main';
+    if (text.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_main';
+    return 'ingredient_main_other';
   }
 
   return 'unknown';
@@ -91,27 +110,33 @@ function orderSlides(allSlides) {
 
   const takeAll = (key) => (buckets.get(key) || []).map((x) => x.slideHtml);
 
+  // Thứ tự bám gần bảng led kế toán:
+  // Rau -> Sáng nguyên liệu -> Menu sáng
+  // -> Xào
+  // -> Trưa main -> Trưa xay -> Menu trưa
+  // -> Chiều main -> Chiều xay -> Menu chiều
+  // -> Thực đơn tuần -> leftovers
   const ordered = [
     ...takeAll('rau'),
+
     ...takeAll('ingredient_sang'),
+    ...takeAll('ingredient_sang_xay'),
     ...takeAll('menu_sang_govap'),
     ...takeAll('menu_sang_binhmy'),
 
     ...takeAll('xao'),
-    ...takeAll('xay_sang'),
 
-    ...takeAll('ingredient_trua'),
+    ...takeAll('ingredient_trua_main'),
+    ...takeAll('ingredient_trua_xay'),
+    ...takeAll('ingredient_xay_other'),
     ...takeAll('menu_trua_govap'),
     ...takeAll('menu_trua_binhmy'),
 
-    ...takeAll('xay_trua'),
-    ...takeAll('xay_other'),
-
-    ...takeAll('ingredient_chieu'),
+    ...takeAll('ingredient_chieu_main'),
+    ...takeAll('ingredient_chieu_xay'),
     ...takeAll('menu_chieu_govap'),
     ...takeAll('menu_chieu_binhmy'),
 
-    ...takeAll('xay_chieu'),
     ...takeAll('thucdon_tuan'),
   ];
 
@@ -454,7 +479,7 @@ function fillMissingDates(slides) {
   const today = getTodayVN();
 
   slides.forEach((slide) => {
-    slide.querySelectorAll('.date-head, .date-cell').forEach((el) => {
+    slide.querySelectorAll('.date-head, .date-cell, .main-date').forEach((el) => {
       const txt = String(el.textContent || '').trim();
       if (!txt) {
         el.textContent = today;
@@ -603,7 +628,7 @@ function buildDeck() {
   }
 
   function initFromHash() {
-    const m = String(location.hash || '').match(/slide-(\\d+)/i);
+    const m = String(location.hash || '').match(/slide-(\d+)/i);
     if (!m) return;
     const n = Number(m[1]);
     if (Number.isFinite(n) && n >= 1 && n <= rawSlides.length) {
@@ -718,7 +743,7 @@ async function loadDeck() {
 
     app.innerHTML = `
       <div id="deck-root">
-        ${orderedSlides.join('\\n')}
+        ${orderedSlides.join('\n')}
       </div>
     `;
 
@@ -728,6 +753,7 @@ async function loadDeck() {
       total: allSlides.length,
       ordered: orderedSlides.length,
       types: allSlides.map((s) => classifySlide(s)),
+      orderedTypes: orderedSlides.map((s) => classifySlide(s)),
     });
   } catch (err) {
     console.error(err);
