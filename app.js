@@ -69,16 +69,6 @@ function injectDeckStyles() {
       display: block;
     }
 
-    .deck-slide-inner {
-      width: 1366px;
-      min-height: 768px;
-      height: 768px;
-      overflow: hidden;
-      box-sizing: border-box;
-      transform-origin: top left;
-      background: #000;
-    }
-
     .deck-ui {
       position: absolute;
       left: 12px;
@@ -161,21 +151,7 @@ function buildDeck() {
     throw new Error('Không tìm thấy slide nào trong HTML đã render.');
   }
 
-  // wrap nội dung từng slide vào inner để dễ auto-fit
-  rawSlides.forEach((slide) => {
-    slide.classList.add('deck-slide');
-
-    if (!slide.querySelector(':scope > .deck-slide-inner')) {
-      const inner = document.createElement('div');
-      inner.className = 'deck-slide-inner';
-
-      while (slide.firstChild) {
-        inner.appendChild(slide.firstChild);
-      }
-
-      slide.appendChild(inner);
-    }
-  });
+  rawSlides.forEach((slide) => slide.classList.add('deck-slide'));
 
   const stage = document.createElement('div');
   stage.className = 'deck-stage';
@@ -201,75 +177,13 @@ function buildDeck() {
   let index = 0;
   let blackoutOn = false;
 
-  function measureAndFitSlide(slide) {
-    const inner = slide.querySelector(':scope > .deck-slide-inner');
-    if (!inner) return 1;
-
-    const prevDisplay = slide.style.display;
-    const prevVisibility = slide.style.visibility;
-    const prevZoom = inner.style.zoom;
-
-    slide.style.display = 'block';
-    slide.style.visibility = 'hidden';
-    slide.classList.add('is-active');
-
-    inner.style.zoom = '1';
-
-    const maxW = 1366;
-    const maxH = 768;
-
-    // đo kích thước thật của nội dung
-    const contentW = Math.max(
-      maxW,
-      Math.ceil(inner.scrollWidth || 0),
-      Math.ceil(slide.scrollWidth || 0)
-    );
-
-    const contentH = Math.max(
-      maxH,
-      Math.ceil(inner.scrollHeight || 0),
-      Math.ceil(slide.scrollHeight || 0)
-    );
-
-    let fitScale = Math.min(maxW / contentW, maxH / contentH, 1);
-
-    // chặn quá nhỏ
-    fitScale = Math.max(fitScale, 0.55);
-
-    inner.style.zoom = String(fitScale);
-
-    // đo lại 1 lần sau zoom, phòng trường hợp bảng vẫn còn tràn nhẹ
-    const afterW = Math.max(
-      maxW,
-      Math.ceil(inner.scrollWidth * fitScale || 0)
-    );
-    const afterH = Math.max(
-      maxH,
-      Math.ceil(inner.scrollHeight * fitScale || 0)
-    );
-
-    if (afterW > maxW || afterH > maxH) {
-      const secondScale = Math.min(maxW / afterW, maxH / afterH, 1);
-      fitScale = Math.max(0.55, fitScale * secondScale * 0.995);
-      inner.style.zoom = String(fitScale);
-    }
-
-    slide.classList.remove('is-active');
-    slide.style.display = prevDisplay;
-    slide.style.visibility = prevVisibility;
-
-    return fitScale;
-  }
-
   function fitSlides() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-
-    const deckScale = Math.min(vw / 1366, vh / 768);
+    const scale = Math.min(vw / 1366, vh / 768);
 
     rawSlides.forEach((slide) => {
-      measureAndFitSlide(slide);
-      slide.style.transform = `translate(-50%, -50%) scale(${deckScale})`;
+      slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
     });
 
     rawSlides.forEach((slide, i) => {
@@ -340,13 +254,13 @@ function buildDeck() {
 
     if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(key)) {
       e.preventDefault();
-      next();
+      goTo(index + 1);
       return;
     }
 
     if (['ArrowLeft', 'PageUp', 'Backspace'].includes(key)) {
       e.preventDefault();
-      prev();
+      goTo(index - 1);
       return;
     }
 
@@ -382,7 +296,7 @@ function buildDeck() {
   });
 
   document.addEventListener('click', (e) => {
-    if (e.button === 0) next();
+    if (e.button === 0) goTo(index + 1);
   });
 
   let touchX = null;
@@ -395,8 +309,8 @@ function buildDeck() {
     if (touchX == null || endX == null) return;
     const delta = endX - touchX;
     if (Math.abs(delta) < 40) return;
-    if (delta < 0) next();
-    else prev();
+    if (delta < 0) goTo(index + 1);
+    else goTo(index - 1);
   }, { passive: true });
 
   initFromHash();
