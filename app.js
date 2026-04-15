@@ -12,6 +12,115 @@ function getTodayVN() {
   return `${dd}-${mm}-${yy}`;
 }
 
+function normalizeText(v) {
+  return String(v ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toUpperCase();
+}
+
+function splitSlidesFromHtml(html) {
+  const wrap = document.createElement('div');
+  wrap.innerHTML = html;
+
+  return Array.from(wrap.querySelectorAll('section.slide')).map((slide) => slide.outerHTML);
+}
+
+function extractTextFromSlideHtml(slideHtml) {
+  const wrap = document.createElement('div');
+  wrap.innerHTML = slideHtml;
+
+  const clone = wrap.firstElementChild?.cloneNode(true);
+  if (!clone) return '';
+
+  clone.querySelectorAll('style, script').forEach((el) => el.remove());
+
+  return normalizeText(clone.textContent || '');
+}
+
+function classifySlide(slideHtml) {
+  const text = extractTextFromSlideHtml(slideHtml);
+
+  const has = (...parts) => parts.every((p) => text.includes(normalizeText(p)));
+
+  if (has('RAU')) return 'rau';
+
+  if (has('BANG NGUYEN LIEU BUA SANG')) return 'ingredient_sang';
+
+  if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
+  if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
+
+  if (has('BANG NGUYEN LIEU THUC AN XAO')) return 'xao';
+
+  if (has('BANG NGUYEN LIEU CHO MON COM', 'TRUA')) return 'ingredient_trua';
+  if (has('BANG KHAU PHAN AN TRUA CUM GO VAP')) return 'menu_trua_govap';
+  if (has('BANG KHAU PHAN AN TRUA CUM BINH MY')) return 'menu_trua_binhmy';
+
+  if (has('BANG NGUYEN LIEU CHO MON COM', 'CHIEU')) return 'ingredient_chieu';
+  if (has('BANG KHAU PHAN AN CHIEU CUM GO VAP')) return 'menu_chieu_govap';
+  if (has('BANG KHAU PHAN AN CHIEU CUM BINH MY')) return 'menu_chieu_binhmy';
+
+  if (has('THUC DON TUAN')) return 'thucdon_tuan';
+
+  if (
+    has('THUC AN XAY') ||
+    has('COM XAY') ||
+    has('DO ONG')
+  ) {
+    if (text.includes('SANG')) return 'xay_sang';
+    if (text.includes('TRUA')) return 'xay_trua';
+    if (text.includes('CHIEU')) return 'xay_chieu';
+    return 'xay_other';
+  }
+
+  return 'unknown';
+}
+
+function orderSlides(allSlides) {
+  const buckets = new Map();
+
+  allSlides.forEach((slideHtml, index) => {
+    const key = classifySlide(slideHtml);
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push({ slideHtml, index });
+  });
+
+  const takeAll = (key) => (buckets.get(key) || []).map((x) => x.slideHtml);
+
+  const ordered = [
+    ...takeAll('rau'),
+    ...takeAll('ingredient_sang'),
+    ...takeAll('menu_sang_govap'),
+    ...takeAll('menu_sang_binhmy'),
+
+    ...takeAll('xao'),
+    ...takeAll('xay_sang'),
+
+    ...takeAll('ingredient_trua'),
+    ...takeAll('menu_trua_govap'),
+    ...takeAll('menu_trua_binhmy'),
+
+    ...takeAll('xay_trua'),
+    ...takeAll('xay_other'),
+
+    ...takeAll('ingredient_chieu'),
+    ...takeAll('menu_chieu_govap'),
+    ...takeAll('menu_chieu_binhmy'),
+
+    ...takeAll('xay_chieu'),
+    ...takeAll('thucdon_tuan'),
+  ];
+
+  const used = new Set(ordered);
+  const leftovers = allSlides.filter((slideHtml) => !used.has(slideHtml));
+
+  return [...ordered, ...leftovers];
+}
+
 function injectDeckStyles() {
   const style = document.createElement('style');
   style.textContent = `
@@ -141,8 +250,6 @@ function injectDeckStyles() {
     .deck-blackout.is-on {
       display: block;
     }
-
-    /* ===== Auto-tight cho slide menu nếu bị tràn ===== */
 
     .deck-slide.tight-1 .menu-title {
       font-size: 38px !important;
@@ -479,8 +586,6 @@ function buildDeck() {
     render();
   }
 
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
   function first() { goTo(0); }
   function last() { goTo(rawSlides.length - 1); }
 
@@ -498,7 +603,7 @@ function buildDeck() {
   }
 
   function initFromHash() {
-    const m = String(location.hash || '').match(/slide-(\d+)/i);
+    const m = String(location.hash || '').match(/slide-(\\d+)/i);
     if (!m) return;
     const n = Number(m[1]);
     if (Number.isFinite(n) && n >= 1 && n <= rawSlides.length) {
@@ -602,16 +707,28 @@ async function loadDeck() {
 
     injectDeckStyles();
 
+    const allSlides = [
+      ...splitSlidesFromHtml(rauHtml),
+      ...splitSlidesFromHtml(ingredientHtml),
+      ...splitSlidesFromHtml(menuHtml),
+      ...splitSlidesFromHtml(xaoHtml),
+    ];
+
+    const orderedSlides = orderSlides(allSlides);
+
     app.innerHTML = `
       <div id="deck-root">
-        ${rauHtml}
-        ${ingredientHtml}
-        ${menuHtml}
-        ${xaoHtml}
+        ${orderedSlides.join('\\n')}
       </div>
     `;
 
     buildDeck();
+
+    console.log('Slides loaded:', {
+      total: allSlides.length,
+      ordered: orderedSlides.length,
+      types: allSlides.map((s) => classifySlide(s)),
+    });
   } catch (err) {
     console.error(err);
     app.innerHTML = `
