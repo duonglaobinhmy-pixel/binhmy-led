@@ -49,24 +49,34 @@ function injectDeckStyles() {
       background: #000;
     }
 
- .deck-slide {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1366px !important;
-  min-height: 768px !important;
-  height: 768px !important;
-  margin: 0 !important;
-  border: 0 !important;
-  background: #000;
-  display: none;
-  transform-origin: center center;
-  overflow: hidden !important;
-  box-sizing: border-box;
-}
+    .deck-slide {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1366px !important;
+      min-height: 768px !important;
+      height: 768px !important;
+      margin: 0 !important;
+      border: 0 !important;
+      background: #000;
+      display: none;
+      transform-origin: center center;
+      overflow: hidden !important;
+      box-sizing: border-box;
+    }
 
     .deck-slide.is-active {
       display: block;
+    }
+
+    .deck-slide-inner {
+      width: 1366px;
+      min-height: 768px;
+      height: 768px;
+      overflow: hidden;
+      box-sizing: border-box;
+      transform-origin: top left;
+      background: #000;
     }
 
     .deck-ui {
@@ -151,7 +161,21 @@ function buildDeck() {
     throw new Error('Không tìm thấy slide nào trong HTML đã render.');
   }
 
-  rawSlides.forEach((slide) => slide.classList.add('deck-slide'));
+  // wrap nội dung từng slide vào inner để dễ auto-fit
+  rawSlides.forEach((slide) => {
+    slide.classList.add('deck-slide');
+
+    if (!slide.querySelector(':scope > .deck-slide-inner')) {
+      const inner = document.createElement('div');
+      inner.className = 'deck-slide-inner';
+
+      while (slide.firstChild) {
+        inner.appendChild(slide.firstChild);
+      }
+
+      slide.appendChild(inner);
+    }
+  });
 
   const stage = document.createElement('div');
   stage.className = 'deck-stage';
@@ -177,21 +201,81 @@ function buildDeck() {
   let index = 0;
   let blackoutOn = false;
 
+  function measureAndFitSlide(slide) {
+    const inner = slide.querySelector(':scope > .deck-slide-inner');
+    if (!inner) return 1;
+
+    const prevDisplay = slide.style.display;
+    const prevVisibility = slide.style.visibility;
+    const prevZoom = inner.style.zoom;
+
+    slide.style.display = 'block';
+    slide.style.visibility = 'hidden';
+    slide.classList.add('is-active');
+
+    inner.style.zoom = '1';
+
+    const maxW = 1366;
+    const maxH = 768;
+
+    // đo kích thước thật của nội dung
+    const contentW = Math.max(
+      maxW,
+      Math.ceil(inner.scrollWidth || 0),
+      Math.ceil(slide.scrollWidth || 0)
+    );
+
+    const contentH = Math.max(
+      maxH,
+      Math.ceil(inner.scrollHeight || 0),
+      Math.ceil(slide.scrollHeight || 0)
+    );
+
+    let fitScale = Math.min(maxW / contentW, maxH / contentH, 1);
+
+    // chặn quá nhỏ
+    fitScale = Math.max(fitScale, 0.55);
+
+    inner.style.zoom = String(fitScale);
+
+    // đo lại 1 lần sau zoom, phòng trường hợp bảng vẫn còn tràn nhẹ
+    const afterW = Math.max(
+      maxW,
+      Math.ceil(inner.scrollWidth * fitScale || 0)
+    );
+    const afterH = Math.max(
+      maxH,
+      Math.ceil(inner.scrollHeight * fitScale || 0)
+    );
+
+    if (afterW > maxW || afterH > maxH) {
+      const secondScale = Math.min(maxW / afterW, maxH / afterH, 1);
+      fitScale = Math.max(0.55, fitScale * secondScale * 0.995);
+      inner.style.zoom = String(fitScale);
+    }
+
+    slide.classList.remove('is-active');
+    slide.style.display = prevDisplay;
+    slide.style.visibility = prevVisibility;
+
+    return fitScale;
+  }
+
   function fitSlides() {
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
 
-  // luôn scale theo khổ chuẩn deck, không đo theo scrollWidth/scrollHeight nữa
-  const scale = Math.min(vw / 1366, vh / 768);
+    const deckScale = Math.min(vw / 1366, vh / 768);
 
-  rawSlides.forEach((slide) => {
-    slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
-  });
+    rawSlides.forEach((slide) => {
+      measureAndFitSlide(slide);
+      slide.style.transform = `translate(-50%, -50%) scale(${deckScale})`;
+    });
 
-  rawSlides.forEach((slide, i) => {
-    slide.classList.toggle('is-active', i === index);
-  });
-}
+    rawSlides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === index);
+    });
+  }
 
   function render() {
     rawSlides.forEach((slide, i) => {
