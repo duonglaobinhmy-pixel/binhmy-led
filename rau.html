@@ -4,7 +4,7 @@
       width: 1366px;
       min-height: 768px;
       margin: 0 auto;
-      padding: 10px 18px 18px 18px;
+      padding: 12px 20px 18px 20px;
       background: #000;
       box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
@@ -14,20 +14,20 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .title-left {
       color: #ff3131;
-      font-size: 28px;
-      font-weight: 800;
+      font-size: 30px;
+      font-weight: 900;
       letter-spacing: 0.3px;
     }
 
     .title-date {
       color: #ff4dd8;
-      font-size: 20px;
-      font-weight: 800;
+      font-size: 22px;
+      font-weight: 900;
     }
 
     table.grid {
@@ -35,36 +35,38 @@
       border-collapse: collapse;
       table-layout: fixed;
       background: #000;
-      border: 1px solid #d0d0d0;
+      border: 1px solid #cfcfcf;
     }
 
     table.grid th,
     table.grid td {
-      border: 1px solid #d0d0d0;
-      padding: 7px 8px;
+      border: 1px solid #cfcfcf;
+      padding: 8px 10px;
       vertical-align: middle;
       background: #000;
+      line-height: 1.05;
     }
 
     thead th {
       color: #ff3131;
-      font-size: 22px;
-      font-weight: 800;
+      font-size: 21px;
+      font-weight: 900;
       text-align: center;
     }
 
     tbody td {
       color: #ffffff;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 19px;
+      font-weight: 800;
     }
 
-    .c1 { width: 42%; }
-    .c2 { width: 9%; }
-    .c3, .c4, .c5, .c6 { width: 12.25%; }
+    .c1 { width: 46%; text-align: left; }
+    .c2 { width: 8%; }
+    .c3, .c4, .c5, .c6 { width: 11.5%; }
 
     .center { text-align: center; }
     .num { text-align: right; }
+    .empty { padding: 28px 10px; }
   </style>
 
   <div class="title-row">
@@ -76,7 +78,7 @@
     <thead>
       <tr>
         <th class="c1">Tên</th>
-        <th class="c2">Kg</th>
+        <th class="c2">ĐV</th>
         <th class="c3">Tổng</th>
         <th class="c4">Sáng</th>
         <th class="c5">Trưa</th>
@@ -88,17 +90,17 @@
     <tr>
       <td class="c1">BẮP CẢI</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">24,64</td>
       <td class="c4 num"></td>
       <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c6 num">24,64</td>
     </tr>
   
     <tr>
       <td class="c1">CÀ CHUA</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
-      <td class="c4 num"></td>
+      <td class="c3 num">13,09</td>
+      <td class="c4 num">13,09</td>
       <td class="c5 num"></td>
       <td class="c6 num"></td>
     </tr>
@@ -106,82 +108,82 @@
     <tr>
       <td class="c1">CẢI XANH</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">19,09</td>
       <td class="c4 num"></td>
-      <td class="c5 num"></td>
+      <td class="c5 num">19,09</td>
       <td class="c6 num"></td>
     </tr>
   
     <tr>
       <td class="c1">CẢI XOONG</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">18,95</td>
       <td class="c4 num"></td>
       <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c6 num">18,95</td>
     </tr>
   
     <tr>
       <td class="c1">CHUỐI CAU</td>
-      <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c2 center">Phần</td>
+      <td class="c3 num">379</td>
       <td class="c4 num"></td>
       <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c6 num">379</td>
     </tr>
   
     <tr>
       <td class="c1">Củ cải</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">12,81</td>
       <td class="c4 num"></td>
-      <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c5 num">6,44</td>
+      <td class="c6 num">6,37</td>
     </tr>
   
     <tr>
       <td class="c1">HÀNH LÁ</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
-      <td class="c4 num"></td>
-      <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c3 num">0,1</td>
+      <td class="c4 num">0,08</td>
+      <td class="c5 num">0,01</td>
+      <td class="c6 num">0,01</td>
     </tr>
   
     <tr>
       <td class="c1">HÀNH TÂY</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">3,81</td>
       <td class="c4 num"></td>
-      <td class="c5 num"></td>
+      <td class="c5 num">3,81</td>
       <td class="c6 num"></td>
     </tr>
   
     <tr>
       <td class="c1">NẤM KIM CHÂM</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">21,42</td>
       <td class="c4 num"></td>
       <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c6 num">21,42</td>
     </tr>
   
     <tr>
       <td class="c1">Rau lá xanh</td>
       <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c3 num">2,13</td>
       <td class="c4 num"></td>
-      <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c5 num">0,22</td>
+      <td class="c6 num">1,91</td>
     </tr>
   
     <tr>
       <td class="c1">Trái cây theo mùa</td>
-      <td class="c2 center">Kg</td>
-      <td class="c3 num"></td>
+      <td class="c2 center">Phần</td>
+      <td class="c3 num">10</td>
       <td class="c4 num"></td>
       <td class="c5 num"></td>
-      <td class="c6 num"></td>
+      <td class="c6 num">10</td>
     </tr>
   
     </tbody>
