@@ -48,41 +48,80 @@ function classifySlide(slideHtml) {
   const has = (...parts) => parts.every((p) => text.includes(normalizeText(p)));
   const hasAny = (...parts) => parts.some((p) => text.includes(normalizeText(p)));
 
-  // 1. RAU
-  if (has('RAU')) return 'rau';
+  // =========================================================
+  // 1. RAU - chỉ match đúng slide rau, KHÔNG match chữ "rau" chung chung
+  // =========================================================
+  const isRauSlide =
+    (
+      has('RAU', 'TEN', 'KG', 'TONG', 'SANG', 'TRUA', 'CHIEU')
+      || has('RAU', 'TEN', 'KG', 'TONG')
+    ) &&
+    !hasAny(
+      'BANG NGUYEN LIEU BUA SANG',
+      'BANG NGUYEN LIEU CHO MON COM',
+      'BANG NGUYEN LIEU THUC AN XAO',
+      'BANG NGUYEN LIEU CHO MON THUC AN XAY',
+      'BANG KHAU PHAN AN'
+    );
 
-  // 2. NGUYÊN LIỆU BỮA SÁNG
+  if (isRauSlide) return 'rau';
+
+  // =========================================================
+  // 2. BẢNG NGUYÊN LIỆU BỮA SÁNG
+  // =========================================================
   if (has('BANG NGUYEN LIEU BUA SANG')) return 'ingredient_sang';
 
-  // 3-4. MENU SÁNG
+  // =========================================================
+  // 3-4. KHẨU PHẦN SÁNG
+  // =========================================================
   if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
   if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
 
+  // =========================================================
   // 5. XÀO TRƯA
+  // =========================================================
   if (has('BANG NGUYEN LIEU THUC AN XAO MAU XANH')) return 'xao_trua';
 
+  // =========================================================
   // 6 + 10. XAY / CƠM XAY / ĐỔ ỐNG
-  if (
-    has('BANG NGUYEN LIEU CHO MON THUC AN XAY', 'COM XAY', 'DO ONG MAU XANH') ||
-    has('BANG NGUYEN LIEU CHO MON THUC AN XAY, COM XAY, DO ONG MAU XANH')
-  ) {
+  // =========================================================
+  const isXaySlide =
+    hasAny(
+      'BANG NGUYEN LIEU CHO MON THUC AN XAY, COM XAY, DO ONG MAU XANH',
+      'BANG NGUYEN LIEU CHO MON THUC AN XAY COM XAY DO ONG MAU XANH',
+      'BANG NGUYEN LIEU CHO MON THUC AN XAY',
+      'COM XAY',
+      'DO ONG MAU XANH'
+    ) &&
+    hasAny('TRUA', 'CHIEU');
+
+  if (isXaySlide) {
     if (text.includes(normalizeText('TRUA'))) return 'ingredient_trua_xay';
     if (text.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_xay';
     return 'ingredient_xay_other';
   }
 
+  // =========================================================
   // 7 + 11. MAIN TRƯA / CHIỀU
-  if (has('BANG NGUYEN LIEU CHO MON COM', 'CANH', 'XAO', 'MAN')) {
+  // =========================================================
+  const isMainIngredientSlide =
+    has('BANG NGUYEN LIEU CHO MON COM', 'CANH', 'XAO', 'MAN');
+
+  if (isMainIngredientSlide) {
     if (text.includes(normalizeText('TRUA'))) return 'ingredient_trua_main';
     if (text.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_main';
     return 'ingredient_main_other';
   }
 
-  // 8-9. MENU TRƯA
+  // =========================================================
+  // 8-9. KHẨU PHẦN TRƯA
+  // =========================================================
   if (has('BANG KHAU PHAN AN TRUA CUM GO VAP')) return 'menu_trua_govap';
   if (has('BANG KHAU PHAN AN TRUA CUM BINH MY')) return 'menu_trua_binhmy';
 
-  // 12-13. MENU CHIỀU
+  // =========================================================
+  // 12-13. KHẨU PHẦN CHIỀU
+  // =========================================================
   if (has('BANG KHAU PHAN AN CHIEU CUM GO VAP')) return 'menu_chieu_govap';
   if (has('BANG KHAU PHAN AN CHIEU CUM BINH MY')) return 'menu_chieu_binhmy';
 
@@ -112,25 +151,43 @@ function orderSlides(allSlides) {
   });
 
   const ordered = [
+    // 1
     takeFirst(buckets, 'rau'),
 
+    // 2
     takeFirst(buckets, 'ingredient_sang'),
 
+    // 3
     takeFirst(buckets, 'menu_sang_govap'),
+
+    // 4
     takeFirst(buckets, 'menu_sang_binhmy'),
 
+    // 5
     takeFirst(buckets, 'xao_trua'),
 
+    // 6
     takeFirst(buckets, 'ingredient_trua_xay'),
+
+    // 7
     takeFirst(buckets, 'ingredient_trua_main'),
 
+    // 8
     takeFirst(buckets, 'menu_trua_govap'),
+
+    // 9
     takeFirst(buckets, 'menu_trua_binhmy'),
 
+    // 10
     takeFirst(buckets, 'ingredient_chieu_xay'),
+
+    // 11
     takeFirst(buckets, 'ingredient_chieu_main'),
 
+    // 12
     takeFirst(buckets, 'menu_chieu_govap'),
+
+    // 13
     takeFirst(buckets, 'menu_chieu_binhmy')
   ].filter(Boolean);
 
