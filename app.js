@@ -12,14 +12,16 @@ function getTodayVN() {
   return `${dd}-${mm}-${yy}`;
 }
 
+function cleanText(v) {
+  return String(v ?? '').replace(/\s+/g, ' ').trim();
+}
+
 function normalizeText(v) {
-  return String(v ?? '')
+  return cleanText(v)
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/đ/g, 'd')
     .replace(/Đ/g, 'D')
-    .replace(/\s+/g, ' ')
-    .trim()
     .toUpperCase();
 }
 
@@ -46,57 +48,58 @@ function classifySlide(slideHtml) {
   const has = (...parts) => parts.every((p) => text.includes(normalizeText(p)));
   const hasAny = (...parts) => parts.some((p) => text.includes(normalizeText(p)));
 
-  // ===== Ưu tiên nhận diện slide đặc biệt trước =====
+  // 1. RAU
+  if (has('RAU')) return 'rau';
 
-  if (has('BANG NGUYEN LIEU THUC AN XAO')) return 'xao';
+  // 2. NGUYÊN LIỆU BỮA SÁNG
+  if (has('BANG NGUYEN LIEU BUA SANG')) return 'ingredient_sang';
 
-  if (has('BANG RAU')) return 'rau';
-  if (has('RAU', 'GO VAP') || has('RAU', 'BINH MY')) return 'rau';
-
-  if (has('THUC DON TUAN')) return 'thucdon_tuan';
-
-  // ===== Menu slides =====
-
+  // 3-4. MENU SÁNG
   if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
   if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
 
-  if (has('BANG KHAU PHAN AN TRUA CUM GO VAP')) return 'menu_trua_govap';
-  if (has('BANG KHAU PHAN AN TRUA CUM BINH MY')) return 'menu_trua_binhmy';
+  // 5. XÀO TRƯA
+  if (has('BANG NGUYEN LIEU THUC AN XAO MAU XANH')) return 'xao_trua';
 
-  if (has('BANG KHAU PHAN AN CHIEU CUM GO VAP')) return 'menu_chieu_govap';
-  if (has('BANG KHAU PHAN AN CHIEU CUM BINH MY')) return 'menu_chieu_binhmy';
-
-  // ===== Ingredient sáng =====
-
-  if (has('BANG NGUYEN LIEU BUA SANG')) return 'ingredient_sang';
-
-  // ===== Ingredient xay: phải bắt trước ingredient main =====
-
-  const isXayTitle = hasAny(
-    'THUC AN XAY',
-    'COM XAY',
-    'DO ONG',
-    'ĐO ỐNG',
-    'CHAO THIT BAM TRUA CHIEU',
-    'CHAO THIT BAM'
-  ) && has('BANG NGUYEN LIEU');
-
-  if (isXayTitle) {
+  // 6 + 10. XAY / CƠM XAY / ĐỔ ỐNG
+  if (
+    has('BANG NGUYEN LIEU CHO MON THUC AN XAY', 'COM XAY', 'DO ONG MAU XANH') ||
+    has('BANG NGUYEN LIEU CHO MON THUC AN XAY, COM XAY, DO ONG MAU XANH')
+  ) {
     if (text.includes(normalizeText('TRUA'))) return 'ingredient_trua_xay';
     if (text.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_xay';
-    if (text.includes(normalizeText('SANG'))) return 'ingredient_sang_xay';
     return 'ingredient_xay_other';
   }
 
-  // ===== Ingredient main =====
-
+  // 7 + 11. MAIN TRƯA / CHIỀU
   if (has('BANG NGUYEN LIEU CHO MON COM', 'CANH', 'XAO', 'MAN')) {
     if (text.includes(normalizeText('TRUA'))) return 'ingredient_trua_main';
     if (text.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_main';
     return 'ingredient_main_other';
   }
 
+  // 8-9. MENU TRƯA
+  if (has('BANG KHAU PHAN AN TRUA CUM GO VAP')) return 'menu_trua_govap';
+  if (has('BANG KHAU PHAN AN TRUA CUM BINH MY')) return 'menu_trua_binhmy';
+
+  // 12-13. MENU CHIỀU
+  if (has('BANG KHAU PHAN AN CHIEU CUM GO VAP')) return 'menu_chieu_govap';
+  if (has('BANG KHAU PHAN AN CHIEU CUM BINH MY')) return 'menu_chieu_binhmy';
+
   return 'unknown';
+}
+
+function takeFirst(buckets, key) {
+  const arr = buckets.get(key) || [];
+  return arr.length ? arr.shift().slideHtml : null;
+}
+
+function takeAllRemaining(buckets) {
+  const out = [];
+  for (const arr of buckets.values()) {
+    for (const item of arr) out.push(item.slideHtml);
+  }
+  return out;
 }
 
 function orderSlides(allSlides) {
@@ -108,41 +111,30 @@ function orderSlides(allSlides) {
     buckets.get(key).push({ slideHtml, index });
   });
 
-  const takeAll = (key) => (buckets.get(key) || []).map((x) => x.slideHtml);
-
-  // Thứ tự bám gần bảng led kế toán:
-  // Rau -> Sáng nguyên liệu -> Menu sáng
-  // -> Xào
-  // -> Trưa main -> Trưa xay -> Menu trưa
-  // -> Chiều main -> Chiều xay -> Menu chiều
-  // -> Thực đơn tuần -> leftovers
   const ordered = [
-    ...takeAll('rau'),
+    takeFirst(buckets, 'rau'),
 
-    ...takeAll('ingredient_sang'),
-    ...takeAll('ingredient_sang_xay'),
-    ...takeAll('menu_sang_govap'),
-    ...takeAll('menu_sang_binhmy'),
+    takeFirst(buckets, 'ingredient_sang'),
 
-    ...takeAll('xao'),
+    takeFirst(buckets, 'menu_sang_govap'),
+    takeFirst(buckets, 'menu_sang_binhmy'),
 
-    ...takeAll('ingredient_trua_main'),
-    ...takeAll('ingredient_trua_xay'),
-    ...takeAll('ingredient_xay_other'),
-    ...takeAll('menu_trua_govap'),
-    ...takeAll('menu_trua_binhmy'),
+    takeFirst(buckets, 'xao_trua'),
 
-    ...takeAll('ingredient_chieu_main'),
-    ...takeAll('ingredient_chieu_xay'),
-    ...takeAll('menu_chieu_govap'),
-    ...takeAll('menu_chieu_binhmy'),
+    takeFirst(buckets, 'ingredient_trua_xay'),
+    takeFirst(buckets, 'ingredient_trua_main'),
 
-    ...takeAll('thucdon_tuan'),
-  ];
+    takeFirst(buckets, 'menu_trua_govap'),
+    takeFirst(buckets, 'menu_trua_binhmy'),
 
-  const used = new Set(ordered);
-  const leftovers = allSlides.filter((slideHtml) => !used.has(slideHtml));
+    takeFirst(buckets, 'ingredient_chieu_xay'),
+    takeFirst(buckets, 'ingredient_chieu_main'),
 
+    takeFirst(buckets, 'menu_chieu_govap'),
+    takeFirst(buckets, 'menu_chieu_binhmy')
+  ].filter(Boolean);
+
+  const leftovers = takeAllRemaining(buckets);
   return [...ordered, ...leftovers];
 }
 
@@ -754,6 +746,21 @@ async function loadDeck() {
       ordered: orderedSlides.length,
       types: allSlides.map((s) => classifySlide(s)),
       orderedTypes: orderedSlides.map((s) => classifySlide(s)),
+      requiredOrder: [
+        'rau',
+        'ingredient_sang',
+        'menu_sang_govap',
+        'menu_sang_binhmy',
+        'xao_trua',
+        'ingredient_trua_xay',
+        'ingredient_trua_main',
+        'menu_trua_govap',
+        'menu_trua_binhmy',
+        'ingredient_chieu_xay',
+        'ingredient_chieu_main',
+        'menu_chieu_govap',
+        'menu_chieu_binhmy'
+      ]
     });
   } catch (err) {
     console.error(err);
