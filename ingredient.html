@@ -17,508 +17,523 @@
     font-family: "Times New Roman", Georgia, serif;
   }
 
+  body {
+    color: #fff;
+  }
+
   .slide {
     width: 1366px;
     min-height: 768px;
     margin: 0 auto;
     background: #000;
-    color: #fff;
+    padding: 18px 26px 14px 26px;
     overflow: hidden;
     page-break-after: always;
-    padding: 18px 20px 14px 20px;
   }
 
-  .main-title {
+  .title {
     text-align: center;
-    color: #00ee88;
+    color: #00f090;
     font-size: 34px;
-    line-height: 1.08;
+    line-height: 1.05;
     font-weight: 800;
-    margin-bottom: 6px;
     text-transform: uppercase;
-  }
-
-  .main-date {
-    text-align: center;
-    color: #ff39da;
-    font-size: 28px;
-    line-height: 1;
-    font-weight: 800;
     margin-bottom: 4px;
   }
 
-  .main-section {
-    margin-top: 6px;
+  .date {
+    text-align: center;
+    color: #ff43da;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 800;
     margin-bottom: 6px;
   }
 
-  .main-sec-head,
-  .main-row {
-    display: grid;
-    grid-template-columns: 15% 27% 14% 14% 30%;
-    column-gap: 0;
-    align-items: baseline;
-  }
-
-  .main-sec-head {
-    margin-top: 2px;
+  .section-block {
+    margin-top: 6px;
     margin-bottom: 2px;
   }
 
-  .left-head {
-    color: #ff39da;
-    font-size: 30px;
-    font-weight: 800;
+  .head-line,
+  .row-line {
+    display: grid;
+    grid-template-columns: 16% 28% 14% 14% 28%;
+    align-items: baseline;
+  }
+
+  .head-line {
+    margin-bottom: 2px;
+  }
+
+  .row-line {
+    min-height: 34px;
+  }
+
+  .col-meal {
     text-align: left;
     white-space: nowrap;
   }
 
-  .col-head {
-    font-size: 30px;
+  .meal-label {
+    color: #ff43da;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.05;
+  }
+
+  .section-label {
+    font-size: 28px;
     font-weight: 800;
     line-height: 1.05;
     white-space: nowrap;
   }
 
-  .red { color: #ff2020; }
-  .green { color: #00ee88; }
-
-  .ing-name {
-    color: #ffffff;
+  .head-red {
+    color: #ff2020;
     font-size: 28px;
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.05;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .dish-title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: right;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .qty {
-    color: #ffffff;
+  .red {
+    color: #ff2020;
+  }
+
+  .green {
+    color: #00f090;
+  }
+
+  .col-name {
+    color: #fff;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.06;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .col-gv,
+  .col-bm,
+  .col-total {
+    color: #fff;
     font-size: 26px;
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.06;
     white-space: nowrap;
   }
 
-  .center { text-align: center; }
-  .right { text-align: right; }
+  .col-gv,
+  .col-bm {
+    text-align: center;
+  }
+
+  .col-total {
+    text-align: right;
+  }
 </style>
 
 </head>
 <body>
   
-<section class="slide slide-main">
-  <div class="main-title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
-  <div class="main-date"></div>
+<section class="slide">
+  <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  <div class="date"></div>
   
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head">SÁNG</div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Cháo (ống xay) ăn sáng</div>
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label">SÁNG</div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Cháo (ống xay) ăn sáng</div>
       </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">GẠO</div>
-        <div class="qty center">0,82</div>
-        <div class="qty center">0,65</div>
-        <div class="qty right">1,47</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">GẠO</div>
+      <div class="col-gv">0,82</div>
+      <div class="col-bm">0,65</div>
+      <div class="col-total">1,47</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">HÀNH LÁ</div>
+      <div class="col-gv">0,01</div>
+      <div class="col-bm">0,01</div>
+      <div class="col-total">0,02</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">THỊT HEO XAY</div>
+      <div class="col-gv">0,48</div>
+      <div class="col-bm">0,38</div>
+      <div class="col-total">0,86</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Cháo thịt bằm ăn sáng</div>
       </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">HÀNH LÁ</div>
-        <div class="qty center">0,01</div>
-        <div class="qty center">0,01</div>
-        <div class="qty right">0,02</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">GẠO</div>
+      <div class="col-gv">0,9</div>
+      <div class="col-bm">1,68</div>
+      <div class="col-total">2,58</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">HÀNH LÁ</div>
+      <div class="col-gv">0,0</div>
+      <div class="col-bm">0,01</div>
+      <div class="col-total">0,01</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">THỊT HEO XAY</div>
+      <div class="col-gv">0,38</div>
+      <div class="col-bm">0,72</div>
+      <div class="col-total">1,1</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Phở bò</div>
       </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">THỊT HEO XAY</div>
-        <div class="qty center">0,48</div>
-        <div class="qty center">0,38</div>
-        <div class="qty right">0,86</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">BÁNH PHỞ KHÔ</div>
+      <div class="col-gv">7,47</div>
+      <div class="col-bm">7,12</div>
+      <div class="col-total">14,59</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">BÒ ĐÙI 45</div>
+      <div class="col-gv">71,37</div>
+      <div class="col-bm">68,02</div>
+      <div class="col-total">139,39</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">HÀNH TÂY</div>
+      <div class="col-gv">4,05</div>
+      <div class="col-bm">3,86</div>
+      <div class="col-total">7,91</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Xay ăn sáng</div>
       </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Cháo thịt bằm ăn sáng</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">GẠO</div>
-        <div class="qty center">0,9</div>
-        <div class="qty center">1,68</div>
-        <div class="qty right">2,58</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">HÀNH LÁ</div>
-        <div class="qty center">0,0</div>
-        <div class="qty center">0,01</div>
-        <div class="qty right">0,01</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">THỊT HEO XAY</div>
-        <div class="qty center">0,38</div>
-        <div class="qty center">0,72</div>
-        <div class="qty right">1,1</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Phở bò</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">BÁNH PHỞ KHÔ</div>
-        <div class="qty center">7,47</div>
-        <div class="qty center">7,12</div>
-        <div class="qty right">14,59</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">BÒ ĐÙI 45</div>
-        <div class="qty center">71,37</div>
-        <div class="qty center">68,02</div>
-        <div class="qty right">139,39</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">HÀNH TÂY</div>
-        <div class="qty center">4,05</div>
-        <div class="qty center">3,86</div>
-        <div class="qty right">7,91</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Xay ăn sáng</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">GẠO</div>
-        <div class="qty center">0,95</div>
-        <div class="qty center">1,7</div>
-        <div class="qty right">2,65</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">HÀNH LÁ</div>
-        <div class="qty center">0,01</div>
-        <div class="qty center">0,01</div>
-        <div class="qty right">0,02</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">THỊT HEO XAY</div>
-        <div class="qty center">0,48</div>
-        <div class="qty center">0,86</div>
-        <div class="qty right">1,34</div>
-      </div>
-    
-      </div>
-    
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">GẠO</div>
+      <div class="col-gv">0,95</div>
+      <div class="col-bm">1,7</div>
+      <div class="col-total">2,65</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">HÀNH LÁ</div>
+      <div class="col-gv">0,01</div>
+      <div class="col-bm">0,01</div>
+      <div class="col-total">0,02</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">THỊT HEO XAY</div>
+      <div class="col-gv">0,48</div>
+      <div class="col-bm">0,86</div>
+      <div class="col-total">1,34</div>
+    </div>
+  
+    </div>
+  
 </section>
   
 
-<section class="slide slide-main">
-  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-  <div class="main-date"></div>
+<section class="slide">
+  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+  <div class="date"></div>
   
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head">TRƯA</div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Thịt ba rọi dây kho tàu</div>
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label">TRƯA</div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Thịt ba rọi dây kho tàu</div>
       </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Ba rọi kho đã qua sơ chế</div>
-        <div class="qty center">23,54</div>
-        <div class="qty center">21,78</div>
-        <div class="qty right">45,32</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Ba rọi kho đã qua sơ chế</div>
+      <div class="col-gv">23,54</div>
+      <div class="col-bm">21,78</div>
+      <div class="col-total">45,32</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Canh cà chua trứng</div>
       </div>
-    
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">CÀ CHUA</div>
+      <div class="col-gv">8,56</div>
+      <div class="col-bm">7,92</div>
+      <div class="col-total">16,48</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">TRỨNG GÀ</div>
+      <div class="col-gv">53,5</div>
+      <div class="col-bm">49,5</div>
+      <div class="col-total">103,0</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Cơm ngũ sắc</div>
       </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Canh cà chua trứng</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Cà rốt</div>
+      <div class="col-gv">5,78</div>
+      <div class="col-bm">5,35</div>
+      <div class="col-total">11,13</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">GẠO</div>
+      <div class="col-gv">19,26</div>
+      <div class="col-bm">17,82</div>
+      <div class="col-total">37,08</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Nước xay hỗn hợp: rau, củ, trứng</div>
+      <div class="col-gv">2,14</div>
+      <div class="col-bm">1,98</div>
+      <div class="col-total">4,12</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Bắp cải, cà rốt luộc</div>
       </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">CÀ CHUA</div>
-        <div class="qty center">8,56</div>
-        <div class="qty center">7,92</div>
-        <div class="qty right">16,48</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">BẮP CẢI</div>
+      <div class="col-gv">13,91</div>
+      <div class="col-bm">12,89</div>
+      <div class="col-total">26,8</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">sữa chua</div>
       </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">TRỨNG GÀ</div>
-        <div class="qty center">53,5</div>
-        <div class="qty center">49,5</div>
-        <div class="qty right">103,0</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Cơm ngũ sắc</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Cà rốt</div>
-        <div class="qty center">5,78</div>
-        <div class="qty center">5,35</div>
-        <div class="qty right">11,13</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">GẠO</div>
-        <div class="qty center">19,26</div>
-        <div class="qty center">17,82</div>
-        <div class="qty right">37,08</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Nước xay hỗn hợp: rau, củ, trứng</div>
-        <div class="qty center">2,14</div>
-        <div class="qty center">1,98</div>
-        <div class="qty right">4,12</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Bắp cải, cà rốt luộc</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">BẮP CẢI</div>
-        <div class="qty center">13,91</div>
-        <div class="qty center">12,89</div>
-        <div class="qty right">26,8</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">sữa chua</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Sữa chua</div>
-        <div class="qty center">465,0</div>
-        <div class="qty center">466,0</div>
-        <div class="qty right">931,0</div>
-      </div>
-    
-      </div>
-    
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Sữa chua</div>
+      <div class="col-gv">465,0</div>
+      <div class="col-bm">466,0</div>
+      <div class="col-total">931,0</div>
+    </div>
+  
+    </div>
+  
 </section>
   
 
-<section class="slide slide-main">
-  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-  <div class="main-date"></div>
+<section class="slide">
+  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+  <div class="date"></div>
   
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head">CHIỀU</div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Thịt kho củ cải</div>
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label">CHIỀU</div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Thịt kho củ cải</div>
       </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Củ cải</div>
-        <div class="qty center">12,86</div>
-        <div class="qty center">12,12</div>
-        <div class="qty right">24,98</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Củ cải</div>
+      <div class="col-gv">12,86</div>
+      <div class="col-bm">12,12</div>
+      <div class="col-total">24,98</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Nạc dăm</div>
+      <div class="col-gv">19,86</div>
+      <div class="col-bm">18,74</div>
+      <div class="col-total">38,6</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Canh bí đỏ</div>
       </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Nạc dăm</div>
-        <div class="qty center">19,86</div>
-        <div class="qty center">18,74</div>
-        <div class="qty right">38,6</div>
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Bí đỏ</div>
+      <div class="col-gv">18,81</div>
+      <div class="col-bm">17,73</div>
+      <div class="col-total">36,54</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">THỊT HEO XAY</div>
+      <div class="col-gv">1,47</div>
+      <div class="col-bm">1,38</div>
+      <div class="col-total">2,85</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Cơm Ngũ sắc</div>
       </div>
-    
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Cà rốt</div>
+      <div class="col-gv">5,65</div>
+      <div class="col-bm">5,32</div>
+      <div class="col-total">10,97</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">GẠO</div>
+      <div class="col-gv">18,81</div>
+      <div class="col-bm">17,73</div>
+      <div class="col-total">36,54</div>
+    </div>
+  
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">Nước xay hỗn hợp: rau, củ, trứng</div>
+      <div class="col-gv">2,09</div>
+      <div class="col-bm">1,97</div>
+      <div class="col-total">4,06</div>
+    </div>
+  
+    </div>
+  
+    <div class="section-block">
+      <div class="head-line">
+        <div class="col-meal meal-label"></div>
+        <div class="col-name section-label red">NGUYÊN LIỆU</div>
+        <div class="col-gv head-red">GÒ VẤP</div>
+        <div class="col-bm head-red">BÌNH MỸ</div>
+        <div class="col-total dish-title green">Chuối cau</div>
       </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Canh bí đỏ</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Bí đỏ</div>
-        <div class="qty center">18,81</div>
-        <div class="qty center">17,73</div>
-        <div class="qty right">36,54</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">THỊT HEO XAY</div>
-        <div class="qty center">1,47</div>
-        <div class="qty center">1,38</div>
-        <div class="qty right">2,85</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Cơm Ngũ sắc</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Cà rốt</div>
-        <div class="qty center">5,65</div>
-        <div class="qty center">5,32</div>
-        <div class="qty right">10,97</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">GẠO</div>
-        <div class="qty center">18,81</div>
-        <div class="qty center">17,73</div>
-        <div class="qty right">36,54</div>
-      </div>
-    
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">Nước xay hỗn hợp: rau, củ, trứng</div>
-        <div class="qty center">2,09</div>
-        <div class="qty center">1,97</div>
-        <div class="qty right">4,06</div>
-      </div>
-    
-      </div>
-    
-      <div class="main-section">
-        
-      <div class="main-sec-head">
-        <div class="left-head"></div>
-        <div class="col-head red">NGUYÊN LIỆU</div>
-        <div class="col-head red center">GÒ VẤP</div>
-        <div class="col-head red center">BÌNH MỸ</div>
-        <div class="col-head green right">Chuối cau</div>
-      </div>
-    
-        
-      <div class="main-row">
-        <div></div>
-        <div class="ing-name">CHUỐI CAU</div>
-        <div class="qty center">209,0</div>
-        <div class="qty center">197,0</div>
-        <div class="qty right">406,0</div>
-      </div>
-    
-      </div>
-    
+      
+    <div class="row-line">
+      <div class="col-meal"></div>
+      <div class="col-name">CHUỐI CAU</div>
+      <div class="col-gv">209,0</div>
+      <div class="col-bm">197,0</div>
+      <div class="col-total">406,0</div>
+    </div>
+  
+    </div>
+  
 </section>
   
 </body>
