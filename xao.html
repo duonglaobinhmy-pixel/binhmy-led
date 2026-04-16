@@ -131,34 +131,592 @@
         <td class="nvl">Củ cải</td>
         <td class="dvt">Kg</td>
         <td class="num">33,25</td>
-        <td class="num">34,02</td>
-        <td class="num">67,27</td>
+        <td class="num">33,95</td>
+        <td class="num">67,2</td>
       </tr>
     
       <tr>
         <td class="nvl">Dầu ăn</td>
         <td class="dvt">Kg</td>
         <td class="num">2,38</td>
-        <td class="num">2,43</td>
-        <td class="num">4,81</td>
+        <td class="num">2,42</td>
+        <td class="num">4,8</td>
       </tr>
     
       <tr>
         <td class="nvl">THỊT GÀ XAY</td>
         <td class="dvt">Kg</td>
         <td class="num">42,75</td>
-        <td class="num">43,74</td>
-        <td class="num">86,49</td>
+        <td class="num">43,65</td>
+        <td class="num">86,4</td>
       </tr>
     
       <tr>
         <td class="nvl">TRỨNG GÀ</td>
         <td class="dvt">Quả</td>
         <td class="num">237,5</td>
-        <td class="num">243</td>
-        <td class="num">480,5</td>
+        <td class="num">242,5</td>
+        <td class="num">480</td>
       </tr>
     
+    </tbody>
+  </table>
+</section>
+
+
+<section class="slide slide-xay">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+      overflow: visible;
+    }
+
+    .slide-xay {
+      padding: 10px 16px 12px 16px;
+    }
+
+    .xay-title {
+      text-align: left;
+      color: #00ee88;
+      font-size: 26px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    table.xay-grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid #9c9c9c;
+    }
+
+    table.xay-grid th,
+    table.xay-grid td {
+      border: 1px solid #9c9c9c;
+      background: #000;
+      vertical-align: middle;
+      padding: 6px 8px;
+    }
+
+    table.xay-grid th {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    table.xay-grid td {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.03;
+    }
+
+    .title-cell {
+      color: #00ee88;
+      text-align: left;
+      font-size: 26px !important;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .date-cell {
+      color: #ff39da;
+      text-align: center;
+      font-size: 28px !important;
+      font-weight: 800;
+    }
+
+    .th-red { color: #ff2020; }
+    .th-magenta { color: #ff39da; }
+
+    .sec-label {
+      color: #ffffff;
+      text-align: left;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      font-size: 18px;
+      line-height: 1.04;
+      font-weight: 800;
+    }
+
+    .nvl {
+      color: #ffffff;
+      text-align: left;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      line-height: 1.02;
+      font-weight: 800;
+    }
+
+    .dvt {
+      color: #ffffff;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .num {
+      text-align: right;
+      white-space: nowrap;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .green-num {
+      color: #00e68a;
+      font-weight: 900;
+    }
+
+    .center { text-align: center; }
+
+    .header-wrap {
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.0;
+      display: inline-block;
+    }
+
+    .col-section { width: 24%; }
+    .col-nvl     { width: 36%; }
+    .col-dvt     { width: 8%; }
+    .col-gv      { width: 14%; }
+    .col-bm      { width: 14%; }
+    .col-tong    { width: 8%; }
+  </style>
+
+  <table class="xay-grid">
+    <colgroup>
+      <col class="col-section">
+      <col class="col-nvl">
+      <col class="col-dvt">
+      <col class="col-gv">
+      <col class="col-bm">
+      <col class="col-tong">
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="title-cell" colspan="6">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</th>
+      </tr>
+      <tr>
+        <th class="date-cell" rowspan="2"></th>
+        <th class="th-red center" rowspan="2">NVL</th>
+        <th class="th-red center" rowspan="2">Dvt</th>
+        <th class="th-magenta center" colspan="3">Trưa</th>
+      </tr>
+      <tr>
+        <th class="th-red center"><span class="header-wrap">Cụm Gò Vấp + Xế Gò Vấp</span></th>
+        <th class="th-red center"><span class="header-wrap">Cụm Bình Mỹ</span></th>
+        <th class="th-red center"><span class="header-wrap">Tổng</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Thức ăn xay</td>
+          <td class="nvl">Củ cải</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">2,17</td>
+          <td class="num green-num">4,27</td>
+          <td class="num green-num">6,44</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Dầu ăn</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,18</td>
+          <td class="num green-num">0,34</td>
+          <td class="num green-num">0,52</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">THỊT GÀ XAY</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">2,97</td>
+          <td class="num green-num">5,83</td>
+          <td class="num green-num">8,8</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">TRỨNG GÀ</td>
+          <td class="dvt center">Quả</td>
+          <td class="num green-num">15,5</td>
+          <td class="num green-num">30,5</td>
+          <td class="num green-num">46</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="3">Cơm xay</td>
+          <td class="nvl">Canh</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">7,2</td>
+          <td class="num green-num">11,7</td>
+          <td class="num green-num">18,9</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">6</td>
+          <td class="num green-num">9,75</td>
+          <td class="num green-num">15,75</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Thức ăn xay trưa chiều rau xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">3,36</td>
+          <td class="num green-num">5,46</td>
+          <td class="num green-num">8,82</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Đổ ống</td>
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">15,66</td>
+          <td class="num green-num">1,43</td>
+          <td class="num green-num">17,09</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Nước rau củ</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">107,75</td>
+          <td class="num green-num">8,55</td>
+          <td class="num green-num">116,3</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Rau lá xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,96</td>
+          <td class="num green-num">0,1</td>
+          <td class="num green-num">1,06</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Sữa Nuti</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,13</td>
+          <td class="num green-num">0,1</td>
+          <td class="num green-num">0,23</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="2">Cháo thịt bằm trưa chiều</td>
+          <td class="nvl">GẠO</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,42</td>
+          <td class="num green-num">0,36</td>
+          <td class="num green-num">0,78</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">THỊT HEO XAY</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,18</td>
+          <td class="num green-num">0,16</td>
+          <td class="num green-num">0,34</td>
+        </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+
+<section class="slide slide-xay">
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      page-break-after: always;
+      overflow: visible;
+    }
+
+    .slide-xay {
+      padding: 10px 16px 12px 16px;
+    }
+
+    .xay-title {
+      text-align: left;
+      color: #00ee88;
+      font-size: 26px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    table.xay-grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 1px solid #9c9c9c;
+    }
+
+    table.xay-grid th,
+    table.xay-grid td {
+      border: 1px solid #9c9c9c;
+      background: #000;
+      vertical-align: middle;
+      padding: 6px 8px;
+    }
+
+    table.xay-grid th {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.02;
+    }
+
+    table.xay-grid td {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.03;
+    }
+
+    .title-cell {
+      color: #00ee88;
+      text-align: left;
+      font-size: 26px !important;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .date-cell {
+      color: #ff39da;
+      text-align: center;
+      font-size: 28px !important;
+      font-weight: 800;
+    }
+
+    .th-red { color: #ff2020; }
+    .th-magenta { color: #ff39da; }
+
+    .sec-label {
+      color: #ffffff;
+      text-align: left;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      font-size: 18px;
+      line-height: 1.04;
+      font-weight: 800;
+    }
+
+    .nvl {
+      color: #ffffff;
+      text-align: left;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      line-height: 1.02;
+      font-weight: 800;
+    }
+
+    .dvt {
+      color: #ffffff;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .num {
+      text-align: right;
+      white-space: nowrap;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .green-num {
+      color: #00e68a;
+      font-weight: 900;
+    }
+
+    .center { text-align: center; }
+
+    .header-wrap {
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.0;
+      display: inline-block;
+    }
+
+    .col-section { width: 24%; }
+    .col-nvl     { width: 36%; }
+    .col-dvt     { width: 8%; }
+    .col-gv      { width: 14%; }
+    .col-bm      { width: 14%; }
+    .col-tong    { width: 8%; }
+  </style>
+
+  <table class="xay-grid">
+    <colgroup>
+      <col class="col-section">
+      <col class="col-nvl">
+      <col class="col-dvt">
+      <col class="col-gv">
+      <col class="col-bm">
+      <col class="col-tong">
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="title-cell" colspan="6">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</th>
+      </tr>
+      <tr>
+        <th class="date-cell" rowspan="2"></th>
+        <th class="th-red center" rowspan="2">NVL</th>
+        <th class="th-red center" rowspan="2">Dvt</th>
+        <th class="th-magenta center" colspan="3">Chiều</th>
+      </tr>
+      <tr>
+        <th class="th-red center"><span class="header-wrap">Cụm Gò Vấp + Xế BM</span></th>
+        <th class="th-red center"><span class="header-wrap">Cụm Bình Mỹ</span></th>
+        <th class="th-red center"><span class="header-wrap">Tổng</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Thức ăn xay</td>
+          <td class="nvl">Củ cải</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">2,17</td>
+          <td class="num green-num">4,2</td>
+          <td class="num green-num">6,37</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Dầu ăn</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,18</td>
+          <td class="num green-num">0,33</td>
+          <td class="num green-num">0,51</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">THỊT GÀ XAY</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">2,97</td>
+          <td class="num green-num">5,73</td>
+          <td class="num green-num">8,7</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">TRỨNG GÀ</td>
+          <td class="dvt center">Quả</td>
+          <td class="num green-num">15,5</td>
+          <td class="num green-num">30</td>
+          <td class="num green-num">45,5</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="3">Cơm xay</td>
+          <td class="nvl">Canh</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">7,2</td>
+          <td class="num green-num">12</td>
+          <td class="num green-num">19,2</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">6</td>
+          <td class="num green-num">10</td>
+          <td class="num green-num">16</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Thức ăn xay trưa chiều rau xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">3,36</td>
+          <td class="num green-num">5,6</td>
+          <td class="num green-num">8,96</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="4">Đổ ống</td>
+          <td class="nvl">Cơm</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">1,81</td>
+          <td class="num green-num">15,78</td>
+          <td class="num green-num">17,59</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Nước rau củ</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">10,8</td>
+          <td class="num green-num">109</td>
+          <td class="num green-num">119,8</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Rau lá xanh</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,13</td>
+          <td class="num green-num">0,96</td>
+          <td class="num green-num">1,09</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">Sữa Nuti</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,13</td>
+          <td class="num green-num">0,1</td>
+          <td class="num green-num">0,23</td>
+        </tr>
+      
+        <tr>
+          <td class="sec-label" rowspan="2">Cháo thịt bằm trưa chiều</td>
+          <td class="nvl">GẠO</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,42</td>
+          <td class="num green-num">0,42</td>
+          <td class="num green-num">0,84</td>
+        </tr>
+      
+        <tr>
+          
+          <td class="nvl">THỊT HEO XAY</td>
+          <td class="dvt center">Kg</td>
+          <td class="num green-num">0,18</td>
+          <td class="num green-num">0,19</td>
+          <td class="num green-num">0,37</td>
+        </tr>
+      
     </tbody>
   </table>
 </section>
