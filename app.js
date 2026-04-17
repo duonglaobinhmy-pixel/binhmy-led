@@ -58,7 +58,9 @@ function classifySlide(slideHtml) {
     slide.querySelector('.menu-title') ||
     slide.querySelector('.main-title') ||
     slide.querySelector('.xao-title') ||
-    slide.querySelector('.title-left');
+    slide.querySelector('.title-left') ||
+    slide.querySelector('h1') ||
+    slide.querySelector('h2');
 
   const title = normalizeText(titleNode?.textContent || '');
 
@@ -69,9 +71,11 @@ function classifySlide(slideHtml) {
   const isTableIngredientSlide = slide.classList.contains('slide-xay');
 
   // 1. RAU
-  if (hasRauGrid && title === 'RAU') return 'rau';
+  if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
+    return 'rau';
+  }
 
-  // 2. MENU phải bắt trước vì menu có thể chứa chữ "thức ăn xay", "rau xanh"
+  // 2. MENU
   if (hasMenuGrid) {
     if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
     if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
@@ -85,23 +89,40 @@ function classifySlide(slideHtml) {
     return 'unknown_menu';
   }
 
-  // 3. XÀO
+  // 3. XÀO GRID
   if (hasXaoGrid) {
-    if (
+    const isXaoTrua =
       title.includes(normalizeText('BANG NGUYEN LIEU THUC AN XAO MAU XANH')) ||
       title.includes(normalizeText('BANG NGUYEN LIEU CHO MON THUC AN XAO MAU XANH')) ||
-      title.includes(normalizeText('THUC AN XAO MAU XANH'))
-    ) {
+      title.includes(normalizeText('THUC AN XAO MAU XANH')) ||
+      hasAny(
+        'BANG NGUYEN LIEU THUC AN XAO MAU XANH',
+        'BANG NGUYEN LIEU CHO MON THUC AN XAO MAU XANH',
+        'THUC AN XAO MAU XANH'
+      );
+
+    if (isXaoTrua) {
       return 'xao_trua';
     }
 
-    if (
+    const isXayLike =
       title.includes(normalizeText('BANG NGUYEN LIEU CHO MON THUC AN XAY')) ||
       title.includes(normalizeText('COM XAY')) ||
-      title.includes(normalizeText('DO ONG MAU XANH'))
-    ) {
-      if (has('CHIEU')) return 'ingredient_chieu_xay';
-      return 'ingredient_trua_xay';
+      title.includes(normalizeText('DO ONG MAU XANH')) ||
+      hasAny(
+        'BANG NGUYEN LIEU CHO MON THUC AN XAY',
+        'THUC AN XAY',
+        'COM XAY',
+        'DO ONG MAU XANH',
+        'DO XAY',
+        'MON XAY',
+        'XAY'
+      );
+
+    if (isXayLike) {
+      if (hasAny('CHIEU', 'BUA CHIEU')) return 'ingredient_chieu_xay';
+      if (hasAny('TRUA', 'BUA TRUA')) return 'ingredient_trua_xay';
+      return 'unknown_slide_xay';
     }
 
     return 'unknown_xao_table';
@@ -109,60 +130,83 @@ function classifySlide(slideHtml) {
 
   // 4. INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
-    if (title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG'))) {
+    const isSang =
+      title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG')) ||
+      hasAny('BANG NGUYEN LIEU BUA SANG', 'BUA SANG', 'SANG');
+
+    if (isSang) {
       return 'ingredient_sang';
     }
 
-    if (title.includes(normalizeText('BANG NGUYEN LIEU CHO MON COM')) &&
-        title.includes(normalizeText('CANH')) &&
-        title.includes(normalizeText('XAO')) &&
-        title.includes(normalizeText('MAN'))) {
-      if (has('CHIEU')) return 'ingredient_chieu_main';
-      if (has('TRUA')) return 'ingredient_trua_main';
+    const isMainMeal =
+      (
+        title.includes(normalizeText('BANG NGUYEN LIEU CHO MON COM')) ||
+        hasAny('BANG NGUYEN LIEU CHO MON COM', 'MON COM')
+      ) &&
+      hasAny('CANH') &&
+      hasAny('XAO') &&
+      hasAny('MAN');
+
+    if (isMainMeal) {
+      if (hasAny('CHIEU', 'BUA CHIEU')) return 'ingredient_chieu_main';
+      if (hasAny('TRUA', 'BUA TRUA')) return 'ingredient_trua_main';
       return 'ingredient_main_other';
     }
 
     return 'unknown_main';
   }
 
-  // 5. INGREDIENT XAY dạng bảng
+  // 5. INGREDIENT XAY DẠNG BẢNG
   if (isTableIngredientSlide) {
-    if (
+    const isXayLike =
       title.includes(normalizeText('BANG NGUYEN LIEU CHO MON THUC AN XAY')) ||
       title.includes(normalizeText('COM XAY')) ||
-      title.includes(normalizeText('DO ONG MAU XANH'))
-    ) {
-      if (has('CHIEU')) return 'ingredient_chieu_xay';
-      if (has('TRUA')) return 'ingredient_trua_xay';
-      return 'ingredient_xay_other';
+      title.includes(normalizeText('DO ONG MAU XANH')) ||
+      hasAny(
+        'BANG NGUYEN LIEU CHO MON THUC AN XAY',
+        'THUC AN XAY',
+        'COM XAY',
+        'DO ONG MAU XANH',
+        'DO XAY',
+        'MON XAY',
+        'XAY'
+      );
+
+    if (isXayLike) {
+      if (hasAny('CHIEU', 'BUA CHIEU')) return 'ingredient_chieu_xay';
+      if (hasAny('TRUA', 'BUA TRUA')) return 'ingredient_trua_xay';
+      return 'unknown_slide_xay';
     }
 
+    // fallback mềm:
+    // slide-xay mà không match title vẫn coi là unknown_slide_xay
     return 'unknown_slide_xay';
   }
 
   return 'unknown';
 }
 
-function takeFirst(buckets, key) {
-  const arr = buckets.get(key) || [];
-  return arr.length ? arr.shift().slideHtml : null;
-}
-
-function takeAllRemaining(buckets) {
-  const out = [];
-  for (const arr of buckets.values()) {
-    for (const item of arr) out.push(item.slideHtml);
-  }
-  return out;
-}
-
 function orderSlides(allSlides) {
+  const classified = allSlides.map((slideHtml, index) => ({
+    slideHtml,
+    index,
+    type: classifySlide(slideHtml),
+    preview: extractTextFromSlideHtml(slideHtml).slice(0, 220)
+  }));
+
+  // Fallback cho các slide xay bị miss classify
+  const unknownXay = classified
+    .filter((item) => item.type === 'unknown_slide_xay')
+    .sort((a, b) => a.index - b.index);
+
+  if (unknownXay[0]) unknownXay[0].type = 'ingredient_trua_xay';
+  if (unknownXay[1]) unknownXay[1].type = 'ingredient_chieu_xay';
+
   const buckets = new Map();
 
-  allSlides.forEach((slideHtml, index) => {
-    const key = classifySlide(slideHtml);
-    if (!buckets.has(key)) buckets.set(key, []);
-    buckets.get(key).push({ slideHtml, index });
+  classified.forEach((item) => {
+    if (!buckets.has(item.type)) buckets.set(item.type, []);
+    buckets.get(item.type).push(item);
   });
 
   const takeFirst = (key) => {
@@ -190,6 +234,12 @@ function orderSlides(allSlides) {
   for (const arr of buckets.values()) {
     for (const item of arr) leftovers.push(item.slideHtml);
   }
+
+  console.log('CLASSIFIED SLIDES:', classified.map((x) => ({
+    index: x.index,
+    type: x.type,
+    preview: x.preview
+  })));
 
   return [...ordered, ...leftovers];
 }
@@ -659,8 +709,13 @@ function buildDeck() {
     render();
   }
 
-  function first() { goTo(0); }
-  function last() { goTo(rawSlides.length - 1); }
+  function first() {
+    goTo(0);
+  }
+
+  function last() {
+    goTo(rawSlides.length - 1);
+  }
 
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
@@ -757,8 +812,10 @@ function buildDeck() {
   document.addEventListener('touchend', (e) => {
     const endX = e.changedTouches?.[0]?.clientX ?? null;
     if (touchX == null || endX == null) return;
+
     const delta = endX - touchX;
     if (Math.abs(delta) < 40) return;
+
     if (delta < 0) goTo(index + 1);
     else goTo(index - 1);
   }, { passive: true });
