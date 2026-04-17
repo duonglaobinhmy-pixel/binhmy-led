@@ -92,40 +92,39 @@ function classifySlide(slideHtml) {
   // 3) XÀO GRID
   if (hasXaoGrid) {
     const isXaoTrua =
-      title.includes(normalizeText('BANG NGUYEN LIEU THUC AN XAO MAU XANH')) ||
-      title.includes(normalizeText('BANG NGUYEN LIEU CHO MON THUC AN XAO MAU XANH')) ||
-      title.includes(normalizeText('THUC AN XAO MAU XANH')) ||
       hasAny(
         'BANG NGUYEN LIEU THUC AN XAO MAU XANH',
         'BANG NGUYEN LIEU CHO MON THUC AN XAO MAU XANH',
-        'THUC AN XAO MAU XANH'
-      );
+        'BANG NGUYEN LIEU THUC AN XAO RAU XANH',
+        'THUC AN XAO MAU XANH',
+        'THUC AN XAO RAU XANH',
+        'XAO RAU XANH'
+      ) &&
+      hasAny('NVL') &&
+      hasAny('DVT') &&
+      hasAny('TRUA') &&
+      hasAny('CHIEU');
 
     if (isXaoTrua) {
       return 'xao_trua';
     }
 
     const isXayLike =
-      title.includes(normalizeText('BANG NGUYEN LIEU CHO MON THUC AN XAY')) ||
-      title.includes(normalizeText('COM XAY')) ||
-      title.includes(normalizeText('DO ONG MAU XANH')) ||
       hasAny(
         'BANG NGUYEN LIEU CHO MON THUC AN XAY',
         'THUC AN XAY',
         'COM XAY',
         'DO ONG MAU XANH',
         'DO XAY',
-        'MON XAY',
-        'XAY'
+        'MON XAY'
       );
 
     if (isXayLike) {
-      // Ưu tiên nhận diện theo header đặc trưng
       if (
         hasAny(
           'DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
-          'DVT TRUA',
-          'TRUA CUM GO VAP + XE GO VAP CUM BINH MY'
+          'NVL DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
+          'DVT TRUA'
         )
       ) {
         return 'ingredient_trua_xay';
@@ -134,8 +133,8 @@ function classifySlide(slideHtml) {
       if (
         hasAny(
           'DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
-          'DVT CHIEU',
-          'CHIEU CUM GO VAP + XE BM CUM BINH MY'
+          'NVL DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
+          'DVT CHIEU'
         )
       ) {
         return 'ingredient_chieu_xay';
@@ -150,50 +149,55 @@ function classifySlide(slideHtml) {
   // 4) INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
     const isSang =
-      title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG')) ||
-      hasAny('BANG NGUYEN LIEU BUA SANG', 'BUA SANG', 'SANG');
+      hasAny(
+        'BANG NGUYEN LIEU BUA SANG',
+        'BUA SANG'
+      );
 
     if (isSang) {
       return 'ingredient_sang';
     }
 
     const isMainMeal =
-      title.includes(normalizeText('BANG NGUYEN LIEU CHO MON COM')) &&
-      title.includes(normalizeText('CANH')) &&
-      title.includes(normalizeText('XAO')) &&
-      title.includes(normalizeText('MAN'));
+      hasAny('BANG NGUYEN LIEU CHO MON COM') &&
+      hasAny('CANH') &&
+      hasAny('XAO') &&
+      hasAny('MAN');
 
     if (isMainMeal) {
-      if (title.includes(normalizeText('TRUA'))) return 'ingredient_trua_main';
-      if (title.includes(normalizeText('CHIEU'))) return 'ingredient_chieu_main';
+      // dùng TEXT thay vì TITLE
+      if (hasAny(' TRUA ', 'MON COM, CANH, XAO, MAN TRUA', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN TRUA')) {
+        return 'ingredient_trua_main';
+      }
+
+      if (hasAny(' CHIEU ', 'MON COM, CANH, XAO, MAN CHIEU', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN CHIEU')) {
+        return 'ingredient_chieu_main';
+      }
+
       return 'ingredient_main_other';
     }
 
     return 'unknown_main';
   }
 
-  // 5) INGREDIENT XAY dạng bảng
+  // 5) INGREDIENT XAY DẠNG BẢNG
   if (isTableIngredientSlide) {
     const isXayLike =
-      title.includes(normalizeText('BANG NGUYEN LIEU CHO MON THUC AN XAY')) ||
-      title.includes(normalizeText('COM XAY')) ||
-      title.includes(normalizeText('DO ONG MAU XANH')) ||
       hasAny(
         'BANG NGUYEN LIEU CHO MON THUC AN XAY',
         'THUC AN XAY',
         'COM XAY',
         'DO ONG MAU XANH',
         'DO XAY',
-        'MON XAY',
-        'XAY'
+        'MON XAY'
       );
 
     if (isXayLike) {
       if (
         hasAny(
           'DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
-          'DVT TRUA',
-          'TRUA CUM GO VAP + XE GO VAP CUM BINH MY'
+          'NVL DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
+          'DVT TRUA'
         )
       ) {
         return 'ingredient_trua_xay';
@@ -202,8 +206,8 @@ function classifySlide(slideHtml) {
       if (
         hasAny(
           'DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
-          'DVT CHIEU',
-          'CHIEU CUM GO VAP + XE BM CUM BINH MY'
+          'NVL DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
+          'DVT CHIEU'
         )
       ) {
         return 'ingredient_chieu_xay';
@@ -226,7 +230,6 @@ function orderSlides(allSlides) {
     preview: extractTextFromSlideHtml(slideHtml).slice(0, 220)
   }));
 
-  // fallback: nếu vẫn có 2 slide xay bị miss thì gán theo thứ tự xuất hiện
   const unknownXay = classified
     .filter((item) => item.type === 'unknown_slide_xay')
     .sort((a, b) => a.index - b.index);
