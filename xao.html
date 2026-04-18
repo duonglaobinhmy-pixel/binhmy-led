@@ -1,4 +1,5 @@
-<section class="slide slide-xay">
+<section class="slide main-slide">
+  
   <style>
     .slide {
       width: 1366px;
@@ -9,78 +10,64 @@
       color: #fff;
       page-break-after: always;
       overflow: hidden;
-    }
-
-    .slide-xay {
-      padding: 10px 16px 12px 16px;
       font-family: "Times New Roman", Georgia, serif;
     }
 
+    .xao-title {
+      text-align: left;
+      color: #00ee88;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    table.xao-grid,
     table.xay-grid {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
       background: #000;
-      border: 1px solid #9c9c9c;
     }
 
+    table.xao-grid th,
+    table.xao-grid td,
     table.xay-grid th,
     table.xay-grid td {
-      border: 1px solid #9c9c9c;
+      border: 1px solid #bfbfbf;
       background: #000;
       vertical-align: middle;
-      padding: 6px 8px;
-    }
-
-    table.xay-grid th {
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.02;
-    }
-
-    table.xay-grid td {
-      font-size: 17px;
-      font-weight: 800;
-      line-height: 1.03;
-    }
-
-    .title-cell {
-      color: #00ee88;
-      text-align: left;
-      font-size: 24px !important;
-      font-weight: 800;
-      text-transform: uppercase;
     }
 
     .date-cell {
       color: #ff39da;
       text-align: center;
-      font-size: 28px !important;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .th-red { color: #ff2020; }
-    .th-magenta { color: #ff39da; }
-
-    .sec-label {
-      color: #ffffff;
-      text-align: left;
+    .th-red {
+      color: #ff2020;
+      text-align: center;
+      font-weight: 900;
       white-space: normal;
       word-break: break-word;
-      overflow-wrap: anywhere;
-      font-size: 17px;
-      line-height: 1.04;
-      font-weight: 800;
+    }
+
+    .th-magenta {
+      color: #ff39da;
+      text-align: center;
+      font-weight: 900;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .nvl {
       color: #ffffff;
       text-align: left;
+      font-weight: 800;
       white-space: normal;
       word-break: break-word;
       overflow-wrap: anywhere;
-      line-height: 1.02;
-      font-weight: 800;
     }
 
     .dvt {
@@ -90,10 +77,13 @@
     }
 
     .num {
-      text-align: right;
       white-space: nowrap;
-      color: #ffffff;
       font-weight: 800;
+      text-align: right;
+    }
+
+    .white-num {
+      color: #ffffff;
     }
 
     .green-num {
@@ -101,12 +91,307 @@
       font-weight: 900;
     }
 
+    .sec-label {
+      color: #ffffff;
+      text-align: left;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
     .center { text-align: center; }
+    .right { text-align: right; }
+
     .header-wrap {
       white-space: normal;
       word-break: break-word;
       line-height: 1.0;
       display: inline-block;
+    }
+  </style>
+  
+  <style>
+    .main-slide {
+      padding: 10px 16px 14px 16px;
+    }
+
+    .main-slide .xao-title {
+      font-size: 38px;
+      line-height: 1.02;
+      margin: 2px 0 8px 0;
+    }
+
+    .main-slide table.xao-grid {
+      border: 2px solid #bfbfbf;
+    }
+
+    .main-slide table.xao-grid th,
+    .main-slide table.xao-grid td {
+      padding: 8px 8px;
+    }
+
+    .main-slide table.xao-grid th {
+      line-height: 1.02;
+    }
+
+    .main-slide table.xao-grid td {
+      font-size: 22px;
+      line-height: 1.03;
+    }
+
+    .main-slide .date-cell {
+      font-size: 34px !important;
+      height: 54px;
+    }
+
+    .main-slide .th-red {
+      font-size: 22px;
+    }
+
+    .main-slide .nvl {
+      font-size: 22px !important;
+      line-height: 1.05;
+    }
+
+    .main-slide .dvt {
+      font-size: 22px !important;
+    }
+
+    .main-slide .num {
+      font-size: 22px !important;
+    }
+
+    .w1 { width: 38%; }
+    .w2 { width: 10%; }
+    .w3 { width: 17%; }
+    .w4 { width: 17%; }
+    .w5 { width: 18%; }
+  </style>
+
+  <div class="xao-title">BẢNG NGUYÊN LIỆU THỨC ĂN XÀO MÀU XANH</div>
+
+  <table class="xao-grid">
+    <thead>
+      <tr>
+        <th class="date-cell" colspan="5"></th>
+      </tr>
+      <tr>
+        <th class="th-red w1" rowspan="2">NVL</th>
+        <th class="th-red w2" rowspan="2">Dvt</th>
+        <th class="th-red w3">Trưa</th>
+        <th class="th-red w4">Chiều</th>
+        <th class="th-red w5" rowspan="2">Tổng ngày</th>
+      </tr>
+      <tr>
+        <th class="th-red">+ Xế Gò Vấp</th>
+        <th class="th-red">+ Xế Bình Mỹ</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td class="nvl">TRỨNG GÀ</td>
+      <td class="dvt center">QUA</td>
+      <td class="num white-num">908,5</td>
+      <td class="num white-num">941</td>
+      <td class="num white-num">1849,5</td>
+    </tr>
+  
+    <tr>
+      <td class="nvl">THỊT GÀ XAY</td>
+      <td class="dvt center">Gram</td>
+      <td class="num white-num">163,53</td>
+      <td class="num white-num">169,38</td>
+      <td class="num white-num">332,91</td>
+    </tr>
+  
+    <tr>
+      <td class="nvl">CỦ CẢI TRẮNG</td>
+      <td class="dvt center">Gram</td>
+      <td class="num white-num">127,19</td>
+      <td class="num white-num">131,74</td>
+      <td class="num white-num">258,93</td>
+    </tr>
+  
+    <tr>
+      <td class="nvl">Dầu ăn</td>
+      <td class="dvt center">Gram</td>
+      <td class="num white-num">9,09</td>
+      <td class="num white-num">9,41</td>
+      <td class="num white-num">18,5</td>
+    </tr>
+  
+    <tr>
+      <td class="nvl">Nước</td>
+      <td class="dvt center">Gram</td>
+      <td class="num white-num">9,09</td>
+      <td class="num white-num">9,41</td>
+      <td class="num white-num">18,5</td>
+    </tr>
+  
+    </tbody>
+  </table>
+</section>
+
+
+<section class="slide slide-xay">
+  
+  <style>
+    .slide {
+      width: 1366px;
+      min-height: 768px;
+      margin: 0 auto;
+      background: #000;
+      box-sizing: border-box;
+      color: #fff;
+      page-break-after: always;
+      overflow: hidden;
+      font-family: "Times New Roman", Georgia, serif;
+    }
+
+    .xao-title {
+      text-align: left;
+      color: #00ee88;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    table.xao-grid,
+    table.xay-grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+    }
+
+    table.xao-grid th,
+    table.xao-grid td,
+    table.xay-grid th,
+    table.xay-grid td {
+      border: 1px solid #bfbfbf;
+      background: #000;
+      vertical-align: middle;
+    }
+
+    .date-cell {
+      color: #ff39da;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .th-red {
+      color: #ff2020;
+      text-align: center;
+      font-weight: 900;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .th-magenta {
+      color: #ff39da;
+      text-align: center;
+      font-weight: 900;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .nvl {
+      color: #ffffff;
+      text-align: left;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .dvt {
+      color: #ffffff;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .num {
+      white-space: nowrap;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .white-num {
+      color: #ffffff;
+    }
+
+    .green-num {
+      color: #00e68a;
+      font-weight: 900;
+    }
+
+    .sec-label {
+      color: #ffffff;
+      text-align: left;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .header-wrap {
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.0;
+      display: inline-block;
+    }
+  </style>
+  
+  <style>
+    .slide-xay {
+      padding: 10px 16px 12px 16px;
+    }
+
+    .slide-xay table.xay-grid {
+      border: 1px solid #9c9c9c;
+    }
+
+    .slide-xay table.xay-grid th,
+    .slide-xay table.xay-grid td {
+      padding: 6px 8px;
+    }
+
+    .slide-xay table.xay-grid th {
+      font-size: 18px;
+      line-height: 1.02;
+    }
+
+    .slide-xay table.xay-grid td {
+      font-size: 17px;
+      line-height: 1.03;
+    }
+
+    .slide-xay .title-cell {
+      color: #00ee88;
+      text-align: left;
+      font-size: 24px !important;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .slide-xay .date-cell {
+      font-size: 28px !important;
+    }
+
+    .slide-xay .sec-label {
+      font-size: 17px;
+      line-height: 1.04;
+    }
+
+    .slide-xay .nvl {
+      font-size: 17px;
+      line-height: 1.02;
     }
 
     .col-section { width: 24%; }
@@ -163,7 +448,16 @@
       </tr>
     
       <tr>
-        <td class="sec-label" rowspan="4">Cơm xay</td>
+        <td class="sec-label" rowspan="3">Cơm xay</td>
+        <td class="nvl">Thức ăn xào dùng thịt gà - màu xanh</td>
+        <td class="dvt center">Kg</td>
+        <td class="num green-num">1,57</td>
+        <td class="num green-num">2,42</td>
+        <td class="num green-num">3,99</td>
+      </tr>
+    
+      <tr>
+        
         <td class="nvl">Cơm</td>
         <td class="dvt center">Kg</td>
         <td class="num green-num">3,06</td>
@@ -181,25 +475,16 @@
       </tr>
     
       <tr>
-        
-        <td class="nvl">BẮP CẢI</td>
+        <td class="sec-label" rowspan="5">Đồ ống</td>
+        <td class="nvl">Thức ăn xào dùng thịt gà - màu xanh</td>
         <td class="dvt center">Kg</td>
-        <td class="num green-num">1,09</td>
-        <td class="num green-num">1,68</td>
-        <td class="num green-num">2,77</td>
+        <td class="num green-num">1,64</td>
+        <td class="num green-num">1,24</td>
+        <td class="num green-num">2,88</td>
       </tr>
     
       <tr>
         
-        <td class="nvl">Cà rốt</td>
-        <td class="dvt center">Kg</td>
-        <td class="num green-num">0,48</td>
-        <td class="num green-num">0,74</td>
-        <td class="num green-num">1,22</td>
-      </tr>
-    
-      <tr>
-        <td class="sec-label" rowspan="6">Đồ ống</td>
         <td class="nvl">Cơm</td>
         <td class="dvt center">Kg</td>
         <td class="num green-num">15,74</td>
@@ -235,24 +520,6 @@
       </tr>
     
       <tr>
-        
-        <td class="nvl">BẮP CẢI</td>
-        <td class="dvt center">Kg</td>
-        <td class="num green-num">1,14</td>
-        <td class="num green-num">0,86</td>
-        <td class="num green-num">2</td>
-      </tr>
-    
-      <tr>
-        
-        <td class="nvl">Cà rốt</td>
-        <td class="dvt center">Kg</td>
-        <td class="num green-num">0,5</td>
-        <td class="num green-num">0,38</td>
-        <td class="num green-num">0,88</td>
-      </tr>
-    
-      <tr>
         <td class="sec-label" rowspan="2">Cháo thịt bằm trưa chiều</td>
         <td class="nvl">THỊT HEO XAY</td>
         <td class="dvt center">Kg</td>
@@ -276,6 +543,7 @@
 
 
 <section class="slide slide-xay">
+  
   <style>
     .slide {
       width: 1366px;
@@ -286,78 +554,64 @@
       color: #fff;
       page-break-after: always;
       overflow: hidden;
-    }
-
-    .slide-xay {
-      padding: 10px 16px 12px 16px;
       font-family: "Times New Roman", Georgia, serif;
     }
 
+    .xao-title {
+      text-align: left;
+      color: #00ee88;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    table.xao-grid,
     table.xay-grid {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
       background: #000;
-      border: 1px solid #9c9c9c;
     }
 
+    table.xao-grid th,
+    table.xao-grid td,
     table.xay-grid th,
     table.xay-grid td {
-      border: 1px solid #9c9c9c;
+      border: 1px solid #bfbfbf;
       background: #000;
       vertical-align: middle;
-      padding: 6px 8px;
-    }
-
-    table.xay-grid th {
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.02;
-    }
-
-    table.xay-grid td {
-      font-size: 17px;
-      font-weight: 800;
-      line-height: 1.03;
-    }
-
-    .title-cell {
-      color: #00ee88;
-      text-align: left;
-      font-size: 24px !important;
-      font-weight: 800;
-      text-transform: uppercase;
     }
 
     .date-cell {
       color: #ff39da;
       text-align: center;
-      font-size: 28px !important;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .th-red { color: #ff2020; }
-    .th-magenta { color: #ff39da; }
-
-    .sec-label {
-      color: #ffffff;
-      text-align: left;
+    .th-red {
+      color: #ff2020;
+      text-align: center;
+      font-weight: 900;
       white-space: normal;
       word-break: break-word;
-      overflow-wrap: anywhere;
-      font-size: 17px;
-      line-height: 1.04;
-      font-weight: 800;
+    }
+
+    .th-magenta {
+      color: #ff39da;
+      text-align: center;
+      font-weight: 900;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .nvl {
       color: #ffffff;
       text-align: left;
+      font-weight: 800;
       white-space: normal;
       word-break: break-word;
       overflow-wrap: anywhere;
-      line-height: 1.02;
-      font-weight: 800;
     }
 
     .dvt {
@@ -367,10 +621,13 @@
     }
 
     .num {
-      text-align: right;
       white-space: nowrap;
-      color: #ffffff;
       font-weight: 800;
+      text-align: right;
+    }
+
+    .white-num {
+      color: #ffffff;
     }
 
     .green-num {
@@ -378,12 +635,70 @@
       font-weight: 900;
     }
 
+    .sec-label {
+      color: #ffffff;
+      text-align: left;
+      font-weight: 800;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
     .center { text-align: center; }
+    .right { text-align: right; }
+
     .header-wrap {
       white-space: normal;
       word-break: break-word;
       line-height: 1.0;
       display: inline-block;
+    }
+  </style>
+  
+  <style>
+    .slide-xay {
+      padding: 10px 16px 12px 16px;
+    }
+
+    .slide-xay table.xay-grid {
+      border: 1px solid #9c9c9c;
+    }
+
+    .slide-xay table.xay-grid th,
+    .slide-xay table.xay-grid td {
+      padding: 6px 8px;
+    }
+
+    .slide-xay table.xay-grid th {
+      font-size: 18px;
+      line-height: 1.02;
+    }
+
+    .slide-xay table.xay-grid td {
+      font-size: 17px;
+      line-height: 1.03;
+    }
+
+    .slide-xay .title-cell {
+      color: #00ee88;
+      text-align: left;
+      font-size: 24px !important;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .slide-xay .date-cell {
+      font-size: 28px !important;
+    }
+
+    .slide-xay .sec-label {
+      font-size: 17px;
+      line-height: 1.04;
+    }
+
+    .slide-xay .nvl {
+      font-size: 17px;
+      line-height: 1.02;
     }
 
     .col-section { width: 24%; }
