@@ -105,11 +105,22 @@
     padding-left: 10px;
   }
 
+  .dish-child {
+    padding-left: 34px !important;
+    font-size: 17px;
+    font-weight: 900;
+    color: #f2f2f2;
+  }
+
   .total-col {
     color: #ff2d2d;
     font-size: 20px;
     font-weight: 900;
     text-align: center;
+  }
+
+  .total-col-child {
+    color: transparent !important;
   }
 
   .site-sl,
@@ -141,6 +152,28 @@
   .noi-green { color: #00f5b8; }
   .noi-yellow { color: #ffd633; }
   .noi-red { color: #ff3b3b; }
+
+  .child-row td {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .child-row .site-sl {
+    color: transparent;
+  }
+
+  .child-row .child-empty {
+    color: transparent !important;
+  }
+
+  .child-row .child-kg {
+    color: #fff !important;
+    font-weight: 900;
+  }
+
+  .zero-row .dish {
+    color: #fff;
+  }
   </style>
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
@@ -182,7 +215,7 @@
     </thead>
     <tbody>
       
-      <tr>
+      <tr class="">
         <td class="dish">Phở bò</td>
         <td class="total-col">212</td>
         
@@ -208,7 +241,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo thịt bằm ăn sáng</td>
         <td class="total-col">16</td>
         
@@ -232,7 +265,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo (ống xay) ăn sáng</td>
         <td class="total-col">24</td>
         
@@ -256,7 +289,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Xay ăn sáng</td>
         <td class="total-col">20</td>
         
@@ -282,7 +315,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Chay</td>
         <td class="total-col">4</td>
         
@@ -351,7 +384,7 @@
     </thead>
     <tbody>
       
-      <tr>
+      <tr class="">
         <td class="dish">Cơm ngũ sắc</td>
         <td class="total-col">207</td>
         
@@ -377,7 +410,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm trắng</td>
         <td class="total-col">207</td>
         
@@ -403,7 +436,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thịt ba rọi dây kho tàu</td>
         <td class="total-col">207</td>
         
@@ -429,7 +462,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="zero-row">
         <td class="dish">0</td>
         <td class="total-col">12</td>
         
@@ -451,7 +484,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Bắp cải, cà rốt luộc</td>
         <td class="total-col">207</td>
         
@@ -477,7 +510,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm xay</td>
         <td class="total-col">72</td>
         
@@ -501,7 +534,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
         <td class="total-col">7</td>
         
@@ -521,7 +554,7 @@
     
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm chay</td>
         <td class="total-col">5</td>
         
@@ -543,7 +576,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo thịt bằm trưa chiều</td>
         <td class="total-col">6</td>
         
@@ -565,7 +598,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Ống trưa chiều rau xanh</td>
         <td class="total-col">125</td>
         
@@ -589,7 +622,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Sữa chua</td>
         <td class="total-col">257</td>
         
@@ -615,7 +648,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Chè đậu đen</td>
         <td class="total-col">231</td>
         
@@ -641,7 +674,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Ống ăn xế rau xanh</td>
         <td class="total-col">1385</td>
         
@@ -667,7 +700,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Canh cà chua trứng</td>
         <td class="total-col">207</td>
         
@@ -693,7 +726,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">sữa chua</td>
         <td class="total-col">207</td>
         
@@ -766,7 +799,7 @@
     </thead>
     <tbody>
       
-      <tr>
+      <tr class="">
         <td class="dish">Cơm Ngũ sắc</td>
         <td class="total-col">208</td>
         
@@ -792,7 +825,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm trắng</td>
         <td class="total-col">208</td>
         
@@ -818,7 +851,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thịt kho củ cải</td>
         <td class="total-col">208</td>
         
@@ -844,7 +877,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="zero-row">
         <td class="dish">0</td>
         <td class="total-col">208</td>
         
@@ -870,7 +903,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm xay</td>
         <td class="total-col">75</td>
         
@@ -896,7 +929,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
         <td class="total-col">7</td>
         
@@ -916,7 +949,7 @@
     
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm chay</td>
         <td class="total-col">5</td>
         
@@ -938,7 +971,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo thịt bằm trưa chiều</td>
         <td class="total-col">8</td>
         
@@ -962,7 +995,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Ống trưa chiều rau xanh</td>
         <td class="total-col">120</td>
         
@@ -986,7 +1019,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Canh bí đỏ</td>
         <td class="total-col">208</td>
         
@@ -1012,7 +1045,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Chuối cau</td>
         <td class="total-col">208</td>
         
@@ -1095,7 +1128,7 @@
     </thead>
     <tbody>
       
-      <tr>
+      <tr class="">
         <td class="dish">Phở bò</td>
         <td class="total-col">206</td>
         
@@ -1131,7 +1164,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo thịt bằm ăn sáng</td>
         <td class="total-col">26</td>
         
@@ -1167,7 +1200,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo (ống xay) ăn sáng</td>
         <td class="total-col">19</td>
         
@@ -1197,7 +1230,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Xay ăn sáng</td>
         <td class="total-col">34</td>
         
@@ -1229,7 +1262,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Chay</td>
         <td class="total-col">4</td>
         
@@ -1316,7 +1349,7 @@
     </thead>
     <tbody>
       
-      <tr>
+      <tr class="">
         <td class="dish">Cơm ngũ sắc</td>
         <td class="total-col">198</td>
         
@@ -1352,7 +1385,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm trắng</td>
         <td class="total-col">198</td>
         
@@ -1388,7 +1421,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thịt ba rọi dây kho tàu</td>
         <td class="total-col">198</td>
         
@@ -1424,7 +1457,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="zero-row">
         <td class="dish">0</td>
         <td class="total-col">6</td>
         
@@ -1454,7 +1487,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Bắp cải, cà rốt luộc</td>
         <td class="total-col">198</td>
         
@@ -1490,7 +1523,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm xay</td>
         <td class="total-col">111</td>
         
@@ -1522,7 +1555,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
         <td class="total-col">22</td>
         
@@ -1552,7 +1585,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm chay</td>
         <td class="total-col">4</td>
         
@@ -1582,7 +1615,7 @@
     
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo thịt bằm trưa chiều</td>
         <td class="total-col">3</td>
         
@@ -1612,7 +1645,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Ống trưa chiều rau xanh</td>
         <td class="total-col">95</td>
         
@@ -1642,7 +1675,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Sữa chua</td>
         <td class="total-col">270</td>
         
@@ -1678,79 +1711,7 @@
   
       </tr>
     
-      <tr>
-        <td class="dish">Chè đậu đen</td>
-        <td class="total-col">230</td>
-        
-    <td class="site-sl">
-      <span class="sl">50</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">6,5</td>
-  
-    <td class="site-sl">
-      <span class="sl">50</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">6,5</td>
-  
-    <td class="site-sl">
-      <span class="sl">17</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg"></td>
-  
-    <td class="site-sl">
-      <span class="sl">32</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg"></td>
-  
-    <td class="site-sl">
-      <span class="sl">60</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">6,5</td>
-  
-    <td class="site-sl">
-      <span class="sl">21</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg"></td>
-  
-      </tr>
-    
-      <tr>
-        <td class="dish">Ống ăn xế rau xanh</td>
-        <td class="total-col">1445</td>
-        
-    <td class="site-sl">
-      <span class="sl">250</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">27,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">250</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">27,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">215</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">23,4</td>
-  
-    <td class="site-sl">
-      <span class="sl">190</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">20,6</td>
-  
-    <td class="site-sl">
-      <span class="sl">305</span>
-    </td>
-    <td class="site-kg">33,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">235</span> <span class="noi noi-red">XÔ</span>
-    </td>
-    <td class="site-kg">25,5</td>
-  
-      </tr>
-    
-      <tr>
+      <tr class="">
         <td class="dish">Canh cà chua trứng</td>
         <td class="total-col">198</td>
         
@@ -1786,7 +1747,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">sữa chua</td>
         <td class="total-col">198</td>
         
@@ -1879,7 +1840,7 @@
     </thead>
     <tbody>
       
-      <tr>
+      <tr class="">
         <td class="dish">Cơm Ngũ sắc</td>
         <td class="total-col">198</td>
         
@@ -1915,7 +1876,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm trắng</td>
         <td class="total-col">198</td>
         
@@ -1951,7 +1912,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thịt kho củ cải</td>
         <td class="total-col">198</td>
         
@@ -1987,7 +1948,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="zero-row">
         <td class="dish">0</td>
         <td class="total-col">198</td>
         
@@ -2023,7 +1984,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm xay</td>
         <td class="total-col">120</td>
         
@@ -2059,7 +2020,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
         <td class="total-col">20</td>
         
@@ -2089,7 +2050,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cơm chay</td>
         <td class="total-col">5</td>
         
@@ -2121,7 +2082,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Cháo thịt bằm trưa chiều</td>
         <td class="total-col">7</td>
         
@@ -2155,7 +2116,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Ống trưa chiều rau xanh</td>
         <td class="total-col">95</td>
         
@@ -2185,7 +2146,79 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
+        <td class="dish">Chè đậu đen</td>
+        <td class="total-col">230</td>
+        
+    <td class="site-sl">
+      <span class="sl">50</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">6,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">50</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">6,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">17</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg"></td>
+  
+    <td class="site-sl">
+      <span class="sl">32</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg"></td>
+  
+    <td class="site-sl">
+      <span class="sl">60</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">6,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">21</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg"></td>
+  
+      </tr>
+    
+      <tr class="">
+        <td class="dish">Ống ăn xế rau xanh</td>
+        <td class="total-col">1445</td>
+        
+    <td class="site-sl">
+      <span class="sl">250</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">27,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">250</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">27,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">215</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">23,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">190</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">20,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">305</span>
+    </td>
+    <td class="site-kg">33,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">235</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">25,5</td>
+  
+      </tr>
+    
+      <tr class="">
         <td class="dish">Canh bí đỏ</td>
         <td class="total-col">198</td>
         
@@ -2221,7 +2254,7 @@
   
       </tr>
     
-      <tr>
+      <tr class="">
         <td class="dish">Chuối cau</td>
         <td class="total-col">198</td>
         
