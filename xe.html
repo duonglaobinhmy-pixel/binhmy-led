@@ -1,176 +1,311 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
 <meta charset="utf-8">
+<title>xe.html</title>
 <style>
-body {
-  background:#000;
-  color:#fff;
-  font-family:Arial;
-}
-h1 {
-  color:#00ff99;
-  text-align:center;
-}
-.date {
-  color:#ff33cc;
-  font-size:28px;
-  margin:20px;
-}
-table {
-  width:100%;
-  border-collapse:collapse;
-  margin-bottom:40px;
-}
-td, th {
-  border:1px solid #666;
-  padding:8px;
-  text-align:center;
-}
-th {
-  color:#ff3333;
-}
-.title {
-  color:#00ff99;
-  font-size:24px;
-  text-align:center;
-  margin-top:30px;
-}
+  body{
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:"Times New Roman", serif;
+  }
+  .page{
+    width:1920px;
+    min-height:1080px;
+    padding:24px 32px 40px;
+    box-sizing:border-box;
+    background:#000;
+  }
+  .title{
+    text-align:center;
+    color:#00f7b2;
+    font-size:58px;
+    font-weight:900;
+    text-transform:uppercase;
+    line-height:1.05;
+    margin-bottom:16px;
+  }
+  .date{
+    color:#ff40f5;
+    font-size:46px;
+    font-weight:900;
+    margin:8px 0 18px;
+  }
+  .sub{
+    text-align:center;
+    color:#00f7b2;
+    font-size:34px;
+    font-weight:900;
+    text-transform:uppercase;
+    margin:18px 0 8px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+    margin-bottom:26px;
+  }
+  th,td{
+    border:2px solid rgba(255,255,255,0.55);
+    padding:10px 8px;
+    text-align:center;
+    vertical-align:middle;
+  }
+  th{
+    color:#ff2f2f;
+    font-size:24px;
+    font-weight:900;
+    text-transform:uppercase;
+  }
+  td{
+    font-size:22px;
+    font-weight:700;
+  }
+  .section-wrap{
+    margin-top:30px;
+  }
+  .ingredient-title{
+    color:#00f7b2;
+    font-size:44px;
+    font-weight:900;
+    text-align:center;
+    text-transform:uppercase;
+    margin:34px 0 10px;
+  }
+  .buoi-label{
+    color:#ff40f5;
+    font-size:42px;
+    font-weight:900;
+    text-transform:uppercase;
+    margin:12px 0 8px;
+  }
+  .header-row{
+    display:grid;
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 0.9fr;
+    gap:0;
+    margin-top:10px;
+    margin-bottom:4px;
+    align-items:end;
+  }
+  .header-row .h{
+    color:#ff2f2f;
+    font-size:34px;
+    font-weight:900;
+    text-align:center;
+    text-transform:uppercase;
+  }
+  .group-title{
+    color:#00f7b2;
+    font-size:30px;
+    font-weight:900;
+    text-align:right;
+    margin:4px 0 8px;
+  }
+  .ingredient-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 0.9fr;
+    row-gap:8px;
+    align-items:start;
+  }
+  .ingredient-grid .cell{
+    font-size:30px;
+    font-weight:800;
+    text-align:center;
+  }
+  .ingredient-grid .name{
+    text-align:left;
+    padding-left:10px;
+  }
+  .ingredient-grid .total-val{
+    font-size:30px;
+    font-weight:900;
+    text-align:right;
+    padding-right:18px;
+  }
 </style>
 </head>
 <body>
+<div class="page">
+  <div class="title">BẢNG MÓN XẾ</div>
+  <div class="date"></div>
 
-<h1>BẢNG MÓN XẾ</h1>
-<div class="date"></div>
+  <div class="sub">PHẦN CHIA - Cơm trắng</div>
+  <table>
+    <tr>
+      <th>Cụm</th>
+      <th>Cơ sở</th>
+      <th>Kg</th>
+      <th>Dụng cụ</th>
+    </tr>
+    
+      <tr>
+        <td>BM</td>
+        <td>HB</td>
+        <td>6,5</td>
+        <td>Xô 1kg</td>
+      </tr>
+    
+      <tr>
+        <td>BM</td>
+        <td>HO</td>
+        <td>6,5</td>
+        <td>Xô 1kg</td>
+      </tr>
+    
+      <tr>
+        <td>BM</td>
+        <td>ĐB1</td>
+        <td>2,5</td>
+        <td>Xô 1kg</td>
+      </tr>
+    
+      <tr>
+        <td>BM</td>
+        <td>ĐB2</td>
+        <td>4,5</td>
+        <td>Xô 1kg</td>
+      </tr>
+    
+      <tr>
+        <td>BM</td>
+        <td>HL</td>
+        <td>10</td>
+        <td>Xô 1kg</td>
+      </tr>
+    
+      <tr>
+        <td>BM</td>
+        <td>TC</td>
+        <td>2</td>
+        <td>Xô 1kg</td>
+      </tr>
+    
+    
+      <tr>
+        <td>GV</td>
+        <td>Q12</td>
+        <td>3,5</td>
+        <td>Nồi xế 3kg</td>
+      </tr>
+    
+      <tr>
+        <td>GV</td>
+        <td>DQH</td>
+        <td>16</td>
+        <td>Nồi xế 3kg</td>
+      </tr>
+    
+      <tr>
+        <td>GV</td>
+        <td>NT</td>
+        <td>4,5</td>
+        <td>Nồi xế 3kg</td>
+      </tr>
+    
+      <tr>
+        <td>GV</td>
+        <td>AH</td>
+        <td>6,5</td>
+        <td>Nồi xế 3kg</td>
+      </tr>
+    
+  </table>
 
-<div class="title">PHẦN CHIA - CHÈ ĐẬU XANH</div>
+  <div class="ingredient-title">BẢNG NGUYÊN LIỆU THEO BUỔI</div>
 
-<table>
-<tr>
-<th>CỤM</th>
-<th>CƠ SỞ</th>
-<th>KG</th>
-<th>DỤNG CỤ</th>
-</tr>
+  
+    <div class="section-wrap">
+      <div class="buoi-label">XẾ</div>
 
+      <div class="header-row">
+        <div class="h">Nguyên liệu</div>
+        <div class="h">Gò Vấp</div>
+        <div class="h">Bình Mỹ</div>
+        <div class="group-title">Bánh xốp/ Bánh gạo/ KFC</div>
+      </div>
 
-<tr>
-<td>BM</td>
-<td>HB</td>
-<td>6.5</td>
-<td>Xô 1kg</td>
-</tr>
+      <div class="ingredient-grid">
+        
+          <div class="cell name">Bánh xốp</div>
+          <div class="cell">4</div>
+          <div class="cell">6</div>
+          <div class="total-val">10</div>
+        
+      </div>
+    </div>
+  
+    <div class="section-wrap">
+      <div class="buoi-label">XẾ</div>
 
-<tr>
-<td>BM</td>
-<td>HO</td>
-<td>6.5</td>
-<td>Xô 1kg</td>
-</tr>
+      <div class="header-row">
+        <div class="h">Nguyên liệu</div>
+        <div class="h">Gò Vấp</div>
+        <div class="h">Bình Mỹ</div>
+        <div class="group-title">Cơm trắng</div>
+      </div>
 
-<tr>
-<td>BM</td>
-<td>ĐB1</td>
-<td>2.5</td>
-<td>Xô 1kg</td>
-</tr>
+      <div class="ingredient-grid">
+        
+          <div class="cell name">Cơm</div>
+          <div class="cell">200</div>
+          <div class="cell">950</div>
+          <div class="total-val">1150</div>
+        
+          <div class="cell name">Cơm</div>
+          <div class="cell">1,05</div>
+          <div class="cell">0</div>
+          <div class="total-val">1,05</div>
+        
+      </div>
+    </div>
+  
+    <div class="section-wrap">
+      <div class="buoi-label">XẾ</div>
 
-<tr>
-<td>BM</td>
-<td>ĐB2</td>
-<td>4.5</td>
-<td>Xô 1kg</td>
-</tr>
+      <div class="header-row">
+        <div class="h">Nguyên liệu</div>
+        <div class="h">Gò Vấp</div>
+        <div class="h">Bình Mỹ</div>
+        <div class="group-title">Nước rau củ</div>
+      </div>
 
-<tr>
-<td>BM</td>
-<td>HL</td>
-<td>10</td>
-<td>Xô 1kg</td>
-</tr>
+      <div class="ingredient-grid">
+        
+          <div class="cell name">Nước rau củ</div>
+          <div class="cell">350</div>
+          <div class="cell">1050</div>
+          <div class="total-val">1400</div>
+        
+          <div class="cell name">Nước rau củ</div>
+          <div class="cell">8,4</div>
+          <div class="cell">5,6</div>
+          <div class="total-val">14</div>
+        
+      </div>
+    </div>
+  
+    <div class="section-wrap">
+      <div class="buoi-label">XẾ</div>
 
-<tr>
-<td>BM</td>
-<td>TC</td>
-<td>2</td>
-<td>Xô 1kg</td>
-</tr>
+      <div class="header-row">
+        <div class="h">Nguyên liệu</div>
+        <div class="h">Gò Vấp</div>
+        <div class="h">Bình Mỹ</div>
+        <div class="group-title">Rau lá xanh</div>
+      </div>
 
-
-
-<tr>
-<td>GV</td>
-<td>Q12</td>
-<td>3.5</td>
-<td>Nồi xế 3kg</td>
-</tr>
-
-<tr>
-<td>GV</td>
-<td>DQH</td>
-<td>16</td>
-<td>Nồi xế 3kg</td>
-</tr>
-
-<tr>
-<td>GV</td>
-<td>NT</td>
-<td>4.5</td>
-<td>Nồi xế 3kg</td>
-</tr>
-
-<tr>
-<td>GV</td>
-<td>AH</td>
-<td>6.5</td>
-<td>Nồi xế 3kg</td>
-</tr>
-
-
-</table>
-
-<div class="title">NGUYÊN LIỆU NẤU (60 KG)</div>
-
-<table>
-<tr>
-<th>NVL</th>
-<th>ĐVT</th>
-<th>SỐ LƯỢNG</th>
-</tr>
-
-
-<tr>
-<td>Đậu xanh</td>
-<td>kg</td>
-<td>10</td>
-</tr>
-
-<tr>
-<td>Nước</td>
-<td>kg</td>
-<td>46</td>
-</tr>
-
-<tr>
-<td>Đường</td>
-<td>kg</td>
-<td>5</td>
-</tr>
-
-<tr>
-<td>Muối</td>
-<td>g</td>
-<td>40</td>
-</tr>
-
-<tr>
-<td>Gừng</td>
-<td>g</td>
-<td>200</td>
-</tr>
-
-
-</table>
-
+      <div class="ingredient-grid">
+        
+          <div class="cell name">Rau lá xanh</div>
+          <div class="cell">75</div>
+          <div class="cell">57</div>
+          <div class="total-val">132</div>
+        
+      </div>
+    </div>
+  
+</div>
 </body>
 </html>
