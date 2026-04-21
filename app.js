@@ -84,12 +84,10 @@ function classifySlide(slideHtml) {
   const isMainIngredientSlide = slide.classList.contains('slide-main');
   const isTableIngredientSlide = slide.classList.contains('slide-xay');
 
-  // 1) RAU
   if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
     return 'rau';
   }
 
-  // 2) MENU
   if (hasMenuGrid) {
     if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
     if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
@@ -103,7 +101,6 @@ function classifySlide(slideHtml) {
     return 'unknown_menu';
   }
 
-  // 3) XÀO CHÍNH / XÀO XAY
   if (hasXaoGrid) {
     const isXaoMain =
       hasAny(
@@ -128,25 +125,26 @@ function classifySlide(slideHtml) {
     );
 
     if (isXayLike) {
-      if (
-        hasAny(
-          'TRUA CUM GO VAP + XE GO VAP',
-          'TRUA',
-          'XE GO VAP'
-        )
-      ) {
-        return 'ingredient_trua_xay';
-      }
+      const isTruaXay =
+        (
+          text.includes(normalizeText('TRUA CUM GO VAP + XE GO VAP')) ||
+          (text.includes(normalizeText('TRUA')) && text.includes(normalizeText('XE GO VAP')))
+        ) &&
+        !text.includes(normalizeText('XE BINH MY')) &&
+        !text.includes(normalizeText('XE BM'));
 
-      if (
-        hasAny(
-          'CHIEU CUM GO VAP + XE BM',
-          'CHIEU',
-          'XE BM'
-        )
-      ) {
-        return 'ingredient_chieu_xay';
-      }
+      const isChieuXay =
+        text.includes(normalizeText('CHIEU')) &&
+        (
+          text.includes(normalizeText('XE BINH MY')) ||
+          text.includes(normalizeText('XE BM')) ||
+          text.includes(normalizeText('BINH MY + XE BINH MY')) ||
+          text.includes(normalizeText('CUM BINH MY + XE BINH MY')) ||
+          text.includes(normalizeText('CUM GO VAP CUM BINH MY + XE BINH MY'))
+        );
+
+      if (isTruaXay) return 'ingredient_trua_xay';
+      if (isChieuXay) return 'ingredient_chieu_xay';
 
       return 'unknown_slide_xay';
     }
@@ -154,7 +152,6 @@ function classifySlide(slideHtml) {
     return 'unknown_xao_table';
   }
 
-  // 4) INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
     if (
       title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG')) ||
@@ -176,11 +173,17 @@ function classifySlide(slideHtml) {
       if (leftHead === 'TRUA') return 'ingredient_trua_main';
       if (leftHead === 'CHIEU') return 'ingredient_chieu_main';
 
-      if (hasAny(' TRUA ', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN TRUA', 'MON COM, CANH, XAO, MAN TRUA')) {
+      if (hasAny(
+        'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN TRUA',
+        'MON COM, CANH, XAO, MAN TRUA'
+      )) {
         return 'ingredient_trua_main';
       }
 
-      if (hasAny(' CHIEU ', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN CHIEU', 'MON COM, CANH, XAO, MAN CHIEU')) {
+      if (hasAny(
+        'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN CHIEU',
+        'MON COM, CANH, XAO, MAN CHIEU'
+      )) {
         return 'ingredient_chieu_main';
       }
 
@@ -190,7 +193,6 @@ function classifySlide(slideHtml) {
     return 'unknown_main';
   }
 
-  // 5) INGREDIENT XAY DẠNG KHÁC
   if (isTableIngredientSlide) {
     const isXayLike = hasAny(
       'BANG NGUYEN LIEU CHO MON THUC AN XAY',
@@ -202,7 +204,7 @@ function classifySlide(slideHtml) {
 
     if (isXayLike) {
       if (hasAny('TRUA', 'GO VAP + XE GO VAP')) return 'ingredient_trua_xay';
-      if (hasAny('CHIEU', 'GO VAP + XE BM')) return 'ingredient_chieu_xay';
+      if (hasAny('CHIEU', 'GO VAP + XE BM', 'XE BINH MY')) return 'ingredient_chieu_xay';
       return 'unknown_slide_xay';
     }
 
@@ -220,7 +222,6 @@ function orderSlides(allSlides) {
     preview: extractTextFromSlideHtml(slideHtml).slice(0, 220)
   }));
 
-  // 1) fallback cho unknown xay
   const unknownXay = classified
     .filter((item) => item.type === 'unknown_slide_xay')
     .sort((a, b) => a.index - b.index);
@@ -228,7 +229,6 @@ function orderSlides(allSlides) {
   if (unknownXay[0]) unknownXay[0].type = 'ingredient_trua_xay';
   if (unknownXay[1]) unknownXay[1].type = 'ingredient_chieu_xay';
 
-  // 2) vá case classifier nhận nhầm slide chiều xay thành trưa xay
   const truaXaySlides = classified
     .filter((item) => item.type === 'ingredient_trua_xay')
     .sort((a, b) => a.index - b.index);
