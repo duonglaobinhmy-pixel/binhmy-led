@@ -220,12 +220,36 @@ function orderSlides(allSlides) {
     preview: extractTextFromSlideHtml(slideHtml).slice(0, 220)
   }));
 
+  // 1) fallback cho unknown xay
   const unknownXay = classified
     .filter((item) => item.type === 'unknown_slide_xay')
     .sort((a, b) => a.index - b.index);
 
   if (unknownXay[0]) unknownXay[0].type = 'ingredient_trua_xay';
   if (unknownXay[1]) unknownXay[1].type = 'ingredient_chieu_xay';
+
+  // 2) vá case classifier nhận nhầm slide chiều xay thành trưa xay
+  const truaXaySlides = classified
+    .filter((item) => item.type === 'ingredient_trua_xay')
+    .sort((a, b) => a.index - b.index);
+
+  if (truaXaySlides.length >= 2) {
+    const second = truaXaySlides[1];
+    const secondText = extractTextFromSlideHtml(second.slideHtml);
+
+    const looksLikeChieu =
+      secondText.includes(normalizeText('CHIEU')) &&
+      (
+        secondText.includes(normalizeText('XE BINH MY')) ||
+        secondText.includes(normalizeText('XE BM')) ||
+        secondText.includes(normalizeText('BINH MY + XE BINH MY')) ||
+        secondText.includes(normalizeText('CUM BINH MY + XE BINH MY'))
+      );
+
+    if (looksLikeChieu) {
+      second.type = 'ingredient_chieu_xay';
+    }
+  }
 
   const buckets = new Map();
   classified.forEach((item) => {
