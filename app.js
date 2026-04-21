@@ -4,11 +4,17 @@ async function fetchText(url) {
   return await res.text();
 }
 
-function getTodayVN() {
-  const now = new Date();
+function getRunDateVN() {
+  const now = new Date(
+    new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' })
+  );
+
+  now.setDate(now.getDate() + 1);
+
   const dd = String(now.getDate()).padStart(2, '0');
   const mm = String(now.getMonth() + 1).padStart(2, '0');
   const yy = String(now.getFullYear()).slice(-2);
+
   return `${dd}-${mm}-${yy}`;
 }
 
@@ -649,7 +655,7 @@ function injectDeckStyles() {
 }
 
 function fillMissingDates(slides) {
-  const today = getTodayVN();
+  const today = getRunDateVN();
 
   slides.forEach((slide) => {
     slide.querySelectorAll('.date-head, .date-cell, .main-date').forEach((el) => {
