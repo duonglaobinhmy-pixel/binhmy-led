@@ -1,1389 +1,1424 @@
-<section class="slide">
+<section class="slide slide-main">
   
-  <style>
-    body {
-      margin: 0;
-      background: #111;
-      font-family: "Times New Roman", Georgia, serif;
-    }
-    .slide {
-      width: 1366px;
-      min-height: 768px;
-      background: #000;
-      color: #fff;
-      margin: 0 auto 8px auto;
-      padding: 18px 26px 24px 26px;
-      box-sizing: border-box;
-      page-break-after: always;
-      overflow: hidden;
-      border: 1px solid #888;
-    }
-    .title {
-      text-align: center;
-      color: #00f08a;
-      font-size: 46px;
-      font-weight: 900;
-      line-height: 1.05;
-      margin: 0 0 14px 0;
-      text-transform: uppercase;
-    }
-    .meta {
-      display: grid;
-      grid-template-columns: 180px 1fr 1fr 1fr;
-      align-items: end;
-      margin-bottom: 8px;
-    }
-    .meta .meal {
-      color: #ff38e6;
-      font-size: 38px;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-align: left;
-    }
-    .meta .date {
-      color: #ff38e6;
-      font-size: 34px;
-      font-weight: 900;
-      text-align: center;
-    }
-    .meta .cluster {
-      color: #ff4a1a;
-      font-size: 30px;
-      font-weight: 900;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .meta .dish {
-      color: #00f08a;
-      font-size: 30px;
-      font-weight: 900;
-      text-align: right;
-    }
-    table.grid {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-    table.grid th, table.grid td {
-      border: 1.5px solid rgba(255,255,255,.62);
-      background: #000;
-      padding: 8px 10px;
-      vertical-align: middle;
-    }
-    .head-left {
-      width: 42%;
-      color: #ff4a1a;
-      font-size: 30px;
-      font-weight: 900;
-      text-align: left;
-      text-transform: uppercase;
-    }
-    .head-dvt {
-      width: 8%;
-      color: #ff4a1a;
-      font-size: 26px;
-      font-weight: 900;
-      text-align: center;
-    }
-    .head-num {
-      width: 16%;
-      color: #ff4a1a;
-      font-size: 24px;
-      font-weight: 900;
-      text-align: center;
-    }
-    .col-nvl {
-      color: #fff;
-      font-size: 28px;
-      font-weight: 900;
-      text-align: left;
-      line-height: 1.06;
-      word-break: break-word;
-    }
-    .col-dvt {
-      color: #fff;
-      font-size: 24px;
-      font-weight: 900;
-      text-align: center;
-    }
-    .col-num {
-      color: #fff;
-      font-size: 28px;
-      font-weight: 900;
-      text-align: right;
-      padding-right: 18px;
-    }
-    .bucket-xay .col-num {
-      color: #00f08a;
-    }
-    .bucket-xe .col-num {
-      color: #fff;
-    }
-  </style>
+<style>
+  .slide {
+    width: 1366px;
+    min-height: 768px;
+    margin: 0 auto;
+    background: #000;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Georgia, serif;
+    color: #fff;
+    page-break-after: always;
+    overflow: hidden;
+    display: block;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  .slide-main {
+    padding: 18px 20px 14px 20px;
+  }
 
-  <div class="meta">
-    <div class="meal">SÁNG</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Bún thịt bằm cà chua</div>
-  </div>
+  .main-title {
+    text-align: center;
+    color: #00ee88;
+    font-size: 34px;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
 
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">BÚN KHÔ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">840</td>
-      <td class="col-num">1470</td>
-      <td class="col-num">2310</td>
-    </tr>
+  .main-date {
+    text-align: center;
+    color: #ff39da;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  .main-section {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .main-sec-head,
+  .main-row {
+    display: grid;
+    grid-template-columns: 15% 27% 14% 14% 30%;
+    column-gap: 0;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .main-sec-head {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .left-head {
+    color: #ff39da;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .col-head {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .red { color: #ff2020; }
+  .green { color: #00ee88; }
+
+  .ing-name {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .qty {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+  }
+
+  .center { text-align: center; }
+  .right { text-align: right; }
+</style>
   
-    <tr>
-      <td class="col-nvl">BÚN KHÔ</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">6,69</td>
-      <td class="col-num">5,89</td>
-      <td class="col-num">12,58</td>
-    </tr>
+  <div class="main-title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  <div class="main-date"></div>
   
-    <tr>
-      <td class="col-nvl">CÀ CHUA</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">720</td>
-      <td class="col-num">3210</td>
-      <td class="col-num">3930</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">CÀ CHUA</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">5,73</td>
-      <td class="col-num">3,09</td>
-      <td class="col-num">8,82</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">430</td>
-      <td class="col-num">420</td>
-      <td class="col-num">850</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">NGÒ RÍ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">430</td>
-      <td class="col-num">420</td>
-      <td class="col-num">850</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">64,5</td>
-      <td class="col-num">63</td>
-      <td class="col-num">127,5</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">840</td>
-      <td class="col-num">1470</td>
-      <td class="col-num">2310</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">6,69</td>
-      <td class="col-num">5,89</td>
-      <td class="col-num">12,58</td>
-    </tr>
-  
-    </tbody>
-  </table>
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">SÁNG</div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Bún thịt bằm cà chua</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BÚN KHÔ</div>
+        <div class="qty center">840,0</div>
+        <div class="qty center">1470,0</div>
+        <div class="qty right">2310,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BÚN KHÔ</div>
+        <div class="qty center">6,69</div>
+        <div class="qty center">5,89</div>
+        <div class="qty right">12,58</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CÀ CHUA</div>
+        <div class="qty center">720,0</div>
+        <div class="qty center">3210,0</div>
+        <div class="qty right">3930,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CÀ CHUA</div>
+        <div class="qty center">5,73</div>
+        <div class="qty center">3,09</div>
+        <div class="qty right">8,82</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">430,0</div>
+        <div class="qty center">420,0</div>
+        <div class="qty right">850,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">NGÒ RÍ</div>
+        <div class="qty center">430,0</div>
+        <div class="qty center">420,0</div>
+        <div class="qty right">850,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước</div>
+        <div class="qty center">64,5</div>
+        <div class="qty center">63,0</div>
+        <div class="qty right">127,5</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">840,0</div>
+        <div class="qty center">1470,0</div>
+        <div class="qty right">2310,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">6,69</div>
+        <div class="qty center">5,89</div>
+        <div class="qty right">12,58</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cháo (ống xay) ăn sáng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">828,0</div>
+        <div class="qty center">724,5</div>
+        <div class="qty right">1552,5</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">12,0</div>
+        <div class="qty center">10,5</div>
+        <div class="qty right">22,5</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">480,0</div>
+        <div class="qty center">420,0</div>
+        <div class="qty right">900,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cháo thịt bằm ăn sáng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">900,0</div>
+        <div class="qty center">1500,0</div>
+        <div class="qty right">2400,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">7,5</div>
+        <div class="qty center">12,5</div>
+        <div class="qty right">20,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">375,0</div>
+        <div class="qty center">625,0</div>
+        <div class="qty right">1000,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Xay ăn sáng</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">-</div>
+        <div class="qty center">1,25</div>
+        <div class="qty right">1,25</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">1000,0</div>
+        <div class="qty center">550,0</div>
+        <div class="qty right">1550,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">10,0</div>
+        <div class="qty center">18,0</div>
+        <div class="qty right">28,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">500,0</div>
+        <div class="qty center">900,0</div>
+        <div class="qty right">1400,0</div>
+      </div>
+    
+      </div>
+    
 </section>
   
 
-<section class="slide">
+<section class="slide slide-main">
   
+<style>
+  .slide {
+    width: 1366px;
+    min-height: 768px;
+    margin: 0 auto;
+    background: #000;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Georgia, serif;
+    color: #fff;
+    page-break-after: always;
+    overflow: hidden;
+    display: block;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  .slide-main {
+    padding: 18px 20px 14px 20px;
+  }
 
-  <div class="meta">
-    <div class="meal">SÁNG</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cháo (ống xay) ăn sáng</div>
-  </div>
+  .main-title {
+    text-align: center;
+    color: #00ee88;
+    font-size: 34px;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
 
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">GẠO</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">828</td>
-      <td class="col-num">724,5</td>
-      <td class="col-num">1552,5</td>
-    </tr>
+  .main-date {
+    text-align: center;
+    color: #ff39da;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  .main-section {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .main-sec-head,
+  .main-row {
+    display: grid;
+    grid-template-columns: 15% 27% 14% 14% 30%;
+    column-gap: 0;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .main-sec-head {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .left-head {
+    color: #ff39da;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .col-head {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .red { color: #ff2020; }
+  .green { color: #00ee88; }
+
+  .ing-name {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .qty {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+  }
+
+  .center { text-align: center; }
+  .right { text-align: right; }
+</style>
   
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">12</td>
-      <td class="col-num">10,5</td>
-      <td class="col-num">22,5</td>
-    </tr>
+  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+  <div class="main-date"></div>
   
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">480</td>
-      <td class="col-num">420</td>
-      <td class="col-num">900</td>
-    </tr>
-  
-    </tbody>
-  </table>
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">TRƯA</div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Canh bí xanh</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BÍ XANH</div>
+        <div class="qty center">-</div>
+        <div class="qty center">1360,0</div>
+        <div class="qty right">1360,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BÍ XANH</div>
+        <div class="qty center">16,88</div>
+        <div class="qty center">14,72</div>
+        <div class="qty right">31,6</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">105,5</div>
+        <div class="qty center">100,5</div>
+        <div class="qty right">206,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">1477,0</div>
+        <div class="qty center">1407,0</div>
+        <div class="qty right">2884,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cơm Ngũ sắc</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">33,02</div>
+        <div class="qty center">31,44</div>
+        <div class="qty right">64,46</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Chả cá xào rau củ</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">1455,0</div>
+        <div class="qty center">3015,0</div>
+        <div class="qty right">4470,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">1,71</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,71</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CHẢ CÁ HẤP</div>
+        <div class="qty center">-</div>
+        <div class="qty center">1190,0</div>
+        <div class="qty right">1190,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">CHẢ CÁ HẤP</div>
+        <div class="qty center">14,77</div>
+        <div class="qty center">12,88</div>
+        <div class="qty right">27,65</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH TÂY</div>
+        <div class="qty center">970,0</div>
+        <div class="qty center">2010,0</div>
+        <div class="qty right">2980,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH TÂY</div>
+        <div class="qty center">1,14</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,14</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nấm đông cô</div>
+        <div class="qty center">316,5</div>
+        <div class="qty center">301,5</div>
+        <div class="qty right">618,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước</div>
+        <div class="qty center">1530,0</div>
+        <div class="qty center">1470,0</div>
+        <div class="qty right">3000,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước</div>
+        <div class="qty center">4,8</div>
+        <div class="qty center">4,56</div>
+        <div class="qty right">9,36</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Bắp cải xào đậu bắp cà rốt</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BẮP CẢI</div>
+        <div class="qty center">-</div>
+        <div class="qty center">765,0</div>
+        <div class="qty right">765,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BẮP CẢI</div>
+        <div class="qty center">9,5</div>
+        <div class="qty center">8,28</div>
+        <div class="qty right">17,78</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">970,0</div>
+        <div class="qty center">2010,0</div>
+        <div class="qty right">2980,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">1,14</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,14</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐẬU BẮP</div>
+        <div class="qty center">1455,0</div>
+        <div class="qty center">3015,0</div>
+        <div class="qty right">4470,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐẬU BẮP</div>
+        <div class="qty center">1,71</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,71</div>
+      </div>
+    
+      </div>
+    
 </section>
   
 
-<section class="slide">
+<section class="slide slide-main">
   
+<style>
+  .slide {
+    width: 1366px;
+    min-height: 768px;
+    margin: 0 auto;
+    background: #000;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Georgia, serif;
+    color: #fff;
+    page-break-after: always;
+    overflow: hidden;
+    display: block;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  .slide-main {
+    padding: 18px 20px 14px 20px;
+  }
 
-  <div class="meta">
-    <div class="meal">SÁNG</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cháo thịt bằm ăn sáng</div>
-  </div>
+  .main-title {
+    text-align: center;
+    color: #00ee88;
+    font-size: 34px;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
 
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">GẠO</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">900</td>
-      <td class="col-num">1500</td>
-      <td class="col-num">2400</td>
-    </tr>
+  .main-date {
+    text-align: center;
+    color: #ff39da;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  .main-section {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .main-sec-head,
+  .main-row {
+    display: grid;
+    grid-template-columns: 15% 27% 14% 14% 30%;
+    column-gap: 0;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .main-sec-head {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .left-head {
+    color: #ff39da;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .col-head {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .red { color: #ff2020; }
+  .green { color: #00ee88; }
+
+  .ing-name {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .qty {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+  }
+
+  .center { text-align: center; }
+  .right { text-align: right; }
+</style>
   
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">7,5</td>
-      <td class="col-num">12,5</td>
-      <td class="col-num">20</td>
-    </tr>
+  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+  <div class="main-date"></div>
   
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">375</td>
-      <td class="col-num">625</td>
-      <td class="col-num">1000</td>
-    </tr>
-  
-    </tbody>
-  </table>
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">CHIỀU</div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Canh khoai mỡ</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">KHOAI MỠ</div>
+        <div class="qty center">-</div>
+        <div class="qty center">1200,0</div>
+        <div class="qty right">1200,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">KHOAI MỠ</div>
+        <div class="qty center">15,6</div>
+        <div class="qty center">13,92</div>
+        <div class="qty right">29,52</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">1365,0</div>
+        <div class="qty center">1323,0</div>
+        <div class="qty right">2688,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cơm Ngũ sắc</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">30,52</div>
+        <div class="qty center">28,79</div>
+        <div class="qty right">59,31</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">-</div>
+        <div class="qty center">782,31</div>
+        <div class="qty right">782,31</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NGUYÊN LIỆU</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Đùi tỏi gà roty</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH TÂY</div>
+        <div class="qty center">810,0</div>
+        <div class="qty center">1890,0</div>
+        <div class="qty right">2700,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH TÂY</div>
+        <div class="qty center">1,14</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,14</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">TỎI GÀ</div>
+        <div class="qty center">29,25</div>
+        <div class="qty center">27,6</div>
+        <div class="qty right">56,85</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">TỎI GÀ</div>
+        <div class="qty center">-</div>
+        <div class="qty center">750,0</div>
+        <div class="qty right">750,0</div>
+      </div>
+    
+      </div>
+    
 </section>
   
 
-<section class="slide">
+<section class="slide slide-main">
   
+<style>
+  .slide {
+    width: 1366px;
+    min-height: 768px;
+    margin: 0 auto;
+    background: #000;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Georgia, serif;
+    color: #fff;
+    page-break-after: always;
+    overflow: hidden;
+    display: block;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+  .slide-main {
+    padding: 18px 20px 14px 20px;
+  }
 
-  <div class="meta">
-    <div class="meal">SÁNG</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Xay ăn sáng</div>
-  </div>
+  .main-title {
+    text-align: center;
+    color: #00ee88;
+    font-size: 34px;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
 
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">GẠO</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,25</td>
-      <td class="col-num">1,25</td>
-    </tr>
+  .main-date {
+    text-align: center;
+    color: #ff39da;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  .main-section {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .main-sec-head,
+  .main-row {
+    display: grid;
+    grid-template-columns: 15% 27% 14% 14% 30%;
+    column-gap: 0;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .main-sec-head {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .left-head {
+    color: #ff39da;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .col-head {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .red { color: #ff2020; }
+  .green { color: #00ee88; }
+
+  .ing-name {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .qty {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+  }
+
+  .center { text-align: center; }
+  .right { text-align: right; }
+</style>
   
-    <tr>
-      <td class="col-nvl">GẠO</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1000</td>
-      <td class="col-num">550</td>
-      <td class="col-num">1550</td>
-    </tr>
+  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG</div>
+  <div class="main-date"></div>
   
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">10</td>
-      <td class="col-num">18</td>
-      <td class="col-num">28</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">500</td>
-      <td class="col-num">900</td>
-      <td class="col-num">1400</td>
-    </tr>
-  
-    </tbody>
-  </table>
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">TRƯA</div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Thức ăn xay</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BẮP CẢI</div>
+        <div class="qty center">315,0</div>
+        <div class="qty center">990,0</div>
+        <div class="qty right">1305,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">70,0</div>
+        <div class="qty center">220,0</div>
+        <div class="qty right">290,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐẬU BẮP</div>
+        <div class="qty center">105,0</div>
+        <div class="qty center">330,0</div>
+        <div class="qty right">435,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cơm xay</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BẮP CẢI</div>
+        <div class="qty center">-</div>
+        <div class="qty center">1,04</div>
+        <div class="qty right">1,04</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BẮP CẢI</div>
+        <div class="qty center">1125,0</div>
+        <div class="qty center">720,0</div>
+        <div class="qty right">1845,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">250,0</div>
+        <div class="qty center">390,0</div>
+        <div class="qty right">640,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Canh</div>
+        <div class="qty center">6,6</div>
+        <div class="qty center">10,8</div>
+        <div class="qty right">17,4</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Canh</div>
+        <div class="qty center">900,0</div>
+        <div class="qty center">900,0</div>
+        <div class="qty right">1800,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐẬU BẮP</div>
+        <div class="qty center">375,0</div>
+        <div class="qty center">585,0</div>
+        <div class="qty right">960,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">3,74</div>
+        <div class="qty center">5,44</div>
+        <div class="qty right">9,18</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">510,21</div>
+        <div class="qty center">1190,48</div>
+        <div class="qty right">1700,69</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Đồ ống</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">BẮP CẢI</div>
+        <div class="qty center">1080,0</div>
+        <div class="qty center">945,0</div>
+        <div class="qty right">2025,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Cà rốt</div>
+        <div class="qty center">240,0</div>
+        <div class="qty center">210,0</div>
+        <div class="qty right">450,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">ĐẬU BẮP</div>
+        <div class="qty center">360,0</div>
+        <div class="qty center">315,0</div>
+        <div class="qty right">675,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">1020,4</div>
+        <div class="qty center">1071,43</div>
+        <div class="qty right">2091,83</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">1,02</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,02</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước rau củ</div>
+        <div class="qty center">800,0</div>
+        <div class="qty center">1350,0</div>
+        <div class="qty right">2150,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước rau củ</div>
+        <div class="qty center">18,4</div>
+        <div class="qty center">8,1</div>
+        <div class="qty right">26,5</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Rau lá xanh</div>
+        <div class="qty center">192,0</div>
+        <div class="qty center">105,0</div>
+        <div class="qty right">297,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Sữa Nuti</div>
+        <div class="qty center">120,0</div>
+        <div class="qty center">105,0</div>
+        <div class="qty right">225,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cháo thịt bằm trưa chiều</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">420,0</div>
+        <div class="qty center">300,0</div>
+        <div class="qty right">720,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">3,5</div>
+        <div class="qty center">2,5</div>
+        <div class="qty right">6,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">175,0</div>
+        <div class="qty center">125,0</div>
+        <div class="qty right">300,0</div>
+      </div>
+    
+      </div>
+    
 </section>
   
 
-<section class="slide">
+<section class="slide slide-main">
   
+<style>
+  .slide {
+    width: 1366px;
+    min-height: 768px;
+    margin: 0 auto;
+    background: #000;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Georgia, serif;
+    color: #fff;
+    page-break-after: always;
+    overflow: hidden;
+    display: block;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
+  .slide-main {
+    padding: 18px 20px 14px 20px;
+  }
 
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Thức ăn xay</div>
-  </div>
+  .main-title {
+    text-align: center;
+    color: #00ee88;
+    font-size: 34px;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
 
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">BẮP CẢI</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">315</td>
-      <td class="col-num">990</td>
-      <td class="col-num">1305</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">70</td>
-      <td class="col-num">220</td>
-      <td class="col-num">290</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">ĐẬU BẮP</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">105</td>
-      <td class="col-num">330</td>
-      <td class="col-num">435</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
+  .main-date {
+    text-align: center;
+    color: #ff39da;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
 
-<section class="slide">
-  
+  .main-section {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
+  .main-sec-head,
+  .main-row {
+    display: grid;
+    grid-template-columns: 15% 27% 14% 14% 30%;
+    column-gap: 0;
+    align-items: baseline;
+    width: 100%;
+  }
 
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cơm xay</div>
-  </div>
+  .main-sec-head {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
 
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">BẮP CẢI</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,04</td>
-      <td class="col-num">1,04</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">BẮP CẢI</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1125</td>
-      <td class="col-num">720</td>
-      <td class="col-num">1845</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">250</td>
-      <td class="col-num">390</td>
-      <td class="col-num">640</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Canh</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">6,6</td>
-      <td class="col-num">10,8</td>
-      <td class="col-num">17,4</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Canh</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">900</td>
-      <td class="col-num">900</td>
-      <td class="col-num">1800</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">ĐẬU BẮP</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">375</td>
-      <td class="col-num">585</td>
-      <td class="col-num">960</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">3,74</td>
-      <td class="col-num">5,44</td>
-      <td class="col-num">9,18</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">510,21</td>
-      <td class="col-num">1190,48</td>
-      <td class="col-num">1700,69</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
+  .left-head {
+    color: #ff39da;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+  }
 
-<section class="slide">
-  
+  .col-head {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
 
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
+  .red { color: #ff2020; }
+  .green { color: #00ee88; }
 
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Đồ ống</div>
-  </div>
+  .ing-name {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">BẮP CẢI</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1080</td>
-      <td class="col-num">945</td>
-      <td class="col-num">2025</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">240</td>
-      <td class="col-num">210</td>
-      <td class="col-num">450</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">ĐẬU BẮP</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">360</td>
-      <td class="col-num">315</td>
-      <td class="col-num">675</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1020,4</td>
-      <td class="col-num">1071,43</td>
-      <td class="col-num">2091,83</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,02</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,02</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước rau củ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">800</td>
-      <td class="col-num">1350</td>
-      <td class="col-num">2150</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước rau củ</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">18,4</td>
-      <td class="col-num">8,1</td>
-      <td class="col-num">26,5</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Rau lá xanh</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">192</td>
-      <td class="col-num">105</td>
-      <td class="col-num">297</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Sữa Nuti</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">120</td>
-      <td class="col-num">105</td>
-      <td class="col-num">225</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
+  .qty {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.08;
+    white-space: nowrap;
+  }
 
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
-
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cháo thịt bằm trưa chiều</div>
-  </div>
-
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">GẠO</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">420</td>
-      <td class="col-num">300</td>
-      <td class="col-num">720</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">3,5</td>
-      <td class="col-num">2,5</td>
-      <td class="col-num">6</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">175</td>
-      <td class="col-num">125</td>
-      <td class="col-num">300</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
-
-  <div class="meta">
-    <div class="meal">CHIỀU</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cơm xay</div>
-  </div>
-
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">Canh</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">6,6</td>
-      <td class="col-num">11,1</td>
-      <td class="col-num">17,7</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Canh</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">900</td>
-      <td class="col-num">900</td>
-      <td class="col-num">1800</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">3,74</td>
-      <td class="col-num">5,61</td>
-      <td class="col-num">9,35</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">510,21</td>
-      <td class="col-num">1190,48</td>
-      <td class="col-num">1700,69</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
-
-  <div class="meta">
-    <div class="meal">CHIỀU</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Đồ ống</div>
-  </div>
-
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">204,08</td>
-      <td class="col-num">1785,72</td>
-      <td class="col-num">1989,8</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,02</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,02</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước rau củ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">450</td>
-      <td class="col-num">2400</td>
-      <td class="col-num">2850</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước rau củ</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">10,35</td>
-      <td class="col-num">14,4</td>
-      <td class="col-num">24,75</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Rau lá xanh</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">120</td>
-      <td class="col-num">168</td>
-      <td class="col-num">288</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Sữa Nuti</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">120</td>
-      <td class="col-num">105</td>
-      <td class="col-num">225</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG MÀU XANH</div>
-
-  <div class="meta">
-    <div class="meal">CHIỀU</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cháo thịt bằm trưa chiều</div>
-  </div>
-
-  <table class="grid bucket-xay">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">GẠO</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">420</td>
-      <td class="col-num">300</td>
-      <td class="col-num">720</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">3,5</td>
-      <td class="col-num">2,5</td>
-      <td class="col-num">6</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">175</td>
-      <td class="col-num">125</td>
-      <td class="col-num">300</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Canh bí xanh</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">BÍ XANH</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num"></td>
-      <td class="col-num">1360</td>
-      <td class="col-num">1360</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">BÍ XANH</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">16,88</td>
-      <td class="col-num">14,72</td>
-      <td class="col-num">31,6</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH LÁ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">105,5</td>
-      <td class="col-num">100,5</td>
-      <td class="col-num">206</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1477</td>
-      <td class="col-num">1407</td>
-      <td class="col-num">2884</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cơm Ngũ sắc</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">33,02</td>
-      <td class="col-num">31,44</td>
-      <td class="col-num">64,46</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Chả cá xào rau củ</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1455</td>
-      <td class="col-num">3015</td>
-      <td class="col-num">4470</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,71</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,71</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">CHẢ CÁ HẤP</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num"></td>
-      <td class="col-num">1190</td>
-      <td class="col-num">1190</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">CHẢ CÁ HẤP</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">14,77</td>
-      <td class="col-num">12,88</td>
-      <td class="col-num">27,65</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH TÂY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">970</td>
-      <td class="col-num">2010</td>
-      <td class="col-num">2980</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH TÂY</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,14</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,14</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nấm đông cô</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">316,5</td>
-      <td class="col-num">301,5</td>
-      <td class="col-num">618</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1530</td>
-      <td class="col-num">1470</td>
-      <td class="col-num">3000</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Nước</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">4,8</td>
-      <td class="col-num">4,56</td>
-      <td class="col-num">9,36</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">TRƯA</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Bắp cải xào đậu bắp cà rốt</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">BẮP CẢI</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num"></td>
-      <td class="col-num">765</td>
-      <td class="col-num">765</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">BẮP CẢI</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">9,5</td>
-      <td class="col-num">8,28</td>
-      <td class="col-num">17,78</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">970</td>
-      <td class="col-num">2010</td>
-      <td class="col-num">2980</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Cà rốt</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,14</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,14</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">ĐẬU BẮP</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1455</td>
-      <td class="col-num">3015</td>
-      <td class="col-num">4470</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">ĐẬU BẮP</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,71</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,71</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">CHIỀU</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Canh khoai mỡ</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">KHOAI MỠ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num"></td>
-      <td class="col-num">1200</td>
-      <td class="col-num">1200</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">KHOAI MỠ</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">15,6</td>
-      <td class="col-num">13,92</td>
-      <td class="col-num">29,52</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">THỊT HEO XAY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">1365</td>
-      <td class="col-num">1323</td>
-      <td class="col-num">2688</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">CHIỀU</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Cơm Ngũ sắc</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">30,52</td>
-      <td class="col-num">28,79</td>
-      <td class="col-num">59,31</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gạo</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num"></td>
-      <td class="col-num">782,31</td>
-      <td class="col-num">782,31</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
-
-  <div class="meta">
-    <div class="meal">CHIỀU</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Đùi tỏi gà roty</div>
-  </div>
-
-  <table class="grid bucket-main">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">HÀNH TÂY</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">810</td>
-      <td class="col-num">1890</td>
-      <td class="col-num">2700</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">HÀNH TÂY</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">1,14</td>
-      <td class="col-num"></td>
-      <td class="col-num">1,14</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">TỎI GÀ</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">29,25</td>
-      <td class="col-num">27,6</td>
-      <td class="col-num">56,85</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">TỎI GÀ</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num"></td>
-      <td class="col-num">750</td>
-      <td class="col-num">750</td>
-    </tr>
-  
-    </tbody>
-  </table>
-</section>
-  
-
-<section class="slide">
-  
-
-  <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN XẾ</div>
-
-  <div class="meta">
-    <div class="meal">XẾ</div>
-    <div class="date"></div>
-    <div class="cluster">GÒ VẤP</div>
-    <div class="dish">Sữa ngũ cốc 3 vị</div>
-  </div>
-
-  <table class="grid bucket-xe">
-    <thead>
-      <tr>
-        <th class="head-left">NGUYÊN LIỆU</th>
-        <th class="head-dvt">Dvt</th>
-        <th class="head-num">GÒ VẤP</th>
-        <th class="head-num">BÌNH MỸ</th>
-        <th class="head-num">Tổng</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-    <tr>
-      <td class="col-nvl">Bơ hạt điều</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">6</td>
-      <td class="col-num">9</td>
-      <td class="col-num">15</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Đường</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">4,8</td>
-      <td class="col-num">7,2</td>
-      <td class="col-num">12</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Gừng</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">400</td>
-      <td class="col-num">600</td>
-      <td class="col-num">1000</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Khoai môn cao thô</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">12</td>
-      <td class="col-num">18</td>
-      <td class="col-num">30</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">Muối</td>
-      <td class="col-dvt">Gram</td>
-      <td class="col-num">80</td>
-      <td class="col-num">120</td>
-      <td class="col-num">200</td>
-    </tr>
-  
-    <tr>
-      <td class="col-nvl">nước</td>
-      <td class="col-dvt">Kg</td>
-      <td class="col-num">108</td>
-      <td class="col-num">162</td>
-      <td class="col-num">270</td>
-    </tr>
-  
-    </tbody>
-  </table>
+  .center { text-align: center; }
+  .right { text-align: right; }
+</style>
+  
+  <div class="main-title">BẢNG NGUYÊN LIỆU CHO MÓN THỨC ĂN XAY, CƠM XAY, ĐỒ ỐNG</div>
+  <div class="main-date"></div>
+  
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head">CHIỀU</div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cơm xay</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Canh</div>
+        <div class="qty center">6,6</div>
+        <div class="qty center">11,1</div>
+        <div class="qty right">17,7</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Canh</div>
+        <div class="qty center">900,0</div>
+        <div class="qty center">900,0</div>
+        <div class="qty right">1800,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">3,74</div>
+        <div class="qty center">5,61</div>
+        <div class="qty right">9,35</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">510,21</div>
+        <div class="qty center">1190,48</div>
+        <div class="qty right">1700,69</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Đồ ống</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">204,08</div>
+        <div class="qty center">1785,72</div>
+        <div class="qty right">1989,8</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Gạo</div>
+        <div class="qty center">1,02</div>
+        <div class="qty center">-</div>
+        <div class="qty right">1,02</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước rau củ</div>
+        <div class="qty center">450,0</div>
+        <div class="qty center">2400,0</div>
+        <div class="qty right">2850,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Nước rau củ</div>
+        <div class="qty center">10,35</div>
+        <div class="qty center">14,4</div>
+        <div class="qty right">24,75</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Rau lá xanh</div>
+        <div class="qty center">120,0</div>
+        <div class="qty center">168,0</div>
+        <div class="qty right">288,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">Sữa Nuti</div>
+        <div class="qty center">120,0</div>
+        <div class="qty center">105,0</div>
+        <div class="qty right">225,0</div>
+      </div>
+    
+      </div>
+    
+      <div class="main-section">
+        
+      <div class="main-sec-head">
+        <div class="left-head"></div>
+        <div class="col-head red">NVL</div>
+        <div class="col-head red center">GÒ VẤP</div>
+        <div class="col-head red center">BÌNH MỸ</div>
+        <div class="col-head green right">Cháo thịt bằm trưa chiều</div>
+      </div>
+    
+        
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">GẠO</div>
+        <div class="qty center">420,0</div>
+        <div class="qty center">300,0</div>
+        <div class="qty right">720,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">HÀNH LÁ</div>
+        <div class="qty center">3,5</div>
+        <div class="qty center">2,5</div>
+        <div class="qty right">6,0</div>
+      </div>
+    
+      <div class="main-row">
+        <div></div>
+        <div class="ing-name">THỊT HEO XAY</div>
+        <div class="qty center">175,0</div>
+        <div class="qty center">125,0</div>
+        <div class="qty right">300,0</div>
+      </div>
+    
+      </div>
+    
 </section>
