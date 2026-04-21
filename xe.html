@@ -1,633 +1,176 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>xe.html</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111111;
-    }
-    .page {
-      width: 1920px;
-      min-height: 1080px;
-      padding: 32px 36px;
-      page-break-after: always;
-    }
-    .page:last-child { page-break-after: auto; }
-
-    .header {
-      display: flex;
-      align-items: stretch;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-
-    .title-box {
-      flex: 1;
-      background: #f59e0b;
-      color: #111;
-      border: 4px solid #111;
-      border-radius: 16px;
-      padding: 18px 24px;
-    }
-
-    .title-main {
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      line-height: 1.1;
-      text-transform: uppercase;
-    }
-
-    .title-sub {
-      margin-top: 8px;
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .date-box {
-      min-width: 250px;
-      background: #fff7ed;
-      border: 4px solid #111;
-      border-radius: 16px;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      font-weight: 900;
-    }
-
-    .summary-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .summary-card {
-      border: 3px solid #111;
-      border-radius: 16px;
-      padding: 18px 20px;
-      background: #f8fafc;
-    }
-
-    .summary-label {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .summary-value {
-      font-size: 36px;
-      font-weight: 900;
-    }
-
-    .cluster-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .cluster-card, .ingredient-card {
-      border: 3px solid #111;
-      border-radius: 16px;
-      padding: 16px 18px 18px 18px;
-      background: #fff;
-      margin-bottom: 18px;
-    }
-
-    .cluster-title {
-      font-size: 28px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .cluster-subtitle {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    .table th, .table td {
-      border: 2px solid #111;
-      padding: 10px 10px;
-      font-size: 22px;
-      line-height: 1.2;
-      vertical-align: middle;
-      word-wrap: break-word;
-    }
-
-    .table th {
-      background: #fde68a;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .table td.center { text-align: center; }
-    .table td.right { text-align: right; }
-
-    .total-row td {
-      background: #fef3c7;
-      font-weight: 900;
-    }
-
-    .ingredients-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .note-box {
-      margin-top: 18px;
-      padding: 14px 18px;
-      border: 3px dashed #111;
-      border-radius: 16px;
-      background: #f8fafc;
-      font-size: 22px;
-      line-height: 1.5;
-      font-weight: 700;
-    }
-  </style>
+<meta charset="utf-8">
+<style>
+body {
+  background:#000;
+  color:#fff;
+  font-family:Arial;
+}
+h1 {
+  color:#00ff99;
+  text-align:center;
+}
+.date {
+  color:#ff33cc;
+  font-size:28px;
+  margin:20px;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:40px;
+}
+td, th {
+  border:1px solid #666;
+  padding:8px;
+  text-align:center;
+}
+th {
+  color:#ff3333;
+}
+.title {
+  color:#00ff99;
+  font-size:24px;
+  text-align:center;
+  margin-top:30px;
+}
+</style>
 </head>
 <body>
 
-  <!-- PAGE 1: CHIA XẾ -->
-  <section class="page">
-    <div class="header">
-      <div class="title-box">
-        <div class="title-main">MÓN XẾ - PHẦN CHIA</div>
-        <div class="title-sub">Chè đậu xanh nguyên hạt</div>
-      </div>
-      <div class="date-box"></div>
-    </div>
+<h1>BẢNG MÓN XẾ</h1>
+<div class="date"></div>
 
-    <div class="summary-row">
-      <div class="summary-card">
-        <div class="summary-label">Tổng thành phẩm ngày</div>
-        <div class="summary-value">60 kg</div>
-      </div>
-      <div class="summary-card">
-        <div class="summary-label">Bình Mỹ</div>
-        <div class="summary-value">30 kg</div>
-      </div>
-      <div class="summary-card">
-        <div class="summary-label">Gò Vấp</div>
-        <div class="summary-value">30 kg</div>
-      </div>
-    </div>
+<div class="title">PHẦN CHIA - CHÈ ĐẬU XANH</div>
 
-    <div class="cluster-wrap">
-      
-    <div class="cluster-card">
-      <div class="cluster-title">Cụm Bình Mỹ</div>
-      <div class="cluster-subtitle">
-        Thành phẩm cụm: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Dụng cụ: <b>Xô 1kg</b>
-      </div>
+<table>
+<tr>
+<th>CỤM</th>
+<th>CƠ SỞ</th>
+<th>KG</th>
+<th>DỤNG CỤ</th>
+</tr>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:12%">STT</th>
-            <th style="width:18%">Mã cơ sở</th>
-            <th>Cơ sở</th>
-            <th style="width:18%">Kg chia</th>
-            <th style="width:20%">Dụng cụ</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td class="center">1</td>
-              <td class="center"><b>ĐB1</b></td>
-              <td>ĐẶC BIỆT 1</td>
-              <td class="right"><b>2.5</b></td>
-              <td class="center">Xô 1kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">2</td>
-              <td class="center"><b>ĐB2</b></td>
-              <td>ĐẶC BIỆT 2</td>
-              <td class="right"><b>4.5</b></td>
-              <td class="center">Xô 1kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">3</td>
-              <td class="center"><b>HB</b></td>
-              <td>HOA HỒNG BÀ</td>
-              <td class="right"><b>6.5</b></td>
-              <td class="center">Xô 1kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">4</td>
-              <td class="center"><b>HL</b></td>
-              <td>HOA LAN</td>
-              <td class="right"><b>10</b></td>
-              <td class="center">Xô 1kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">5</td>
-              <td class="center"><b>HO</b></td>
-              <td>HOA HỒNG ÔNG</td>
-              <td class="right"><b>6.5</b></td>
-              <td class="center">Xô 1kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">6</td>
-              <td class="center"><b>TC</b></td>
-              <td>TC</td>
-              <td class="right"><b>2</b></td>
-              <td class="center">Xô 1kg</td>
-            </tr>
-          
-          <tr class="total-row">
-            <td colspan="3" class="right"><b>TỔNG CỤM</b></td>
-            <td class="right"><b>32</b></td>
-            <td class="center"><b>Xô 1kg</b></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-      
-    <div class="cluster-card">
-      <div class="cluster-title">Cụm Gò Vấp</div>
-      <div class="cluster-subtitle">
-        Thành phẩm cụm: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Dụng cụ: <b>Nồi xế 3kg</b>
-      </div>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:12%">STT</th>
-            <th style="width:18%">Mã cơ sở</th>
-            <th>Cơ sở</th>
-            <th style="width:18%">Kg chia</th>
-            <th style="width:20%">Dụng cụ</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td class="center">1</td>
-              <td class="center"><b>AH</b></td>
-              <td>AH</td>
-              <td class="right"><b>6.5</b></td>
-              <td class="center">Nồi xế 3kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">2</td>
-              <td class="center"><b>DQH</b></td>
-              <td>DQH</td>
-              <td class="right"><b>16</b></td>
-              <td class="center">Nồi xế 3kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">3</td>
-              <td class="center"><b>NT</b></td>
-              <td>NT</td>
-              <td class="right"><b>4.5</b></td>
-              <td class="center">Nồi xế 3kg</td>
-            </tr>
-          
-            <tr>
-              <td class="center">4</td>
-              <td class="center"><b>Q12</b></td>
-              <td>QUẬN 12</td>
-              <td class="right"><b>3.5</b></td>
-              <td class="center">Nồi xế 3kg</td>
-            </tr>
-          
-          <tr class="total-row">
-            <td colspan="3" class="right"><b>TỔNG CỤM</b></td>
-            <td class="right"><b>30.5</b></td>
-            <td class="center"><b>Nồi xế 3kg</b></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    </div>
+<tr>
+<td>BM</td>
+<td>HB</td>
+<td>6.5</td>
+<td>Xô 1kg</td>
+</tr>
 
-    <div class="note-box">
-      Quy tắc dụng cụ:
-      <b>Gò Vấp = Nồi xế 3kg</b>
-      &nbsp; | &nbsp;
-      <b>Bình Mỹ = Xô 1kg</b>
-    </div>
-  </section>
+<tr>
+<td>BM</td>
+<td>HO</td>
+<td>6.5</td>
+<td>Xô 1kg</td>
+</tr>
 
-  <!-- PAGE 2: NGUYÊN LIỆU -->
-  <section class="page">
-    <div class="header">
-      <div class="title-box">
-        <div class="title-main">MÓN XẾ - NGUYÊN LIỆU NẤU</div>
-        <div class="title-sub">Chè đậu xanh nguyên hạt</div>
-      </div>
-      <div class="date-box"></div>
-    </div>
+<tr>
+<td>BM</td>
+<td>ĐB1</td>
+<td>2.5</td>
+<td>Xô 1kg</td>
+</tr>
 
-    <div class="ingredients-layout">
-      
-    <div class="ingredient-card">
-      <div class="cluster-title">Tổng nguyên liệu nấu trong ngày</div>
-      <div class="cluster-subtitle">
-        Thành phẩm chuẩn: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Thành phẩm áp dụng: <b>60 kg</b>
-        &nbsp; | &nbsp;
-        Hệ số scale: <b>2</b>
-      </div>
+<tr>
+<td>BM</td>
+<td>ĐB2</td>
+<td>4.5</td>
+<td>Xô 1kg</td>
+</tr>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:10%">STT</th>
-            <th>Nguyên liệu</th>
-            <th style="width:14%">ĐVT</th>
-            <th style="width:16%">Định mức gốc</th>
-            <th style="width:16%">Số lượng nấu</th>
-            <th style="width:14%">Ghi chú</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td class="center">1</td>
-              <td>Đậu xanh nguyên hạt</td>
-              <td class="center">kg</td>
-              <td class="right">5</td>
-              <td class="right"><b>10</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">2</td>
-              <td>Nước</td>
-              <td class="center">kg</td>
-              <td class="right">23</td>
-              <td class="right"><b>46</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">3</td>
-              <td>Đường</td>
-              <td class="center">kg</td>
-              <td class="right">2.5</td>
-              <td class="right"><b>5</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">4</td>
-              <td>Muối</td>
-              <td class="center">g</td>
-              <td class="right">20</td>
-              <td class="right"><b>40</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">5</td>
-              <td>Gừng</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>200</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">6</td>
-              <td>Lá dứa thơm</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>200</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">7</td>
-              <td>Bột năng</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>200</b></td>
-              <td class="center">Tùy</td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </div>
-  
-      
-    <div class="ingredient-card">
-      <div class="cluster-title">Nguyên liệu nấu riêng cụm Bình Mỹ</div>
-      <div class="cluster-subtitle">
-        Thành phẩm chuẩn: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Thành phẩm áp dụng: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Hệ số scale: <b>1</b>
-      </div>
+<tr>
+<td>BM</td>
+<td>HL</td>
+<td>10</td>
+<td>Xô 1kg</td>
+</tr>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:10%">STT</th>
-            <th>Nguyên liệu</th>
-            <th style="width:14%">ĐVT</th>
-            <th style="width:16%">Định mức gốc</th>
-            <th style="width:16%">Số lượng nấu</th>
-            <th style="width:14%">Ghi chú</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td class="center">1</td>
-              <td>Đậu xanh nguyên hạt</td>
-              <td class="center">kg</td>
-              <td class="right">5</td>
-              <td class="right"><b>5</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">2</td>
-              <td>Nước</td>
-              <td class="center">kg</td>
-              <td class="right">23</td>
-              <td class="right"><b>23</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">3</td>
-              <td>Đường</td>
-              <td class="center">kg</td>
-              <td class="right">2.5</td>
-              <td class="right"><b>2.5</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">4</td>
-              <td>Muối</td>
-              <td class="center">g</td>
-              <td class="right">20</td>
-              <td class="right"><b>20</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">5</td>
-              <td>Gừng</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>100</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">6</td>
-              <td>Lá dứa thơm</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>100</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">7</td>
-              <td>Bột năng</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>100</b></td>
-              <td class="center">Tùy</td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </div>
-  
-      
-    <div class="ingredient-card">
-      <div class="cluster-title">Nguyên liệu nấu riêng cụm Gò Vấp</div>
-      <div class="cluster-subtitle">
-        Thành phẩm chuẩn: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Thành phẩm áp dụng: <b>30 kg</b>
-        &nbsp; | &nbsp;
-        Hệ số scale: <b>1</b>
-      </div>
+<tr>
+<td>BM</td>
+<td>TC</td>
+<td>2</td>
+<td>Xô 1kg</td>
+</tr>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:10%">STT</th>
-            <th>Nguyên liệu</th>
-            <th style="width:14%">ĐVT</th>
-            <th style="width:16%">Định mức gốc</th>
-            <th style="width:16%">Số lượng nấu</th>
-            <th style="width:14%">Ghi chú</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-              <td class="center">1</td>
-              <td>Đậu xanh nguyên hạt</td>
-              <td class="center">kg</td>
-              <td class="right">5</td>
-              <td class="right"><b>5</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">2</td>
-              <td>Nước</td>
-              <td class="center">kg</td>
-              <td class="right">23</td>
-              <td class="right"><b>23</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">3</td>
-              <td>Đường</td>
-              <td class="center">kg</td>
-              <td class="right">2.5</td>
-              <td class="right"><b>2.5</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">4</td>
-              <td>Muối</td>
-              <td class="center">g</td>
-              <td class="right">20</td>
-              <td class="right"><b>20</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">5</td>
-              <td>Gừng</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>100</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">6</td>
-              <td>Lá dứa thơm</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>100</b></td>
-              <td class="center"></td>
-            </tr>
-          
-            <tr>
-              <td class="center">7</td>
-              <td>Bột năng</td>
-              <td class="center">g</td>
-              <td class="right">100</td>
-              <td class="right"><b>100</b></td>
-              <td class="center">Tùy</td>
-            </tr>
-          
-        </tbody>
-      </table>
-    </div>
-  
-    </div>
-  </section>
+
+
+<tr>
+<td>GV</td>
+<td>Q12</td>
+<td>3.5</td>
+<td>Nồi xế 3kg</td>
+</tr>
+
+<tr>
+<td>GV</td>
+<td>DQH</td>
+<td>16</td>
+<td>Nồi xế 3kg</td>
+</tr>
+
+<tr>
+<td>GV</td>
+<td>NT</td>
+<td>4.5</td>
+<td>Nồi xế 3kg</td>
+</tr>
+
+<tr>
+<td>GV</td>
+<td>AH</td>
+<td>6.5</td>
+<td>Nồi xế 3kg</td>
+</tr>
+
+
+</table>
+
+<div class="title">NGUYÊN LIỆU NẤU (60 KG)</div>
+
+<table>
+<tr>
+<th>NVL</th>
+<th>ĐVT</th>
+<th>SỐ LƯỢNG</th>
+</tr>
+
+
+<tr>
+<td>Đậu xanh</td>
+<td>kg</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>Nước</td>
+<td>kg</td>
+<td>46</td>
+</tr>
+
+<tr>
+<td>Đường</td>
+<td>kg</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td>Muối</td>
+<td>g</td>
+<td>40</td>
+</tr>
+
+<tr>
+<td>Gừng</td>
+<td>g</td>
+<td>200</td>
+</tr>
+
+
+</table>
 
 </body>
 </html>
