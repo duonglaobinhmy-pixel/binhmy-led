@@ -28,7 +28,20 @@ function normalizeText(v) {
 function splitSlidesFromHtml(html) {
   const wrap = document.createElement('div');
   wrap.innerHTML = html;
-  return Array.from(wrap.querySelectorAll('section.slide')).map((slide) => slide.outerHTML);
+
+  const rootStyles = Array.from(wrap.querySelectorAll(':scope > style'))
+    .map((s) => s.outerHTML)
+    .join('\n');
+
+  return Array.from(wrap.querySelectorAll('section.slide')).map((slide) => {
+    const clone = slide.cloneNode(true);
+
+    if (rootStyles && !clone.querySelector('style')) {
+      clone.insertAdjacentHTML('afterbegin', rootStyles);
+    }
+
+    return clone.outerHTML;
+  });
 }
 
 function extractTextFromSlideHtml(slideHtml) {
@@ -51,9 +64,6 @@ function classifySlide(slideHtml) {
 
   const text = normalizeText(slide.textContent || '');
 
-  const has = (...parts) => parts.every((p) => text.includes(normalizeText(p)));
-  const hasAny = (...parts) => parts.some((p) => text.includes(normalizeText(p)));
-
   const titleNode =
     slide.querySelector('.menu-title') ||
     slide.querySelector('.main-title') ||
@@ -63,6 +73,10 @@ function classifySlide(slideHtml) {
     slide.querySelector('h2');
 
   const title = normalizeText(titleNode?.textContent || '');
+  const leftHead = normalizeText(slide.querySelector('.left-head')?.textContent || '');
+
+  const has = (...parts) => parts.every((p) => text.includes(normalizeText(p)));
+  const hasAny = (...parts) => parts.some((p) => text.includes(normalizeText(p)));
 
   const hasMenuGrid = !!slide.querySelector('table.menu-grid');
   const hasXaoGrid = !!slide.querySelector('table.xao-grid');
@@ -89,42 +103,36 @@ function classifySlide(slideHtml) {
     return 'unknown_menu';
   }
 
-  // 3) XÀO GRID
+  // 3) XÀO CHÍNH / XÀO XAY
   if (hasXaoGrid) {
-    const isXaoTrua =
+    const isXaoMain =
       hasAny(
         'BANG NGUYEN LIEU THUC AN XAO MAU XANH',
         'BANG NGUYEN LIEU CHO MON THUC AN XAO MAU XANH',
-        'BANG NGUYEN LIEU THUC AN XAO RAU XANH',
         'THUC AN XAO MAU XANH',
-        'THUC AN XAO RAU XANH',
-        'XAO RAU XANH'
+        'XAO MAU XANH'
       ) &&
       hasAny('NVL') &&
       hasAny('DVT') &&
       hasAny('TRUA') &&
       hasAny('CHIEU');
 
-    if (isXaoTrua) {
-      return 'xao_trua';
-    }
+    if (isXaoMain) return 'xao_trua';
 
-    const isXayLike =
-      hasAny(
-        'BANG NGUYEN LIEU CHO MON THUC AN XAY',
-        'THUC AN XAY',
-        'COM XAY',
-        'DO ONG MAU XANH',
-        'DO XAY',
-        'MON XAY'
-      );
+    const isXayLike = hasAny(
+      'BANG NGUYEN LIEU CHO MON THUC AN XAY',
+      'THUC AN XAY',
+      'COM XAY',
+      'DO ONG',
+      'MON XAY'
+    );
 
     if (isXayLike) {
       if (
         hasAny(
-          'DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
-          'NVL DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
-          'DVT TRUA'
+          'TRUA CUM GO VAP + XE GO VAP',
+          'TRUA',
+          'XE GO VAP'
         )
       ) {
         return 'ingredient_trua_xay';
@@ -132,9 +140,9 @@ function classifySlide(slideHtml) {
 
       if (
         hasAny(
-          'DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
-          'NVL DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
-          'DVT CHIEU'
+          'CHIEU CUM GO VAP + XE BM',
+          'CHIEU',
+          'XE BM'
         )
       ) {
         return 'ingredient_chieu_xay';
@@ -148,29 +156,31 @@ function classifySlide(slideHtml) {
 
   // 4) INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
-    const isSang =
-      hasAny(
-        'BANG NGUYEN LIEU BUA SANG',
-        'BUA SANG'
-      );
-
-    if (isSang) {
+    if (
+      title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG')) ||
+      hasAny('BANG NGUYEN LIEU BUA SANG', 'BUA SANG')
+    ) {
       return 'ingredient_sang';
     }
 
     const isMainMeal =
-      hasAny('BANG NGUYEN LIEU CHO MON COM') &&
-      hasAny('CANH') &&
-      hasAny('XAO') &&
-      hasAny('MAN');
+      title.includes(normalizeText('BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN')) ||
+      (
+        hasAny('BANG NGUYEN LIEU CHO MON COM') &&
+        hasAny('CANH') &&
+        hasAny('XAO') &&
+        hasAny('MAN')
+      );
 
     if (isMainMeal) {
-      // dùng TEXT thay vì TITLE
-      if (hasAny(' TRUA ', 'MON COM, CANH, XAO, MAN TRUA', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN TRUA')) {
+      if (leftHead === 'TRUA') return 'ingredient_trua_main';
+      if (leftHead === 'CHIEU') return 'ingredient_chieu_main';
+
+      if (hasAny(' TRUA ', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN TRUA', 'MON COM, CANH, XAO, MAN TRUA')) {
         return 'ingredient_trua_main';
       }
 
-      if (hasAny(' CHIEU ', 'MON COM, CANH, XAO, MAN CHIEU', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN CHIEU')) {
+      if (hasAny(' CHIEU ', 'BANG NGUYEN LIEU CHO MON COM, CANH, XAO, MAN CHIEU', 'MON COM, CANH, XAO, MAN CHIEU')) {
         return 'ingredient_chieu_main';
       }
 
@@ -180,39 +190,19 @@ function classifySlide(slideHtml) {
     return 'unknown_main';
   }
 
-  // 5) INGREDIENT XAY DẠNG BẢNG
+  // 5) INGREDIENT XAY DẠNG KHÁC
   if (isTableIngredientSlide) {
-    const isXayLike =
-      hasAny(
-        'BANG NGUYEN LIEU CHO MON THUC AN XAY',
-        'THUC AN XAY',
-        'COM XAY',
-        'DO ONG MAU XANH',
-        'DO XAY',
-        'MON XAY'
-      );
+    const isXayLike = hasAny(
+      'BANG NGUYEN LIEU CHO MON THUC AN XAY',
+      'THUC AN XAY',
+      'COM XAY',
+      'DO ONG',
+      'MON XAY'
+    );
 
     if (isXayLike) {
-      if (
-        hasAny(
-          'DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
-          'NVL DVT TRUA CUM GO VAP + XE GO VAP CUM BINH MY',
-          'DVT TRUA'
-        )
-      ) {
-        return 'ingredient_trua_xay';
-      }
-
-      if (
-        hasAny(
-          'DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
-          'NVL DVT CHIEU CUM GO VAP + XE BM CUM BINH MY',
-          'DVT CHIEU'
-        )
-      ) {
-        return 'ingredient_chieu_xay';
-      }
-
+      if (hasAny('TRUA', 'GO VAP + XE GO VAP')) return 'ingredient_trua_xay';
+      if (hasAny('CHIEU', 'GO VAP + XE BM')) return 'ingredient_chieu_xay';
       return 'unknown_slide_xay';
     }
 
@@ -261,12 +251,14 @@ function orderSlides(allSlides) {
     takeFirst('ingredient_chieu_xay'),
     takeFirst('ingredient_chieu_main'),
     takeFirst('menu_chieu_govap'),
-    takeFirst('menu_chieu_binhmy'),
+    takeFirst('menu_chieu_binhmy')
   ].filter(Boolean);
 
   const leftovers = [];
-  for (const arr of buckets.values()) {
-    for (const item of arr) leftovers.push(item.slideHtml);
+  for (const [type, arr] of buckets.entries()) {
+    for (const item of arr) {
+      leftovers.push(item);
+    }
   }
 
   console.log('CLASSIFIED SLIDES:', classified.map((x) => ({
@@ -275,7 +267,13 @@ function orderSlides(allSlides) {
     preview: x.preview
   })));
 
-  return [...ordered, ...leftovers];
+  console.log('LEFTOVER SLIDES:', leftovers.map((x) => ({
+    index: x.index,
+    type: x.type,
+    preview: x.preview
+  })));
+
+  return [...ordered, ...leftovers.map((x) => x.slideHtml)];
 }
 
 function injectDeckStyles() {
@@ -866,7 +864,7 @@ async function loadDeck() {
       fetchText('./rau.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
-      fetchText('./xao.html'),
+      fetchText('./xao.html')
     ]);
 
     injectDeckStyles();
@@ -875,7 +873,7 @@ async function loadDeck() {
       ...splitSlidesFromHtml(rauHtml),
       ...splitSlidesFromHtml(ingredientHtml),
       ...splitSlidesFromHtml(menuHtml),
-      ...splitSlidesFromHtml(xaoHtml),
+      ...splitSlidesFromHtml(xaoHtml)
     ];
 
     const orderedSlides = orderSlides(allSlides);
