@@ -84,10 +84,12 @@ function classifySlide(slideHtml) {
   const isMainIngredientSlide = slide.classList.contains('slide-main');
   const isTableIngredientSlide = slide.classList.contains('slide-xay');
 
+  // 1) RAU
   if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
     return 'rau';
   }
 
+  // 2) MENU
   if (hasMenuGrid) {
     if (has('BANG KHAU PHAN AN SANG CUM GO VAP')) return 'menu_sang_govap';
     if (has('BANG KHAU PHAN AN SANG CUM BINH MY')) return 'menu_sang_binhmy';
@@ -101,6 +103,7 @@ function classifySlide(slideHtml) {
     return 'unknown_menu';
   }
 
+  // 3) XÀO CHÍNH / XÀO XAY
   if (hasXaoGrid) {
     const isXaoMain =
       hasAny(
@@ -152,6 +155,7 @@ function classifySlide(slideHtml) {
     return 'unknown_xao_table';
   }
 
+  // 4) INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
     if (
       title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG')) ||
@@ -193,6 +197,7 @@ function classifySlide(slideHtml) {
     return 'unknown_main';
   }
 
+  // 5) INGREDIENT XAY DẠNG KHÁC
   if (isTableIngredientSlide) {
     const isXayLike = hasAny(
       'BANG NGUYEN LIEU CHO MON THUC AN XAY',
@@ -222,6 +227,7 @@ function orderSlides(allSlides) {
     preview: extractTextFromSlideHtml(slideHtml).slice(0, 220)
   }));
 
+  // fallback cho unknown xay
   const unknownXay = classified
     .filter((item) => item.type === 'unknown_slide_xay')
     .sort((a, b) => a.index - b.index);
@@ -229,6 +235,7 @@ function orderSlides(allSlides) {
   if (unknownXay[0]) unknownXay[0].type = 'ingredient_trua_xay';
   if (unknownXay[1]) unknownXay[1].type = 'ingredient_chieu_xay';
 
+  // vá case classifier nhận nhầm slide chiều xay thành trưa xay
   const truaXaySlides = classified
     .filter((item) => item.type === 'ingredient_trua_xay')
     .sort((a, b) => a.index - b.index);
@@ -280,9 +287,7 @@ function orderSlides(allSlides) {
 
   const leftovers = [];
   for (const [type, arr] of buckets.entries()) {
-    for (const item of arr) {
-      leftovers.push(item);
-    }
+    for (const item of arr) leftovers.push(item);
   }
 
   console.log('CLASSIFIED SLIDES:', classified.map((x) => ({
@@ -345,24 +350,36 @@ function injectDeckStyles() {
       background: #000;
     }
 
+    /* reset CSS gốc của từng file html */
+    section.slide {
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      transform: none !important;
+      margin: 0 !important;
+      display: none !important;
+    }
+
     .deck-slide {
-      position: absolute;
-      left: 50%;
-      top: 50%;
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
       width: 1366px !important;
       min-height: 768px !important;
       height: 768px !important;
       margin: 0 !important;
       border: 0 !important;
       background: #000;
-      display: none;
-      transform-origin: center center;
+      display: none !important;
+      transform-origin: center center !important;
       overflow: hidden !important;
-      box-sizing: border-box;
+      box-sizing: border-box !important;
     }
 
     .deck-slide.is-active {
-      display: block;
+      display: block !important;
     }
 
     .deck-ui {
@@ -788,10 +805,16 @@ function buildDeck() {
 
   function initFromHash() {
     const m = String(location.hash || '').match(/slide-(\d+)/i);
-    if (!m) return;
+    if (!m) {
+      index = 0;
+      return;
+    }
+
     const n = Number(m[1]);
     if (Number.isFinite(n) && n >= 1 && n <= rawSlides.length) {
       index = n - 1;
+    } else {
+      index = 0;
     }
   }
 
@@ -931,6 +954,12 @@ async function loadDeck() {
         'menu_chieu_binhmy'
       ]
     });
+
+    console.log('FINAL ORDER PREVIEW:', orderedSlides.map((s, i) => ({
+      pos: i + 1,
+      type: classifySlide(s),
+      preview: extractTextFromSlideHtml(s).slice(0, 120)
+    })));
   } catch (err) {
     console.error(err);
     app.innerHTML = `
