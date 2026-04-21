@@ -306,13 +306,18 @@ function orderSlides(allSlides) {
 }
 
 function injectDeckStyles() {
+  const old = document.getElementById('deck-runtime-style');
+  if (old) old.remove();
+
   const style = document.createElement('style');
+  style.id = 'deck-runtime-style';
   style.textContent = `
     :root {
       --deck-w: 1366;
       --deck-h: 768;
       --ui-bg: rgba(0,0,0,.55);
       --ui-fg: #fff;
+      --deck-scale: 1;
     }
 
     html, body {
@@ -350,16 +355,9 @@ function injectDeckStyles() {
       background: #000;
     }
 
-    /* reset CSS gốc của từng file html */
+    /* reset nhẹ, KHÔNG đụng transform */
     section.slide {
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      bottom: auto !important;
-      transform: none !important;
       margin: 0 !important;
-      display: none !important;
     }
 
     .deck-slide {
@@ -367,15 +365,19 @@ function injectDeckStyles() {
       left: 50% !important;
       top: 50% !important;
       width: 1366px !important;
-      min-height: 768px !important;
+      min-width: 1366px !important;
+      max-width: 1366px !important;
       height: 768px !important;
+      min-height: 768px !important;
+      max-height: 768px !important;
       margin: 0 !important;
       border: 0 !important;
-      background: #000;
+      background: #000 !important;
       display: none !important;
-      transform-origin: center center !important;
-      overflow: hidden !important;
       box-sizing: border-box !important;
+      overflow: hidden !important;
+      transform-origin: center center !important;
+      transform: translate(-50%, -50%) scale(var(--deck-scale)) !important;
     }
 
     .deck-slide.is-active {
