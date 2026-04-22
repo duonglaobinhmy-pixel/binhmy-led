@@ -89,6 +89,9 @@ function classifySlide(slideHtml) {
   const hasRauGrid = !!slide.querySelector('table.grid');
   const isMainIngredientSlide = slide.classList.contains('slide-main');
   const isTableIngredientSlide = slide.classList.contains('slide-xay');
+  const isXeSlide =
+  hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
+  slide.classList.contains('xe-slide');
 
   // 1) RAU
   if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
@@ -160,6 +163,10 @@ function classifySlide(slideHtml) {
 
     return 'unknown_xao_table';
   }
+    // 4) XE
+    if (isXeSlide) {
+      return 'xe';
+    }
 
   // 4) INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
@@ -919,7 +926,8 @@ async function loadDeck() {
       fetchText('./rau.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
-      fetchText('./xao.html')
+      fetchText('./xao.html'),
+      fetchText('./xe.html')
     ]);
 
     injectDeckStyles();
@@ -928,7 +936,8 @@ async function loadDeck() {
       ...splitSlidesFromHtml(rauHtml),
       ...splitSlidesFromHtml(ingredientHtml),
       ...splitSlidesFromHtml(menuHtml),
-      ...splitSlidesFromHtml(xaoHtml)
+      ...splitSlidesFromHtml(xaoHtml),
+      ...splitSlidesFromHtml(xeHtml)
     ];
 
     const orderedSlides = orderSlides(allSlides);
