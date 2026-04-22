@@ -75,6 +75,7 @@ function classifySlide(slideHtml) {
     slide.querySelector('.main-title') ||
     slide.querySelector('.xao-title') ||
     slide.querySelector('.title-left') ||
+    slide.querySelector('.xe-title') ||
     slide.querySelector('h1') ||
     slide.querySelector('h2');
 
@@ -90,8 +91,8 @@ function classifySlide(slideHtml) {
   const isMainIngredientSlide = slide.classList.contains('slide-main');
   const isTableIngredientSlide = slide.classList.contains('slide-xay');
   const isXeSlide =
-  hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
-  slide.classList.contains('xe-slide');
+    hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
+    slide.classList.contains('xe-slide');
 
   // 1) RAU
   if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
@@ -163,12 +164,13 @@ function classifySlide(slideHtml) {
 
     return 'unknown_xao_table';
   }
-    // 4) XE
-    if (isXeSlide) {
-      return 'xe';
-    }
 
-  // 4) INGREDIENT MAIN / SÁNG
+  // 4) XE
+  if (isXeSlide) {
+    return 'xe';
+  }
+
+  // 5) INGREDIENT MAIN / SÁNG
   if (isMainIngredientSlide) {
     if (
       title.includes(normalizeText('BANG NGUYEN LIEU BUA SANG')) ||
@@ -210,7 +212,7 @@ function classifySlide(slideHtml) {
     return 'unknown_main';
   }
 
-  // 5) INGREDIENT XAY DẠNG KHÁC
+  // 6) INGREDIENT XAY DẠNG KHÁC
   if (isTableIngredientSlide) {
     const isXayLike = hasAny(
       'BANG NGUYEN LIEU CHO MON THUC AN XAY',
@@ -240,7 +242,6 @@ function orderSlides(allSlides) {
     preview: extractTextFromSlideHtml(slideHtml).slice(0, 220)
   }));
 
-  // fallback cho unknown xay
   const unknownXay = classified
     .filter((item) => item.type === 'unknown_slide_xay')
     .sort((a, b) => a.index - b.index);
@@ -248,7 +249,6 @@ function orderSlides(allSlides) {
   if (unknownXay[0]) unknownXay[0].type = 'ingredient_trua_xay';
   if (unknownXay[1]) unknownXay[1].type = 'ingredient_chieu_xay';
 
-  // vá case classifier nhận nhầm slide chiều xay thành trưa xay
   const truaXaySlides = classified
     .filter((item) => item.type === 'ingredient_trua_xay')
     .sort((a, b) => a.index - b.index);
@@ -295,11 +295,12 @@ function orderSlides(allSlides) {
     takeFirst('ingredient_chieu_xay'),
     takeFirst('ingredient_chieu_main'),
     takeFirst('menu_chieu_govap'),
-    takeFirst('menu_chieu_binhmy')
+    takeFirst('menu_chieu_binhmy'),
+    takeFirst('xe')
   ].filter(Boolean);
 
   const leftovers = [];
-  for (const [type, arr] of buckets.entries()) {
+  for (const [, arr] of buckets.entries()) {
     for (const item of arr) leftovers.push(item);
   }
 
@@ -368,7 +369,6 @@ function injectDeckStyles() {
       background: #000;
     }
 
-    /* reset nhẹ, KHÔNG đụng transform */
     section.slide {
       margin: 0 !important;
     }
@@ -922,7 +922,7 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, ingredientHtml, menuHtml, xaoHtml] = await Promise.all([
+    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml] = await Promise.all([
       fetchText('./rau.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
@@ -968,7 +968,8 @@ async function loadDeck() {
         'ingredient_chieu_xay',
         'ingredient_chieu_main',
         'menu_chieu_govap',
-        'menu_chieu_binhmy'
+        'menu_chieu_binhmy',
+        'xe'
       ]
     });
 
