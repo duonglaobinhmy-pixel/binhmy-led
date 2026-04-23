@@ -319,8 +319,8 @@ function injectDeckStyles() {
   style.id = 'deck-runtime-style';
   style.textContent = `
     :root {
-      --deck-w: 1366;
-      --deck-h: 768;
+  --deck-w: 1920;
+  --deck-h: 1080;
       --ui-bg: rgba(0,0,0,.55);
       --ui-fg: #fff;
       --deck-scale: 1;
@@ -366,26 +366,19 @@ function injectDeckStyles() {
       margin: 0 !important;
     }
 
-    .deck-slide {
-      position: absolute !important;
-      left: 50% !important;
-      top: 50% !important;
-      width: 1366px !important;
-      min-width: 1366px !important;
-      max-width: 1366px !important;
-      height: 768px !important;
-      min-height: 768px !important;
-      max-height: 768px !important;
-      margin: 0 !important;
-      border: 0 !important;
-      background: #000 !important;
-      display: none !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-      transform-origin: center center !important;
-      transform: translate(-50%, -50%) scale(var(--deck-scale)) !important;
-    }
-
+.deck-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: #000 !important;
+  display: none !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
     .deck-slide.is-active {
       display: block !important;
     }
@@ -442,6 +435,11 @@ function injectDeckStyles() {
       background: linear-gradient(90deg, #ffe54d, #ff4ddd);
       transition: width .18s ease;
     }
+      .deck-slide table,
+.deck-slide th,
+.deck-slide td {
+  border-width: 2px !important;
+}
 
     .deck-blackout {
       position: absolute;
@@ -456,194 +454,123 @@ function injectDeckStyles() {
     }
 
     .deck-slide.tight-1 .menu-title {
-      font-size: 38px !important;
-      margin-bottom: 8px !important;
-      line-height: 1.02 !important;
-    }
+  font-size: 52px !important;
+}
 
-    .deck-slide.tight-1 .date-head {
-      font-size: 30px !important;
-      height: 48px !important;
-      padding-left: 10px !important;
-    }
+.deck-slide.tight-1 .date-head {
+  font-size: 40px !important;
+  height: 64px !important;
+}
 
-    .deck-slide.tight-1 .meal-head {
-      font-size: 28px !important;
-      padding-right: 10px !important;
-    }
+.deck-slide.tight-1 .meal-head {
+  font-size: 38px !important;
+}
 
-    .deck-slide.tight-1 table.menu-grid th,
-    .deck-slide.tight-1 table.menu-grid td {
-      padding: 7px 5px !important;
-    }
+.deck-slide.tight-1 .menu-head,
+.deck-slide.tight-1 .total-head {
+  font-size: 28px !important;
+}
 
-    .deck-slide.tight-1 .menu-head,
-    .deck-slide.tight-1 .total-head {
-      font-size: 20px !important;
-      line-height: 1 !important;
-    }
+.deck-slide.tight-1 .dish {
+  font-size: 24px !important;
+}
 
-    .deck-slide.tight-1 .site-name {
-      font-size: 14px !important;
-      margin-bottom: 3px !important;
-    }
+.deck-slide.tight-1 .total-col {
+  font-size: 24px !important;
+}
 
-    .deck-slide.tight-1 .site-subrow {
-      font-size: 10px !important;
-      gap: 5px !important;
-    }
+.deck-slide.tight-1 .site-sl,
+.deck-slide.tight-1 .site-kg {
+  height: 48px !important;
+  font-size: 21px !important;
+}
 
-    .deck-slide.tight-1 .dish {
-      font-size: 17px !important;
-      line-height: 1 !important;
-    }
+.deck-slide.tight-1 .sl {
+  font-size: 22px !important;
+}
 
-    .deck-slide.tight-1 .total-col {
-      font-size: 17px !important;
-    }
+.deck-slide.tight-1 .noi {
+  font-size: 18px !important;
+}
+   .deck-slide.tight-2 .menu-title {
+  font-size: 46px !important;
+}
 
-    .deck-slide.tight-1 .site-sl,
-    .deck-slide.tight-1 .site-kg {
-      height: 36px !important;
-      font-size: 15px !important;
-      line-height: 1.02 !important;
-    }
+.deck-slide.tight-2 .date-head {
+  font-size: 36px !important;
+  height: 56px !important;
+}
 
-    .deck-slide.tight-1 .sl {
-      font-size: 16px !important;
-      margin-right: 3px !important;
-    }
+.deck-slide.tight-2 .meal-head {
+  font-size: 34px !important;
+}
 
-    .deck-slide.tight-1 .noi {
-      font-size: 14px !important;
-    }
+.deck-slide.tight-2 .menu-head,
+.deck-slide.tight-2 .total-head {
+  font-size: 25px !important;
+}
 
-    .deck-slide.tight-2 .menu-title {
-      font-size: 34px !important;
-      margin-bottom: 6px !important;
-      line-height: 1 !important;
-    }
+.deck-slide.tight-2 .dish {
+  font-size: 21px !important;
+}
 
-    .deck-slide.tight-2 .date-head {
-      font-size: 28px !important;
-      height: 42px !important;
-      padding-left: 8px !important;
-    }
+.deck-slide.tight-2 .total-col {
+  font-size: 21px !important;
+}
 
-    .deck-slide.tight-2 .meal-head {
-      font-size: 26px !important;
-      padding-right: 8px !important;
-    }
+.deck-slide.tight-2 .site-sl,
+.deck-slide.tight-2 .site-kg {
+  height: 42px !important;
+  font-size: 18px !important;
+}
 
-    .deck-slide.tight-2 table.menu-grid th,
-    .deck-slide.tight-2 table.menu-grid td {
-      padding: 5px 4px !important;
-    }
+.deck-slide.tight-2 .sl {
+  font-size: 19px !important;
+}
 
-    .deck-slide.tight-2 .menu-head,
-    .deck-slide.tight-2 .total-head {
-      font-size: 18px !important;
-      line-height: 0.98 !important;
-    }
-
-    .deck-slide.tight-2 .site-name {
-      font-size: 13px !important;
-      margin-bottom: 2px !important;
-    }
-
-    .deck-slide.tight-2 .site-subrow {
-      font-size: 9px !important;
-      gap: 4px !important;
-    }
-
-    .deck-slide.tight-2 .dish {
-      font-size: 15px !important;
-      line-height: 0.98 !important;
-    }
-
-    .deck-slide.tight-2 .total-col {
-      font-size: 15px !important;
-    }
-
-    .deck-slide.tight-2 .site-sl,
-    .deck-slide.tight-2 .site-kg {
-      height: 31px !important;
-      font-size: 13px !important;
-      line-height: 1 !important;
-    }
-
-    .deck-slide.tight-2 .sl {
-      font-size: 14px !important;
-      margin-right: 2px !important;
-    }
-
-    .deck-slide.tight-2 .noi {
-      font-size: 12px !important;
-    }
+.deck-slide.tight-2 .noi {
+  font-size: 16px !important;
+}
 
     .deck-slide.tight-3 .menu-title {
-      font-size: 30px !important;
-      margin-bottom: 4px !important;
-      line-height: 0.98 !important;
-    }
+  font-size: 40px !important;
+}
 
-    .deck-slide.tight-3 .date-head {
-      font-size: 24px !important;
-      height: 36px !important;
-      padding-left: 6px !important;
-    }
+.deck-slide.tight-3 .date-head {
+  font-size: 32px !important;
+  height: 50px !important;
+}
 
-    .deck-slide.tight-3 .meal-head {
-      font-size: 22px !important;
-      padding-right: 6px !important;
-    }
+.deck-slide.tight-3 .meal-head {
+  font-size: 30px !important;
+}
 
-    .deck-slide.tight-3 table.menu-grid th,
-    .deck-slide.tight-3 table.menu-grid td {
-      padding: 4px 3px !important;
-      border-width: 1px !important;
-    }
+.deck-slide.tight-3 .menu-head,
+.deck-slide.tight-3 .total-head {
+  font-size: 22px !important;
+}
 
-    .deck-slide.tight-3 .menu-head,
-    .deck-slide.tight-3 .total-head {
-      font-size: 16px !important;
-      line-height: 0.95 !important;
-    }
+.deck-slide.tight-3 .dish {
+  font-size: 18px !important;
+}
 
-    .deck-slide.tight-3 .site-name {
-      font-size: 12px !important;
-      margin-bottom: 1px !important;
-    }
+.deck-slide.tight-3 .total-col {
+  font-size: 18px !important;
+}
 
-    .deck-slide.tight-3 .site-subrow {
-      font-size: 8px !important;
-      gap: 3px !important;
-    }
+.deck-slide.tight-3 .site-sl,
+.deck-slide.tight-3 .site-kg {
+  height: 36px !important;
+  font-size: 16px !important;
+}
 
-    .deck-slide.tight-3 .dish {
-      font-size: 13px !important;
-      line-height: 0.95 !important;
-    }
+.deck-slide.tight-3 .sl {
+  font-size: 17px !important;
+}
 
-    .deck-slide.tight-3 .total-col {
-      font-size: 13px !important;
-    }
-
-    .deck-slide.tight-3 .site-sl,
-    .deck-slide.tight-3 .site-kg {
-      height: 26px !important;
-      font-size: 12px !important;
-      line-height: 0.98 !important;
-    }
-
-    .deck-slide.tight-3 .sl {
-      font-size: 12px !important;
-      margin-right: 1px !important;
-    }
-
-    .deck-slide.tight-3 .noi {
-      font-size: 11px !important;
-    }
+.deck-slide.tight-3 .noi {
+  font-size: 14px !important;
+}
 
     @media (max-width: 900px) {
       .deck-help {
@@ -754,15 +681,8 @@ function buildDeck() {
   let blackoutOn = false;
 
   function fitSlides() {
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const scale = Math.min(vw / 1366, vh / 768);
-
-    rawSlides.forEach((slide) => {
-      slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
-    });
-
     rawSlides.forEach((slide, i) => {
+      slide.style.transform = 'none';
       slide.classList.toggle('is-active', i === index);
     });
   }
