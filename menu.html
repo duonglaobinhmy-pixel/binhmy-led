@@ -1,114 +1,369 @@
 <section class="slide">
-  <style> .slide { width: 1366px; min-height: 768px; margin: 0; padding: 8px 18px 14px 18px; background: #000; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; color: #fff; page-break-after: always; overflow: hidden; } .menu-title { text-align: center; font-size: 42px; font-weight: 900; color: #00f5a0; margin: 0 0 10px; text-transform: uppercase; line-height: 1.05; letter-spacing: 0.2px; } table.menu-grid { width: 100%; border-collapse: collapse; table-layout: fixed; background: #000; } table.menu-grid th, table.menu-grid td { border: 2px solid rgba(255,255,255,.68); background: #000; vertical-align: middle; padding: 10px 7px; } .date-head { color: #ff38e6; font-size: 34px; font-weight: 900; text-align: left; height: 58px; padding-left: 14px; } .meal-head { color: #ff38e6; font-size: 32px; font-weight: 900; text-align: right; padding-right: 14px; } .menu-head { width: 220px; color: #fff; font-size: 22px; font-weight: 900; text-align: center; line-height: 1.05; } .total-head { width: 130px; color: #fff; font-size: 22px; font-weight: 900; text-align: center; line-height: 1.05; } .site-head { text-align: center; color: #ff2d2d; font-size: 16px; font-weight: 900; line-height: 1.05; white-space: nowrap; text-transform: uppercase; padding: 8px 4px; } .site-sub-head { color: #fff; font-size: 11px; font-weight: 800; text-align: center; white-space: nowrap; padding: 6px 3px; } .dish { color: #fff; font-size: 18px; font-weight: 900; line-height: 1.08; word-break: break-word; text-align: left; padding-left: 10px; } .dish-child { padding-left: 34px !important; font-size: 17px; font-weight: 900; color: #f2f2f2; } .total-col { color: #ff2d2d; font-size: 20px; font-weight: 900; text-align: center; } .total-col-child { color: transparent !important; } .site-sl, .site-kg { min-height: 46px; font-size: 17px; font-weight: 900; text-align: center; white-space: nowrap; line-height: 1.15; } .site-sl { color: #ffd633; } .site-kg { color: #fff; } .sl { color: #ffd633; margin-right: 4px; font-size: 19px; font-weight: 900; } .noi { font-weight: 900; font-size: 15px; text-transform: uppercase; } .noi-green { color: #00f5b8; } .noi-yellow { color: #ffd633; } .noi-red { color: #ff3b3b; } .child-row td { padding-top: 6px !important; padding-bottom: 6px !important; } .child-row .site-sl { color: transparent; } .child-row .child-empty { color: transparent !important; } .child-row .child-kg { color: #fff !important; font-weight: 900; } .summary-row .dish, .summary-row .total-col, .summary-row .site-sl { color: #ff2d2d !important; font-weight: 900; } .summary-row .site-kg { color: transparent !important; } </style>
+  <style>
+    .slide {
+      width: 1366px;
+      height: 768px;
+      margin: 0 auto;
+      padding: 10px 14px 12px 14px;
+      background: #000;
+      box-sizing: border-box;
+      font-family: "Times New Roman", Georgia, serif;
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-title {
+      flex: 0 0 auto;
+      text-align: center;
+      font-size: 44px;
+      font-weight: 900;
+      color: #00f5c8;
+      margin: 0 0 6px 0;
+      text-transform: uppercase;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .menu-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+    }
+
+    table.menu-grid {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+    }
+
+    table.menu-grid th,
+    table.menu-grid td {
+      border: 2px solid rgba(255,255,255,0.82);
+      background: #000;
+      vertical-align: middle;
+      padding: 4px 5px;
+      box-sizing: border-box;
+    }
+
+    .date-head {
+      color: #ff38e6;
+      font-size: 32px;
+      font-weight: 900;
+      text-align: left;
+      padding-left: 10px;
+      height: 50px;
+      line-height: 1;
+    }
+
+    .meal-head {
+      color: #ff38e6;
+      font-size: 31px;
+      font-weight: 900;
+      text-align: right;
+      padding-right: 10px;
+      line-height: 1;
+    }
+
+    .menu-head {
+      width: 220px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.02;
+    }
+
+    .total-head {
+      width: 118px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.02;
+    }
+
+    .site-head {
+      text-align: center;
+      color: #ff2d2d;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.02;
+      white-space: nowrap;
+      text-transform: uppercase;
+      padding: 5px 2px;
+    }
+
+    .site-sub-head {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+      padding: 3px 2px;
+      line-height: 1;
+    }
+
+    .dish {
+      color: #fff;
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.02;
+      word-break: break-word;
+      text-align: left;
+      padding-left: 8px;
+    }
+
+    .dish-upper {
+      text-transform: uppercase;
+    }
+
+    .dish-child {
+      padding-left: 28px !important;
+      font-size: 18px;
+      font-weight: 900;
+      color: #f2f2f2;
+    }
+
+    .total-col {
+      color: #ff2d2d;
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .total-col-child {
+      color: transparent !important;
+    }
+
+    .site-sl,
+    .site-kg {
+      min-height: 32px;
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1.02;
+    }
+
+    .site-sl {
+      color: #ffd633;
+    }
+
+    .site-kg {
+      color: #fff;
+    }
+
+    .sl {
+      color: #ffd633;
+      margin-right: 4px;
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .noi {
+      font-weight: 900;
+      font-size: 17px;
+      text-transform: uppercase;
+    }
+
+    .noi-green { color: #00f5b8; }
+    .noi-yellow { color: #ffd633; }
+    .noi-red { color: #ff3b3b; }
+
+    .child-row td {
+      padding-top: 3px !important;
+      padding-bottom: 3px !important;
+    }
+
+    .child-row .site-sl {
+      color: transparent;
+    }
+
+    .child-row .child-empty {
+      color: transparent !important;
+    }
+
+    .child-row .child-kg {
+      color: #fff !important;
+      font-weight: 900;
+    }
+
+    .summary-row .dish,
+    .summary-row .total-col,
+    .summary-row .site-sl {
+      color: #ff2d2d !important;
+      font-weight: 900;
+    }
+
+    .summary-row .site-kg {
+      color: transparent !important;
+    }
+
+    tr.zero-row {
+      display: none;
+    }
+
+    .menu-grid tbody tr {
+      height: auto;
+    }
+
+    /* slide nhiều cột của Bình Mỹ */
+    .slide.cols-6 .menu-head {
+      width: 110px;
+      font-size: 20px;
+    }
+
+    .slide.cols-6 .total-head {
+      width: 108px;
+      font-size: 20px;
+    }
+
+    .slide.cols-6 .site-head {
+      font-size: 15px;
+    }
+
+    .slide.cols-6 .site-sub-head {
+      font-size: 12px;
+    }
+
+    .slide.cols-6 .dish {
+      font-size: 19px;
+    }
+
+    .slide.cols-6 .total-col {
+      font-size: 20px;
+    }
+
+    .slide.cols-6 .site-sl,
+    .slide.cols-6 .site-kg {
+      font-size: 16px;
+    }
+
+    .slide.cols-6 .sl {
+      font-size: 18px;
+    }
+
+    .slide.cols-6 .noi {
+      font-size: 15px;
+    }
+  </style>
+
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
 
-  <table class="menu-grid">
-    <thead>
-      <tr>
-        <th class="date-head" colspan="2">23-04-26</th>
-        <th class="meal-head" colspan="8">SÁNG</th>
-      </tr>
-      <tr>
-        <th class="menu-head" rowspan="2">THỰC ĐƠN</th>
-        <th class="total-head" rowspan="2">TỔNG SỐ PHẦN</th>
-        <th class="site-head" colspan="2">THẠNH LỘC</th>
-        <th class="site-head" colspan="2">GOLD - DQH</th>
-        <th class="site-head" colspan="2">TRUNG XUÂN THU - NT</th>
-        <th class="site-head" colspan="2">CARE - AH</th>
-      </tr>
-      <tr>
-        <th class="site-sub-head">SL phần</th>
-        <th class="site-sub-head">KL (kg)</th>
-        <th class="site-sub-head">SL phần</th>
-        <th class="site-sub-head">KL (kg)</th>
-        <th class="site-sub-head">SL phần</th>
-        <th class="site-sub-head">KL (kg)</th>
-        <th class="site-sub-head">SL phần</th>
-        <th class="site-sub-head">KL (kg)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="dish">Bánh giò</td>
-        <td class="total-col">225</td>
-        <td class="site-sl"><span class="sl">27</span> <span class="noi noi-green">Nhỡ</span></td>
-        <td class="site-kg">2,2</td>
-        <td class="site-sl"><span class="sl">115</span> <span class="noi noi-green">2 Lớn</span></td>
-        <td class="site-kg">4,7</td>
-        <td class="site-sl"><span class="sl">34</span> <span class="noi noi-green">Nhỡ</span></td>
-        <td class="site-kg">1,8</td>
-        <td class="site-sl"><span class="sl">49</span> <span class="noi noi-green">Lớn</span></td>
-        <td class="site-kg">2,3</td>
-      </tr>
+  <div class="menu-wrap">
+    <table class="menu-grid">
+      <thead>
+        <tr>
+          <th class="date-head" colspan="2">23-04-26</th>
+          <th class="meal-head" colspan="8">SÁNG</th>
+        </tr>
+        <tr>
+          <th class="menu-head" rowspan="2">THỰC ĐƠN</th>
+          <th class="total-head" rowspan="2">TỔNG SỐ PHẦN</th>
+          <th class="site-head" colspan="2">THẠNH LỘC</th>
+          <th class="site-head" colspan="2">GOLD - DQH</th>
+          <th class="site-head" colspan="2">TRUNG XUÂN THU - NT</th>
+          <th class="site-head" colspan="2">CARE - AH</th>
+        </tr>
+        <tr>
+          <th class="site-sub-head">SL phần</th>
+          <th class="site-sub-head">KL (kg)</th>
+          <th class="site-sub-head">SL phần</th>
+          <th class="site-sub-head">KL (kg)</th>
+          <th class="site-sub-head">SL phần</th>
+          <th class="site-sub-head">KL (kg)</th>
+          <th class="site-sub-head">SL phần</th>
+          <th class="site-sub-head">KL (kg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dish">Bánh giò</td>
+          <td class="total-col">225</td>
+          <td class="site-sl"><span class="sl">27</span> <span class="noi noi-green">Nhỡ</span></td>
+          <td class="site-kg">2,2</td>
+          <td class="site-sl"><span class="sl">115</span> <span class="noi noi-green">2 Lớn</span></td>
+          <td class="site-kg">4,7</td>
+          <td class="site-sl"><span class="sl">34</span> <span class="noi noi-green">Nhỡ</span></td>
+          <td class="site-kg">1,8</td>
+          <td class="site-sl"><span class="sl">49</span> <span class="noi noi-green">Lớn</span></td>
+          <td class="site-kg">2,3</td>
+        </tr>
 
-      <tr>
-        <td class="dish">Cháo thịt bằm ăn sáng</td>
-        <td class="total-col">6</td>
-        <td class="site-sl"></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">2</span> <span class="noi noi-green">Nhỏ</span></td>
-        <td class="site-kg">2,6</td>
-        <td class="site-sl"></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">4</span></td>
-        <td class="site-kg">2,6</td>
-      </tr>
+        <tr>
+          <td class="dish">Cháo thịt bằm ăn sáng</td>
+          <td class="total-col">6</td>
+          <td class="site-sl"></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">2</span> <span class="noi noi-green">Nhỏ</span></td>
+          <td class="site-kg">2,6</td>
+          <td class="site-sl"></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">4</span></td>
+          <td class="site-kg">2,6</td>
+        </tr>
 
-      <tr>
-        <td class="dish">Cháo (ống xay) ăn sáng</td>
-        <td class="total-col">24</td>
-        <td class="site-sl"><span class="sl">1</span></td>
-        <td class="site-kg">0,7</td>
-        <td class="site-sl"></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">20</span> <span class="noi noi-green">Nhỡ</span></td>
-        <td class="site-kg">14,8</td>
-        <td class="site-sl"><span class="sl">3</span></td>
-        <td class="site-kg">2,0</td>
-      </tr>
+        <tr>
+          <td class="dish">Cháo (ống xay) ăn sáng</td>
+          <td class="total-col">24</td>
+          <td class="site-sl"><span class="sl">1</span></td>
+          <td class="site-kg">0,7</td>
+          <td class="site-sl"></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">20</span> <span class="noi noi-green">Nhỡ</span></td>
+          <td class="site-kg">14,8</td>
+          <td class="site-sl"><span class="sl">3</span></td>
+          <td class="site-kg">2,0</td>
+        </tr>
 
-      <tr>
-        <td class="dish">Xay ăn sáng</td>
-        <td class="total-col">20</td>
-        <td class="site-sl"></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">2</span></td>
-        <td class="site-kg">1,3</td>
-        <td class="site-sl"><span class="sl">12</span> <span class="noi noi-green">Nhỡ</span></td>
-        <td class="site-kg">9,6</td>
-        <td class="site-sl"><span class="sl">6</span> <span class="noi noi-green">Nhỡ</span></td>
-        <td class="site-kg">5,7</td>
-      </tr>
+        <tr>
+          <td class="dish">Xay ăn sáng</td>
+          <td class="total-col">20</td>
+          <td class="site-sl"></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">2</span></td>
+          <td class="site-kg">1,3</td>
+          <td class="site-sl"><span class="sl">12</span> <span class="noi noi-green">Nhỡ</span></td>
+          <td class="site-kg">9,6</td>
+          <td class="site-sl"><span class="sl">6</span> <span class="noi noi-green">Nhỡ</span></td>
+          <td class="site-kg">5,7</td>
+        </tr>
 
-      <tr>
-        <td class="dish">Chay</td>
-        <td class="total-col">6</td>
-        <td class="site-sl"></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">4</span></td>
-        <td class="site-kg">1,2</td>
-        <td class="site-sl"></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">2</span></td>
-        <td class="site-kg">0,6</td>
-      </tr>
+        <tr>
+          <td class="dish">Chay</td>
+          <td class="total-col">6</td>
+          <td class="site-sl"></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">4</span></td>
+          <td class="site-kg">1,2</td>
+          <td class="site-sl"></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">2</span></td>
+          <td class="site-kg">0,6</td>
+        </tr>
 
-      <tr class="summary-row">
-        <td class="dish">Tổng số cụ</td>
-        <td class="total-col">281</td>
-        <td class="site-sl"><span class="sl">28</span></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">123</span></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">66</span></td>
-        <td class="site-kg"></td>
-        <td class="site-sl"><span class="sl">64</span></td>
-        <td class="site-kg"></td>
-      </tr>
-    </tbody>
-  </table>
+        <tr class="summary-row">
+          <td class="dish">Tổng số cụ</td>
+          <td class="total-col">281</td>
+          <td class="site-sl"><span class="sl">28</span></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">123</span></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">66</span></td>
+          <td class="site-kg"></td>
+          <td class="site-sl"><span class="sl">64</span></td>
+          <td class="site-kg"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
-
 
 <section class="slide">
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
