@@ -1,0 +1,1530 @@
+<section class="slide">
+  
+  <style>
+  .slide {
+    width: 1366px;
+    min-height: 768px;
+    margin: 0;
+    padding: 8px 18px 14px 18px;
+    background: #000;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    page-break-after: always;
+    overflow: hidden;
+  }
+
+  .menu-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 900;
+    color: #00f5a0;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    line-height: 1.05;
+    letter-spacing: 0.2px;
+  }
+
+  table.menu-grid {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #000;
+  }
+
+  table.menu-grid th,
+  table.menu-grid td {
+    border: 2px solid rgba(255,255,255,.68);
+    background: #000;
+    vertical-align: middle;
+    padding: 10px 7px;
+  }
+
+  .date-head {
+    color: #ff38e6;
+    font-size: 34px;
+    font-weight: 900;
+    text-align: left;
+    height: 58px;
+    padding-left: 14px;
+  }
+
+  .meal-head {
+    color: #ff38e6;
+    font-size: 32px;
+    font-weight: 900;
+    text-align: right;
+    padding-right: 14px;
+  }
+
+  .menu-head {
+    width: 220px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .total-head {
+    width: 130px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .site-head {
+    text-align: center;
+    color: #ff2d2d;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.05;
+    white-space: nowrap;
+    text-transform: uppercase;
+    padding: 8px 4px;
+  }
+
+  .site-sub-head {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+    padding: 6px 3px;
+  }
+
+  .dish {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.08;
+    word-break: break-word;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .dish-child {
+    padding-left: 34px !important;
+    font-size: 17px;
+    font-weight: 900;
+    color: #f2f2f2;
+  }
+
+  .total-col {
+    color: #ff2d2d;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .total-col-child {
+    color: transparent !important;
+  }
+
+  .site-sl,
+  .site-kg {
+    min-height: 46px;
+    font-size: 17px;
+    font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.15;
+  }
+
+  .site-sl { color: #ffd633; }
+  .site-kg { color: #fff; }
+
+  .sl {
+    color: #ffd633;
+    margin-right: 4px;
+    font-size: 19px;
+    font-weight: 900;
+  }
+
+  .noi {
+    font-weight: 900;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+
+  .noi-green { color: #00f5b8; }
+  .noi-yellow { color: #ffd633; }
+  .noi-red { color: #ff3b3b; }
+
+  .child-row td {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .child-row .site-sl {
+    color: transparent;
+  }
+
+  .child-row .child-empty {
+    color: transparent !important;
+  }
+
+  .child-row .child-kg {
+    color: #fff !important;
+    font-weight: 900;
+  }
+
+  .summary-row .dish,
+  .summary-row .total-col,
+  .summary-row .site-sl {
+    color: #ff2d2d !important;
+    font-weight: 900;
+  }
+
+  .summary-row .site-kg {
+    color: transparent !important;
+  }
+  </style>
+
+  <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
+
+  <table class="menu-grid">
+    <thead>
+      <tr>
+        <th class="date-head" colspan="2">24-04-26</th>
+        <th class="meal-head" colspan="8">TRƯA</th>
+      </tr>
+      <tr>
+        <th class="menu-head" rowspan="2">THỰC ĐƠN</th>
+        <th class="total-head" rowspan="2">TỔNG SỐ PHẦN</th>
+        
+    <th class="site-head" colspan="2">THẠNH LỘC</th>
+  
+    <th class="site-head" colspan="2">GOLD - DQH</th>
+  
+    <th class="site-head" colspan="2">TRUNG XUÂN THU - NT</th>
+  
+    <th class="site-head" colspan="2">CARE - AH</th>
+  
+      </tr>
+      <tr>
+        
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class=" ">
+        <td class="dish">Cơm trắng</td>
+        <td class="total-col">273</td>
+        
+    <td class="site-sl">
+      <span class="sl">28</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">7,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">119</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">31,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">66</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">17,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">60</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">16,1</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm xay</td>
+        <td class="total-col">52</td>
+        
+    <td class="site-sl">
+      <span class="sl">4</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">3,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">4</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">8,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">26</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">11,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">18</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">9,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
+        <td class="total-col">33</td>
+        
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">20</span>
+    </td>
+    <td class="site-kg">2,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">9</span>
+    </td>
+    <td class="site-kg">1,3</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm chay</td>
+        <td class="total-col">6</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">4</span>
+    </td>
+    <td class="site-kg">0,5</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,2</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cháo thịt bằm trưa chiều</td>
+        <td class="total-col">7</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">2,6</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">4</span>
+    </td>
+    <td class="site-kg">2,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Ống trưa chiều rau xanh</td>
+        <td class="total-col">24</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">20</span>
+    </td>
+    <td class="site-kg">2,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">3</span>
+    </td>
+    <td class="site-kg">0,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Ống ăn xế rau xanh</td>
+        <td class="total-col">24</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">20</span>
+    </td>
+    <td class="site-kg">2,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">3</span>
+    </td>
+    <td class="site-kg">0,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Canh đu đủ</td>
+        <td class="total-col">236</td>
+        
+    <td class="site-sl">
+      <span class="sl">27</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">9,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">115</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">38,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">39</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">14,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">55</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">18,8</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Bò hầm rau củ</td>
+        <td class="total-col">195</td>
+        
+    <td class="site-sl">
+      <span class="sl">22</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">4,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">113</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">19,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">23</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">5,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">37</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">7,5</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Đậu đũa, cà rốt hành tây xào</td>
+        <td class="total-col">201</td>
+        
+    <td class="site-sl">
+      <span class="sl">22</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">2,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">117</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">10,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">23</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">3,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">39</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">4,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Khoai lang</td>
+        <td class="total-col">233</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">120</span> <span class="noi noi-green">NỒI XẾ</span>
+    </td>
+    <td class="site-kg">9,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">52</span> <span class="noi noi-green">NỒI XẾ</span>
+    </td>
+    <td class="site-kg">4,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">61</span> <span class="noi noi-green">NỒI XẾ</span>
+    </td>
+    <td class="site-kg">5,5</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Khoai lang hấp</td>
+        <td class="total-col">26</td>
+        
+    <td class="site-sl">
+      <span class="sl">26</span> <span class="noi noi-green">XẾ</span>
+    </td>
+    <td class="site-kg">3,0</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      </tr>
+    
+    </tbody>
+  </table>
+</section>
+  
+
+<section class="slide">
+  
+
+  <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
+
+  <table class="menu-grid">
+    <thead>
+      <tr>
+        <th class="date-head" colspan="2">24-04-26</th>
+        <th class="meal-head" colspan="8">CHIỀU</th>
+      </tr>
+      <tr>
+        <th class="menu-head" rowspan="2">THỰC ĐƠN</th>
+        <th class="total-head" rowspan="2">TỔNG SỐ PHẦN</th>
+        
+    <th class="site-head" colspan="2">THẠNH LỘC</th>
+  
+    <th class="site-head" colspan="2">GOLD - DQH</th>
+  
+    <th class="site-head" colspan="2">TRUNG XUÂN THU - NT</th>
+  
+    <th class="site-head" colspan="2">CARE - AH</th>
+  
+      </tr>
+      <tr>
+        
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class=" ">
+        <td class="dish">Cơm trắng</td>
+        <td class="total-col">273</td>
+        
+    <td class="site-sl">
+      <span class="sl">28</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">7,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">119</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">31,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">66</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">17,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">60</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">16,1</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm xay</td>
+        <td class="total-col">52</td>
+        
+    <td class="site-sl">
+      <span class="sl">4</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">3,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">4</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">8,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">26</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">11,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">18</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">9,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
+        <td class="total-col">33</td>
+        
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">20</span>
+    </td>
+    <td class="site-kg">2,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">9</span>
+    </td>
+    <td class="site-kg">1,3</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm chay</td>
+        <td class="total-col">6</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">4</span>
+    </td>
+    <td class="site-kg">0,5</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,2</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cháo thịt bằm trưa chiều</td>
+        <td class="total-col">7</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">2,6</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">4</span>
+    </td>
+    <td class="site-kg">2,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Ống trưa chiều rau xanh</td>
+        <td class="total-col">24</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">20</span> <span class="noi noi-green">NHỠ</span>
+    </td>
+    <td class="site-kg">4,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">3</span>
+    </td>
+    <td class="site-kg">0,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Canh bí đỏ</td>
+        <td class="total-col">236</td>
+        
+    <td class="site-sl">
+      <span class="sl">27</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">9,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">115</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">38,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">39</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">14,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">55</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">18,8</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Sườn kho chuối chát</td>
+        <td class="total-col">210</td>
+        
+    <td class="site-sl">
+      <span class="sl">25</span> <span class="noi noi-green">NHỎ</span>
+    </td>
+    <td class="site-kg">4,9</td>
+  
+    <td class="site-sl">
+      <span class="sl">113</span> <span class="noi noi-green">ĐẠI</span>
+    </td>
+    <td class="site-kg">19,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">26</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">5,9</td>
+  
+    <td class="site-sl">
+      <span class="sl">46</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">8,7</td>
+  
+      </tr>
+    
+    </tbody>
+  </table>
+</section>
+  
+
+<section class="slide">
+  
+
+  <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
+
+  <table class="menu-grid">
+    <thead>
+      <tr>
+        <th class="date-head" colspan="2">24-04-26</th>
+        <th class="meal-head" colspan="12">TRƯA</th>
+      </tr>
+      <tr>
+        <th class="menu-head" rowspan="2">THỰC ĐƠN</th>
+        <th class="total-head" rowspan="2">TỔNG SỐ PHẦN</th>
+        
+    <th class="site-head" colspan="2">HOA HỒNG ÔNG</th>
+  
+    <th class="site-head" colspan="2">HOA HỒNG BÀ</th>
+  
+    <th class="site-head" colspan="2">CSĐB 1</th>
+  
+    <th class="site-head" colspan="2">CSĐB 2</th>
+  
+    <th class="site-head" colspan="2">HOA LAN</th>
+  
+    <th class="site-head" colspan="2">CSTC</th>
+  
+      </tr>
+      <tr>
+        
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class=" ">
+        <td class="dish">Cơm trắng</td>
+        <td class="total-col">287</td>
+        
+    <td class="site-sl">
+      <span class="sl">51</span>
+    </td>
+    <td class="site-kg">11,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">47</span>
+    </td>
+    <td class="site-kg">10,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">44</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">13,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">37</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">9,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">62</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">17,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">46</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">11,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm xay</td>
+        <td class="total-col">80</td>
+        
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">48</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">19,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">8</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">3,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">7,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">18</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">6,5</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
+        <td class="total-col">62</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">31</span>
+    </td>
+    <td class="site-kg">4,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">4</span>
+    </td>
+    <td class="site-kg">0,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">3</span>
+    </td>
+    <td class="site-kg">0,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">22</span>
+    </td>
+    <td class="site-kg">3,1</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm chay</td>
+        <td class="total-col">4</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cháo thịt bằm trưa chiều</td>
+        <td class="total-col">5</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">1,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,7</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Ống trưa chiều rau xanh</td>
+        <td class="total-col">20</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">17</span>
+    </td>
+    <td class="site-kg">2,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Canh đu đủ</td>
+        <td class="total-col">241</td>
+        
+    <td class="site-sl">
+      <span class="sl">51</span>
+    </td>
+    <td class="site-kg">15,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">45</span>
+    </td>
+    <td class="site-kg">13,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">34</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">13,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">36</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">11,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">59</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">21,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">16</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">5,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Bò hầm rau củ</td>
+        <td class="total-col">190</td>
+        
+    <td class="site-sl">
+      <span class="sl">45</span>
+    </td>
+    <td class="site-kg">6,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">43</span>
+    </td>
+    <td class="site-kg">6,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">10</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">4,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">32</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">5,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">54</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">10,9</td>
+  
+    <td class="site-sl">
+      <span class="sl">6</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Đậu đũa, cà rốt hành tây xào</td>
+        <td class="total-col">194</td>
+        
+    <td class="site-sl">
+      <span class="sl">45</span>
+    </td>
+    <td class="site-kg">2,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">45</span>
+    </td>
+    <td class="site-kg">2,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">11</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">4,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">32</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">2,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">55</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">6,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">6</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,2</td>
+  
+      </tr>
+    
+    </tbody>
+  </table>
+</section>
+  
+
+<section class="slide">
+  
+
+  <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
+
+  <table class="menu-grid">
+    <thead>
+      <tr>
+        <th class="date-head" colspan="2">24-04-26</th>
+        <th class="meal-head" colspan="12">CHIỀU</th>
+      </tr>
+      <tr>
+        <th class="menu-head" rowspan="2">THỰC ĐƠN</th>
+        <th class="total-head" rowspan="2">TỔNG SỐ PHẦN</th>
+        
+    <th class="site-head" colspan="2">HOA HỒNG ÔNG</th>
+  
+    <th class="site-head" colspan="2">HOA HỒNG BÀ</th>
+  
+    <th class="site-head" colspan="2">CSĐB 1</th>
+  
+    <th class="site-head" colspan="2">CSĐB 2</th>
+  
+    <th class="site-head" colspan="2">HOA LAN</th>
+  
+    <th class="site-head" colspan="2">CSTC</th>
+  
+      </tr>
+      <tr>
+        
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+    <th class="site-sub-head">SL NCT</th>
+    <th class="site-sub-head">KL (kg)</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class=" ">
+        <td class="dish">Cơm trắng</td>
+        <td class="total-col">287</td>
+        
+    <td class="site-sl">
+      <span class="sl">51</span>
+    </td>
+    <td class="site-kg">11,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">47</span>
+    </td>
+    <td class="site-kg">10,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">44</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">13,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">37</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">9,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">62</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">17,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">46</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">11,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm xay</td>
+        <td class="total-col">82</td>
+        
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">48</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">19,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">8</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">3,8</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">7,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">20</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">7,1</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Thức ăn xay trưa chiều rau xanh</td>
+        <td class="total-col">62</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">31</span>
+    </td>
+    <td class="site-kg">4,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">4</span>
+    </td>
+    <td class="site-kg">0,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">3</span>
+    </td>
+    <td class="site-kg">0,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">22</span>
+    </td>
+    <td class="site-kg">3,1</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cơm chay</td>
+        <td class="total-col">5</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Cháo thịt bằm trưa chiều</td>
+        <td class="total-col">5</td>
+        
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">1,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,7</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Ống trưa chiều rau xanh</td>
+        <td class="total-col">20</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,1</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">17</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">5,7</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Ống ăn xế rau xanh</td>
+        <td class="total-col">20</td>
+        
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">2</span>
+    </td>
+    <td class="site-kg">0,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span>
+    </td>
+    <td class="site-kg">0,1</td>
+  
+      <td class="site-sl"></td>
+      <td class="site-kg"></td>
+    
+    <td class="site-sl">
+      <span class="sl">17</span>
+    </td>
+    <td class="site-kg">2,4</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Canh bí đỏ</td>
+        <td class="total-col">241</td>
+        
+    <td class="site-sl">
+      <span class="sl">51</span>
+    </td>
+    <td class="site-kg">15,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">45</span>
+    </td>
+    <td class="site-kg">13,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">34</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">13,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">36</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">11,6</td>
+  
+    <td class="site-sl">
+      <span class="sl">59</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">21,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">16</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">5,6</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Khoai lang</td>
+        <td class="total-col">243</td>
+        
+    <td class="site-sl">
+      <span class="sl">51</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">3,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">39</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">3,5</td>
+  
+    <td class="site-sl">
+      <span class="sl">30</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">2,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">36</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">2,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">61</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">4,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">26</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">2,0</td>
+  
+      </tr>
+    
+      <tr class=" ">
+        <td class="dish">Sườn kho chuối chát</td>
+        <td class="total-col">200</td>
+        
+    <td class="site-sl">
+      <span class="sl">50</span>
+    </td>
+    <td class="site-kg">7,0</td>
+  
+    <td class="site-sl">
+      <span class="sl">44</span>
+    </td>
+    <td class="site-kg">6,2</td>
+  
+    <td class="site-sl">
+      <span class="sl">10</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">4,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">32</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">5,3</td>
+  
+    <td class="site-sl">
+      <span class="sl">58</span> <span class="noi noi-yellow">LỚN</span>
+    </td>
+    <td class="site-kg">11,4</td>
+  
+    <td class="site-sl">
+      <span class="sl">6</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,6</td>
+  
+      </tr>
+    
+    </tbody>
+  </table>
+</section>
