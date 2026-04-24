@@ -35,18 +35,28 @@ function splitSlidesFromHtml(html) {
   const wrap = document.createElement('div');
   wrap.innerHTML = html;
 
-  const rootStyles = Array.from(wrap.querySelectorAll(':scope > style'))
+  const styles = Array.from(wrap.querySelectorAll('style'))
     .map((s) => s.outerHTML)
     .join('\n');
 
-  return Array.from(wrap.querySelectorAll('section.slide')).map((slide) => {
+  return Array.from(wrap.querySelectorAll('section.slide, div.slide')).map((slide) => {
     const clone = slide.cloneNode(true);
 
-    if (rootStyles && !clone.querySelector('style')) {
-      clone.insertAdjacentHTML('afterbegin', rootStyles);
+    // nếu ingredient đang là div.slide thì đổi thành section.slide
+    if (clone.tagName.toLowerCase() !== 'section') {
+      const section = document.createElement('section');
+      section.className = clone.className;
+      section.innerHTML = clone.innerHTML;
+      slide = section;
+    } else {
+      slide = clone;
     }
 
-    return clone.outerHTML;
+    if (styles && !slide.querySelector('style')) {
+      slide.insertAdjacentHTML('afterbegin', styles);
+    }
+
+    return slide.outerHTML;
   });
 }
 
@@ -65,8 +75,8 @@ function classifySlide(slideHtml) {
   const wrap = document.createElement('div');
   wrap.innerHTML = slideHtml;
 
-  const slide = wrap.querySelector('section.slide');
-  if (!slide) return 'unknown';
+  const slide = wrap.querySelector('section.slide, div.slide');
+    if (!slide) return 'unknown';
 
   const text = normalizeText(slide.textContent || '');
 

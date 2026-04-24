@@ -40,8 +40,8 @@
       flex: 1;
       min-height: 0;
       display: flex;
-      align-items: center;      /* center dọc */
-      justify-content: center;  /* center ngang nếu cần */
+      align-items: center;
+      justify-content: center;
     }
 
     table.grid {
@@ -82,85 +82,124 @@
     .num { text-align: right; }
     .empty { padding: 28px 10px; }
   </style>
+
   <div class="title-row">
     <div class="title-left">RAU</div>
-    <div class="title-date">23-04-26</div>
+    <div class="title-date">24-04-26</div>
   </div>
 
-  <table class="grid">
-    <thead>
-      <tr>
-        <th class="c1">Tên</th>
-        <th class="c2"></th>
-        <th class="c3">Tổng</th>
-        <th class="c4">Sáng</th>
-        <th class="c5">Trưa</th>
-        <th class="c6">Chiều</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="c1">Bầu</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">15,4</td>
-        <td class="c4 num"></td>
-        <td class="c5 num"></td>
-        <td class="c6 num">15,4</td>
-      </tr>
-    
-      <tr>
-        <td class="c1">Cà Rốt</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">6,6</td>
-        <td class="c4 num"></td>
-        <td class="c5 num"></td>
-        <td class="c6 num">6,6</td>
-      </tr>
-    
-      <tr>
-        <td class="c1">Cải Xoong</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">26,1</td>
-        <td class="c4 num"></td>
-        <td class="c5 num"></td>
-        <td class="c6 num">26,1</td>
-      </tr>
-    
-      <tr>
-        <td class="c1">Cải Ngọt</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">26,2</td>
-        <td class="c4 num"></td>
-        <td class="c5 num">26,2</td>
-        <td class="c6 num"></td>
-      </tr>
-    
-      <tr>
-        <td class="c1">Củ Cải Trắng</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">21,1</td>
-        <td class="c4 num"></td>
-        <td class="c5 num">10,7</td>
-        <td class="c6 num">10,4</td>
-      </tr>
-    
-      <tr>
-        <td class="c1">Khổ Qua</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">6,6</td>
-        <td class="c4 num"></td>
-        <td class="c5 num"></td>
-        <td class="c6 num">6,6</td>
-      </tr>
-    
-      <tr>
-        <td class="c1">Nấm Đông Cô</td>
-        <td class="c2 center">Kg</td>
-        <td class="c3 num">0,6</td>
-        <td class="c4 num"></td>
-        <td class="c5 num"></td>
-        <td class="c6 num">0,6</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th class="c1">Tên</th>
+          <th class="c2"></th>
+          <th class="c3">Tổng</th>
+          <th class="c4">Sáng</th>
+          <th class="c5">Trưa</th>
+          <th class="c6">Chiều</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="c1">Bí Đỏ</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">47,1</td>
+          <td class="c4 num"></td>
+          <td class="c5 num"></td>
+          <td class="c6 num">47,1</td>
+        </tr>
+
+        <tr>
+          <td class="c1">Cà Chua</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">5,8</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">5,8</td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Cà Rốt</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">10,4</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">10,4</td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Củ Cải Trắng</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">23,1</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">12,7</td>
+          <td class="c6 num">10,4</td>
+        </tr>
+
+        <tr>
+          <td class="c1">Đậu Đũa</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">18,3</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">18,3</td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Đu Đủ Xanh</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">39,3</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">39,3</td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Hành Tây</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">19,7</td>
+          <td class="c4 num">6,6</td>
+          <td class="c5 num">6,9</td>
+          <td class="c6 num">6,2</td>
+        </tr>
+
+        <tr>
+          <td class="c1">Khoai Lang Bí</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">30,0</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">30,0</td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Khoai Tây</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">15,4</td>
+          <td class="c4 num"></td>
+          <td class="c5 num">15,4</td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Ngò Rí</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">0,9</td>
+          <td class="c4 num">0,9</td>
+          <td class="c5 num"></td>
+          <td class="c6 num"></td>
+        </tr>
+
+        <tr>
+          <td class="c1">Chuối chát</td>
+          <td class="c2 center">Kg</td>
+          <td class="c3 num">16,4</td>
+          <td class="c4 num"></td>
+          <td class="c5 num"></td>
+          <td class="c6 num">16,4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
