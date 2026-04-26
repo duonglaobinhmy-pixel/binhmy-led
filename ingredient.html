@@ -5,6 +5,8 @@
 <title>Bảng LED Nguyên Liệu</title>
 
 <style>
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   background: #000;
@@ -14,17 +16,30 @@ body {
 
 .slide {
   width: 1366px;
+  height: 768px;
   margin: 0 auto;
-  padding: 18px 20px;
-  box-sizing: border-box;
+  padding: 42px 38px 32px;
+  background: #000;
+  page-break-after: always;
+  overflow: hidden;
 }
 
-/* TITLE */
+.led-box {
+  width: 100%;
+  height: 100%;
+  border: 1.8px solid #d8d8d8;
+  padding: 14px 18px 8px;
+  background: #000;
+}
+
 .title {
   text-align: center;
   color: #00ee88;
   font-size: 48px;
   font-weight: 900;
+  line-height: 1;
+  margin-bottom: 14px;
+  white-space: nowrap;
 }
 
 .date {
@@ -32,52 +47,62 @@ body {
   color: #ff39da;
   font-size: 36px;
   font-weight: 900;
-  margin-bottom: 10px;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-/* GRID */
 .row {
   display: grid;
-  grid-template-columns: 15% 30% 15% 15% 25%;
+  grid-template-columns: 9% 34% 16% 16% 25%;
   align-items: center;
+  min-height: 34px;
 }
 
 .head-left {
   color: #ff39da;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 900;
+  line-height: 1;
 }
 
 .head-red {
-  color: #ff2020;
+  color: #ff2a12;
   font-size: 34px;
   font-weight: 900;
+  line-height: 1;
 }
 
 .head-green {
   color: #00ee88;
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 900;
+  line-height: 1;
   text-align: right;
+  white-space: nowrap;
 }
 
 .name {
-  font-size: 34px;
+  font-size: 33px;
   font-weight: 900;
+  line-height: 1;
+  padding-left: 10px;
+  white-space: nowrap;
 }
 
 .num {
   font-size: 32px;
-  text-align: center;
   font-weight: 900;
+  line-height: 1;
+  text-align: center;
 }
 
 .total {
   text-align: right;
+  padding-right: 8px;
 }
 
 .section {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 </style>
 </head>
@@ -86,184 +111,161 @@ body {
 
 <!-- ================= SÁNG ================= -->
 <div class="slide">
-  <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
-  <div class="date">24-04-26</div>
+  <div class="led-box">
+    <div class="title">BẢNG NGUYÊN LIỆU BỮA SÁNG</div>
+    <div class="date">27-04-26</div>
 
-  <div class="section">
-    <div class="row">
-      <div class="head-left">SÁNG</div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Cháo thịt bằm</div>
+    <div class="section">
+      <div class="row">
+        <div class="head-left">SÁNG</div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Cháo thịt bằm ăn sáng</div>
+      </div>
+      <div class="row"><div></div><div class="name">GẠO</div><div class="num">1.0</div><div class="num">1.5</div><div class="num total">2.5</div></div>
+      <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">0.4</div><div class="num">0.6</div><div class="num total">1.0</div></div>
+      <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0.01</div><div class="num">0.01</div><div class="num total">0.02</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">GẠO</div><div class="num">0,9</div><div class="num">1,5</div><div class="num total">2,4</div></div>
-    <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">0,4</div><div class="num">0,6</div><div class="num total">1,0</div></div>
-    <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0,01</div><div class="num">0,01</div><div class="num total">0,02</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Cháo ống xay</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Cháo (ống xay) ăn sáng</div>
+      </div>
+      <div class="row"><div></div><div class="name">GẠO</div><div class="num">0.9</div><div class="num">0.7</div><div class="num total">1.6</div></div>
+      <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">0.5</div><div class="num">0.4</div><div class="num total">0.9</div></div>
+      <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0.01</div><div class="num">0.01</div><div class="num total">0.02</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">GẠO</div><div class="num">0,8</div><div class="num">0,7</div><div class="num total">1,5</div></div>
-    <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">0,5</div><div class="num">0,4</div><div class="num total">0,9</div></div>
-    <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0,01</div><div class="num">0,01</div><div class="num total">0,02</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Xay sáng</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Xay ăn sáng</div>
+      </div>
+      <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">0.5</div><div class="num">0.8</div><div class="num total">1.3</div></div>
+      <div class="row"><div></div><div class="name">GẠO</div><div class="num">1.0</div><div class="num">1.6</div><div class="num total">2.6</div></div>
+      <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0.01</div><div class="num">0.02</div><div class="num total">0.03</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">0,5</div><div class="num">0,8</div><div class="num total">1,3</div></div>
-    <div class="row"><div></div><div class="name">GẠO</div><div class="num">1,1</div><div class="num">1,6</div><div class="num total">2,7</div></div>
-    <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0,01</div><div class="num">0,02</div><div class="num total">0,03</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Phở bò</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Mì nấu thịt nạc</div>
+      </div>
+      <div class="row"><div></div><div class="name">Thịt nạc đùi</div><div class="num">8.01</div><div class="num">7.28</div><div class="num total">15.29</div></div>
+      <div class="row"><div></div><div class="name">MÌ TRẦN KHÔNG GIA VỊ</div><div class="num">8.01</div><div class="num">7.28</div><div class="num total">15.29</div></div>
+      <div class="row"><div></div><div class="name">Cà rốt</div><div class="num">3.43</div><div class="num">3.12</div><div class="num total">6.55</div></div>
+      <div class="row"><div></div><div class="name">NẤM ĐÔNG CÔ</div><div class="num">0.23</div><div class="num">0.21</div><div class="num total">0.44</div></div>
+      <div class="row"><div></div><div class="name">CỦ SẮN</div><div class="num">3.43</div><div class="num">3.12</div><div class="num total">6.55</div></div>
+      <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0.46</div><div class="num">0.42</div><div class="num total">0.87</div></div>
+      <div class="row"><div></div><div class="name">NGÒ RÍ</div><div class="num">0.46</div><div class="num">0.42</div><div class="num total">0.87</div></div>
     </div>
-
-    <div class="row"><div></div><div class="name">NẠM BÒ TƯƠI</div><div class="num">8,12</div><div class="num">7,39</div><div class="num total">15,51</div></div>
-    <div class="row"><div></div><div class="name">BÁNH PHỞ KHÔ</div><div class="num">8,12</div><div class="num">7,39</div><div class="num total">15,51</div></div>
-    <div class="row"><div></div><div class="name">HÀNH TÂY</div><div class="num">3,48</div><div class="num">3,17</div><div class="num total">6,65</div></div>
-    <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0,46</div><div class="num">0,42</div><div class="num total">0,89</div></div>
-    <div class="row"><div></div><div class="name">NGÒ RÍ</div><div class="num">0,46</div><div class="num">0,42</div><div class="num total">0,89</div></div>
-    <div class="row"><div></div><div class="name">NƯỚC</div><div class="num">69,60</div><div class="num">63,30</div><div class="num total">132,90</div></div>
   </div>
 </div>
 
 <!-- ================= TRƯA ================= -->
 <div class="slide">
-  <div class="title">BẢNG NGUYÊN LIỆU TRƯA</div>
-  <div class="date">24-04-26</div>
+  <div class="led-box">
+    <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+    <div class="date">27-04-26</div>
 
-  <div class="section">
-    <div class="row">
-      <div class="head-left">TRƯA</div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Bò hầm rau củ</div>
+    <div class="section">
+      <div class="row">
+        <div class="head-left">TRƯA</div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Xá xíu</div>
+      </div>
+      <div class="row"><div></div><div class="name">Thịt nạc đùi</div><div class="num">20.7</div><div class="num">19.8</div><div class="num total">40.5</div></div>
+      <div class="row"><div></div><div class="name">HÀNH TÂY</div><div class="num">3.1</div><div class="num">3.0</div><div class="num total">6.1</div></div>
+      <div class="row"><div></div><div class="name">Nước</div><div class="num">4.1</div><div class="num">4.0</div><div class="num total">8.1</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">BÒ</div><div class="num">17,6</div><div class="num">17,1</div><div class="num total">34,7</div></div>
-    <div class="row"><div></div><div class="name">KHOAI TÂY</div><div class="num">7,8</div><div class="num">7,6</div><div class="num total">15,4</div></div>
-    <div class="row"><div></div><div class="name">CÀ RỐT</div><div class="num">2,9</div><div class="num">2,9</div><div class="num total">5,8</div></div>
-    <div class="row"><div></div><div class="name">CÀ CHUA</div><div class="num">2,9</div><div class="num">2,9</div><div class="num total">5,8</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Đậu đũa xào</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Canh chua bạc hà</div>
+      </div>
+      <div class="row"><div></div><div class="name">BẠC HÀ</div><div class="num">5.1</div><div class="num">5.2</div><div class="num total">10.3</div></div>
+      <div class="row"><div></div><div class="name">Giá sống</div><div class="num">2.6</div><div class="num">2.6</div><div class="num total">5.2</div></div>
+      <div class="row"><div></div><div class="name">ĐẬU BẮP</div><div class="num">2.6</div><div class="num">2.6</div><div class="num total">5.2</div></div>
+      <div class="row"><div></div><div class="name">CÀ CHUA</div><div class="num">2.6</div><div class="num">2.6</div><div class="num total">5.2</div></div>
+      <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">1.8</div><div class="num">1.8</div><div class="num total">3.6</div></div>
+      <div class="row"><div></div><div class="name">ME</div><div class="num">1.0</div><div class="num">1.0</div><div class="num total">1.9</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">ĐẬU ĐŨA</div><div class="num">10,1</div><div class="num">8,2</div><div class="num total">18,3</div></div>
-    <div class="row"><div></div><div class="name">CÀ RỐT</div><div class="num">2,5</div><div class="num">2,0</div><div class="num total">4,6</div></div>
-    <div class="row"><div></div><div class="name">HÀNH TÂY</div><div class="num">3,8</div><div class="num">3,1</div><div class="num total">6,9</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Khoai lang hấp</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Cơm trắng</div>
+      </div>
+      <div class="row"><div></div><div class="name">GẠO</div><div class="num">29.4</div><div class="num">31.3</div><div class="num total">60.6</div></div>
     </div>
-
-    <div class="row"><div></div><div class="name">KHOAI LANG BÍ</div><div class="num">15,0</div><div class="num">15,0</div><div class="num total">30,0</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Canh đu đủ</div>
-    </div>
-
-    <div class="row"><div></div><div class="name">ĐU ĐỦ XANH</div><div class="num">19,6</div><div class="num">19,7</div><div class="num total">39,3</div></div>
-    <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">1,8</div><div class="num">1,8</div><div class="num total">3,7</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Cơm trắng</div>
-    </div>
-
-    <div class="row"><div></div><div class="name">GẠO</div><div class="num">29,7</div><div class="num">32,5</div><div class="num total">62,2</div></div>
   </div>
 </div>
 
 <!-- ================= CHIỀU ================= -->
 <div class="slide">
-  <div class="title">BẢNG NGUYÊN LIỆU CHIỀU</div>
-  <div class="date">24-04-26</div>
+  <div class="led-box">
+    <div class="title">BẢNG NGUYÊN LIỆU CHO MÓN CƠM, CANH, XÀO, MẶN</div>
+    <div class="date">27-04-26</div>
 
-  <div class="section">
-    <div class="row">
-      <div class="head-left">CHIỀU</div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Sườn kho chuối chát</div>
+    <div class="section">
+      <div class="row">
+        <div class="head-left">CHIỀU</div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Đậu hũ dồn thịt sốt cà</div>
+      </div>
+      <div class="row"><div></div><div class="name">ĐẬU HŨ CHIÊN</div><div class="num">16.6</div><div class="num">15.8</div><div class="num total">32.3</div></div>
+      <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">5.2</div><div class="num">4.9</div><div class="num total">10.1</div></div>
+      <div class="row"><div></div><div class="name">CÀ CHUA</div><div class="num">2.1</div><div class="num">2.0</div><div class="num total">4.0</div></div>
+      <div class="row"><div></div><div class="name">NẤM MÈO</div><div class="num">0.2</div><div class="num">0.2</div><div class="num total">0.4</div></div>
+      <div class="row"><div></div><div class="name">BÚN TÀU</div><div class="num">0.2</div><div class="num">0.2</div><div class="num total">0.4</div></div>
+      <div class="row"><div></div><div class="name">Nước</div><div class="num">6.2</div><div class="num">5.9</div><div class="num total">12.1</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">SƯỜN</div><div class="num">15,8</div><div class="num">15,0</div><div class="num total">30,8</div></div>
-    <div class="row"><div></div><div class="name">THỊT NẠC</div><div class="num">7,4</div><div class="num">7,0</div><div class="num total">14,4</div></div>
-    <div class="row"><div></div><div class="name">CHUỐI CHÁT</div><div class="num">8,4</div><div class="num">8,0</div><div class="num total">16,4</div></div>
-    <div class="row"><div></div><div class="name">HÀNH TÂY</div><div class="num">3,2</div><div class="num">3,0</div><div class="num total">6,2</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Canh bí đỏ</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Canh bí xanh</div>
+      </div>
+      <div class="row"><div></div><div class="name">BÍ XANH</div><div class="num">20.6</div><div class="num">20.7</div><div class="num total">41.3</div></div>
+      <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">1.8</div><div class="num">1.8</div><div class="num total">3.6</div></div>
+      <div class="row"><div></div><div class="name">HÀNH LÁ</div><div class="num">0.1</div><div class="num">0.1</div><div class="num total">0.3</div></div>
     </div>
 
-    <div class="row"><div></div><div class="name">BÍ ĐỎ</div><div class="num">23,5</div><div class="num">23,6</div><div class="num total">47,1</div></div>
-    <div class="row"><div></div><div class="name">THỊT HEO XAY</div><div class="num">1,8</div><div class="num">1,8</div><div class="num total">3,7</div></div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div></div>
-      <div class="head-red">NGUYÊN LIỆU</div>
-      <div class="head-red">GÒ VẤP</div>
-      <div class="head-red">BÌNH MỸ</div>
-      <div class="head-green">Cơm trắng</div>
+    <div class="section">
+      <div class="row">
+        <div></div>
+        <div class="head-red">NGUYÊN LIỆU</div>
+        <div class="head-red">GÒ VẤP</div>
+        <div class="head-red">BÌNH MỸ</div>
+        <div class="head-green">Cơm trắng</div>
+      </div>
+      <div class="row"><div></div><div class="name">GẠO</div><div class="num">28.8</div><div class="num">30.9</div><div class="num total">59.7</div></div>
     </div>
-
-    <div class="row"><div></div><div class="name">GẠO</div><div class="num">29,2</div><div class="num">32,1</div><div class="num total">61,4</div></div>
   </div>
 </div>
 

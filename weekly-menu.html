@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1366, initial-scale=1" />
+<title>THỰC ĐƠN TUẦN 3</title>
+
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 1366px;
+  height: 768px;
+  background: #000;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.slide-menu {
+  width: 1366px;
+  height: 768px;
+  background: #000;
+  padding: 46px 24px 36px;
+  overflow: hidden;
+}
+
+.menu-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #000;
+  border: 1.6px solid #6d6d6d;
+}
+
+.menu-table th,
+.menu-table td {
+  border: 1.4px solid #5f5f5f;
+  background: #000;
+  vertical-align: middle;
+}
+
+.top-title th {
+  height: 62px;
+  padding: 0 8px;
+  font-size: 31px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.title-left {
+  background: #00e85a !important;
+  color: #ff2b00;
+  text-align: left;
+}
+
+.week-no {
+  background: #00e85a !important;
+  color: #ff2b00;
+  text-align: center;
+}
+
+.title-empty {
+  background: #ffff18 !important;
+  color: #ff39da;
+  text-align: right;
+}
+
+.meal-head {
+  width: 17%;
+  color: #ff2b00;
+  font-size: 31px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.day-head {
+  height: 124px;
+  color: #ff2b00;
+  font-size: 31px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.meal-label {
+  color: #ff2b00;
+  font-size: 31px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.day-cell {
+  padding: 14px 14px;
+  vertical-align: top !important;
+}
+
+.sang-row { height: 68px; }
+.trua-row { height: 282px; }
+.chieu-row { height: 282px; }
+
+.dish {
+  font-size: 29px;
+  font-weight: 900;
+  line-height: 1.22;
+  margin-bottom: 22px;
+  letter-spacing: 0.2px;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.dish:last-child { margin-bottom: 0; }
+
+.white { color: #fff; }
+.main { color: #00ee88; }
+</style>
+</head>
+
+<body>
+<section class="slide-menu">
+  <table class="menu-table">
+    <thead>
+      <tr class="top-title">
+        <th class="title-left" colspan="2">THỰC ĐƠN TUẦN</th>
+        <th class="week-no" colspan="1">3</th>
+        <th class="title-empty" colspan="1">0</th>
+      </tr>
+
+      <tr>
+        <th class="meal-head">BỮA ĂN</th>
+        <th class="day-head">
+          <div>Thứ 2</div>
+          <div>27-04-26</div>
+        </th>
+        <th class="day-head">
+          <div>Thứ 3</div>
+          <div>28-04-26</div>
+        </th>
+        <th class="day-head">
+          <div>Thứ 4</div>
+          <div>29-04-26</div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="sang-row">
+        <td class="meal-label">SÁNG</td>
+        <td class="day-cell"><div class="dish white">Mì nấu thịt nạc</div></td>
+        <td class="day-cell"><div class="dish white">Phở gà</div></td>
+        <td class="day-cell"><div class="dish white">Bún chả cá cà chua</div></td>
+      </tr>
+
+      <tr class="trua-row">
+        <td class="meal-label">TRƯA</td>
+        <td class="day-cell">
+          <div class="dish white">Cơm trắng</div>
+          <div class="dish main">Xá xíu</div>
+          <div class="dish white">Canh chua bạc hà</div>
+        </td>
+        <td class="day-cell">
+          <div class="dish white">Cơm Ngũ sắc</div>
+          <div class="dish main">Cá basa kho</div>
+          <div class="dish white">Canh cải nhúng</div>
+        </td>
+        <td class="day-cell">
+          <div class="dish white">Cơm trắng</div>
+          <div class="dish main">Gà kho củ cải</div>
+          <div class="dish white">Canh cải thảo</div>
+          <div class="dish white">Bầu xào giá</div>
+        </td>
+      </tr>
+
+      <tr class="chieu-row">
+        <td class="meal-label">CHIỀU</td>
+        <td class="day-cell">
+          <div class="dish white">Cơm trắng</div>
+          <div class="dish main">Đậu hũ dồn thịt sốt cà</div>
+          <div class="dish white">Canh bí xanh</div>
+        </td>
+        <td class="day-cell">
+          <div class="dish white">Cơm Ngũ sắc</div>
+          <div class="dish main">Sườn nấu lagu</div>
+          <div class="dish white">Canh su hào</div>
+          <div class="dish white">Bắp cải cà rốt đậu bắp luộc</div>
+        </td>
+        <td class="day-cell">
+          <div class="dish white">Cơm trắng</div>
+          <div class="dish main">Trứng chiên thịt</div>
+          <div class="dish white">Canh đu đủ</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+</body>
+</html>

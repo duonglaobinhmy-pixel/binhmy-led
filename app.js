@@ -135,6 +135,10 @@ function classifySlide(slideHtml) {
 
     if (isXaoMain) return 'xao_trua';
 
+    if (hasAny('THUC DON TUAN', 'BUA AN')) {
+      return 'weekly_menu';
+    }
+
     const isXayLike = hasAny(
       'BANG NGUYEN LIEU CHO MON THUC AN XAY',
       'THUC AN XAY',
@@ -298,7 +302,8 @@ function orderSlides(allSlides) {
     takeFirst('ingredient_chieu_xay'),
     takeFirst('ingredient_chieu_main'),
     takeFirst('menu_chieu_govap'),
-    takeFirst('menu_chieu_binhmy')
+    takeFirst('menu_chieu_binhmy'),
+    takeFirst('weekly_menu')
   ].filter(Boolean);
 
   const leftovers = [];
@@ -845,11 +850,12 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, ingredientHtml, menuHtml, xaoHtml] = await Promise.all([
+    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, weeklyMenuHtml] = await Promise.all([
       fetchText('./rau.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
-      fetchText('./xao.html')
+      fetchText('./xao.html'),
+      fetchText('./weekly-menu.html')
     ]);
 
     injectDeckStyles();
@@ -858,7 +864,8 @@ async function loadDeck() {
       ...splitSlidesFromHtml(rauHtml),
       ...splitSlidesFromHtml(ingredientHtml),
       ...splitSlidesFromHtml(menuHtml),
-      ...splitSlidesFromHtml(xaoHtml)
+      ...splitSlidesFromHtml(xaoHtml),
+      ...splitSlidesFromHtml(weeklyMenuHtml)
     ];
 
     const orderedSlides = orderSlides(allSlides);
