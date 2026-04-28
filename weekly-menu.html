@@ -1,138 +1,113 @@
-<!doctype html>
-<html lang="vi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=1366, initial-scale=1" />
-  <title>THỰC ĐƠN TUẦN 2</title>
 
+<section class="slide slide-menu weekly-menu-slide">
   <style>
-   html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 1366px;
-  height: 768px;
-  background: #000;
-  overflow: hidden;
-  font-family: Arial Black, Arial, Helvetica, sans-serif;
-  color: #fff;
-}
+    .slide-menu {
+      width: 1366px;
+      height: 768px;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial Black, Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
 
-.slide-menu {
-  width: 1366px;
-  height: 768px;
-  background: #000;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+    .weekly-menu-slide .menu-title {
+      width: 100%;
+      height: 74px;
+      background: #00e85a;
+      color: #ff1a00;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 74px;
+      padding-left: 16px;
+      box-sizing: border-box;
+      text-transform: uppercase;
+    }
 
-.menu-title {
-  width: 100%;
-  height: 70px;
-  background: #00e85a;
-  color: #ff1a00;
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 70px;
-  padding-left: 14px;
-  box-sizing: border-box;
-  text-transform: uppercase;
-}
+    .weekly-menu-slide .menu-grid {
+      width: 100%;
+      height: 694px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #505050;
+      border-left: 1px solid #505050;
+      box-sizing: border-box;
+    }
 
-.menu-grid {
-  width: 100%;
-  height: calc(768px - 70px);
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  border-top: 1px solid #505050;
-  border-left: 1px solid #505050;
-  box-sizing: border-box;
-}
+    .weekly-menu-slide .day-col {
+      border-right: 1px solid #505050;
+      display: grid;
+      grid-template-rows: 110px 230px 354px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
 
-.day-col {
-  border-right: 1px solid #505050;
-  display: grid;
-  grid-template-rows: 105px 205px 1fr;
-  min-width: 0;
-  box-sizing: border-box;
-}
+    .weekly-menu-slide .day-head {
+      border-bottom: 1px solid #505050;
+      text-align: center;
+      color: #ff2b00;
+      font-weight: 900;
+      box-sizing: border-box;
+      padding-top: 16px;
+    }
 
-.day-head {
-  border-bottom: 1px solid #505050;
-  text-align: center;
-  color: #ff2b00;
-  font-weight: 900;
-  box-sizing: border-box;
-  padding-top: 14px;
-}
+    .weekly-menu-slide .day-name {
+      font-size: 31px;
+      line-height: 34px;
+      margin-bottom: 18px;
+    }
 
-.day-name {
-  font-size: 24px;
-  line-height: 28px;
-  margin-bottom: 20px;
-}
+    .weekly-menu-slide .day-date {
+      font-size: 29px;
+      line-height: 32px;
+    }
 
-.day-date {
-  font-size: 23px;
-  line-height: 28px;
-}
+    .weekly-menu-slide .meal-block {
+      border-bottom: 1px solid #505050;
+      box-sizing: border-box;
+      padding: 16px 12px 8px;
+      overflow: hidden;
+    }
 
-.meal-block {
-  border-bottom: 1px solid #505050;
-  box-sizing: border-box;
-  padding: 14px 10px 8px;
-  overflow: hidden;
-}
+    .weekly-menu-slide .meal-chieu {
+      border-bottom: none;
+    }
 
-.meal-chieu {
-  border-bottom: none;
-}
+    .weekly-menu-slide .dish {
+      font-size: 28px;
+      line-height: 1.12;
+      font-weight: 900;
+      margin-bottom: 18px;
+      letter-spacing: -0.4px;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
 
-.dish {
-  font-size: 21px;
-  line-height: 1.18;
-  font-weight: 900;
-  margin-bottom: 16px;
-  letter-spacing: -0.3px;
-  word-break: normal;
-  overflow-wrap: break-word;
-}
+    .weekly-menu-slide .dish.main {
+      color: #00ff70;
+    }
 
-.dish.main {
-  color: #00ff70;
-}
-
-.dish.white {
-  color: #ffffff;
-}
+    .weekly-menu-slide .dish.white {
+      color: #ffffff;
+    }
   </style>
-</head>
 
-<body>
-  <section class="slide slide-menu weekly-menu-slide">
-    <div class="menu-title">THỰC ĐƠN TUẦN 2</div>
-    <div class="menu-grid">
-      
+  <div class="menu-title">THỰC ĐƠN TUẦN 2</div>
+  <div class="menu-grid">
+    
     <div class="day-col">
       <div class="day-head">
         <div class="day-name">THỨ 2</div>
         <div class="day-date">27-04-26</div>
       </div>
 
-      <div class="meal-block meal-sang">
-        <div class="dish main">Mì nấu thịt nạc</div>
-      </div>
-
-      <div class="meal-block meal-trua">
-        <div class="dish white">Cơm trắng</div><div class="dish main">Xá xíu</div><div class="dish white">Canh chua bạc hà</div>
-      </div>
-
-      <div class="meal-block meal-chieu">
-        <div class="dish white">Cơm trắng</div><div class="dish white">Canh bí xanh</div>
-      </div>
+      <div class="meal-block meal-sang"><div class="dish main">Mì nấu thịt nạc</div></div>
+      <div class="meal-block meal-trua"><div class="dish white">Cơm trắng</div><div class="dish main">Xá xíu</div><div class="dish white">Canh chua bạc hà</div></div>
+      <div class="meal-block meal-chieu"><div class="dish white">Cơm trắng</div><div class="dish white">Canh bí xanh</div></div>
     </div>
   
     <div class="day-col">
@@ -141,17 +116,9 @@ body {
         <div class="day-date">28-04-26</div>
       </div>
 
-      <div class="meal-block meal-sang">
-        <div class="dish white">Phở gà</div>
-      </div>
-
-      <div class="meal-block meal-trua">
-        <div class="dish white">Cơm Ngũ sắc</div><div class="dish main">Cá basa kho</div><div class="dish white">Canh cải nhúng</div>
-      </div>
-
-      <div class="meal-block meal-chieu">
-        <div class="dish white">Cơm Ngũ sắc</div><div class="dish white">Canh su hào</div><div class="dish main">Bắp cải cà rốt su su luộc</div>
-      </div>
+      <div class="meal-block meal-sang"><div class="dish white">Phở gà</div></div>
+      <div class="meal-block meal-trua"><div class="dish white">Cơm Ngũ sắc</div><div class="dish main">Cá basa kho</div><div class="dish white">Canh cải nhúng</div></div>
+      <div class="meal-block meal-chieu"><div class="dish white">Cơm Ngũ sắc</div><div class="dish white">Canh su hào</div><div class="dish main">Bắp cải cà rốt su su luộc</div></div>
     </div>
   
     <div class="day-col">
@@ -160,17 +127,9 @@ body {
         <div class="day-date">29-04-26</div>
       </div>
 
-      <div class="meal-block meal-sang">
-        <div class="dish main">Bún chả cá cà chua</div>
-      </div>
-
-      <div class="meal-block meal-trua">
-        <div class="dish white">Cơm trắng</div><div class="dish main">Gà kho củ cải</div><div class="dish white">Canh cải thảo</div><div class="dish white">Bầu xào giá</div>
-      </div>
-
-      <div class="meal-block meal-chieu">
-        <div class="dish white">Cơm trắng</div><div class="dish white">Canh đu đủ</div>
-      </div>
+      <div class="meal-block meal-sang"><div class="dish main">Bún chả cá cà chua</div></div>
+      <div class="meal-block meal-trua"><div class="dish white">Cơm trắng</div><div class="dish main">Gà kho củ cải</div><div class="dish white">Canh cải thảo</div><div class="dish white">Bầu xào giá</div></div>
+      <div class="meal-block meal-chieu"><div class="dish white">Cơm trắng</div><div class="dish white">Canh đu đủ</div></div>
     </div>
   
     <div class="day-col">
@@ -179,20 +138,10 @@ body {
         <div class="day-date">30-04-26</div>
       </div>
 
-      <div class="meal-block meal-sang">
-        <div class="dish main">Mì trứng cà chua</div>
-      </div>
-
-      <div class="meal-block meal-trua">
-        <div class="dish white">Cơm trắng</div><div class="dish main">Thịt ba rọi dây kho tàu</div><div class="dish white">Canh chua bạc hà</div>
-      </div>
-
-      <div class="meal-block meal-chieu">
-        <div class="dish white">Cơm trắng</div><div class="dish white">Canh tần ô</div><div class="dish main">Cải thìa, cà rốt, giá xào</div>
-      </div>
+      <div class="meal-block meal-sang"><div class="dish main">Mì trứng cà chua</div></div>
+      <div class="meal-block meal-trua"><div class="dish white">Cơm trắng</div><div class="dish main">Thịt ba rọi dây kho tàu</div><div class="dish white">Canh chua bạc hà</div></div>
+      <div class="meal-block meal-chieu"><div class="dish white">Cơm trắng</div><div class="dish white">Canh tần ô</div><div class="dish main">Cải thìa, cà rốt, giá xào</div></div>
     </div>
   
-    </div>
-  </section>
-</body>
-</html>
+  </div>
+</section>
