@@ -398,24 +398,27 @@ function injectDeckStyles() {
     }
 
     .deck-slide {
-      position: absolute !important;
-      left: 50% !important;
-      top: 50% !important;
-      width: 1366px !important;
-      min-width: 1366px !important;
-      max-width: 1366px !important;
-      height: 768px !important;
-      min-height: 768px !important;
-      max-height: 768px !important;
-      margin: 0 !important;
-      border: 0 !important;
-      background: #000 !important;
-      display: none !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-      transform-origin: center center !important;
-      transform: translate(-50%, -50%) scale(var(--deck-scale)) !important;
-    }
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+
+  width: 1366px !important;
+  height: 768px !important;
+  min-width: 1366px !important;
+  min-height: 768px !important;
+  max-width: 1366px !important;
+  max-height: 768px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: #000 !important;
+  display: none !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+
+  transform-origin: center center !important;
+}
 
     .deck-slide.is-active {
       display: block !important;
