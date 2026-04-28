@@ -9,8 +9,6 @@ function getRunDateVN() {
     new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' })
   );
 
-  now.setDate(now.getDate() + 1);
-
   const dd = String(now.getDate()).padStart(2, '0');
   const mm = String(now.getMonth() + 1).padStart(2, '0');
   const yy = String(now.getFullYear()).slice(-2);
@@ -93,7 +91,19 @@ function classifySlide(slideHtml) {
   const isXeSlide =
     hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
     slide.classList.contains('xe-slide');
-
+    const isWeeklyMenuSlide =
+    hasAny(
+      'THUC DON TUAN',
+      'MON NGON CUOI TUAN',
+      'MÓN NGON CUỐI TUẦN',
+      'WEEKLY MENU'
+    ) ||
+    slide.classList.contains('weekly-menu-slide');
+  
+  if (isWeeklyMenuSlide) {
+    return 'weekly_menu';
+  }
+    
   // 1) RAU
   if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
     return 'rau';
@@ -296,7 +306,8 @@ function orderSlides(allSlides) {
     takeFirst('ingredient_chieu_main'),
     takeFirst('menu_chieu_govap'),
     takeFirst('menu_chieu_binhmy'),
-    takeFirst('xe')
+    takeFirst('xe'),
+takeFirst('weekly_menu')
   ].filter(Boolean);
 
   const leftovers = [];
@@ -922,14 +933,14 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml] = await Promise.all([
+    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml] = await Promise.all([
       fetchText('./rau.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
       fetchText('./xao.html'),
-      fetchText('./xe.html')
+      fetchText('./xe.html'),
+      fetchText('./weekly-menu.html')
     ]);
-
     injectDeckStyles();
 
     const allSlides = [
@@ -937,7 +948,8 @@ async function loadDeck() {
       ...splitSlidesFromHtml(ingredientHtml),
       ...splitSlidesFromHtml(menuHtml),
       ...splitSlidesFromHtml(xaoHtml),
-      ...splitSlidesFromHtml(xeHtml)
+      ...splitSlidesFromHtml(xeHtml),
+...splitSlidesFromHtml(weeklyMenuHtml)
     ];
 
     const orderedSlides = orderSlides(allSlides);
@@ -969,7 +981,8 @@ async function loadDeck() {
         'ingredient_chieu_main',
         'menu_chieu_govap',
         'menu_chieu_binhmy',
-        'xe'
+        'xe',
+        'weekly_menu'
       ]
     });
 
