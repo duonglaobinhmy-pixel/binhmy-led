@@ -731,23 +731,8 @@ function autoTightSlides(slides) {
   slides.forEach((slide) => {
     slide.classList.remove('tight-1', 'tight-2', 'tight-3');
 
-    if (!isMenuSlide(slide)) return;
-    applyActiveSlideStyle(slide);
-
-    let m = measureOverflow(slide);
-    if (!m.hasOverflow) return;
-
-    slide.classList.add('tight-1');
-    m = measureOverflow(slide);
-    if (!m.hasOverflow) return;
-
-    slide.classList.remove('tight-1');
-    slide.classList.add('tight-2');
-    m = measureOverflow(slide);
-    if (!m.hasOverflow) return;
-
-    slide.classList.remove('tight-2');
-    slide.classList.add('tight-3');
+    // Tạm tắt auto co chữ để ưu tiên chữ lớn cho bếp
+    return;
   });
 }
 
