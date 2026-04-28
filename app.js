@@ -33,12 +33,20 @@ function splitSlidesFromHtml(html) {
   const wrap = document.createElement('div');
   wrap.innerHTML = html;
 
-  const rootStyles = Array.from(wrap.querySelectorAll(':scope > style'))
+  const rootStyles = Array.from(wrap.querySelectorAll(':scope > style, style'))
     .map((s) => s.outerHTML)
     .join('\n');
 
-  return Array.from(wrap.querySelectorAll('section.slide')).map((slide) => {
+  return Array.from(
+    wrap.querySelectorAll('section.slide, div.slide, section.slide-menu')
+  ).map((slide) => {
     const clone = slide.cloneNode(true);
+
+    clone.classList.add('slide');
+
+    if (clone.classList.contains('slide-menu')) {
+      clone.classList.add('weekly-menu-slide');
+    }
 
     if (rootStyles && !clone.querySelector('style')) {
       clone.insertAdjacentHTML('afterbegin', rootStyles);
