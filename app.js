@@ -702,9 +702,9 @@ function fillMissingDates(slides) {
 }
 
 function isMenuSlide(slide) {
+  if (slide.classList.contains('weekly-menu-slide')) return false;
   return !!slide.querySelector('table.menu-grid');
 }
-
 function measureOverflow(slide) {
   const prevDisplay = slide.style.display;
   const prevVisibility = slide.style.visibility;
