@@ -91,18 +91,19 @@ function classifySlide(slideHtml) {
   const isXeSlide =
     hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
     slide.classList.contains('xe-slide');
-    const isWeeklyMenuSlide =
-    hasAny(
-      'THUC DON TUAN',
-      'MON NGON CUOI TUAN',
-      'MÓN NGON CUỐI TUẦN',
-      'WEEKLY MENU'
-    ) ||
-    slide.classList.contains('weekly-menu-slide');
   
-  if (isWeeklyMenuSlide) {
-    return 'weekly_menu';
-  }
+  
+    if (
+      hasAny(
+        'THUC DON TUAN',
+        'MON NGON CUOI TUAN',
+        'MÓN NGON CUỐI TUẦN',
+        'WEEKLY MENU'
+      ) ||
+      slide.classList.contains('weekly-menu-slide')
+    ) {
+      return 'weekly_menu';
+    }
     
   // 1) RAU
   if (hasRauGrid && (title === 'RAU' || hasAny('RAU'))) {
@@ -148,27 +149,26 @@ function classifySlide(slideHtml) {
     );
 
     if (isXayLike) {
-      const isTruaXay =
-        (
-          text.includes(normalizeText('TRUA CUM GO VAP + XE GO VAP')) ||
-          (text.includes(normalizeText('TRUA')) && text.includes(normalizeText('XE GO VAP')))
-        ) &&
-        !text.includes(normalizeText('XE BINH MY')) &&
-        !text.includes(normalizeText('XE BM'));
-
       const isChieuXay =
         text.includes(normalizeText('CHIEU')) &&
         (
           text.includes(normalizeText('XE BINH MY')) ||
           text.includes(normalizeText('XE BM')) ||
-          text.includes(normalizeText('BINH MY + XE BINH MY')) ||
-          text.includes(normalizeText('CUM BINH MY + XE BINH MY')) ||
-          text.includes(normalizeText('CUM GO VAP CUM BINH MY + XE BINH MY'))
+          text.includes(normalizeText('CUM BINH MY')) ||
+          text.includes(normalizeText('BINH MY'))
         );
-
-      if (isTruaXay) return 'ingredient_trua_xay';
+    
+      const isTruaXay =
+        text.includes(normalizeText('TRUA')) &&
+        (
+          text.includes(normalizeText('XE GO VAP')) ||
+          text.includes(normalizeText('CUM GO VAP'))
+        ) &&
+        !isChieuXay;
+    
       if (isChieuXay) return 'ingredient_chieu_xay';
-
+      if (isTruaXay) return 'ingredient_trua_xay';
+    
       return 'unknown_slide_xay';
     }
 
@@ -177,6 +177,10 @@ function classifySlide(slideHtml) {
 
   // 4) XE
   if (isXeSlide) {
+    if (hasAny('KHONG CO MON XE DE HIEN THI', 'KHÔNG CÓ MÓN XẾ ĐỂ HIỂN THỊ')) {
+      return 'empty_xe';
+    }
+  
     return 'xe';
   }
 
@@ -307,11 +311,12 @@ function orderSlides(allSlides) {
     takeFirst('menu_chieu_govap'),
     takeFirst('menu_chieu_binhmy'),
     takeFirst('xe'),
-takeFirst('weekly_menu')
+    takeFirst('weekly_menu')
   ].filter(Boolean);
 
   const leftovers = [];
-  for (const [, arr] of buckets.entries()) {
+  for (const [type, arr] of buckets.entries()) {
+    if (type === 'empty_xe') continue;
     for (const item of arr) leftovers.push(item);
   }
 
@@ -949,7 +954,7 @@ async function loadDeck() {
       ...splitSlidesFromHtml(menuHtml),
       ...splitSlidesFromHtml(xaoHtml),
       ...splitSlidesFromHtml(xeHtml),
-...splitSlidesFromHtml(weeklyMenuHtml)
+      ...splitSlidesFromHtml(weeklyMenuHtml)
     ];
 
     const orderedSlides = orderSlides(allSlides);
