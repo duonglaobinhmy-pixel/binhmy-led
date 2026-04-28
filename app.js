@@ -729,6 +729,7 @@ function autoTightSlides(slides) {
     slide.classList.remove('tight-1', 'tight-2', 'tight-3');
 
     if (!isMenuSlide(slide)) return;
+    applyActiveSlideStyle(slide);
 
     let m = measureOverflow(slide);
     if (!m.hasOverflow) return;
@@ -747,9 +748,34 @@ function autoTightSlides(slides) {
   });
 }
 
+
+function extractAndStoreSlideStyles(slides) {
+  slides.forEach((slide, idx) => {
+    const styles = Array.from(slide.querySelectorAll('style'))
+      .map((style) => style.textContent || '')
+      .join('\n');
+
+    slide.dataset.deckStyle = styles;
+    slide.dataset.deckStyleIndex = String(idx);
+    slide.querySelectorAll('style').forEach((style) => style.remove());
+  });
+}
+
+function applyActiveSlideStyle(slide) {
+  let style = document.getElementById('active-slide-style');
+  if (!style) {
+    style = document.createElement('style');
+    style.id = 'active-slide-style';
+    document.head.appendChild(style);
+  }
+
+  style.textContent = slide?.dataset?.deckStyle || '';
+}
+
 function buildDeck() {
   const root = document.getElementById('deck-root');
   const rawSlides = Array.from(root.querySelectorAll('section.slide'));
+  extractAndStoreSlideStyles(rawSlides);
 
   if (!rawSlides.length) {
     throw new Error('Không tìm thấy slide nào trong HTML đã render.');
@@ -785,6 +811,8 @@ function buildDeck() {
   let blackoutOn = false;
 
   function fitSlides() {
+    applyActiveSlideStyle(rawSlides[index]);
+
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     const scale = Math.min(vw / 1366, vh / 768);
@@ -799,6 +827,8 @@ function buildDeck() {
   }
 
   function render() {
+    applyActiveSlideStyle(rawSlides[index]);
+
     rawSlides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === index);
     });
