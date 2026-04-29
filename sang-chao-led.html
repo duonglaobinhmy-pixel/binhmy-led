@@ -1,1 +1,354 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bảng LED Cháo Sáng</title>
 
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .slide {
+    width: 1366px;
+    height: 768px;
+    min-width: 1366px;
+    min-height: 768px;
+    max-width: 1366px;
+    max-height: 768px;
+    background: #000;
+    color: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto 40px;
+    border: 1px solid #d9d9d9;
+  }
+
+  .sc-title {
+    color: #00f078;
+    font-weight: 900;
+    letter-spacing: -1.8px;
+    white-space: nowrap;
+  }
+
+  .sc-date {
+    color: #ff35d8;
+    font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* ================= SLIDE 1 ================= */
+
+  .sang-chao-slide-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sc1-title-row {
+    height: 106px;
+    display: grid;
+    grid-template-columns: 1fr 205px;
+    border-bottom: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    align-items: center;
+  }
+
+  .sc1-title-row .sc-title {
+    font-size: 44px;
+    line-height: 1;
+    padding-left: 7px;
+    padding-top: 8px;
+  }
+
+  .sc1-title-row .sc-date {
+    font-size: 43px;
+    line-height: 1;
+    padding-top: 8px;
+  }
+
+  .sc1-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sc1-panel {
+    position: relative;
+    box-sizing: border-box;
+    padding: 24px 9px 0 9px;
+    border-right: 1px solid #d9d9d9;
+  }
+
+  .sc1-panel:last-child {
+    border-right: 0;
+  }
+
+  .sc1-panel-title {
+    font-size: 61px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 42px 0;
+    letter-spacing: -1.5px;
+    white-space: nowrap;
+  }
+
+  .sc1-head {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    color: #ff2d12;
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 70px;
+    letter-spacing: -1.2px;
+  }
+
+  .sc1-head > div:last-child {
+    text-align: center;
+  }
+
+  .sc1-head span {
+    font-size: 49px;
+  }
+
+  .sc1-row {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    align-items: center;
+    font-size: 62px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1.6px;
+    margin-bottom: 88px;
+  }
+
+  .sc1-row > div:last-child {
+    text-align: center;
+  }
+
+  .sc1-panel:nth-child(2) .sc1-panel-title {
+    font-size: 58px;
+  }
+
+  /* ================= SLIDE 2 ================= */
+
+  .sang-chao-slide-2 {
+    padding: 0;
+  }
+
+  .sc2-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .sc2-table th,
+  .sc2-table td {
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    font-weight: 900;
+    vertical-align: middle;
+  }
+
+  .sc2-title-row {
+    height: 105px;
+  }
+
+  .sc2-title-row .sc-title {
+    font-size: 44px;
+    line-height: 1;
+    text-align: left;
+    padding: 10px 0 0 8px;
+  }
+
+  .sc2-title-row .sc-date {
+    font-size: 43px;
+    line-height: 1;
+    padding-top: 8px;
+  }
+
+  .sc2-head-row {
+    height: 92px;
+  }
+
+  .sc2-head-row th {
+    color: #ff2d12;
+    font-size: 42px;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    letter-spacing: -1px;
+  }
+
+  .sc2-section {
+    height: 93px;
+  }
+
+  .sc2-section td {
+    color: #00f078;
+    font-size: 43px;
+    line-height: 1;
+    text-align: left;
+    padding: 8px 0 0 8px;
+    letter-spacing: -1px;
+  }
+
+  .sc2-data-row {
+    height: 93px;
+  }
+
+  .sc2-data-row td {
+    color: #fff;
+    font-size: 43px;
+    line-height: 1;
+    padding: 0 14px 0 8px;
+    letter-spacing: -1px;
+  }
+
+  .sc2-data-row td:first-child {
+    text-align: left;
+  }
+
+  .sc2-data-row td:not(:first-child) {
+    text-align: right;
+    font-size: 47px;
+    padding-right: 18px;
+  }
+
+  @media screen and (max-width: 1366px) {
+    body {
+      overflow: auto;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<section class="slide sang-chao-slide-1">
+  <div class="sc1-title-row">
+    <div class="sc-title">BẢNG NGUYÊN LIỆU CHÁO TRẮNG, SÚP THỊT HEO</div>
+    <div class="sc-date"></div>
+  </div>
+
+  <div class="sc1-body">
+    <div class="sc1-panel">
+      <div class="sc1-panel-title">Cháo trắng</div>
+      <div class="sc1-head">
+        <div>Nguyên liệu</div>
+        <div>Khối lượng<br><span>( Kg )</span></div>
+      </div>
+      
+        <div class="sc1-row">
+          <div>Gạo</div>
+          <div>10,5</div>
+        </div>
+      
+        <div class="sc1-row">
+          <div>Nước</div>
+          <div>52,5</div>
+        </div>
+      
+    </div>
+
+    <div class="sc1-panel">
+      <div class="sc1-panel-title">Súp thịt heo xay nấu cháo</div>
+      <div class="sc1-head">
+        <div>Nguyên liệu</div>
+        <div>Khối lượng<br><span>( Kg )</span></div>
+      </div>
+      
+        <div class="sc1-row">
+          <div>Thịt heo xay</div>
+          <div>6,9</div>
+        </div>
+      
+        <div class="sc1-row">
+          <div>Nước</div>
+          <div>21,0</div>
+        </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="slide sang-chao-slide-2">
+  <table class="sc2-table">
+    <colgroup>
+      <col style="width:36%">
+      <col style="width:19%">
+      <col style="width:25%">
+      <col style="width:20%">
+    </colgroup>
+
+    <thead>
+      <tr class="sc2-title-row">
+        <th colspan="3" class="sc-title">BẢNG NGUYÊN LIỆU CHÁO XAY, ỐNG ĂN SÁNG</th>
+        <th class="sc-date"></th>
+      </tr>
+      <tr class="sc2-head-row">
+        <th></th>
+        <th>Cụm Gò Vấp</th>
+        <th>Cụm Bình Mỹ</th>
+        <th>Tổng</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+        <tr class="sc2-section">
+          <td colspan="4">Cháo (ống xay) ăn sáng</td>
+        </tr>
+        
+          <tr class="sc2-data-row">
+            <td>Cháo thịt bằm</td>
+            <td>11,0</td>
+            <td>9,2</td>
+            <td>20,2</td>
+          </tr>
+        
+          <tr class="sc2-data-row">
+            <td>Nước sôi đã nêm gia vị</td>
+            <td>6,0</td>
+            <td>5,0</td>
+            <td>11,0</td>
+          </tr>
+        
+      
+        <tr class="sc2-section">
+          <td colspan="4">Xay ăn sáng</td>
+        </tr>
+        
+          <tr class="sc2-data-row">
+            <td>Cháo thịt bằm</td>
+            <td>12,4</td>
+            <td>19,8</td>
+            <td>32,2</td>
+          </tr>
+        
+          <tr class="sc2-data-row">
+            <td>Cơm</td>
+            <td>2,0</td>
+            <td>3,2</td>
+            <td>5,2</td>
+          </tr>
+        
+      
+    </tbody>
+  </table>
+</section>
+</body>
+</html>
