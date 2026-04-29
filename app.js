@@ -994,7 +994,7 @@ async function loadDeck() {
         'rau',
         'ingredient_sang',
         'sang_chao_loi',
-'sang_chao_xay_ong',
+        'sang_chao_xay_ong',
         'menu_sang_govap',
         'menu_sang_binhmy',
         'xao_trua',
