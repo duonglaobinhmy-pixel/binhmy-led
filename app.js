@@ -99,6 +99,13 @@ function classifySlide(slideHtml) {
   const isXeSlide =
     hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
     slide.classList.contains('xe-slide');
+    if (slide.classList.contains('sang-chao-slide-1')) {
+      return 'sang_chao_loi';
+    }
+  
+    if (slide.classList.contains('sang-chao-slide-2')) {
+      return 'sang_chao_xay_ong';
+    }
   
   
     if (
@@ -307,6 +314,8 @@ function orderSlides(allSlides) {
   const ordered = [
     takeFirst('rau'),
     takeFirst('ingredient_sang'),
+    takeFirst('sang_chao_loi'),
+    takeFirst('sang_chao_xay_ong'),
     takeFirst('menu_sang_govap'),
     takeFirst('menu_sang_binhmy'),
     takeFirst('xao_trua'),
@@ -321,7 +330,6 @@ function orderSlides(allSlides) {
     takeFirst('xe'),
     takeFirst('weekly_menu')
   ].filter(Boolean);
-
   const leftovers = [];
   for (const [type, arr] of buckets.entries()) {
     if (type === 'empty_xe') continue;
@@ -946,18 +954,20 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml] = await Promise.all([
+    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml, sangChaoHtml] = await Promise.all([
       fetchText('./rau.html'),
+      fetchText('./sang-chao-led.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
       fetchText('./xao.html'),
       fetchText('./xe.html'),
-      fetchText('./weekly-menu.html')
+      fetchText('./weekly-menu.html'),
     ]);
     injectDeckStyles();
 
     const allSlides = [
       ...splitSlidesFromHtml(rauHtml),
+      ...splitSlidesFromHtml(sangChaoHtml),
       ...splitSlidesFromHtml(ingredientHtml),
       ...splitSlidesFromHtml(menuHtml),
       ...splitSlidesFromHtml(xaoHtml),
@@ -983,6 +993,8 @@ async function loadDeck() {
       requiredOrder: [
         'rau',
         'ingredient_sang',
+        'sang_chao_loi',
+'sang_chao_xay_ong',
         'menu_sang_govap',
         'menu_sang_binhmy',
         'xao_trua',
