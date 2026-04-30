@@ -954,7 +954,7 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml, sangChaoHtml] = await Promise.all([
+    const [rauHtml, sangChaoHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml] = await Promise.all([
       fetchText('./rau.html'),
       fetchText('./sang-chao-led.html'),
       fetchText('./ingredient.html'),
