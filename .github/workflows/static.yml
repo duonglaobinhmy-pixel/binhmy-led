@@ -1,10 +1,8 @@
-# Deploy GitHub Pages auto theo branch fix-led
 name: Deploy static content to Pages
 
 on:
   push:
-    branches:
-      - fix-led
+    branches: ["fix-led"]
   workflow_dispatch:
 
 permissions:
