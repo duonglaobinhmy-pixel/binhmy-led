@@ -99,10 +99,14 @@ function classifySlide(slideHtml) {
   const isXeSlide =
     hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
     slide.classList.contains('xe-slide');
+    if (slide.classList.contains('sang-main-dish')) {
+      return 'sang_main_dish';
+    }
+    
     if (slide.classList.contains('sang-chao-slide-1')) {
       return 'sang_chao_loi';
     }
-  
+    
     if (slide.classList.contains('sang-chao-slide-2')) {
       return 'sang_chao_xay_ong';
     }
@@ -313,9 +317,10 @@ function orderSlides(allSlides) {
 
   const ordered = [
     takeFirst('rau'),
-    takeFirst('ingredient_sang'),
     takeFirst('sang_chao_loi'),
     takeFirst('sang_chao_xay_ong'),
+    takeFirst('sang_main_dish'),
+    takeFirst('ingredient_sang'),
     takeFirst('menu_sang_govap'),
     takeFirst('menu_sang_binhmy'),
     takeFirst('xao_trua'),
@@ -330,6 +335,7 @@ function orderSlides(allSlides) {
     takeFirst('xe'),
     takeFirst('weekly_menu')
   ].filter(Boolean);
+
   const leftovers = [];
   for (const [type, arr] of buckets.entries()) {
     if (type === 'empty_xe') continue;
@@ -993,6 +999,7 @@ async function loadDeck() {
       requiredOrder: [
         'rau',
         'ingredient_sang',
+        'sang_main_dish',
         'sang_chao_loi',
         'sang_chao_xay_ong',
         'menu_sang_govap',
