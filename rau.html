@@ -1,96 +1,114 @@
 <section class="slide">
-  <style>
-    .slide {
-  width: 1366px;
-  height: 768px;
-  min-height: 768px;
-  margin: 0;
-  padding: 8px 12px;
+<style>
+.slide {
+  width: 1366px !important;
+  height: 768px !important;
+  margin: 0 !important;
+  padding: 0 !important;
   background: #000;
   box-sizing: border-box;
   color: #fff;
   overflow: hidden;
-
   font-family: Arial Black, Arial, Helvetica, sans-serif;
   font-weight: 900;
-
-  display: flex;
-  flex-direction: column;
 }
 
-    .title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 12px;
-      flex: 0 0 auto;
-    }
+.title-row {
+  height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
 
-    .title-left {
-      color: #ff3131;
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: 0.3px;
-    }
+.title-left {
+  color: #ff3131;
+  font-size: 42px;
+  font-weight: 900;
+}
 
-    .title-date {
-      color: #ff4dd8;
-      font-size: 28px;
-      font-weight: 900;
-    }
+.title-date {
+  color: #ff4dd8;
+  font-size: 27px;
+  font-weight: 900;
+}
 
-    .table-wrap {
-      flex: 1;
-      min-height: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.table-wrap {
+  height: 694px;
+  width: 100%;
+  overflow: hidden;
+}
 
-    table.grid {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-      background: #000;
-      border: 2px solid #cfcfcf;
-    }
+table.grid {
+  width: calc(100% + 4px);
+  margin-left: -2px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #000;
+  border: 2px solid #cfcfcf;
+}
 
-    table.grid th,
-    table.grid td {
-      border: 2px solid #cfcfcf;
-      padding: 10px 12px;
-      vertical-align: middle;
-      background: #000;
-      line-height: 1.02;
-    }
+table.grid th,
+table.grid td {
+  border: 1.5px solid #cfcfcf;
+  background: #000;
+  vertical-align: middle;
+  padding: 2px 12px;
+  box-sizing: border-box;
+  overflow: visible;
+  text-overflow: clip;
+}
 
-    thead th {
-      color: #ff3131;
-      font-size: 28px;
-      font-weight: 900;
-      text-align: center;
-    }
+thead th {
+  color: #ff3131;
+  font-size: 27px;
+  height: 42px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+}
 
-    tbody td {
-      color: #ffffff;
-      font-size: 24px;
-      font-weight: 800;
-    }
+tbody tr {
+  height: 41px;
+}
 
-    .c1 { width: 46%; text-align: left; }
-    .c2 { width: 8%; }
-    .c3, .c4, .c5, .c6 { width: 11.5%; }
+tbody td {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: .95;
+}
 
-    .center { text-align: center; }
-    .num { text-align: right; }
-    .empty {
-      padding: 28px 10px;
-      font-size: 24px;
-      font-weight: 900;
-      color: #ffffff;
-    }
-  </style>
+.c1 {
+  width: 46%;
+  text-align: left;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
 
+.c2 {
+  width: 8%;
+  white-space: nowrap;
+}
+
+.c3, .c4, .c5, .c6 {
+  width: 11.5%;
+  white-space: nowrap;
+}
+
+.center { text-align: center; }
+.num { text-align: right; }
+
+.empty {
+  padding: 20px 10px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+}
+</style>
   <div class="title-row">
     <div class="title-left">RAU</div>
     <div class="title-date">2026-05-01</div>
