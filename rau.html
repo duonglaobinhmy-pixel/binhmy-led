@@ -1,114 +1,96 @@
 <section class="slide">
-<style>
-.slide {
-  width: 1366px !important;
-  height: 768px !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  <style>
+    .slide {
+  width: 1366px;
+  height: 768px;
+  min-height: 768px;
+  margin: 0;
+  padding: 8px 12px;
   background: #000;
   box-sizing: border-box;
   color: #fff;
   overflow: hidden;
+
   font-family: Arial Black, Arial, Helvetica, sans-serif;
   font-weight: 900;
-}
 
-.title-row {
-  height: 74px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4px;
-  box-sizing: border-box;
+  flex-direction: column;
 }
 
-.title-left {
-  color: #ff3131;
-  font-size: 42px;
-  font-weight: 900;
-}
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 12px;
+      flex: 0 0 auto;
+    }
 
-.title-date {
-  color: #ff4dd8;
-  font-size: 27px;
-  font-weight: 900;
-}
+    .title-left {
+      color: #ff3131;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+    }
 
-.table-wrap {
-  height: 694px;
-  width: 100%;
-  overflow: hidden;
-}
+    .title-date {
+      color: #ff4dd8;
+      font-size: 28px;
+      font-weight: 900;
+    }
 
-table.grid {
-  width: calc(100% + 4px);
-  margin-left: -2px;
-  border-collapse: collapse;
-  table-layout: fixed;
-  background: #000;
-  border: 2px solid #cfcfcf;
-}
+    .table-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-table.grid th,
-table.grid td {
-  border: 1.5px solid #cfcfcf;
-  background: #000;
-  vertical-align: middle;
-  padding: 2px 12px;
-  box-sizing: border-box;
-  overflow: visible;
-  text-overflow: clip;
-}
+    table.grid {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #000;
+      border: 2px solid #cfcfcf;
+    }
 
-thead th {
-  color: #ff3131;
-  font-size: 27px;
-  height: 42px;
-  font-weight: 900;
-  text-align: center;
-  line-height: 1;
-  white-space: nowrap;
-}
+    table.grid th,
+    table.grid td {
+      border: 2px solid #cfcfcf;
+      padding: 10px 12px;
+      vertical-align: middle;
+      background: #000;
+      line-height: 1.02;
+    }
 
-tbody tr {
-  height: 41px;
-}
+    thead th {
+      color: #ff3131;
+      font-size: 28px;
+      font-weight: 900;
+      text-align: center;
+    }
 
-tbody td {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: .95;
-}
+    tbody td {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+    }
 
-.c1 {
-  width: 46%;
-  text-align: left;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: break-word;
-}
+    .c1 { width: 46%; text-align: left; }
+    .c2 { width: 8%; }
+    .c3, .c4, .c5, .c6 { width: 11.5%; }
 
-.c2 {
-  width: 8%;
-  white-space: nowrap;
-}
+    .center { text-align: center; }
+    .num { text-align: right; }
+    .empty {
+      padding: 28px 10px;
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+    }
+  </style>
 
-.c3, .c4, .c5, .c6 {
-  width: 11.5%;
-  white-space: nowrap;
-}
-
-.center { text-align: center; }
-.num { text-align: right; }
-
-.empty {
-  padding: 20px 10px;
-  font-size: 24px;
-  font-weight: 900;
-  color: #ffffff;
-}
-</style>
   <div class="title-row">
     <div class="title-left">RAU</div>
     <div class="title-date">2026-05-01</div>
@@ -149,28 +131,28 @@ tbody td {
       <tr>
         <td class="c1">CÀ CHUA</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">19,67</td>
+        <td class="c3 num">18,76</td>
         <td class="c4 num"></td>
-        <td class="c5 num">19,67</td>
+        <td class="c5 num">18,76</td>
         <td class="c6 num"></td>
       </tr>
     
       <tr>
         <td class="c1">Cà rốt</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">22,25</td>
+        <td class="c3 num">21,79</td>
         <td class="c4 num"></td>
-        <td class="c5 num">10,15</td>
-        <td class="c6 num">12,1</td>
+        <td class="c5 num">9,97</td>
+        <td class="c6 num">11,82</td>
       </tr>
     
       <tr>
         <td class="c1">CẢI THÌA</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">19,69</td>
+        <td class="c3 num">18,75</td>
         <td class="c4 num"></td>
         <td class="c5 num"></td>
-        <td class="c6 num">19,69</td>
+        <td class="c6 num">18,75</td>
       </tr>
     
       <tr>
@@ -194,8 +176,8 @@ tbody td {
       <tr>
         <td class="c1">HÀNH LÁ</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">0,9</td>
-        <td class="c4 num">0,88</td>
+        <td class="c3 num">0,86</td>
+        <td class="c4 num">0,85</td>
         <td class="c5 num">0,01</td>
         <td class="c6 num">0,01</td>
       </tr>
@@ -203,8 +185,8 @@ tbody td {
       <tr>
         <td class="c1">HÀNH TÂY</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">6,08</td>
-        <td class="c4 num">6,08</td>
+        <td class="c3 num">5,79</td>
+        <td class="c4 num">5,79</td>
         <td class="c5 num"></td>
         <td class="c6 num"></td>
       </tr>
@@ -212,10 +194,10 @@ tbody td {
       <tr>
         <td class="c1">KHOAI MỠ</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">39,34</td>
+        <td class="c3 num">37,52</td>
         <td class="c4 num"></td>
         <td class="c5 num"></td>
-        <td class="c6 num">39,34</td>
+        <td class="c6 num">37,52</td>
       </tr>
     
       <tr>
@@ -230,17 +212,17 @@ tbody td {
       <tr>
         <td class="c1">NẤM MÈO</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">0,4</td>
+        <td class="c3 num">0,38</td>
         <td class="c4 num"></td>
-        <td class="c5 num">0,4</td>
+        <td class="c5 num">0,38</td>
         <td class="c6 num"></td>
       </tr>
     
       <tr>
         <td class="c1">NGÒ RÍ</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">0,81</td>
-        <td class="c4 num">0,81</td>
+        <td class="c3 num">0,77</td>
+        <td class="c4 num">0,77</td>
         <td class="c5 num"></td>
         <td class="c6 num"></td>
       </tr>
@@ -248,18 +230,18 @@ tbody td {
       <tr>
         <td class="c1">SẢ XAY</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">1,58</td>
+        <td class="c3 num">1,51</td>
         <td class="c4 num"></td>
-        <td class="c5 num">1,58</td>
+        <td class="c5 num">1,51</td>
         <td class="c6 num"></td>
       </tr>
     
       <tr>
         <td class="c1">SU SU</td>
         <td class="c2 center">Kg</td>
-        <td class="c3 num">23,75</td>
+        <td class="c3 num">22,62</td>
         <td class="c4 num"></td>
-        <td class="c5 num">23,75</td>
+        <td class="c5 num">22,62</td>
         <td class="c6 num"></td>
       </tr>
     
