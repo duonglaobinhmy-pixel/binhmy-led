@@ -1,191 +1,263 @@
-<section class="slide">
-  
+<section class="slide density-loose" style="--row-count:7;">
+
   <style>
- .slide {
+.slide {
   width: 1366px;
   height: 768px;
-  min-height: 768px;
   margin: 0;
-  padding: 8px 12px;
+  padding: 0;
   background: #000;
   box-sizing: border-box;
   color: #fff;
   overflow: hidden;
-
   font-family: Arial Black, Arial, Helvetica, sans-serif;
   font-weight: 900;
 
-  display: flex;
-  flex-direction: column;
+  --title-h: 54px;
+  --date-h: 48px;
+  --site-h: 34px;
+  --sub-h: 30px;
 }
 
-  .menu-title {
-    text-align: center;
-    font-size: 42px;
-    font-weight: 900;
-    color: #00f5a0;
-    margin: 0 0 10px;
-    text-transform: uppercase;
-    line-height: 1.05;
-    letter-spacing: 0.2px;
-  }
-
-  table.menu-grid {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    background: #000;
-  }
-
-  table.menu-grid th,
-  table.menu-grid td {
-    border: 2px solid rgba(255,255,255,.68);
-    background: #000;
-    vertical-align: middle;
-    padding: 10px 7px;
-  }
-
-  .date-head {
-    color: #ff38e6;
-    font-size: 34px;
-    font-weight: 900;
-    text-align: left;
-    height: 58px;
-    padding-left: 14px;
-  }
-
-  .meal-head {
-    color: #ff38e6;
-    font-size: 32px;
-    font-weight: 900;
-    text-align: right;
-    padding-right: 14px;
-  }
-
-  .menu-head {
-    width: 220px;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 900;
-    text-align: center;
-    line-height: 1.05;
-  }
-
-  .total-head {
-    width: 130px;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 900;
-    text-align: center;
-    line-height: 1.05;
-  }
-
-  .site-head {
-    text-align: center;
-    color: #ff2d2d;
-    font-size: 16px;
-    font-weight: 900;
-    line-height: 1.05;
-    white-space: nowrap;
-    text-transform: uppercase;
-    padding: 8px 4px;
-  }
-
-  .site-sub-head {
-    color: #fff;
-    font-size: 11px;
-    font-weight: 800;
-    text-align: center;
-    white-space: nowrap;
-    padding: 6px 3px;
-  }
-
-  .dish {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.08;
-    word-break: break-word;
-    text-align: left;
-    padding-left: 10px;
-  }
-
-  .dish-child {
-    padding-left: 34px !important;
-    font-size: 17px;
-    font-weight: 900;
-    color: #f2f2f2;
-  }
-
-  .total-col {
-    color: #ff2d2d;
-    font-size: 20px;
-    font-weight: 900;
-    text-align: center;
-  }
-
-  .total-col-child {
-    color: transparent !important;
-  }
-
-  .site-sl,
-  .site-kg {
-    min-height: 46px;
-    font-size: 17px;
-    font-weight: 900;
-    text-align: center;
-    white-space: nowrap;
-    line-height: 1.15;
-  }
-
-  .site-sl { color: #ffd633; }
-  .site-kg { color: #fff; }
-
-  .sl {
-    color: #ffd633;
-    margin-right: 4px;
-    font-size: 19px;
-    font-weight: 900;
-  }
-
-  .noi {
-    font-weight: 900;
-    font-size: 15px;
-    text-transform: uppercase;
-  }
-
-  .noi-green { color: #00f5b8; }
-  .noi-yellow { color: #ffd633; }
-  .noi-red { color: #ff3b3b; }
-
-  .child-row td {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-  }
-
-.child-row .child-sl {
-  color: #ffd633 !important;
+.menu-title {
+  height: var(--title-h);
+  line-height: var(--title-h);
+  text-align: center;
+  font-size: 42px;
+  color: #00f5a0;
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.child-row .child-sl .noi {
-  font-size: 15px;
+table.menu-grid {
+  width: 100%;
+  height: calc(768px - var(--title-h));
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #000;
 }
 
-  .child-row .child-kg {
-    color: #fff !important;
-    font-weight: 900;
-  }
+table.menu-grid th,
+table.menu-grid td {
+  border: 2px solid rgba(255,255,255,.72);
+  background: #000;
+  vertical-align: middle;
+  padding: 1px 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-  .summary-row .dish,
-  .summary-row .total-col,
-  .summary-row .site-sl {
-    color: #ff2d2d !important;
-    font-weight: 900;
-  }
+.date-head {
+  color: #ff38e6;
+  font-size: 32px;
+  text-align: left;
+  height: var(--date-h);
+}
 
-  .summary-row .site-kg {
-    color: transparent !important;
-  }
+.meal-head {
+  color: #ff38e6;
+  font-size: 32px;
+  text-align: right;
+  height: var(--date-h);
+}
+
+.menu-head {
+  width: 134px;
+  font-size: 22px;
+  line-height: .95;
+}
+
+.total-head {
+  width: 100px;
+  font-size: 22px;
+  line-height: .95;
+}
+
+.site-head {
+  color: #ff2d2d;
+  font-size: 16px;
+  white-space: nowrap;
+  height: var(--site-h);
+}
+
+.site-sub-head {
+  font-size: 10px;
+  height: var(--sub-h);
+}
+
+tbody tr {
+  height: calc(
+    (768px - var(--title-h) - var(--date-h) - var(--site-h) - var(--sub-h))
+    / var(--row-count)
+  );
+}
+
+.dish {
+  font-size: 20px;
+  line-height: .92;
+  padding-left: 6px;
+}
+
+.total-col {
+  color: #ff2d2d;
+  font-size: 25px;
+  text-align: center;
+}
+
+.site-sl,
+.site-kg {
+  font-size: 19px;
+  text-align: center;
+  white-space: nowrap;
+  line-height: .95;
+}
+
+.sl {
+  font-size: 23px;
+  color: #ffd633;
+  margin-right: 4px;
+}
+
+.noi {
+  font-size: 16px;
+}
+
+.noi-green { color: #00f5b8; }
+.noi-yellow { color: #ffd633; }
+.noi-red { color: #ff3b3b; }
+
+.summary-row .dish,
+.summary-row .total-col,
+.summary-row .site-sl {
+  color: #ff2d2d !important;
+}
+
+.summary-row .site-kg {
+  color: transparent !important;
+}
+
+/* ÍT DÒNG */
+.slide.density-loose {
+  --title-h: 62px;
+  --date-h: 58px;
+  --site-h: 42px;
+  --sub-h: 34px;
+}
+
+.slide.density-loose .menu-title {
+  font-size: 48px;
+}
+
+.slide.density-loose .dish {
+  font-size: 24px;
+}
+
+.slide.density-loose .total-col {
+  font-size: 30px;
+}
+
+.slide.density-loose .site-sl,
+.slide.density-loose .site-kg {
+  font-size: 23px;
+}
+
+.slide.density-loose .sl {
+  font-size: 29px;
+}
+
+/* VỪA */
+.slide.density-normal {
+  --title-h: 56px;
+  --date-h: 50px;
+  --site-h: 36px;
+  --sub-h: 30px;
+}
+
+/* NHIỀU */
+.slide.density-tight {
+  --title-h: 48px;
+  --date-h: 42px;
+  --site-h: 30px;
+  --sub-h: 24px;
+}
+
+.slide.density-tight .menu-title {
+  font-size: 38px;
+}
+
+.slide.density-tight .dish {
+  font-size: 17px;
+}
+
+.slide.density-tight .total-col {
+  font-size: 21px;
+}
+
+.slide.density-tight .site-sl,
+.slide.density-tight .site-kg {
+  font-size: 16px;
+}
+
+.slide.density-tight .sl {
+  font-size: 19px;
+}
+
+.slide.density-tight .noi {
+  font-size: 14px;
+}
+
+/* QUÁ NHIỀU */
+.slide.density-ultra {
+  --title-h: 42px;
+  --date-h: 36px;
+  --site-h: 26px;
+  --sub-h: 20px;
+}
+
+.slide.density-ultra .menu-title {
+  font-size: 34px;
+}
+
+.slide.density-ultra .date-head,
+.slide.density-ultra .meal-head {
+  font-size: 26px;
+}
+
+.slide.density-ultra .menu-head,
+.slide.density-ultra .total-head {
+  font-size: 18px;
+}
+
+.slide.density-ultra .site-head {
+  font-size: 13px;
+}
+
+.slide.density-ultra .site-sub-head {
+  font-size: 8px;
+}
+
+.slide.density-ultra .dish {
+  font-size: 14px;
+  line-height: .88;
+}
+
+.slide.density-ultra .total-col {
+  font-size: 18px;
+}
+
+.slide.density-ultra .site-sl,
+.slide.density-ultra .site-kg {
+  font-size: 13px;
+}
+
+.slide.density-ultra .sl {
+  font-size: 16px;
+}
+
+.slide.density-ultra .noi {
+  font-size: 11px;
+}
   </style>
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM GÒ VẤP</div>
@@ -229,27 +301,27 @@
       
       <tr class=" ">
         <td class="dish">Mì nấu thịt nạc</td>
-        <td class="total-col">210</td>
+        <td class="total-col">209</td>
         
     <td class="site-sl">
-      <span class="sl">19</span> <span class="noi noi-green">NHỠ</span>
+      <span class="sl">21</span> <span class="noi noi-green">NHỠ</span>
     </td>
-    <td class="site-kg">7,9</td>
+    <td class="site-kg">8,5</td>
   
     <td class="site-sl">
-      <span class="sl">116</span> <span class="noi noi-yellow">2 LỚN</span>
+      <span class="sl">105</span> <span class="noi noi-yellow">2 LỚN</span>
     </td>
-    <td class="site-kg">39,4</td>
+    <td class="site-kg">36,1</td>
   
     <td class="site-sl">
-      <span class="sl">33</span> <span class="noi noi-green">NHỠ</span>
+      <span class="sl">35</span> <span class="noi noi-green">NHỠ</span>
     </td>
-    <td class="site-kg">11,7</td>
+    <td class="site-kg">12,3</td>
   
     <td class="site-sl">
-      <span class="sl">42</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">48</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">14,9</td>
+    <td class="site-kg">16,7</td>
   
       </tr>
     
@@ -265,7 +337,7 @@
     <td class="site-sl child-sl">
       
     </td>
-    <td class="site-kg child-kg">4,1</td>
+    <td class="site-kg child-kg">3,7</td>
   
     <td class="site-sl child-sl">
       
@@ -275,7 +347,7 @@
     <td class="site-sl child-sl">
       
     </td>
-    <td class="site-kg child-kg">1,5</td>
+    <td class="site-kg child-kg">1,7</td>
   
       </tr>
     
@@ -290,12 +362,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">20</span>
+      <span class="sl">20</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">13,0</td>
   
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,3</td>
   
@@ -306,7 +378,7 @@
         <td class="total-col">17</td>
         
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,3</td>
   
@@ -319,7 +391,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">5</span>
+      <span class="sl">5</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">3,3</td>
   
@@ -330,12 +402,12 @@
         <td class="total-col">20</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -359,7 +431,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">3</span>
+      <span class="sl">3</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,4</td>
   
@@ -367,7 +439,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,2</td>
   
@@ -375,25 +447,25 @@
     
       <tr class=" summary-row">
         <td class="dish">Tổng số cụ</td>
-        <td class="total-col">274</td>
+        <td class="total-col">273</td>
         
     <td class="site-sl">
-      <span class="sl">22</span>
+      <span class="sl">24</span>
     </td>
     <td class="site-kg"></td>
   
     <td class="site-sl">
-      <span class="sl">130</span>
+      <span class="sl">119</span>
     </td>
     <td class="site-kg"></td>
   
     <td class="site-sl">
-      <span class="sl">65</span>
+      <span class="sl">67</span>
     </td>
     <td class="site-kg"></td>
   
     <td class="site-sl">
-      <span class="sl">57</span>
+      <span class="sl">63</span>
     </td>
     <td class="site-kg"></td>
   
@@ -404,8 +476,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-tight" style="--row-count:11;">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
 
@@ -474,103 +546,79 @@
     
       <tr class=" ">
         <td class="dish">Chả cá vân trứng</td>
-        <td class="total-col">225</td>
+        <td class="total-col">202</td>
         
     <td class="site-sl">
-      <span class="sl">24</span> <span class="noi noi-green">NHỎ</span>
+      <span class="sl">21</span> <span class="noi noi-green">NHỎ</span>
     </td>
-    <td class="site-kg">4,5</td>
+    <td class="site-kg">4,1</td>
   
     <td class="site-sl">
-      <span class="sl">123</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">111</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">18,3</td>
+    <td class="site-kg">16,7</td>
   
     <td class="site-sl">
-      <span class="sl">28</span> <span class="noi noi-green">DNHỎ</span>
+      <span class="sl">25</span> <span class="noi noi-green">DNHỎ</span>
     </td>
-    <td class="site-kg">5,2</td>
+    <td class="site-kg">4,8</td>
   
     <td class="site-sl">
-      <span class="sl">50</span> <span class="noi noi-green">DNHỎ</span>
+      <span class="sl">45</span> <span class="noi noi-green">DNHỎ</span>
     </td>
-    <td class="site-kg">8,1</td>
-  
-      </tr>
-    
-      <tr class=" ">
-        <td class="dish">Chả mỡ rim</td>
-        <td class="total-col">18</td>
-        
-    <td class="site-sl">
-      <span class="sl">3</span>
-    </td>
-    <td class="site-kg">0,4</td>
-  
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
-    <td class="site-sl">
-      <span class="sl">4</span>
-    </td>
-    <td class="site-kg">0,6</td>
-  
-    <td class="site-sl">
-      <span class="sl">11</span>
-    </td>
-    <td class="site-kg">1,5</td>
+    <td class="site-kg">7,5</td>
   
       </tr>
     
       <tr class=" ">
         <td class="dish">Bắp cải xào đậu bắp cà rốt</td>
-        <td class="total-col">225</td>
+        <td class="total-col">202</td>
         
     <td class="site-sl">
-      <span class="sl">24</span>
+      <span class="sl">21</span> <span class="noi noi-green">BỊCH</span>
     </td>
-    <td class="site-kg">1,4</td>
+    <td class="site-kg">1,3</td>
   
     <td class="site-sl">
-      <span class="sl">123</span>
+      <span class="sl">111</span> <span class="noi noi-green">BỊCH</span>
     </td>
-    <td class="site-kg">7,4</td>
+    <td class="site-kg">6,7</td>
   
     <td class="site-sl">
-      <span class="sl">28</span>
+      <span class="sl">25</span> <span class="noi noi-green">BỊCH</span>
     </td>
-    <td class="site-kg">1,7</td>
+    <td class="site-kg">1,5</td>
   
     <td class="site-sl">
-      <span class="sl">50</span>
+      <span class="sl">45</span> <span class="noi noi-green">BỊCH</span>
     </td>
-    <td class="site-kg">3,0</td>
+    <td class="site-kg">2,7</td>
   
       </tr>
     
       <tr class=" ">
         <td class="dish">Canh đu đủ</td>
-        <td class="total-col">269</td>
+        <td class="total-col">242</td>
         
     <td class="site-sl">
-      <span class="sl">27</span> <span class="noi noi-green">DNHỎ</span>
+      <span class="sl">24</span> <span class="noi noi-green">DNHỎ</span>
     </td>
-    <td class="site-kg">9,7</td>
+    <td class="site-kg">8,8</td>
   
     <td class="site-sl">
-      <span class="sl">125</span> <span class="noi noi-green">ĐẠI</span>
+      <span class="sl">113</span> <span class="noi noi-green">ĐẠI</span>
     </td>
-    <td class="site-kg">41,3</td>
+    <td class="site-kg">37,7</td>
   
     <td class="site-sl">
-      <span class="sl">46</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">41</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">16,1</td>
+    <td class="site-kg">14,6</td>
   
     <td class="site-sl">
-      <span class="sl">71</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">64</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">23,6</td>
+    <td class="site-kg">21,5</td>
   
       </tr>
     
@@ -601,7 +649,7 @@
         <td class="total-col">8</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -609,7 +657,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">7</span>
+      <span class="sl">7</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,0</td>
   
@@ -626,7 +674,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">3</span>
+      <span class="sl">3</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,4</td>
   
@@ -634,7 +682,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,2</td>
   
@@ -645,7 +693,7 @@
         <td class="total-col">9</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -658,7 +706,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">5</span>
+      <span class="sl">5</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">3,3</td>
   
@@ -680,41 +728,15 @@
     <td class="site-kg">16,6</td>
   
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,3</td>
   
       </tr>
     
       <tr class=" ">
-        <td class="dish">sữa chua</td>
-        <td class="total-col">273</td>
-        
-    <td class="site-sl">
-      <span class="sl">24</span>
-    </td>
-    <td class="site-kg">0,0</td>
-  
-    <td class="site-sl">
-      <span class="sl">119</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">67</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">63</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-      </tr>
-    
-      <tr class=" ">
         <td class="dish">Ống ăn xế rau xanh</td>
-        <td class="total-col">16</td>
+        <td class="total-col">22</td>
         
       <td class="site-sl"></td>
       <td class="site-kg"></td>
@@ -723,12 +745,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">14</span>
+      <span class="sl">20</span> <span class="noi noi-green">BỊCH</span>
     </td>
-    <td class="site-kg">6,3</td>
+    <td class="site-kg">9,0</td>
   
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,9</td>
   
@@ -765,8 +787,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-normal" style="--row-count:8;">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
 
@@ -835,77 +857,53 @@
     
       <tr class=" ">
         <td class="dish">Đậu hũ sốt thịt cà chua</td>
-        <td class="total-col">225</td>
+        <td class="total-col">202</td>
         
     <td class="site-sl">
-      <span class="sl">24</span> <span class="noi noi-green">NHỎ</span>
+      <span class="sl">21</span> <span class="noi noi-green">NHỎ</span>
     </td>
-    <td class="site-kg">4,5</td>
+    <td class="site-kg">4,1</td>
   
     <td class="site-sl">
-      <span class="sl">123</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">111</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">18,3</td>
+    <td class="site-kg">16,7</td>
   
     <td class="site-sl">
-      <span class="sl">28</span> <span class="noi noi-green">DNHỎ</span>
+      <span class="sl">25</span> <span class="noi noi-green">DNHỎ</span>
     </td>
-    <td class="site-kg">5,2</td>
+    <td class="site-kg">4,8</td>
   
     <td class="site-sl">
-      <span class="sl">50</span> <span class="noi noi-green">DNHỎ</span>
+      <span class="sl">45</span> <span class="noi noi-green">DNHỎ</span>
     </td>
-    <td class="site-kg">8,1</td>
-  
-      </tr>
-    
-      <tr class=" ">
-        <td class="dish">Chả mỡ rim</td>
-        <td class="total-col">19</td>
-        
-    <td class="site-sl">
-      <span class="sl">4</span>
-    </td>
-    <td class="site-kg">0,6</td>
-  
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
-    <td class="site-sl">
-      <span class="sl">4</span>
-    </td>
-    <td class="site-kg">0,6</td>
-  
-    <td class="site-sl">
-      <span class="sl">11</span>
-    </td>
-    <td class="site-kg">1,5</td>
+    <td class="site-kg">7,5</td>
   
       </tr>
     
       <tr class=" ">
         <td class="dish">Canh su hào</td>
-        <td class="total-col">270</td>
+        <td class="total-col">243</td>
         
     <td class="site-sl">
-      <span class="sl">28</span> <span class="noi noi-green">DNHỎ</span>
+      <span class="sl">25</span> <span class="noi noi-green">DNHỎ</span>
     </td>
-    <td class="site-kg">9,9</td>
+    <td class="site-kg">9,0</td>
   
     <td class="site-sl">
-      <span class="sl">125</span> <span class="noi noi-green">ĐẠI</span>
+      <span class="sl">113</span> <span class="noi noi-green">ĐẠI</span>
     </td>
-    <td class="site-kg">41,3</td>
+    <td class="site-kg">37,7</td>
   
     <td class="site-sl">
-      <span class="sl">46</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">41</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">16,1</td>
+    <td class="site-kg">14,6</td>
   
     <td class="site-sl">
-      <span class="sl">71</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">64</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">23,6</td>
+    <td class="site-kg">21,5</td>
   
       </tr>
     
@@ -936,7 +934,7 @@
         <td class="total-col">8</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -944,7 +942,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">7</span>
+      <span class="sl">7</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,0</td>
   
@@ -961,7 +959,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">3</span>
+      <span class="sl">3</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,4</td>
   
@@ -969,7 +967,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,2</td>
   
@@ -980,7 +978,7 @@
         <td class="total-col">9</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -993,7 +991,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">5</span>
+      <span class="sl">5</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">3,3</td>
   
@@ -1015,35 +1013,9 @@
     <td class="site-kg">14,8</td>
   
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,3</td>
-  
-      </tr>
-    
-      <tr class=" ">
-        <td class="dish">Chuối cau</td>
-        <td class="total-col">273</td>
-        
-    <td class="site-sl">
-      <span class="sl">24</span>
-    </td>
-    <td class="site-kg">0,0</td>
-  
-    <td class="site-sl">
-      <span class="sl">119</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">67</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">63</span>
-    </td>
-    <td class="site-kg">0,1</td>
   
       </tr>
     
@@ -1052,8 +1024,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-loose" style="--row-count:7;">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
 
@@ -1106,22 +1078,22 @@
       
       <tr class=" ">
         <td class="dish">Mì nấu thịt nạc</td>
-        <td class="total-col">201</td>
+        <td class="total-col">218</td>
         
     <td class="site-sl">
-      <span class="sl">44</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">47</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">16,5</td>
+    <td class="site-kg">17,4</td>
   
     <td class="site-sl">
-      <span class="sl">31</span> <span class="noi noi-green">NHỎ</span>
+      <span class="sl">32</span> <span class="noi noi-green">NHỎ</span>
     </td>
-    <td class="site-kg">11,9</td>
+    <td class="site-kg">12,2</td>
   
     <td class="site-sl">
-      <span class="sl">16</span> <span class="noi noi-green">NHỎ</span>
+      <span class="sl">20</span> <span class="noi noi-green">NHỎ</span>
     </td>
-    <td class="site-kg">7,4</td>
+    <td class="site-kg">8,6</td>
   
     <td class="site-sl">
       <span class="sl">32</span> <span class="noi noi-red">XÔ</span>
@@ -1129,14 +1101,14 @@
     <td class="site-kg">10,4</td>
   
     <td class="site-sl">
-      <span class="sl">53</span> <span class="noi noi-yellow">LỚN</span>
+      <span class="sl">56</span> <span class="noi noi-yellow">LỚN</span>
     </td>
-    <td class="site-kg">19,2</td>
+    <td class="site-kg">20,1</td>
   
     <td class="site-sl">
-      <span class="sl">19</span> <span class="noi noi-red">XÔ</span>
+      <span class="sl">24</span> <span class="noi noi-red">XÔ</span>
     </td>
-    <td class="site-kg">6,5</td>
+    <td class="site-kg">8,0</td>
   
       </tr>
     
@@ -1147,32 +1119,32 @@
     <td class="site-sl child-sl">
       
     </td>
-    <td class="site-kg child-kg">1,5</td>
+    <td class="site-kg child-kg">1,6</td>
   
     <td class="site-sl child-sl">
       
     </td>
     <td class="site-kg child-kg">1,1</td>
-  
-    <td class="site-sl child-sl">
-      
-    </td>
-    <td class="site-kg child-kg">0,6</td>
-  
-    <td class="site-sl child-sl">
-      
-    </td>
-    <td class="site-kg child-kg">1,1</td>
-  
-    <td class="site-sl child-sl">
-      
-    </td>
-    <td class="site-kg child-kg">1,9</td>
   
     <td class="site-sl child-sl">
       
     </td>
     <td class="site-kg child-kg">0,7</td>
+  
+    <td class="site-sl child-sl">
+      
+    </td>
+    <td class="site-kg child-kg">1,1</td>
+  
+    <td class="site-sl child-sl">
+      
+    </td>
+    <td class="site-kg child-kg">2,0</td>
+  
+    <td class="site-sl child-sl">
+      
+    </td>
+    <td class="site-kg child-kg">0,8</td>
   
       </tr>
     
@@ -1211,7 +1183,7 @@
         <td class="total-col">25</td>
         
     <td class="site-sl">
-      <span class="sl">6</span>
+      <span class="sl">6</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">3,9</td>
   
@@ -1280,12 +1252,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">4</span>
+      <span class="sl">4</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,5</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -1293,7 +1265,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -1304,20 +1276,20 @@
     
       <tr class=" summary-row">
         <td class="dish">Tổng số cụ</td>
-        <td class="total-col">277</td>
+        <td class="total-col">293</td>
         
+    <td class="site-sl">
+      <span class="sl">53</span>
+    </td>
+    <td class="site-kg"></td>
+  
     <td class="site-sl">
       <span class="sl">50</span>
     </td>
     <td class="site-kg"></td>
   
     <td class="site-sl">
-      <span class="sl">49</span>
-    </td>
-    <td class="site-kg"></td>
-  
-    <td class="site-sl">
-      <span class="sl">41</span>
+      <span class="sl">45</span>
     </td>
     <td class="site-kg"></td>
   
@@ -1327,12 +1299,12 @@
     <td class="site-kg"></td>
   
     <td class="site-sl">
-      <span class="sl">58</span>
+      <span class="sl">61</span>
     </td>
     <td class="site-kg"></td>
   
     <td class="site-sl">
-      <span class="sl">41</span>
+      <span class="sl">46</span>
     </td>
     <td class="site-kg"></td>
   
@@ -1343,8 +1315,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-tight" style="--row-count:11;">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
 
@@ -1468,68 +1440,36 @@
       </tr>
     
       <tr class=" ">
-        <td class="dish">Chả mỡ rim</td>
-        <td class="total-col">11</td>
-        
-    <td class="site-sl">
-      <span class="sl">5</span>
-    </td>
-    <td class="site-kg">0,7</td>
-  
-    <td class="site-sl">
-      <span class="sl">1</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
-    <td class="site-sl">
-      <span class="sl">3</span>
-    </td>
-    <td class="site-kg">0,4</td>
-  
-    <td class="site-sl">
-      <span class="sl">1</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-      </tr>
-    
-      <tr class=" ">
         <td class="dish">Bắp cải xào đậu bắp cà rốt</td>
         <td class="total-col">208</td>
         
     <td class="site-sl">
-      <span class="sl">50</span>
+      <span class="sl">50</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">3,0</td>
   
     <td class="site-sl">
-      <span class="sl">44</span>
+      <span class="sl">44</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">2,6</td>
   
     <td class="site-sl">
-      <span class="sl">10</span>
+      <span class="sl">10</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,6</td>
   
     <td class="site-sl">
-      <span class="sl">32</span>
+      <span class="sl">32</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,9</td>
   
     <td class="site-sl">
-      <span class="sl">57</span>
+      <span class="sl">57</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">3,4</td>
   
     <td class="site-sl">
-      <span class="sl">8</span>
+      <span class="sl">8</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,5</td>
   
@@ -1614,7 +1554,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">7</span>
+      <span class="sl">7</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,0</td>
   
@@ -1622,12 +1562,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,3</td>
   
     <td class="site-sl">
-      <span class="sl">12</span>
+      <span class="sl">12</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,7</td>
   
@@ -1641,12 +1581,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">4</span>
+      <span class="sl">4</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,5</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -1654,7 +1594,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -1668,12 +1608,12 @@
         <td class="total-col">5</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,3</td>
   
@@ -1683,7 +1623,7 @@
     <td class="site-kg">1,4</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -1711,7 +1651,7 @@
     <td class="site-kg">2,1</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -1726,44 +1666,8 @@
       </tr>
     
       <tr class=" ">
-        <td class="dish">sữa chua</td>
-        <td class="total-col">302</td>
-        
-    <td class="site-sl">
-      <span class="sl">53</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">50</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">45</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">38</span>
-    </td>
-    <td class="site-kg">0,0</td>
-  
-    <td class="site-sl">
-      <span class="sl">61</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">46</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-      </tr>
-    
-      <tr class=" ">
         <td class="dish">Ống ăn xế rau xanh</td>
-        <td class="total-col">32</td>
+        <td class="total-col">21</td>
         
       <td class="site-sl"></td>
       <td class="site-kg"></td>
@@ -1772,20 +1676,22 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">13</span> <span class="noi noi-red">XÔ</span>
+      <span class="sl">2</span> <span class="noi noi-red">XÔ</span>
     </td>
-    <td class="site-kg">6,7</td>
+    <td class="site-kg">1,7</td>
+  
+    <td class="site-sl">
+      <span class="sl">1</span> <span class="noi noi-red">XÔ</span>
+    </td>
+    <td class="site-kg">1,3</td>
   
       <td class="site-sl"></td>
       <td class="site-kg"></td>
     
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
     <td class="site-sl">
-      <span class="sl">17</span> <span class="noi noi-red">XÔ</span>
+      <span class="sl">16</span> <span class="noi noi-red">XÔ</span>
     </td>
-    <td class="site-kg">8,4</td>
+    <td class="site-kg">8,0</td>
   
       </tr>
     
@@ -1830,8 +1736,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-normal" style="--row-count:8;">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
 
@@ -1955,38 +1861,6 @@
       </tr>
     
       <tr class=" ">
-        <td class="dish">Chả mỡ rim</td>
-        <td class="total-col">11</td>
-        
-    <td class="site-sl">
-      <span class="sl">5</span>
-    </td>
-    <td class="site-kg">0,7</td>
-  
-    <td class="site-sl">
-      <span class="sl">1</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
-      <td class="site-sl"></td>
-      <td class="site-kg"></td>
-    
-    <td class="site-sl">
-      <span class="sl">3</span>
-    </td>
-    <td class="site-kg">0,4</td>
-  
-    <td class="site-sl">
-      <span class="sl">1</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-      </tr>
-    
-      <tr class=" ">
         <td class="dish">Canh su hào</td>
         <td class="total-col">258</td>
         
@@ -2065,7 +1939,7 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">7</span>
+      <span class="sl">7</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,0</td>
   
@@ -2073,12 +1947,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,3</td>
   
     <td class="site-sl">
-      <span class="sl">11</span>
+      <span class="sl">11</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,5</td>
   
@@ -2092,12 +1966,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">4</span>
+      <span class="sl">4</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,5</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -2105,12 +1979,12 @@
       <td class="site-kg"></td>
     
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,1</td>
   
@@ -2121,12 +1995,12 @@
         <td class="total-col">5</td>
         
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
     <td class="site-sl">
-      <span class="sl">2</span>
+      <span class="sl">2</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">1,3</td>
   
@@ -2136,7 +2010,7 @@
     <td class="site-kg">1,4</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -2164,7 +2038,7 @@
     <td class="site-kg">2,1</td>
   
     <td class="site-sl">
-      <span class="sl">1</span>
+      <span class="sl">1</span> <span class="noi noi-green">BỊCH</span>
     </td>
     <td class="site-kg">0,7</td>
   
@@ -2175,42 +2049,6 @@
       <span class="sl">16</span> <span class="noi noi-yellow">LỚN</span>
     </td>
     <td class="site-kg">13,7</td>
-  
-      </tr>
-    
-      <tr class=" ">
-        <td class="dish">Chuối cau</td>
-        <td class="total-col">302</td>
-        
-    <td class="site-sl">
-      <span class="sl">53</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">50</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">45</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">38</span>
-    </td>
-    <td class="site-kg">0,0</td>
-  
-    <td class="site-sl">
-      <span class="sl">61</span>
-    </td>
-    <td class="site-kg">0,1</td>
-  
-    <td class="site-sl">
-      <span class="sl">46</span>
-    </td>
-    <td class="site-kg">0,1</td>
   
       </tr>
     
