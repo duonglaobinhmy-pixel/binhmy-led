@@ -1,158 +1,110 @@
-<section class="slide">
-  
+<section class="slide density-loose">
+
   <style>
- .slide {
+.slide {
   width: 1366px;
   height: 768px;
-  min-height: 768px;
   margin: 0;
-  padding: 8px 12px;
+  padding: 4px 4px;
   background: #000;
   box-sizing: border-box;
   color: #fff;
   overflow: hidden;
-
   font-family: Arial Black, Arial, Helvetica, sans-serif;
   font-weight: 900;
-
   display: flex;
   flex-direction: column;
 }
 
-  .menu-title {
-    text-align: center;
-    font-size: 42px;
-    font-weight: 900;
-    color: #00f5a0;
-    margin: 0 0 10px;
-    text-transform: uppercase;
-    line-height: 1.05;
-    letter-spacing: 0.2px;
-  }
+.menu-title {
+  text-align: center;
+  font-size: 46px;
+  color: #00f5a0;
+  margin: 0 0 6px;
+  line-height: .95;
+  text-transform: uppercase;
+}
 
-  table.menu-grid {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    background: #000;
-  }
+table.menu-grid {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #000;
+}
 
-  table.menu-grid th,
-  table.menu-grid td {
-    border: 2px solid rgba(255,255,255,.68);
-    background: #000;
-    vertical-align: middle;
-    padding: 10px 7px;
-  }
+table.menu-grid th,
+table.menu-grid td {
+  border: 2px solid rgba(255,255,255,.72);
+  background: #000;
+  vertical-align: middle;
+  padding: 6px 5px;
+}
 
-  .date-head {
-    color: #ff38e6;
-    font-size: 34px;
-    font-weight: 900;
-    text-align: left;
-    height: 58px;
-    padding-left: 14px;
-  }
+.date-head {
+  color: #ff38e6;
+  font-size: 36px;
+  text-align: left;
+  height: 52px;
+}
 
-  .meal-head {
-    color: #ff38e6;
-    font-size: 32px;
-    font-weight: 900;
-    text-align: right;
-    padding-right: 14px;
-  }
+.meal-head {
+  color: #ff38e6;
+  font-size: 36px;
+  text-align: right;
+}
 
-  .menu-head {
-    width: 220px;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 900;
-    text-align: center;
-    line-height: 1.05;
-  }
+.menu-head {
+  width: 138px;
+  font-size: 23px;
+  line-height: 1.02;
+}
 
-  .total-head {
-    width: 130px;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 900;
-    text-align: center;
-    line-height: 1.05;
-  }
+.total-head {
+  width: 100px;
+  font-size: 23px;
+  line-height: 1.02;
+}
 
-  .site-head {
-    text-align: center;
-    color: #ff2d2d;
-    font-size: 16px;
-    font-weight: 900;
-    line-height: 1.05;
-    white-space: nowrap;
-    text-transform: uppercase;
-    padding: 8px 4px;
-  }
+.site-head {
+  color: #ff2d2d;
+  font-size: 18px;
+  white-space: nowrap;
+}
 
-  .site-sub-head {
-    color: #fff;
-    font-size: 11px;
-    font-weight: 800;
-    text-align: center;
-    white-space: nowrap;
-    padding: 6px 3px;
-  }
+.site-sub-head {
+  font-size: 12px;
+}
 
-  .dish {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.08;
-    word-break: break-word;
-    text-align: left;
-    padding-left: 10px;
-  }
+.dish {
+  font-size: 22px;
+  line-height: 1.02;
+  padding-left: 6px;
+}
 
-  .dish-child {
-    padding-left: 34px !important;
-    font-size: 17px;
-    font-weight: 900;
-    color: #f2f2f2;
-  }
+.total-col {
+  color: #ff2d2d;
+  font-size: 25px;
+  text-align: center;
+}
 
-  .total-col {
-    color: #ff2d2d;
-    font-size: 20px;
-    font-weight: 900;
-    text-align: center;
-  }
+.site-sl,
+.site-kg {
+  font-size: 21px;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.05;
+}
 
-  .total-col-child {
-    color: transparent !important;
-  }
+.sl {
+  font-size: 25px;
+  color: #ffd633;
+  margin-right: 4px;
+}
 
-  .site-sl,
-  .site-kg {
-    min-height: 46px;
-    font-size: 17px;
-    font-weight: 900;
-    text-align: center;
-    white-space: nowrap;
-    line-height: 1.15;
-  }
-
-  .site-sl { color: #ffd633; }
-  .site-kg { color: #fff; }
-
-  .sl {
-    color: #ffd633;
-    margin-right: 4px;
-    font-size: 19px;
-    font-weight: 900;
-  }
-
-  .noi {
-    font-weight: 900;
-    font-size: 15px;
-    text-transform: uppercase;
-  }
+.noi {
+  font-size: 18px;
+}
 
   .noi-green { color: #00f5b8; }
   .noi-yellow { color: #ffd633; }
@@ -404,8 +356,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-tight">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
 
@@ -765,8 +717,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-normal">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
 
@@ -1052,8 +1004,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-loose">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
 
@@ -1343,8 +1295,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-tight">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
 
@@ -1830,8 +1782,8 @@
 </section>
   
 
-<section class="slide">
-  
+<section class="slide density-normal">
+
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
 
