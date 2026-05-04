@@ -291,34 +291,35 @@
     padding: 0;
   }
 
-  .sdk-data-row {
-    height: 70px;
+    .sdk-data-row {
+    height: 130px;
   }
 
   .sdk-data-row td {
     color: #fff;
-    font-size: 28px;
-    line-height: 1;
+    font-size: 31px;
+    line-height: 1.05;
     padding: 4px 6px;
-    letter-spacing: -0.7px;
-  }
-
-  .sdk-data-row td:nth-child(1),
-  .sdk-data-row td:nth-child(3) {
-    text-align: left;
-  }
-
-  .sdk-data-row td:not(:nth-child(1)):not(:nth-child(3)) {
+    letter-spacing: -0.8px;
     text-align: center;
   }
 
-  .sdk-data-row td:nth-child(2),
-  .sdk-data-row td:nth-child(5),
-  .sdk-data-row td:nth-child(6),
-  .sdk-data-row td:nth-child(7),
-  .sdk-data-row td:nth-child(8) {
-    color: #ffe928;
+  .sdk-data-row td:first-child {
+    text-align: left;
+    color: #fff;
+    font-size: 34px;
+  }
+
+  .sdk-data-row td:nth-child(2) {
+    color: #fff;
     font-size: 31px;
+  }
+
+  .sdk-data-row span {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ffe928;
+    font-size: 34px;
   }
 
   @media screen and (max-width: 1366px) {
@@ -524,52 +525,84 @@
 <section class="slide sang-do-kho-slide">
   <table class="sdk-table">
     <colgroup>
-      <col style="width:18%">
-      <col style="width:10%">
-      <col style="width:18%">
+      <col style="width:23%">
       <col style="width:8%">
-      <col style="width:11.5%">
-      <col style="width:11.5%">
-      <col style="width:11.5%">
-      <col style="width:11.5%">
+      <col style="width:14%">
+      <col style="width:14%">
+      <col style="width:14%">
+      <col style="width:14%">
+      <col style="width:13%">
     </colgroup>
 
     <thead>
       <tr class="sdk-title-row">
-        <th colspan="7" class="sc-title">BẢNG NGUYÊN LIỆU KHÔ BỮA SÁNG CỤM GÒ VẤP</th>
+        <th colspan="6" class="sc-title">BẢNG NGUYÊN LIỆU KHÔ BỮA SÁNG CỤM GÒ VẤP</th>
         <th class="sc-date">2026-05-04</th>
       </tr>
 
       <tr class="sdk-head-1">
-        <th rowspan="2">THỰC<br>ĐƠN</th>
-        <th rowspan="2">TỔNG SỐ<br>PHẦN</th>
         <th rowspan="2">ĐỒ KHÔ</th>
         <th rowspan="2">ĐỊNH<br>MỨC</th>
         <th>THẠNH LỘC</th>
         <th>GOLD - DQH</th>
         <th>TRUNG XUÂN THU - NT</th>
         <th>CARE - AH</th>
+        <th>TỔNG</th>
       </tr>
 
       <tr class="sdk-head-2">
-        <th>KL (kg)</th>
-        <th>KL (kg)</th>
-        <th>KL (kg)</th>
-        <th>KL (kg)</th>
+        <th>SL × KL</th>
+        <th>SL × KL</th>
+        <th>SL × KL</th>
+        <th>SL × KL</th>
+        <th>SL × KL</th>
       </tr>
     </thead>
 
     <tbody>
       
         <tr class="sdk-data-row">
-          <td>Mì nấu thịt nạc</td>
-          <td>210</td>
+          <td>BÁNH PHỞ KHÔ</td>
+          <td>35g</td>
+
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      
+        <tr class="sdk-data-row">
+          <td>NUI ỐNG NHỎ</td>
+          <td>40g</td>
+
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      
+        <tr class="sdk-data-row">
           <td>MÌ TRẦN KHÔNG GIA VỊ</td>
           <td>35g</td>
-          <td>0,7</td>
-          <td>4,1</td>
-          <td>1,2</td>
-          <td>1,5</td>
+
+          <td>19 × 35g<br><span>0,7 kg</span></td>
+          <td>116 × 35g<br><span>4,1 kg</span></td>
+          <td>33 × 35g<br><span>1,2 kg</span></td>
+          <td>42 × 35g<br><span>1,5 kg</span></td>
+          <td>210 × 35g<br><span>7,4 kg</span></td>
+        </tr>
+      
+        <tr class="sdk-data-row">
+          <td>BÚN KHÔ</td>
+          <td>35g</td>
+
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       
     </tbody>
