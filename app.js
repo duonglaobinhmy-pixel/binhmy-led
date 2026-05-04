@@ -773,7 +773,7 @@ function buildDeck() {
   rawSlides.forEach((slide) => slide.classList.add('deck-slide'));
 
   fillMissingDates(rawSlides);
-  autoTightSlides(rawSlides);
+  // autoTightSlides(rawSlides);
 
   const stage = document.createElement('div');
   stage.className = 'deck-stage';
@@ -877,12 +877,12 @@ function buildDeck() {
   }
 
   window.addEventListener('resize', () => {
-    autoTightSlides(rawSlides);
+    // autoTightSlides(rawSlides);
     render();
   }, { passive: true });
 
   document.addEventListener('fullscreenchange', () => {
-    autoTightSlides(rawSlides);
+    // autoTightSlides(rawSlides);
     render();
   });
 
