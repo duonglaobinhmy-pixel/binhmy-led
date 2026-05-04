@@ -99,6 +99,10 @@ function classifySlide(slideHtml) {
   const isXeSlide =
     hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
     slide.classList.contains('xe-slide');
+    if (slide.classList.contains('sang-do-kho-slide')) {
+      return 'sang_do_kho_gv';
+    }
+
     if (slide.classList.contains('sang-main-dish')) {
       return 'sang_main_dish';
     }
@@ -320,6 +324,7 @@ const ordered = [
   takeFirst('sang_chao_loi'),
   takeFirst('sang_chao_xay_ong'),
   takeFirst('sang_main_dish'),
+  takeFirst('sang_do_kho_gv'),
   takeFirst('menu_sang_govap'),
   takeFirst('menu_sang_binhmy'),
   takeFirst('xao_trua'),
@@ -1002,6 +1007,7 @@ async function loadDeck() {
         'sang_main_dish',
         'sang_chao_loi',
         'sang_chao_xay_ong',
+        'sang_do_kho_gv',
         'menu_sang_govap',
         'menu_sang_binhmy',
         'xao_trua',
