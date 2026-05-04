@@ -405,28 +405,23 @@ function injectDeckStyles() {
       background: #000;
     }
 
-    .deck-stage {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      background: #000;
-    }
-
+.deck-stage {
+  position: absolute;
+  inset: 0 0 44px 0;
+  overflow: hidden;
+  background: #000;
+}
     section.slide {
       margin: 0 !important;
     }
 
-    .deck-slide {
+ .deck-slide {
   position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
+  left: 0 !important;
+  top: 0 !important;
 
   width: 1366px !important;
-  height: 768px !important;
   min-width: 1366px !important;
-  min-height: 768px !important;
-  max-width: 1366px !important;
-  max-height: 768px !important;
 
   margin: 0 !important;
   padding: 0 !important;
@@ -434,29 +429,30 @@ function injectDeckStyles() {
   background: #000 !important;
   display: none !important;
   box-sizing: border-box !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 
-  transform-origin: center center !important;
+  transform-origin: top left !important;
 }
 
     .deck-slide.is-active {
       display: block !important;
     }
 
-    .deck-ui {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      z-index: 20;
-      pointer-events: none;
-      color: var(--ui-fg);
-      font: 700 16px/1.2 Arial, Helvetica, sans-serif;
-    }
+.deck-ui {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 20;
+  pointer-events: none;
+  color: var(--ui-fg);
+  font: 700 16px/1.2 Arial, Helvetica, sans-serif;
+}
 
     .deck-badge,
     .deck-help {
@@ -475,19 +471,19 @@ function injectDeckStyles() {
       text-overflow: ellipsis;
     }
 
-    .deck-ui.is-hidden {
-      display: none;
-    }
+  .deck-ui.is-hidden {
+  opacity: 0;
+}
 
-    .deck-progress {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 4px;
-      background: rgba(255,255,255,.12);
-      z-index: 21;
-    }
+.deck-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgba(255,255,255,.12);
+  z-index: 21;
+}
 
     .deck-progress-bar {
       height: 100%;
@@ -665,6 +661,13 @@ function injectDeckStyles() {
 .deck-slide.tight-3 .noi {
   font-size: 13px !important;
 }
+  .deck-progress.is-hidden {
+  opacity: 0;
+}
+  .deck-ui.is-hidden,
+.deck-progress.is-hidden {
+  opacity: 0;
+}
 
     @media (max-width: 900px) {
       .deck-help {
@@ -801,17 +804,27 @@ function buildDeck() {
 
   function fitSlides() {
     applyActiveSlideStyle(rawSlides[index]);
-
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const scale = Math.min(vw / 1366, vh / 768);
-
-    rawSlides.forEach((slide) => {
-      slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
-    });
-
+  
     rawSlides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === index);
+    });
+  
+    const stageBox = document.querySelector('.deck-stage')?.getBoundingClientRect();
+    const vw = stageBox?.width || window.innerWidth;
+    const vh = stageBox?.height || window.innerHeight;
+  
+    const active = rawSlides[index];
+  
+    const contentW = Math.max(1366, active.scrollWidth || 1366);
+    const contentH = Math.max(768, active.scrollHeight || 768);
+  
+    const scale = Math.min(vw / contentW, vh / contentH);
+  
+    const x = Math.max(0, (vw - contentW * scale) / 2);
+    const y = Math.max(0, (vh - contentH * scale) / 2);
+  
+    rawSlides.forEach((slide) => {
+      slide.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
     });
   }
 
@@ -933,7 +946,7 @@ function buildDeck() {
     if (key === 'h' || key === 'H') {
       e.preventDefault();
       ui.classList.toggle('is-hidden');
-      progress.style.display = progress.style.display === 'none' ? '' : 'none';
+      progress.classList.toggle('is-hidden');
     }
   });
 
