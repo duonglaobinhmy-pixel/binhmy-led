@@ -1,35 +1,38 @@
-<section class="slide density-loose">
+<section class="slide density-loose" style="--row-count:7;">
 
   <style>
 .slide {
   width: 1366px;
   height: 768px;
   margin: 0;
-  padding: 0 2px 8px 2px;
+  padding: 0;
   background: #000;
   box-sizing: border-box;
   color: #fff;
   overflow: hidden;
   font-family: Arial Black, Arial, Helvetica, sans-serif;
   font-weight: 900;
-  display: flex;
-  flex-direction: column;
+
+  --title-h: 54px;
+  --date-h: 48px;
+  --site-h: 34px;
+  --sub-h: 30px;
 }
 
 .menu-title {
-  flex: 0 0 62px;
+  height: var(--title-h);
+  line-height: var(--title-h);
   text-align: center;
-  font-size: 46px;
+  font-size: 42px;
   color: #00f5a0;
   margin: 0;
-  line-height: 62px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 table.menu-grid {
   width: 100%;
-  height: calc(100% - 62px);
+  height: calc(768px - var(--title-h));
   border-collapse: collapse;
   table-layout: fixed;
   background: #000;
@@ -40,72 +43,84 @@ table.menu-grid td {
   border: 2px solid rgba(255,255,255,.72);
   background: #000;
   vertical-align: middle;
-  padding: 4px 5px;
+  padding: 1px 4px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .date-head {
   color: #ff38e6;
-  font-size: 34px;
+  font-size: 32px;
   text-align: left;
-  height: 48px;
+  height: var(--date-h);
 }
 
 .meal-head {
   color: #ff38e6;
-  font-size: 34px;
+  font-size: 32px;
   text-align: right;
+  height: var(--date-h);
 }
 
 .menu-head {
   width: 134px;
-  font-size: 23px;
-  line-height: 1;
+  font-size: 22px;
+  line-height: .95;
 }
 
 .total-head {
   width: 100px;
-  font-size: 23px;
-  line-height: 1;
+  font-size: 22px;
+  line-height: .95;
 }
 
 .site-head {
   color: #ff2d2d;
-  font-size: 17px;
+  font-size: 16px;
   white-space: nowrap;
+  height: var(--site-h);
 }
 
 .site-sub-head {
-  font-size: 11px;
+  font-size: 10px;
+  height: var(--sub-h);
+}
+
+tbody tr {
+  height: calc(
+    (768px - var(--title-h) - var(--date-h) - var(--site-h) - var(--sub-h))
+    / var(--row-count)
+  );
 }
 
 .dish {
-  font-size: 21px;
-  line-height: .98;
+  font-size: 20px;
+  line-height: .92;
   padding-left: 6px;
 }
 
 .total-col {
   color: #ff2d2d;
-  font-size: 26px;
+  font-size: 25px;
   text-align: center;
 }
 
 .site-sl,
 .site-kg {
-  font-size: 20px;
+  font-size: 19px;
   text-align: center;
   white-space: nowrap;
-  line-height: 1;
+  line-height: .95;
 }
 
 .sl {
-  font-size: 25px;
+  font-size: 23px;
   color: #ffd633;
   margin-right: 4px;
 }
 
 .noi {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .noi-green { color: #00f5b8; }
@@ -123,14 +138,15 @@ table.menu-grid td {
 }
 
 /* ÍT DÒNG */
-.slide.density-loose .menu-title {
-  flex-basis: 68px;
-  line-height: 68px;
-  font-size: 50px;
+.slide.density-loose {
+  --title-h: 62px;
+  --date-h: 58px;
+  --site-h: 42px;
+  --sub-h: 34px;
 }
 
-.slide.density-loose table.menu-grid {
-  height: calc(100% - 68px);
+.slide.density-loose .menu-title {
+  font-size: 48px;
 }
 
 .slide.density-loose .dish {
@@ -150,92 +166,97 @@ table.menu-grid td {
   font-size: 29px;
 }
 
-.slide.density-loose .noi {
-  font-size: 19px;
+/* VỪA */
+.slide.density-normal {
+  --title-h: 56px;
+  --date-h: 50px;
+  --site-h: 36px;
+  --sub-h: 30px;
 }
 
-/* NHIỀU DÒNG */
+/* NHIỀU */
+.slide.density-tight {
+  --title-h: 48px;
+  --date-h: 42px;
+  --site-h: 30px;
+  --sub-h: 24px;
+}
+
 .slide.density-tight .menu-title {
-  flex-basis: 56px;
-  line-height: 56px;
-  font-size: 42px;
-}
-
-.slide.density-tight table.menu-grid {
-  height: calc(100% - 56px);
+  font-size: 38px;
 }
 
 .slide.density-tight .dish {
-  font-size: 18px;
+  font-size: 17px;
+}
+
+.slide.density-tight .total-col {
+  font-size: 21px;
 }
 
 .slide.density-tight .site-sl,
 .slide.density-tight .site-kg {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .slide.density-tight .sl {
-  font-size: 21px;
+  font-size: 19px;
 }
 
 .slide.density-tight .noi {
-  font-size: 15px;
+  font-size: 14px;
 }
 
-/* QUÁ NHIỀU DÒNG */
+/* QUÁ NHIỀU */
+.slide.density-ultra {
+  --title-h: 42px;
+  --date-h: 36px;
+  --site-h: 26px;
+  --sub-h: 20px;
+}
+
 .slide.density-ultra .menu-title {
-  flex-basis: 50px;
-  line-height: 50px;
-  font-size: 38px;
-}
-
-.slide.density-ultra table.menu-grid {
-  height: calc(100% - 50px);
-}
-
-.slide.density-ultra table.menu-grid th,
-.slide.density-ultra table.menu-grid td {
-  padding: 2px 3px;
+  font-size: 34px;
 }
 
 .slide.density-ultra .date-head,
 .slide.density-ultra .meal-head {
-  font-size: 28px;
-  height: 38px;
+  font-size: 26px;
 }
 
 .slide.density-ultra .menu-head,
 .slide.density-ultra .total-head {
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .slide.density-ultra .site-head {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .slide.density-ultra .site-sub-head {
-  font-size: 9px;
+  font-size: 8px;
 }
 
 .slide.density-ultra .dish {
-  font-size: 15px;
+  font-size: 14px;
+  line-height: .88;
 }
 
 .slide.density-ultra .total-col {
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .slide.density-ultra .site-sl,
 .slide.density-ultra .site-kg {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .slide.density-ultra .sl {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .slide.density-ultra .noi {
-  font-size: 12px;
+  font-size: 11px;
 }
   </style>
 
@@ -455,7 +476,7 @@ table.menu-grid td {
 </section>
   
 
-<section class="slide density-tight">
+<section class="slide density-ultra" style="--row-count:13;">
 
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM GÒ VẤP</div>
@@ -816,7 +837,7 @@ table.menu-grid td {
 </section>
   
 
-<section class="slide density-normal">
+<section class="slide density-tight" style="--row-count:10;">
 
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM GÒ VẤP</div>
@@ -1103,7 +1124,7 @@ table.menu-grid td {
 </section>
   
 
-<section class="slide density-loose">
+<section class="slide density-loose" style="--row-count:7;">
 
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN SÁNG CỤM BÌNH MỸ</div>
@@ -1394,7 +1415,7 @@ table.menu-grid td {
 </section>
   
 
-<section class="slide density-tight">
+<section class="slide density-ultra" style="--row-count:13;">
 
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN TRƯA CỤM BÌNH MỸ</div>
@@ -1881,7 +1902,7 @@ table.menu-grid td {
 </section>
   
 
-<section class="slide density-normal">
+<section class="slide density-tight" style="--row-count:10;">
 
 
   <div class="menu-title">BẢNG KHẨU PHẦN ĂN CHIỀU CỤM BÌNH MỸ</div>
