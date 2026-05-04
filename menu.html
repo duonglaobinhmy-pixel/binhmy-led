@@ -5,7 +5,7 @@
   width: 1366px;
   height: 768px;
   margin: 0;
-  padding: 4px 4px;
+  padding: 0 2px 8px 2px;
   background: #000;
   box-sizing: border-box;
   color: #fff;
@@ -17,17 +17,19 @@
 }
 
 .menu-title {
+  flex: 0 0 62px;
   text-align: center;
   font-size: 46px;
   color: #00f5a0;
-  margin: 0 0 6px;
-  line-height: .95;
+  margin: 0;
+  line-height: 62px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 table.menu-grid {
   width: 100%;
-  height: auto;
+  height: calc(100% - 62px);
   border-collapse: collapse;
   table-layout: fixed;
   background: #000;
@@ -38,62 +40,62 @@ table.menu-grid td {
   border: 2px solid rgba(255,255,255,.72);
   background: #000;
   vertical-align: middle;
-  padding: 6px 5px;
+  padding: 4px 5px;
 }
 
 .date-head {
   color: #ff38e6;
-  font-size: 36px;
+  font-size: 34px;
   text-align: left;
-  height: 52px;
+  height: 48px;
 }
 
 .meal-head {
   color: #ff38e6;
-  font-size: 36px;
+  font-size: 34px;
   text-align: right;
 }
 
 .menu-head {
-  width: 138px;
+  width: 134px;
   font-size: 23px;
-  line-height: 1.02;
+  line-height: 1;
 }
 
 .total-head {
   width: 100px;
   font-size: 23px;
-  line-height: 1.02;
+  line-height: 1;
 }
 
 .site-head {
   color: #ff2d2d;
-  font-size: 18px;
+  font-size: 17px;
   white-space: nowrap;
 }
 
 .site-sub-head {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .dish {
-  font-size: 22px;
-  line-height: 1.02;
+  font-size: 21px;
+  line-height: .98;
   padding-left: 6px;
 }
 
 .total-col {
   color: #ff2d2d;
-  font-size: 25px;
+  font-size: 26px;
   text-align: center;
 }
 
 .site-sl,
 .site-kg {
-  font-size: 21px;
+  font-size: 20px;
   text-align: center;
   white-space: nowrap;
-  line-height: 1.05;
+  line-height: 1;
 }
 
 .sl {
@@ -103,121 +105,137 @@ table.menu-grid td {
 }
 
 .noi {
-  font-size: 18px;
+  font-size: 17px;
 }
 
-  .noi-green { color: #00f5b8; }
-  .noi-yellow { color: #ffd633; }
-  .noi-red { color: #ff3b3b; }
+.noi-green { color: #00f5b8; }
+.noi-yellow { color: #ffd633; }
+.noi-red { color: #ff3b3b; }
 
-  .child-row td {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-  }
-
-.child-row .child-sl {
-  color: #ffd633 !important;
+.summary-row .dish,
+.summary-row .total-col,
+.summary-row .site-sl {
+  color: #ff2d2d !important;
 }
 
-.child-row .child-sl .noi {
-  font-size: 15px;
+.summary-row .site-kg {
+  color: transparent !important;
 }
 
-  .child-row .child-kg {
-    color: #fff !important;
-    font-weight: 900;
-  }
-
-  .summary-row .dish,
-  .summary-row .total-col,
-  .summary-row .site-sl {
-    color: #ff2d2d !important;
-    font-weight: 900;
-  }
-
-  .summary-row .site-kg {
-    color: transparent !important;
-  }
-
-  .slide.density-loose .menu-title {
-  font-size: 54px !important;
+/* ÍT DÒNG */
+.slide.density-loose .menu-title {
+  flex-basis: 68px;
+  line-height: 68px;
+  font-size: 50px;
 }
 
-.slide.density-loose table.menu-grid th,
-.slide.density-loose table.menu-grid td {
-  padding: 10px 7px !important;
+.slide.density-loose table.menu-grid {
+  height: calc(100% - 68px);
 }
 
 .slide.density-loose .dish {
-  font-size: 26px !important;
+  font-size: 24px;
 }
 
 .slide.density-loose .total-col {
-  font-size: 31px !important;
+  font-size: 30px;
 }
 
 .slide.density-loose .site-sl,
 .slide.density-loose .site-kg {
-  font-size: 25px !important;
+  font-size: 23px;
 }
 
 .slide.density-loose .sl {
-  font-size: 31px !important;
+  font-size: 29px;
 }
 
 .slide.density-loose .noi {
-  font-size: 21px !important;
+  font-size: 19px;
 }
 
-.slide.density-normal .dish {
-  font-size: 22px !important;
-}
-
-.slide.density-normal .site-sl,
-.slide.density-normal .site-kg {
-  font-size: 21px !important;
-}
-
+/* NHIỀU DÒNG */
 .slide.density-tight .menu-title {
-  font-size: 42px !important;
+  flex-basis: 56px;
+  line-height: 56px;
+  font-size: 42px;
+}
+
+.slide.density-tight table.menu-grid {
+  height: calc(100% - 56px);
 }
 
 .slide.density-tight .dish {
-  font-size: 19px !important;
+  font-size: 18px;
 }
 
 .slide.density-tight .site-sl,
 .slide.density-tight .site-kg {
-  font-size: 18px !important;
+  font-size: 17px;
 }
 
 .slide.density-tight .sl {
-  font-size: 22px !important;
+  font-size: 21px;
 }
 
 .slide.density-tight .noi {
-  font-size: 16px !important;
+  font-size: 15px;
 }
 
+/* QUÁ NHIỀU DÒNG */
 .slide.density-ultra .menu-title {
-  font-size: 38px !important;
+  flex-basis: 50px;
+  line-height: 50px;
+  font-size: 38px;
+}
+
+.slide.density-ultra table.menu-grid {
+  height: calc(100% - 50px);
+}
+
+.slide.density-ultra table.menu-grid th,
+.slide.density-ultra table.menu-grid td {
+  padding: 2px 3px;
+}
+
+.slide.density-ultra .date-head,
+.slide.density-ultra .meal-head {
+  font-size: 28px;
+  height: 38px;
+}
+
+.slide.density-ultra .menu-head,
+.slide.density-ultra .total-head {
+  font-size: 19px;
+}
+
+.slide.density-ultra .site-head {
+  font-size: 14px;
+}
+
+.slide.density-ultra .site-sub-head {
+  font-size: 9px;
 }
 
 .slide.density-ultra .dish {
-  font-size: 16px !important;
+  font-size: 15px;
+}
+
+.slide.density-ultra .total-col {
+  font-size: 19px;
 }
 
 .slide.density-ultra .site-sl,
 .slide.density-ultra .site-kg {
-  font-size: 15px !important;
+  font-size: 14px;
 }
 
 .slide.density-ultra .sl {
-  font-size: 18px !important;
+  font-size: 17px;
 }
 
 .slide.density-ultra .noi {
-  font-size: 13px !important;
+  font-size: 12px;
 }
   </style>
 
