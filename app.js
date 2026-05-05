@@ -3,6 +3,25 @@ async function fetchText(url) {
   if (!res.ok) throw new Error(`Không tải được ${url}: ${res.status}`);
   return await res.text();
 }
+function injectRobotoFont() {
+  if (document.getElementById('global-roboto-font')) return;
+
+  const link1 = document.createElement('link');
+  link1.rel = 'preconnect';
+  link1.href = 'https://fonts.googleapis.com';
+
+  const link2 = document.createElement('link');
+  link2.rel = 'preconnect';
+  link2.href = 'https://fonts.gstatic.com';
+  link2.crossOrigin = 'anonymous';
+
+  const link3 = document.createElement('link');
+  link3.id = 'global-roboto-font';
+  link3.rel = 'stylesheet';
+  link3.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap';
+
+  document.head.append(link1, link2, link3);
+}
 
 function getRunDateVN() {
   const now = new Date(
@@ -363,12 +382,33 @@ const ordered = [
 }
 
 function injectDeckStyles() {
+  injectRobotoFont();
+
   const old = document.getElementById('deck-runtime-style');
   if (old) old.remove();
 
   const style = document.createElement('style');
   style.id = 'deck-runtime-style';
   style.textContent = `
+      html,
+    body,
+    #app,
+    #deck-root,
+    .deck-stage,
+    .deck-slide,
+    .deck-slide *,
+    section.slide,
+    section.slide *,
+    table,
+    th,
+    td,
+    div,
+    span {
+      font-family: "Roboto", Arial, Helvetica, sans-serif !important;
+      font-synthesis: none;
+      text-rendering: geometricPrecision;
+    }
+      
     :root {
       --deck-w: 1366;
       --deck-h: 768;

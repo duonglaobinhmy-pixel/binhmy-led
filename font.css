@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+html,
+body,
+.slide,
+.slide *,
+table,
+th,
+td,
+div,
+span {
+  font-family: "Roboto", Arial, Helvetica, sans-serif !important;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
