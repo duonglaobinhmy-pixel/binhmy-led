@@ -333,30 +333,41 @@ function orderSlides(allSlides) {
     buckets.get(item.type).push(item);
   });
 
-  const takeFirst = (key) => {
+  const takeAll = (key) => {
     const arr = buckets.get(key) || [];
-    return arr.length ? arr.shift().slideHtml : null;
+    buckets.set(key, []);
+    return arr
+      .sort((a, b) => a.index - b.index)
+      .map(x => x.slideHtml);
   };
 
 const ordered = [
-  takeFirst('rau'),
-  takeFirst('sang_chao_loi'),
-  takeFirst('sang_chao_xay_ong'),
-  takeFirst('sang_main_dish'),
-  takeFirst('sang_do_kho_gv'),
-  takeFirst('menu_sang_govap'),
-  takeFirst('menu_sang_binhmy'),
-  takeFirst('xao_trua'),
-  takeFirst('ingredient_trua_xay'),
-  takeFirst('ingredient_trua_main'),
-  takeFirst('menu_trua_govap'),
-  takeFirst('menu_trua_binhmy'),
-  takeFirst('ingredient_chieu_xay'),
-  takeFirst('ingredient_chieu_main'),
-  takeFirst('menu_chieu_govap'),
-  takeFirst('menu_chieu_binhmy'),
-  takeFirst('xe'),
-  takeFirst('weekly_menu')
+  ...takeAll('rau'),
+  ...takeAll('sang_chao_loi'),
+  ...takeAll('sang_chao_xay_ong'),
+  ...takeAll('sang_main_dish'),
+  ...takeAll('sang_do_kho_gv'),
+
+  ...takeAll('menu_sang_govap'),
+  ...takeAll('menu_sang_binhmy'),
+
+  ...takeAll('xao_trua'),
+  ...takeAll('ingredient_trua_xay'),
+  ...takeAll('ingredient_trua_main'),
+
+  // full trưa + 2 bảng cắt GV, rồi full trưa + 2 bảng cắt BM
+  ...takeAll('menu_trua_govap'),
+  ...takeAll('menu_trua_binhmy'),
+
+  ...takeAll('ingredient_chieu_xay'),
+  ...takeAll('ingredient_chieu_main'),
+
+  // full chiều + 2 bảng cắt GV, rồi full chiều + 2 bảng cắt BM
+  ...takeAll('menu_chieu_govap'),
+  ...takeAll('menu_chieu_binhmy'),
+
+  ...takeAll('xe'),
+  ...takeAll('weekly_menu')
 ].filter(Boolean);
 
   const leftovers = [];
