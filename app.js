@@ -112,8 +112,8 @@ function classifySlide(slideHtml) {
 
   const hasMenuGrid = !!slide.querySelector('table.menu-grid');
   const hasXaoGrid = !!slide.querySelector('table.xao-grid');
-  const hasRauGrid = !!slide.querySelector('table.grid');
-  const isMainIngredientSlide = slide.classList.contains('slide-main');
+  const hasRauGrid = !!slide.querySelector('table.grid, table.rau-grid');
+    const isMainIngredientSlide = slide.classList.contains('slide-main');
   const isTableIngredientSlide = slide.classList.contains('slide-xay');
   const isXeSlide =
     hasAny('BANG NGUYEN LIEU CHO MON XE', 'NGUYEN LIEU CHO MON XE') ||
@@ -133,6 +133,24 @@ function classifySlide(slideHtml) {
     if (slide.classList.contains('sang-chao-slide-2')) {
       return 'sang_chao_xay_ong';
     }
+      // MÓN NGON CUỐI TUẦN
+  if (slide.classList.contains('mon-ngon-rau-slide')) {
+    return 'mon_ngon_rau';
+  }
+
+  if (slide.classList.contains('mon-ngon-ingredient-slide')) {
+    if (hasAny('TRUA')) return 'mon_ngon_ingredient_trua';
+    if (hasAny('SANG')) return 'mon_ngon_ingredient_sang';
+    if (hasAny('CHIEU')) return 'mon_ngon_ingredient_chieu';
+    if (hasAny('XE')) return 'mon_ngon_ingredient_xe';
+    return 'mon_ngon_ingredient';
+  }
+
+  if (slide.classList.contains('mon-ngon-menu-slide')) {
+    if (hasAny('CUM GO VAP')) return 'mon_ngon_menu_trua_govap';
+    if (hasAny('CUM BINH MY')) return 'mon_ngon_menu_trua_binhmy';
+    return 'mon_ngon_menu_trua';
+  }
   
   
     if (
@@ -340,43 +358,62 @@ function orderSlides(allSlides) {
       .sort((a, b) => a.index - b.index)
       .map(x => x.slideHtml);
   };
+  const hasMonNgonIngredientTrua = (buckets.get('mon_ngon_ingredient_trua') || []).length > 0;
 
-const ordered = [
-  ...takeAll('rau'),
-  ...takeAll('sang_chao_loi'),
-  ...takeAll('sang_chao_xay_ong'),
-  ...takeAll('sang_main_dish'),
-  ...takeAll('sang_do_kho_gv'),
-
-  ...takeAll('menu_sang_govap'),
-  ...takeAll('menu_sang_binhmy'),
-
-  ...takeAll('xao_trua'),
-  ...takeAll('ingredient_trua_xay'),
-  ...takeAll('ingredient_trua_main'),
-
-  // full trưa + 2 bảng cắt GV, rồi full trưa + 2 bảng cắt BM
-  ...takeAll('menu_trua_govap'),
-  ...takeAll('menu_trua_binhmy'),
-
-  ...takeAll('ingredient_chieu_xay'),
-  ...takeAll('ingredient_chieu_main'),
-
-  // full chiều + 2 bảng cắt GV, rồi full chiều + 2 bảng cắt BM
-  ...takeAll('menu_chieu_govap'),
-  ...takeAll('menu_chieu_binhmy'),
-
-  ...takeAll('xe'),
-  ...takeAll('weekly_menu')
-].filter(Boolean);
+  const ordered = [
+    ...takeAll('rau'),
+    ...takeAll('mon_ngon_rau'),
+  
+    ...takeAll('sang_chao_loi'),
+    ...takeAll('sang_chao_xay_ong'),
+    ...takeAll('sang_main_dish'),
+    ...takeAll('sang_do_kho_gv'),
+  
+    ...takeAll('menu_sang_govap'),
+    ...takeAll('menu_sang_binhmy'),
+  
+    ...takeAll('xao_trua'),
+    ...takeAll('ingredient_trua_xay'),
+  
+    ...(hasMonNgonIngredientTrua
+      ? takeAll('mon_ngon_ingredient_trua')
+      : takeAll('ingredient_trua_main')
+    ),
+  
+    ...takeAll('menu_trua_govap'),
+    ...takeAll('mon_ngon_menu_trua_govap'),
+  
+    ...takeAll('menu_trua_binhmy'),
+    ...takeAll('mon_ngon_menu_trua_binhmy'),
+  
+    ...takeAll('ingredient_chieu_xay'),
+    ...takeAll('ingredient_chieu_main'),
+  
+    ...takeAll('menu_chieu_govap'),
+    ...takeAll('menu_chieu_binhmy'),
+  
+    ...takeAll('xe'),
+    ...takeAll('weekly_menu')
+  ].filter(Boolean);
 
   const leftovers = [];
   for (const [type, arr] of buckets.entries()) {
     if (type === 'empty_xe') continue;
-    if (type === 'ingredient_sang') continue; // ẨN luôn bảng sáng cũ
+    if (type === 'ingredient_sang') continue;
+  
+    // Nếu có nguyên liệu món ngon trưa thì ẩn bảng nguyên liệu trưa thường
+    if (hasMonNgonIngredientTrua && type === 'ingredient_trua_main') continue;
+  
+    // Những slide món ngon đã được đưa đúng vị trí rồi, không cho rớt xuống cuối
+    if ([
+      'mon_ngon_rau',
+      'mon_ngon_ingredient_trua',
+      'mon_ngon_menu_trua_govap',
+      'mon_ngon_menu_trua_binhmy'
+    ].includes(type)) continue;
+  
     for (const item of arr) leftovers.push(item);
   }
-
   console.log('CLASSIFIED SLIDES:', classified.map((x) => ({
     index: x.index,
     type: x.type,
@@ -1029,8 +1066,9 @@ async function loadDeck() {
   const app = document.getElementById('app');
 
   try {
-    const [rauHtml, sangChaoHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml] = await Promise.all([
+    const [rauHtml, monNgonHtml, sangChaoHtml, ingredientHtml, menuHtml, xaoHtml, xeHtml, weeklyMenuHtml] = await Promise.all([
       fetchText('./rau.html'),
+      fetchText('./mon-ngon.html').catch(() => ''),
       fetchText('./sang-chao-led.html'),
       fetchText('./ingredient.html'),
       fetchText('./menu.html'),
@@ -1042,6 +1080,27 @@ async function loadDeck() {
 
     const allSlides = [
       ...splitSlidesFromHtml(rauHtml),
+      ...splitSlidesFromHtml(monNgonHtml).filter(s => {
+        const wrap = document.createElement('div');
+        wrap.innerHTML = s;
+        const slide = wrap.querySelector('section.slide, div.slide');
+        const t = extractTextFromSlideHtml(s);
+      
+        if (!slide) return false;
+      
+        // Bỏ HTML rỗng / placeholder
+        if (!t) return false;
+        if (t.includes(normalizeText('KHONG CO DU LIEU RAU MON NGON'))) return false;
+        if (t.includes(normalizeText('KHONG CO DU LIEU MON NGON'))) return false;
+      
+        // Chỉ cần có class món ngon là nhận
+        if (slide.classList.contains('mon-ngon-rau-slide')) return true;
+        if (slide.classList.contains('mon-ngon-ingredient-slide')) return true;
+        if (slide.classList.contains('mon-ngon-menu-slide')) return true;
+      
+        // fallback theo title
+        return t.includes(normalizeText('MON NGON'));
+      }),
       ...splitSlidesFromHtml(sangChaoHtml),
       ...splitSlidesFromHtml(ingredientHtml),
       ...splitSlidesFromHtml(menuHtml),
