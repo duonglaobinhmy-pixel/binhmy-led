@@ -379,7 +379,8 @@ function orderSlides(allSlides) {
       ? takeAll('mon_ngon_ingredient_trua')
       : takeAll('ingredient_trua_main')
     ),
-  
+    ...takeAll('xe'),
+    
     ...takeAll('menu_trua_govap'),
     ...takeAll('mon_ngon_menu_trua_govap'),
   
@@ -392,7 +393,6 @@ function orderSlides(allSlides) {
     ...takeAll('menu_chieu_govap'),
     ...takeAll('menu_chieu_binhmy'),
   
-    ...takeAll('xe'),
     ...takeAll('weekly_menu')
   ].filter(Boolean);
 
