@@ -756,6 +756,39 @@ function injectDeckStyles() {
 .deck-progress.is-hidden {
   opacity: 0;
 }
+  @media print {
+  html,
+  body {
+    width: 1366px !important;
+    height: 768px !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  .deck-ui,
+  .deck-progress,
+  .deck-blackout {
+    display: none !important;
+  }
+
+  .deck-slide {
+    position: relative !important;
+    display: block !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    transform: none !important;
+    width: 1366px !important;
+    height: 768px !important;
+    overflow: hidden !important;
+    background: #fff !important;
+  }
+
+  .deck-stage {
+    inset: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+}
 
     @media (max-width: 900px) {
       .deck-help {
@@ -874,7 +907,7 @@ function buildDeck() {
   ui.className = 'deck-ui';
   ui.innerHTML = `
     <div class="deck-badge"><span id="deckCounter">1 / ${rawSlides.length}</span></div>
-    <div class="deck-help">← → / PageUp PageDown / Space / Enter · F fullscreen · B màn đen · H ẩn hiện thanh</div>
+    <div class="deck-help">← → / PageUp PageDown / Space / Enter · F fullscreen · B màn đen · H ẩn hiện thanh · P xuất PDF</div>
   `;
 
   const progress = document.createElement('div');
@@ -961,6 +994,117 @@ function buildDeck() {
     blackoutOn = !blackoutOn;
     blackout.classList.toggle('is-on', blackoutOn);
   }
+  function exportSlidesToPDF() {
+    const printWin = window.open('', '_blank');
+  
+    if (!printWin) {
+      alert('Trình duyệt đang chặn popup. Hãy Allow popup rồi nhấn P lại.');
+      return;
+    }
+  
+    const slideHtml = rawSlides.map((slide) => {
+      const clone = slide.cloneNode(true);
+  
+      clone.classList.add('print-slide');
+      clone.classList.remove('is-active');
+  
+      clone.removeAttribute('style');
+  
+      const css = slide.dataset.deckStyle || '';
+  
+      return `
+        <section class="print-page">
+          <style>${css}</style>
+          ${clone.outerHTML}
+        </section>
+      `;
+    }).join('\n');
+  
+    printWin.document.open();
+    printWin.document.write(`
+  <!doctype html>
+  <html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>BEP_LED_${getRunDateVN()}</title>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+    <style>
+      @page {
+        size: 1366px 768px;
+        margin: 0;
+      }
+  
+      * {
+        box-sizing: border-box !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+  
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        font-family: "Roboto", Arial, Helvetica, sans-serif !important;
+      }
+  
+      .print-page {
+        width: 1366px !important;
+        height: 768px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        background: #fff !important;
+        position: relative !important;
+      }
+  
+      .print-page:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+  
+      section.slide,
+      div.slide,
+      .deck-slide,
+      .print-slide {
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 1366px !important;
+        height: 768px !important;
+        min-width: 1366px !important;
+        max-width: 1366px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: none !important;
+        overflow: hidden !important;
+      }
+    </style>
+  </head>
+  
+  <body>
+    ${slideHtml}
+  
+    <script>
+      window.onload = function () {
+        setTimeout(function () {
+          window.focus();
+          window.print();
+        }, 800);
+      };
+    <\/script>
+  </body>
+  </html>
+    `);
+    printWin.document.close();
+  }
 
   function initFromHash() {
     const m = String(location.hash || '').match(/slide-(\d+)/i);
@@ -992,7 +1136,7 @@ function buildDeck() {
     render();
   });
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', async (e) => {
     const key = e.key;
 
     if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(key)) {
@@ -1035,6 +1179,12 @@ function buildDeck() {
       e.preventDefault();
       ui.classList.toggle('is-hidden');
       progress.classList.toggle('is-hidden');
+    }
+
+    if (key === 'p' || key === 'P') {
+      e.preventDefault();
+      exportSlidesToPDF();
+      return;
     }
   });
 
