@@ -187,16 +187,19 @@ function classifySlide(slideHtml) {
   // 3) XÀO CHÍNH / XÀO XAY
   if (hasXaoGrid) {
     const isXaoMain =
-      hasAny(
-        'BANG NGUYEN LIEU THUC AN XAO MAU XANH',
-        'BANG NGUYEN LIEU CHO MON THUC AN XAO MAU XANH',
-        'THUC AN XAO MAU XANH',
-        'XAO MAU XANH'
-      ) &&
-      hasAny('NVL') &&
-      hasAny('DVT') &&
-      hasAny('TRUA') &&
-      hasAny('CHIEU');
+  (
+    slide.classList.contains('main-slide') ||
+    hasAny(
+      'BANG NGUYEN LIEU THUC AN XAO',
+      'BANG NGUYEN LIEU CHO MON THUC AN XAO',
+      'THUC AN XAO',
+      'XAO MAU XANH'
+    )
+  ) &&
+  hasAny('NVL') &&
+  hasAny('DVT') &&
+  hasAny('TRUA') &&
+  hasAny('CHIEU');
 
     if (isXaoMain) return 'xao_trua';
 
