@@ -90,7 +90,7 @@ function classifySlide(slideHtml) {
   const wrap = document.createElement('div');
   wrap.innerHTML = slideHtml;
 
-  const slide = wrap.querySelector('section.slide');
+  const slide = wrap.querySelector('section.slide, div.slide, section.slide-menu');
   if (!slide) return 'unknown';
 
   const text = normalizeText(slide.textContent || '');
@@ -887,8 +887,9 @@ function applyActiveSlideStyle(slide) {
 
 function buildDeck() {
   const root = document.getElementById('deck-root');
-  const rawSlides = Array.from(root.querySelectorAll('section.slide'));
-  extractAndStoreSlideStyles(rawSlides);
+  const rawSlides = Array.from(
+    root.querySelectorAll('section.slide, div.slide, section.slide-menu')
+  );  extractAndStoreSlideStyles(rawSlides);
 
   if (!rawSlides.length) {
     throw new Error('Không tìm thấy slide nào trong HTML đã render.');
@@ -1004,6 +1005,9 @@ function buildDeck() {
   
     const slideHtml = rawSlides.map((slide) => {
       const clone = slide.cloneNode(true);
+
+      clone.classList.add('slide');
+      clone.classList.add('deck-source-slide');
   
       clone.classList.add('print-slide');
       clone.classList.remove('is-active');
