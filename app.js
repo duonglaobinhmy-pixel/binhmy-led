@@ -1320,4 +1320,233 @@ async function loadDeck() {
   }
 }
 
-loadDeck();
+const LED_ACCESS_PASSWORD = '1122'; 
+const LED_AUTH_KEY = 'binhmy_led_unlocked';
+const BINH_MY_GREEN = '#207F3E';
+
+function showPasswordScreen() {
+  const app = document.getElementById('app');
+
+  document.documentElement.style.margin = '0';
+  document.documentElement.style.padding = '0';
+  document.documentElement.style.width = '100%';
+  document.documentElement.style.height = '100%';
+  document.documentElement.style.overflow = 'hidden';
+
+  document.body.style.margin = '0';
+  document.body.style.padding = '0';
+  document.body.style.width = '100%';
+  document.body.style.height = '100%';
+  document.body.style.overflow = 'hidden';
+  document.body.style.background = BINH_MY_GREEN;
+
+  app.style.width = '100vw';
+  app.style.height = '100svh';
+  app.style.overflow = 'hidden';
+
+  app.innerHTML = `
+    <style>
+      .bm-login-page {
+        width: 100vw;
+        height: 100svh;
+        max-height: 100svh;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(255,255,255,.22), transparent 34%),
+          linear-gradient(135deg, #207F3E 0%, #0f5f2b 52%, #083f1d 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .bm-login-card {
+        width: min(420px, calc(100vw - 36px));
+        max-height: calc(100svh - 36px);
+        overflow: hidden;
+        padding: clamp(20px, 4vw, 34px);
+        border-radius: 28px;
+        background: rgba(255,255,255,.96);
+        color: #123;
+        border: 1px solid rgba(255,255,255,.45);
+        box-shadow: 0 28px 80px rgba(0,0,0,.36);
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .bm-logo-wrap {
+        width: clamp(110px, 24vw, 160px);
+        height: clamp(110px, 24vw, 160px);
+        margin: 0 auto 14px;
+        border-radius: 999px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 12px 32px rgba(32,127,62,.22);
+        overflow: hidden;
+      }
+
+      .bm-logo-wrap img {
+        width: 86%;
+        height: 86%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .bm-title {
+        margin: 0;
+        color: #207F3E;
+        font-size: clamp(22px, 5vw, 32px);
+        line-height: 1.05;
+        font-weight: 900;
+        letter-spacing: .3px;
+      }
+
+      .bm-subtitle {
+        margin: 8px 0 20px;
+        color: #5a665f;
+        font-size: clamp(14px, 3vw, 16px);
+        font-weight: 600;
+      }
+
+      .bm-pass-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 16px;
+        border-radius: 16px;
+        border: 2px solid rgba(32,127,62,.18);
+        background: #f7fbf8;
+        color: #102617;
+        font-size: 20px;
+        outline: none;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .bm-pass-input:focus {
+        border-color: #207F3E;
+        box-shadow: 0 0 0 4px rgba(32,127,62,.14);
+        background: #fff;
+      }
+
+      .bm-pass-btn {
+        margin-top: 14px;
+        width: 100%;
+        padding: 15px 16px;
+        border: 0;
+        border-radius: 16px;
+        background: #207F3E;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 900;
+        cursor: pointer;
+        box-shadow: 0 12px 26px rgba(32,127,62,.28);
+      }
+
+      .bm-pass-btn:active {
+        transform: translateY(1px);
+      }
+
+      .bm-error {
+        display: none;
+        margin-top: 12px;
+        color: #e30613;
+        font-weight: 900;
+      }
+
+      .bm-note {
+        margin-top: 14px;
+        color: #7b8580;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      @media (max-height: 560px) {
+        .bm-logo-wrap {
+          width: 82px;
+          height: 82px;
+          margin-bottom: 8px;
+        }
+
+        .bm-login-card {
+          padding: 16px;
+          border-radius: 20px;
+        }
+
+        .bm-subtitle {
+          margin-bottom: 12px;
+        }
+
+        .bm-note {
+          display: none;
+        }
+      }
+    </style>
+
+    <div class="bm-login-page">
+      <div class="bm-login-card">
+        <div class="bm-logo-wrap">
+          <img src="./assets/logo-binh-my.jpg" alt="Hệ thống dưỡng lão Bình Mỹ">
+        </div>
+
+        <h1 class="bm-title">BẢNG LED BẾP<br>BÌNH MỸ</h1>
+        <div class="bm-subtitle">Nhập mật khẩu để xem bảng vận hành bếp</div>
+
+        <input id="ledPassInput" class="bm-pass-input" type="password" placeholder="Nhập mật khẩu" autocomplete="current-password">
+
+        <button id="ledPassBtn" class="bm-pass-btn">
+          Vào bảng LED
+        </button>
+
+        <div id="ledPassError" class="bm-error">
+          Sai mật khẩu, vui lòng nhập lại
+        </div>
+
+        <div class="bm-note">
+          Màu hệ thống: #207F3E · Ctrl + Shift + L để khóa lại
+        </div>
+      </div>
+    </div>
+  `;
+
+  const input = document.getElementById('ledPassInput');
+  const btn = document.getElementById('ledPassBtn');
+  const err = document.getElementById('ledPassError');
+
+  function submitPass() {
+    if (input.value === LED_ACCESS_PASSWORD) {
+      sessionStorage.setItem(LED_AUTH_KEY, '1');
+      document.body.style.background = '#000';
+      loadDeck();
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  btn.addEventListener('click', submitPass);
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') submitPass();
+  });
+
+  input.focus();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'l') {
+    sessionStorage.removeItem(LED_AUTH_KEY);
+    showPasswordScreen();
+  }
+});
+
+if (sessionStorage.getItem(LED_AUTH_KEY) === '1') {
+  loadDeck();
+} else {
+  showPasswordScreen();
+}
