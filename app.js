@@ -1320,7 +1320,7 @@ async function loadDeck() {
   }
 }
 
-const LED_ACCESS_PASSWORD = '1122'; 
+const LED_ACCESS_PASSWORD = '9001'; 
 const LED_AUTH_KEY = 'binhmy_led_unlocked';
 const BINH_MY_GREEN = '#207F3E';
 
