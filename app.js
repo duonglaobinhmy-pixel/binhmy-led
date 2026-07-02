@@ -1320,7 +1320,8 @@ async function loadDeck() {
   }
 }
 
-const LED_ACCESS_PASSWORD = '9001'; 
+const LED_ACCESS_PASSWORD = '9001';
+const LED_PASSWORD_VERSION = 'v1'; // đổi mỗi lần đổi mật khẩu
 const LED_AUTH_KEY = 'binhmy_led_unlocked';
 const BINH_MY_GREEN = '#207F3E';
 
@@ -1519,7 +1520,10 @@ function showPasswordScreen() {
 
   function submitPass() {
     if (input.value === LED_ACCESS_PASSWORD) {
-      sessionStorage.setItem(LED_AUTH_KEY, '1');
+      sessionStorage.setItem(
+        LED_AUTH_KEY,
+        LED_PASSWORD_VERSION
+      );
       document.body.style.background = '#000';
       loadDeck();
     } else {
@@ -1545,8 +1549,12 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-if (sessionStorage.getItem(LED_AUTH_KEY) === '1') {
+if (
+  sessionStorage.getItem(LED_AUTH_KEY) ===
+  LED_PASSWORD_VERSION
+) {
   loadDeck();
 } else {
+  sessionStorage.removeItem(LED_AUTH_KEY);
   showPasswordScreen();
 }
