@@ -1520,7 +1520,7 @@ function showPasswordScreen() {
 
   function submitPass() {
     if (input.value === LED_ACCESS_PASSWORD) {
-      sessionStorage.setItem(
+      localStorage.setItem(
         LED_AUTH_KEY,
         LED_PASSWORD_VERSION
       );
@@ -1544,17 +1544,17 @@ function showPasswordScreen() {
 
 document.addEventListener('keydown', (e) => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'l') {
-    sessionStorage.removeItem(LED_AUTH_KEY);
+    localStorage.removeItem(LED_AUTH_KEY);
     showPasswordScreen();
   }
 });
 
 if (
-  sessionStorage.getItem(LED_AUTH_KEY) ===
+  localStorage.getItem(LED_AUTH_KEY) ===
   LED_PASSWORD_VERSION
 ) {
   loadDeck();
 } else {
-  sessionStorage.removeItem(LED_AUTH_KEY);
+  localStorage.removeItem(LED_AUTH_KEY);
   showPasswordScreen();
 }
