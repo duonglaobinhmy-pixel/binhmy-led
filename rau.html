@@ -1,4 +1,4 @@
-<section class="slide">
+<section class="slide rau-slide">
 <style>
 .slide {
   width: 1366px !important;
@@ -11,6 +11,15 @@
   overflow: hidden;
   font-family: Arial Black, Arial, Helvetica, sans-serif;
   font-weight: 900;
+}
+/* Chỉ thu nhỏ dòng của bảng RAU */
+.slide.rau-slide tbody tr {
+  height: 34px !important;
+}
+
+.slide.rau-slide tbody td {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .title-row {
