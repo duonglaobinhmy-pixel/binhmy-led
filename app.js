@@ -75,6 +75,33 @@ function splitSlidesFromHtml(html) {
   });
 }
 
+// Chia rieng rau.html thanh cac slide toi da 10 dong, giu nguyen HTML/CSS.
+function paginateRauSlide(slideHtml) {
+  const wrap = document.createElement('div');
+  wrap.innerHTML = slideHtml;
+
+  const slide = wrap.querySelector('section.slide, div.slide');
+  const table = slide?.querySelector('table.grid, table.rau-grid');
+  const tbody = table?.tBodies[0];
+  if (!slide || !tbody) return [slideHtml];
+
+  const rows = Array.from(tbody.rows);
+  const rowsPerSlide = 10;
+  if (rows.length <= rowsPerSlide) return [slideHtml];
+
+  const pages = [];
+  for (let start = 0; start < rows.length; start += rowsPerSlide) {
+    const page = slide.cloneNode(true);
+    const pageBody = page.querySelector('table.grid, table.rau-grid').tBodies[0];
+    pageBody.replaceChildren(
+      ...rows.slice(start, start + rowsPerSlide).map(row => row.cloneNode(true))
+    );
+    pages.push(page.outerHTML);
+  }
+
+  return pages;
+}
+
 function extractTextFromSlideHtml(slideHtml) {
   const wrap = document.createElement('div');
   wrap.innerHTML = slideHtml;
@@ -1236,7 +1263,7 @@ async function loadDeck() {
     injectDeckStyles();
 
     const allSlides = [
-      ...splitSlidesFromHtml(rauHtml),
+      ...splitSlidesFromHtml(rauHtml).flatMap(paginateRauSlide),
       ...splitSlidesFromHtml(monNgonHtml).filter(s => {
         const wrap = document.createElement('div');
         wrap.innerHTML = s;
