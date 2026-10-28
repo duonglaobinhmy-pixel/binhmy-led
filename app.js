@@ -75,7 +75,7 @@ function splitSlidesFromHtml(html) {
   });
 }
 
-// Chia rieng rau.html thanh cac slide toi da 10 dong, giu nguyen HTML/CSS.
+// Chia rieng rau.html thanh cac slide toi da 13 dong, giu nguyen HTML/CSS.
 function paginateRauSlide(slideHtml) {
   const wrap = document.createElement('div');
   wrap.innerHTML = slideHtml;
@@ -86,7 +86,7 @@ function paginateRauSlide(slideHtml) {
   if (!slide || !tbody) return [slideHtml];
 
   const rows = Array.from(tbody.rows);
-  const rowsPerSlide = 10;
+  const rowsPerSlide = 13;
   if (rows.length <= rowsPerSlide) return [slideHtml];
 
   const pages = [];
